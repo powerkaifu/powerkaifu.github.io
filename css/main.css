@@ -1,11 +1,11 @@
 :root {
   --body-bg-color: #f5f7f9;
-  --content-bg-color: #fff;
+  --content-bg-color: rgba(0,0,0,0.8);
   --card-bg-color: #f5f5f5;
   --text-color: #555;
   --blockquote-color: #666;
   --link-color: #555;
-  --link-hover-color: #222;
+  --link-hover-color: rgba(0,0,0,0.6);
   --brand-color: #fff;
   --brand-hover-color: #fff;
   --table-row-odd-bg-color: #f9f9f9;
@@ -14,14 +14,14 @@
   --btn-default-bg: #fff;
   --btn-default-color: #555;
   --btn-default-border-color: #555;
-  --btn-default-hover-bg: #222;
+  --btn-default-hover-bg: rgba(0,0,0,0.6);
   --btn-default-hover-color: #fff;
-  --btn-default-hover-border-color: #222;
+  --btn-default-hover-border-color: rgba(0,0,0,0.6);
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --body-bg-color: #282828;
-    --content-bg-color: #333;
+    --body-bg-color: rgba(0,0,0,0.8);
+    --content-bg-color: rgba(0,0,0,0.8);
     --card-bg-color: #555;
     --text-color: #ccc;
     --blockquote-color: #bbb;
@@ -32,7 +32,7 @@
     --table-row-odd-bg-color: #282828;
     --table-row-hover-bg-color: #363636;
     --menu-item-bg-color: #555;
-    --btn-default-bg: #222;
+    --btn-default-bg: rgba(0,0,0,0.6);
     --btn-default-color: #ccc;
     --btn-default-border-color: #555;
     --btn-default-hover-bg: #666;
@@ -873,7 +873,7 @@ pre .javascript .function {
 .pagination .prev:hover,
 .pagination .next:hover,
 .pagination .page-number:hover {
-  border-top-color: #222;
+  border-top-color: rgba(0,0,0,0.6);
 }
 .pagination .space {
   margin: 0;
@@ -905,7 +905,7 @@ pre .javascript .function {
   .pagination .prev:hover,
   .pagination .next:hover,
   .pagination .page-number:hover {
-    border-bottom-color: #222;
+    border-bottom-color: rgba(0,0,0,0.6);
   }
 }
 .comments {
@@ -953,7 +953,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .main-inner {
-    width: 1160px;
+    width: 85%;
   }
 }
 @media (min-width: 1600px) {
@@ -975,7 +975,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 1160px;
+    width: 85%;
   }
 }
 @media (min-width: 1600px) {
@@ -989,7 +989,7 @@ pre .javascript .function {
   padding: 0 10px;
 }
 .headband {
-  background: #222;
+  background: rgba(0,0,0,0.6);
   height: 3px;
 }
 .site-meta {
@@ -1201,7 +1201,7 @@ pre .javascript .function {
   }
 }
 .sidebar {
-  background: #222;
+  background: rgba(0,0,0,0.6);
   bottom: 0;
   box-shadow: inset 0 2px 6px #000;
   position: fixed;
@@ -1265,7 +1265,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff29ff;
+  background: #e23db6;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1370,7 +1370,7 @@ pre .javascript .function {
   display: block;
 }
 .sidebar-toggle {
-  background: #222;
+  background: rgba(0,0,0,0.6);
   bottom: 45px;
   cursor: pointer;
   height: 14px;
@@ -1483,7 +1483,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 1160px;
+    width: 85%;
   }
 }
 @media (min-width: 1600px) {
@@ -1580,7 +1580,7 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
 }
 .back-to-top {
-  background: #222;
+  background: rgba(0,0,0,0.6);
   bottom: -100px;
   box-sizing: border-box;
   color: #fff;
@@ -1736,7 +1736,7 @@ pre .javascript .function {
   border-bottom-color: #666;
 }
 .posts-collapse .post-header:hover::before {
-  background: #222;
+  background: rgba(0,0,0,0.6);
 }
 .posts-collapse .post-meta {
   display: inline;
@@ -2091,11 +2091,11 @@ pre .javascript .function {
   padding: 0;
 }
 .event-list hr {
-  background: #222;
+  background: rgba(0,0,0,0.6);
   margin: 20px 0 45px 0;
 }
 .event-list hr::after {
-  background: #222;
+  background: rgba(0,0,0,0.6);
   color: #fff;
   content: 'NOW';
   display: inline-block;
@@ -2104,7 +2104,7 @@ pre .javascript .function {
   text-align: right;
 }
 .event-list .event {
-  background: #222;
+  background: rgba(0,0,0,0.6);
   margin: 20px 0;
   min-height: 40px;
   padding: 15px 0 15px 10px;
@@ -2245,7 +2245,7 @@ ul.breadcrumb li + li:last-child {
 }
 @media (min-width: 1200px) {
   .header {
-    width: 1160px;
+    width: 85%;
   }
 }
 @media (min-width: 1600px) {
@@ -2326,7 +2326,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .site-brand-container {
-  background: #222;
+  background: rgba(0,0,0,0.6);
 }
 @media (max-width: 991px) {
   .site-brand-container {
@@ -2524,4 +2524,11 @@ ul.breadcrumb li + li:last-child {
 }
 .links-of-blogroll-item {
   padding: 0;
+}
+.content-wrap,
+.sidebar-inner {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.sidebar {
+  background: rgba(0,0,0,0.1);
 }
