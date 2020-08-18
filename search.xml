@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>．．．建置及測試中．．．</title>
+    <url>/2020/08/18/index/</url>
+    <content><![CDATA[<p>開始使用部落格</p>
+<ul>
+<li>首頁：回首頁</li>
+<li>技術筆記：前端技術筆記及心得</li>
+<li>資源整合：網站資源整合</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>CSS資源</title>
+    <url>/2020/08/18/resource-css-useful-site/</url>
+    <content><![CDATA[<p>CSS 資源整合</p>
+<a id="more"></a>
+
+<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><ul>
+<li><a href="https://uigradients.com/#eXpresso">UI Gradients</a></li>
+<li><a href="https://mycolor.space/gradient">Space</a></li>
+<li><a href="http://jxnblk.com/shade/">Shade</a></li>
+<li><a href="https://gradienthunt.com/">Gradient Hunt</a></li>
+<li><a href="https://www.colorzilla.com/gradient-editor/">Colorzilla</a></li>
+</ul>
+<h3 id="按鈕"><a href="#按鈕" class="headerlink" title="按鈕"></a>按鈕</h3><ul>
+<li><a href="http://bttn.surge.sh/">Button Surge</a></li>
+<li><a href="https://www.bestcssbuttongenerator.com/">Best CSS Button</a></li>
+</ul>
+<h3 id="轉場與動畫"><a href="#轉場與動畫" class="headerlink" title="轉場與動畫"></a>轉場與動畫</h3><ul>
+<li><a href="https://3d-book-css.netlify.app/">3D Book</a></li>
+<li><a href="https://matthewlein.com/tools/ceaser">調整動畫轉場速率</a></li>
+</ul>
+<h3 id="遮罩路徑"><a href="#遮罩路徑" class="headerlink" title="遮罩路徑"></a>遮罩路徑</h3><ul>
+<li><a href="https://www.html.cn/tool/css-clip-path/">Clip Path</a></li>
+</ul>
+<h3 id="語法產生器"><a href="#語法產生器" class="headerlink" title="語法產生器"></a>語法產生器</h3><ul>
+<li><a href="https://www.we-shop.net/css3/default.html">We Shop</a></li>
+<li><a href="http://css3generator.com/">CSS3 Generator</a></li>
+<li><a href="https://www.css3maker.com/index.html">CSS3 Maker</a></li>
+</ul>
+<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><ul>
+<li><a href="https://static.html.it/app/uploads/blog/layoutgala/index.html">Layout Gala</a></li>
+<li><a href="https://www.webdesignrankings.com/resources/csslayoutgenerator/">CSS Layout</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>CSS資源</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>套用版型資源</title>
+    <url>/2020/08/18/resource-template-site/</url>
+    <content><![CDATA[<h3 id="版型資源"><a href="#版型資源" class="headerlink" title="版型資源"></a>版型資源</h3><p>需要一個版型開始嗎？</p>
+<a id="more"></a>
+
+<ul>
+<li><a href="https://templated.co/">Templated</a></li>
+<li><a href="https://collectui.com/">Collect UI</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>版型資源</category>
+      </categories>
+  </entry>
+</search>

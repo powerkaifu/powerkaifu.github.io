@@ -39,20 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="講師">
+  <meta name="description" content="Reading Progress for NexT  Installation  If you want to use the CDN instead of clone this repo, please jump to the Step 3.  Step 1 &amp;rarr; Go to NexT dir  Change dir to NexT directory. There must be la">
 <meta property="og:type" content="website">
-<meta property="og:title" content="文章分類">
-<meta property="og:url" content="https://powerkaifu.github.io/categories/index.html">
+<meta property="og:title" content="KFC">
+<meta property="og:url" content="https://powerkaifu.github.io/lib/reading_progress/README.html">
 <meta property="og:site_name" content="KFC">
-<meta property="og:description" content="講師">
+<meta property="og:description" content="Reading Progress for NexT  Installation  If you want to use the CDN instead of clone this repo, please jump to the Step 3.  Step 1 &amp;rarr; Go to NexT dir  Change dir to NexT directory. There must be la">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-08-12T04:03:05.000Z">
-<meta property="article:modified_time" content="2020-08-18T15:01:28.318Z">
+<meta property="article:published_time" content="2020-08-18T16:56:28.465Z">
+<meta property="article:modified_time" content="2020-08-18T16:56:28.465Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="泰山職訓局,泰山,前端,網頁設計,html,css,bootstrap,javascript">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://powerkaifu.github.io/categories/">
+<link rel="canonical" href="https://powerkaifu.github.io/lib/reading_progress/README">
 
 
 <script id="page-configurations">
@@ -65,7 +65,7 @@
   };
 </script>
 
-  <title>文章分類 | KFC
+  <title> | KFC
 </title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175260737-1"></script>
@@ -221,11 +221,18 @@
     <div class="post-block" lang="zh-TW">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">文章分類
+<h1 class="post-title" itemprop="name headline">
 </h1>
 
 <div class="post-meta">
   
+  <ul class="breadcrumb">
+          
+            <li><a href="/lib/">LIB</a></li>
+            <li><a href="/lib/reading_progress/">READING_PROGRESS</a></li>
+            <li>README</li>
+          
+  </ul>
 
 </div>
 
@@ -235,21 +242,47 @@
       
       
       <div class="post-body">
-          <div class="category-all-page">
-            <div class="category-all-title">
-              目前共有 2 個分類
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS%E8%B3%87%E6%BA%90/">CSS資源</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%88%E5%9E%8B%E8%B3%87%E6%BA%90/">版型資源</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
-        
+          <h1 align="center">Reading Progress for <a target="_blank" rel="noopener" href="https://github.com/theme-next">NexT</a></h1>
+
+<h1 align="center">Installation</h1>
+
+<h2>If you want to use the CDN instead of clone this repo, please jump to the Step 3.</h2>
+
+<h2 align="center">Step 1 &rarr; Go to NexT dir</h2>
+
+<p>Change dir to <strong>NexT</strong> directory. There must be <code>layout</code>, <code>source</code>, <code>languages</code> and other directories:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ ls</span><br><span class="line">bower.json  _config.yml  docs  gulpfile.coffee  languages  layout  LICENSE.md  package.json  README.md  scripts  <span class="built_in">source</span>  <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<h2 align="center">Step 2 &rarr; Get module</h2>
+
+<p>Install module to <code>source/lib</code> directory:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-reading-progress <span class="built_in">source</span>/lib/reading_progress</span><br></pre></td></tr></table></figure>
+
+<h2 align="center">Step 3 &rarr; Set it up</h2>
+
+<p>Enable module in <strong>NexT</strong> <code>_config.yml</code> file:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">reading_progress:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">&quot;#37c6c0&quot;</span></span><br><span class="line">  <span class="attr">height:</span> <span class="string">2px</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>And, if you wants to use the CDN, then need to set:</strong></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">reading_progress:</span> <span class="string">//cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js</span></span><br></pre></td></tr></table></figure>
+
+<h1 align="center">Update</h1>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next/<span class="built_in">source</span>/lib/reading_progress</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+
       </div>
       
       
       
     </div>
     
+  <ul class="breadcrumb">
+          
+            <li><a href="/lib/">LIB</a></li>
+            <li><a href="/lib/reading_progress/">READING_PROGRESS</a></li>
+            <li>README</li>
+          
+  </ul>
 
     
     
@@ -311,6 +344,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Reading Progress for NexT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">If you want to use the CDN instead of clone this repo, please jump to the Step 3.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">Step 1 &amp;rarr; Go to NexT dir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">Step 2 &amp;rarr; Get module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.4.</span> <span class="nav-text">Step 3 &amp;rarr; Set it up</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">Update</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -536,9 +570,9 @@ if (document.querySelectorAll('pre.mermaid').length) {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://powerkaifu.github.io/categories/index.html";
-    this.page.identifier = "categories/index.html";
-    this.page.title = "文章分類";
+    this.page.url = "https://powerkaifu.github.io/lib/reading_progress/README.html";
+    this.page.identifier = "lib/reading_progress/README.html";
+    this.page.title = "";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
