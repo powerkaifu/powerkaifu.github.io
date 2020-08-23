@@ -39,20 +39,22 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="開始使用部落格  首頁：回首頁 標籤：網站資源整合 分類：前端技術筆記及心得 搜尋：搜尋文章">
+  <meta name="description" content="角色 在網頁裡，每項技術都扮演了一個重要的角色  指的是 HTML、CSS、JavaScript 三兄弟，若用蓋房子來比喻，三兄弟各有自己執掌的工作，分別為：  HTML（結構、內容）：如同蓋房子需要的基礎建材，鋼筋、水泥、門、窗等等。 CSS（樣式、外觀）：如同蓋完房子後的裝潢設計師，打造漂亮的房子。 JavaScript（事件、行為）：如同房子內部設施開關觸發後產生的能源。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部落格介紹">
-<meta property="og:url" content="https://powerkaifu.github.io/2020/08/18/index/index.html">
+<meta property="og:title" content="HTML">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/08/19/lesson-html/index.html">
 <meta property="og:site_name" content="泰山AFU">
-<meta property="og:description" content="開始使用部落格  首頁：回首頁 標籤：網站資源整合 分類：前端技術筆記及心得 搜尋：搜尋文章">
+<meta property="og:description" content="角色 在網頁裡，每項技術都扮演了一個重要的角色  指的是 HTML、CSS、JavaScript 三兄弟，若用蓋房子來比喻，三兄弟各有自己執掌的工作，分別為：  HTML（結構、內容）：如同蓋房子需要的基礎建材，鋼筋、水泥、門、窗等等。 CSS（樣式、外觀）：如同蓋完房子後的裝潢設計師，打造漂亮的房子。 JavaScript（事件、行為）：如同房子內部設施開關觸發後產生的能源。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-08-18T14:37:47.000Z">
-<meta property="article:modified_time" content="2020-08-18T14:37:47.000Z">
+<meta property="og:image" content="https://powerkaifu.github.io/images/request_response.png">
+<meta property="article:published_time" content="2020-08-19T04:20:46.000Z">
+<meta property="article:modified_time" content="2020-08-19T04:20:46.000Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="泰山職訓局,泰山,前端,網頁設計,html,css,bootstrap,javascript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://powerkaifu.github.io/images/request_response.png">
 
-<link rel="canonical" href="https://powerkaifu.github.io/2020/08/18/index/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/08/19/lesson-html/">
 
 
 <script id="page-configurations">
@@ -65,7 +67,7 @@
   };
 </script>
 
-  <title>部落格介紹 | 泰山AFU</title>
+  <title>HTML | 泰山AFU</title>
   
     <script>
       function sendPageView() {
@@ -224,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/18/index/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/19/lesson-html/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.jpg">
@@ -237,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          部落格介紹
+          HTML
         </h1>
 
         <div class="post-meta">
@@ -247,7 +249,16 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2020-08-18 22:37:47" itemprop="dateCreated datePublished" datetime="2020-08-18T22:37:47+08:00">2020-08-18</time>
+              <time title="創建時間：2020-08-19 12:20:46" itemprop="dateCreated datePublished" datetime="2020-08-19T12:20:46+08:00">2020-08-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">html</span></a>
+                </span>
             </span>
 
           
@@ -261,13 +272,86 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>開始使用部落格</p>
+        <h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><blockquote>
+<p>在網頁裡，每項技術都扮演了一個重要的角色</p>
+</blockquote>
+<p>指的是 HTML、CSS、JavaScript 三兄弟，若用蓋房子來比喻，三兄弟各有自己執掌的工作，分別為：</p>
 <ul>
-<li>首頁：回首頁</li>
-<li>標籤：網站資源整合</li>
-<li>分類：前端技術筆記及心得</li>
-<li>搜尋：搜尋文章</li>
+<li>HTML（結構、內容）：如同蓋房子需要的基礎建材，鋼筋、水泥、門、窗等等。</li>
+<li>CSS（樣式、外觀）：如同蓋完房子後的裝潢設計師，打造漂亮的房子。</li>
+<li>JavaScript（事件、行為）：如同房子內部設施開關觸發後產生的能源。</li>
 </ul>
+<a id="more"></a>
+
+<h3 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h3><p>對於 HTML（HyperText Markup Language）而言，它扮演了「結構」的角色。這角色在網頁中，雖是最基礎但卻是很重要的骨幹，如同蓋棟大樓需要的鋼筋、水泥、門、窗的基礎建材，它是網頁的基礎。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- html 結構 --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>結構<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="標記"><a href="#標記" class="headerlink" title="標記"></a>標記</h3><p>Markup（標記）是 HTML 的核心，意思是「使用標籤標記內容，產生語義化結構」。標記什麼內容？標記文字、圖片、影音等等，網頁中傳達資訊的媒體元素。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- a 標籤標記了「泰山職訓網頁設計」文字 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://wdaweb.github.io/&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>泰山職訓網頁設計<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><p>元素是由標籤（tag）及標記的內容（content）所組成，它有以下這些特性：</p>
+<ul>
+<li>不分大小寫，養成使用小寫的習慣。</li>
+<li>大部份會有&lt;&gt;起始標籤，&lt;/&gt;結束標籤，之間為標記的內容。</li>
+<li>具有屬性與值，屬性之間需要空格。</li>
+<li>屬性值不限制用單引號或雙引號，養成使用雙引號的習慣。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/example.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="空元素"><a href="#空元素" class="headerlink" title="空元素"></a>空元素</h3><p>沒有結束標籤的元素，又稱「獨立標籤」、「無結尾標籤」、「空標籤」。<br>常見的空元素有 &lt;meta&gt;、&lt;link&gt;、&lt;br&gt;、&lt;hr&gt;、&lt;img&gt; … 等等。</p>
+<!-- ### id 與 class -->
+
+<h3 id="舞台"><a href="#舞台" class="headerlink" title="舞台"></a>舞台</h3><!-- <img src="/images/request_response.png" width="500"> -->
+
+<p>若 HTML 是一個舞台，每個元素如同一位演員，瀏覽器在讀取 HTML 這個舞台時，它是由上而下進行解讀，元素會逐一被解讀成一位演員，每位演員有著它要做的基本工作來顯示內容。</p>
+<p>「head」 演員像是舞台的後面，標記的是給瀏覽器或搜尋引擎才能看到的資訊，舞台前面的使用者是看不到的。<br>「body」 演員像是舞台的前面，標記的是給使用者欣賞觀看的文字、圖片、影片等等。</p>
+<p>此外，還有兩位較為特別的演員，一個是負責外觀的「style」與負責行為的「script」，「style」演員的工作是負責顯示樣式外觀，白話點就是幫演員們化妝，而讀取到最後會遇到「script」演員，我們可以把裡面標記的內容想成一套劇本，告訴演員們該如何表現行為及事件發生時該做甚麼事情。</p>
+<blockquote>
+<p>記住的是，元素演員得先上場，劇本才能上演好戲，若是劇本先出現，元素演員未上場，等同白念劇本了。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-tw&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- head 紀錄的是給瀏覽器或者是搜尋引擎看的重要資訊，一般瀏覽者無法看到 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;這是我的第一個網頁&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>我的第一個網頁<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 本頁使用的 css 樣式外觀，幫網頁化妝　*/</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- body 是顯示給瀏覽者觀看的內容，藉由標籤標記的文字、圖片、影片等等 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 本頁使用的 js，想成一套劇本</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="語義化"><a href="#語義化" class="headerlink" title="語義化"></a>語義化</h3><p>雖然在排版上，大多數習慣還是用 &lt;div&gt; 來排版，但 HTML5 提供更多語意標籤使用，甚麼是語意標籤？簡單說就是直接給標籤一個好懂的名稱，來表示其結構及意義，例如:</p>
+<table>
+<thead>
+<tr>
+<th>標籤名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;header&gt;</td>
+<td>定義網頁頁首的區域。</td>
+</tr>
+<tr>
+<td>&lt;nav&gt;</td>
+<td>定義網頁導覽區域。</td>
+</tr>
+<tr>
+<td>&lt;footer&gt;</td>
+<td>定義網頁頁尾的區域。</td>
+</tr>
+<tr>
+<td>&lt;main&gt;</td>
+<td>定義網頁主要內容區域。</td>
+</tr>
+<tr>
+<td>&lt;section&gt;</td>
+<td>定義一個區段範圍。</td>
+</tr>
+<tr>
+<td>&lt;aside&gt;</td>
+<td>定義一個側邊區域範圍，次要區域。</td>
+</tr>
+<tr>
+<td>&lt;article&gt;</td>
+<td>定義文章內容。</td>
+</tr>
+<tr>
+<td>&lt;figure&gt;</td>
+<td>定義圖形影像的區塊。</td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -283,12 +367,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/18/resource-css-useful-site/" rel="prev" title="CSS資源">
-      <i class="fa fa-chevron-left"></i> CSS資源
+    <a href="/2020/08/18/index/" rel="prev" title="部落格介紹">
+      <i class="fa fa-chevron-left"></i> 部落格介紹
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/08/19/lesson-html/" rel="next" title="HTML">
-      HTML <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/23/lesson-css-base-selector/" rel="next" title="CSS - 選擇器 (一)">
+      CSS - 選擇器 (一) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -348,6 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%92%E8%89%B2"><span class="nav-number">1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E6%A7%8B"><span class="nav-number">2.</span> <span class="nav-text">結構</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E8%A8%98"><span class="nav-number">3.</span> <span class="nav-text">標記</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E5%85%83%E7%B4%A0"><span class="nav-number">5.</span> <span class="nav-text">空元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%88%9E%E5%8F%B0"><span class="nav-number">6.</span> <span class="nav-text">舞台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%9E%E7%BE%A9%E5%8C%96"><span class="nav-number">7.</span> <span class="nav-text">語義化</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

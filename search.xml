@@ -1,15 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>．．．建置及測試中．．．</title>
+    <title>部落格介紹</title>
     <url>/2020/08/18/index/</url>
     <content><![CDATA[<p>開始使用部落格</p>
 <ul>
 <li>首頁：回首頁</li>
-<li>技術筆記：前端技術筆記及心得</li>
-<li>資源整合：網站資源整合</li>
+<li>標籤：網站資源整合</li>
+<li>分類：前端技術筆記及心得</li>
+<li>搜尋：搜尋文章</li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>CSS - 選擇器 (一)</title>
+    <url>/2020/08/23/lesson-css-base-selector/</url>
+    <content><![CDATA[<h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責頁面的版型、文字、顏色、尺寸、響應式等等。</p>
+<h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><p>一個「選擇器」決定選擇的元素目標，連結著大括號「{}」，大括號裡面是屬性、屬性值，以冒號「:」分隔屬性與屬性值，屬性值後面以分號「;」結尾。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">選擇器 &#123;</span><br><span class="line">  屬性: 屬性值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="元素選擇器"><a href="#元素選擇器" class="headerlink" title="元素選擇器"></a>元素選擇器</h3><p>以元素名稱作為選擇器，又稱為標籤選擇器。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ff0</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="群組選擇器"><a href="#群組選擇器" class="headerlink" title="群組選擇器"></a>群組選擇器</h3><p>選擇器之間以「,」分隔，可以一次選擇指定的選擇對象。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="類別選擇器"><a href="#類別選擇器" class="headerlink" title="類別選擇器"></a>類別選擇器</h3><p>替選擇器取名稱，前面加「.」。此選擇器具有「重覆使用」或「同中求異」的特性，也是使用率最高的選擇器。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.txt</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ID-選擇器"><a href="#ID-選擇器" class="headerlink" title="ID 選擇器"></a>ID 選擇器</h3><p>替選擇器取名稱，前面加「#」。此選擇器具有「唯一」的特性，通常被當作區塊的名稱或是 JavaScript 快速獲取 DOM 目標的方式。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="子代選擇器"><a href="#子代選擇器" class="headerlink" title="子代選擇器"></a>子代選擇器</h3><p>選擇器之間以「&gt;」分隔，選擇到兒子，也就是只選擇到下一層，第三層不會被選擇，常與後代選擇器搞混。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="後代選擇器"><a href="#後代選擇器" class="headerlink" title="後代選擇器"></a>後代選擇器</h3><p>選擇器之間以「空白」分隔，可選擇到子孫們，也就是起始選擇目標之後的後代都會被選擇到，使用率很高的選擇器。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="同層相鄰選擇器"><a href="#同層相鄰選擇器" class="headerlink" title="同層相鄰選擇器"></a>同層相鄰選擇器</h3><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="同層全體選擇器"><a href="#同層全體選擇器" class="headerlink" title="同層全體選擇器"></a>同層全體選擇器</h3><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的弟元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> ~ <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="屬性選擇器"><a href="#屬性選擇器" class="headerlink" title="屬性選擇器"></a>屬性選擇器</h3><p>指以 HTML 元素屬性作為選擇器，有許多種選擇方式，如下：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 以 屬性 + 屬性值 去選擇 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href=<span class="string">&quot;http://google.com.tw/&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 img 元素屬性為 title 的目標 */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[title]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性 type=&#x27;text&#x27; 的目標 */</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;text&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性有 kaifu 單字，根據屬性值中眾多詞中某個詞進行選擇（以空白分隔決定該詞） */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[class~=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 href 的屬性值起始字串為 http:// 的目標  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href^=<span class="string">&quot;http://&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 href 的屬性值結尾字串為 .pdf 的對象  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href$=<span class="string">&#x27;.pdf&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 img 所有 src 屬性值裡面包含單字 kaifu 的對象; */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src*=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取所有圖片裡面有 figure- 的圖片，例如:figure-01.jpg、figure-02.jpg */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src|=<span class="string">&#x27;figure&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>HTML</title>
+    <url>/2020/08/19/lesson-html/</url>
+    <content><![CDATA[<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><blockquote>
+<p>在網頁裡，每項技術都扮演了一個重要的角色</p>
+</blockquote>
+<p>指的是 HTML、CSS、JavaScript 三兄弟，若用蓋房子來比喻，三兄弟各有自己執掌的工作，分別為：</p>
+<ul>
+<li>HTML（結構、內容）：如同蓋房子需要的基礎建材，鋼筋、水泥、門、窗等等。</li>
+<li>CSS（樣式、外觀）：如同蓋完房子後的裝潢設計師，打造漂亮的房子。</li>
+<li>JavaScript（事件、行為）：如同房子內部設施開關觸發後產生的能源。</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h3><p>對於 HTML（HyperText Markup Language）而言，它扮演了「結構」的角色。這角色在網頁中，雖是最基礎但卻是很重要的骨幹，如同蓋棟大樓需要的鋼筋、水泥、門、窗的基礎建材，它是網頁的基礎。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- html 結構 --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>結構<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="標記"><a href="#標記" class="headerlink" title="標記"></a>標記</h3><p>Markup（標記）是 HTML 的核心，意思是「使用標籤標記內容，產生語義化結構」。標記什麼內容？標記文字、圖片、影音等等，網頁中傳達資訊的媒體元素。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- a 標籤標記了「泰山職訓網頁設計」文字 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://wdaweb.github.io/&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>泰山職訓網頁設計<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><p>元素是由標籤（tag）及標記的內容（content）所組成，它有以下這些特性：</p>
+<ul>
+<li>不分大小寫，養成使用小寫的習慣。</li>
+<li>大部份會有&lt;&gt;起始標籤，&lt;/&gt;結束標籤，之間為標記的內容。</li>
+<li>具有屬性與值，屬性之間需要空格。</li>
+<li>屬性值不限制用單引號或雙引號，養成使用雙引號的習慣。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/example.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="空元素"><a href="#空元素" class="headerlink" title="空元素"></a>空元素</h3><p>沒有結束標籤的元素，又稱「獨立標籤」、「無結尾標籤」、「空標籤」。<br>常見的空元素有 &lt;meta&gt;、&lt;link&gt;、&lt;br&gt;、&lt;hr&gt;、&lt;img&gt; … 等等。</p>
+<!-- ### id 與 class -->
+
+<h3 id="舞台"><a href="#舞台" class="headerlink" title="舞台"></a>舞台</h3><!-- <img src="/images/request_response.png" width="500"> -->
+
+<p>若 HTML 是一個舞台，每個元素如同一位演員，瀏覽器在讀取 HTML 這個舞台時，它是由上而下進行解讀，元素會逐一被解讀成一位演員，每位演員有著它要做的基本工作來顯示內容。</p>
+<p>「head」 演員像是舞台的後面，標記的是給瀏覽器或搜尋引擎才能看到的資訊，舞台前面的使用者是看不到的。<br>「body」 演員像是舞台的前面，標記的是給使用者欣賞觀看的文字、圖片、影片等等。</p>
+<p>此外，還有兩位較為特別的演員，一個是負責外觀的「style」與負責行為的「script」，「style」演員的工作是負責顯示樣式外觀，白話點就是幫演員們化妝，而讀取到最後會遇到「script」演員，我們可以把裡面標記的內容想成一套劇本，告訴演員們該如何表現行為及事件發生時該做甚麼事情。</p>
+<blockquote>
+<p>記住的是，元素演員得先上場，劇本才能上演好戲，若是劇本先出現，元素演員未上場，等同白念劇本了。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-tw&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- head 紀錄的是給瀏覽器或者是搜尋引擎看的重要資訊，一般瀏覽者無法看到 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;這是我的第一個網頁&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>我的第一個網頁<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 本頁使用的 css 樣式外觀，幫網頁化妝　*/</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- body 是顯示給瀏覽者觀看的內容，藉由標籤標記的文字、圖片、影片等等 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 本頁使用的 js，想成一套劇本</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="語義化"><a href="#語義化" class="headerlink" title="語義化"></a>語義化</h3><p>雖然在排版上，大多數習慣還是用 &lt;div&gt; 來排版，但 HTML5 提供更多語意標籤使用，甚麼是語意標籤？簡單說就是直接給標籤一個好懂的名稱，來表示其結構及意義，例如:</p>
+<table>
+<thead>
+<tr>
+<th>標籤名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;header&gt;</td>
+<td>定義網頁頁首的區域。</td>
+</tr>
+<tr>
+<td>&lt;nav&gt;</td>
+<td>定義網頁導覽區域。</td>
+</tr>
+<tr>
+<td>&lt;footer&gt;</td>
+<td>定義網頁頁尾的區域。</td>
+</tr>
+<tr>
+<td>&lt;main&gt;</td>
+<td>定義網頁主要內容區域。</td>
+</tr>
+<tr>
+<td>&lt;section&gt;</td>
+<td>定義一個區段範圍。</td>
+</tr>
+<tr>
+<td>&lt;aside&gt;</td>
+<td>定義一個側邊區域範圍，次要區域。</td>
+</tr>
+<tr>
+<td>&lt;article&gt;</td>
+<td>定義文章內容。</td>
+</tr>
+<tr>
+<td>&lt;figure&gt;</td>
+<td>定義圖形影像的區塊。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
   </entry>
   <entry>
     <title>CSS資源</title>
@@ -45,23 +174,8 @@
 <li><a href="https://www.webdesignrankings.com/resources/csslayoutgenerator/">CSS Layout</a></li>
 </ul>
 ]]></content>
-      <categories>
-        <category>CSS資源</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>套用版型資源</title>
-    <url>/2020/08/18/resource-template-site/</url>
-    <content><![CDATA[<h3 id="版型資源"><a href="#版型資源" class="headerlink" title="版型資源"></a>版型資源</h3><p>需要一個版型開始嗎？</p>
-<a id="more"></a>
-
-<ul>
-<li><a href="https://templated.co/">Templated</a></li>
-<li><a href="https://collectui.com/">Collect UI</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>版型資源</category>
-      </categories>
+      <tags>
+        <tag>CSS資源</tag>
+      </tags>
   </entry>
 </search>
