@@ -13,6 +13,28 @@
 ]]></content>
   </entry>
   <entry>
+    <title>CSS - 文字</title>
+    <url>/2020/08/25/lesson-css-text/</url>
+    <content><![CDATA[<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><p>CSS 常用的字型設定：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">   <span class="comment">/* 設定字型家族 */</span></span><br><span class="line">   font-family: &#x27;Microsoft JhengHei&#x27;, Verdana, Geneva, Tahoma, sans-serif;</span><br><span class="line">   <span class="comment">/* 設定字體大小 px、em、rem */</span></span><br><span class="line">   <span class="selector-tag">font-size</span>: 20<span class="selector-tag">px</span>;</span><br><span class="line">   <span class="comment">/* 設定斜體 */</span></span><br><span class="line">   <span class="selector-tag">font-style</span>: <span class="selector-tag">italic</span>;</span><br><span class="line">   <span class="comment">/* 設定粗體 */</span></span><br><span class="line">   <span class="selector-tag">font-weight</span>: <span class="selector-tag">bold</span>;</span><br><span class="line">   <span class="comment">/* 設定字體都變成大寫，但第一個字較大 */</span></span><br><span class="line">   <span class="selector-tag">font-variant</span>: <span class="selector-tag">small-caps</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="單位"><a href="#單位" class="headerlink" title="單位"></a>單位</h3><ul>
+<li>px：字型大小以像素為絕對單位。</li>
+<li>em：字型大小參考父元素為倍數相對縮放尺寸，例如：父元素外層是 10px，子元素 2em 則是 20px。</li>
+<li>rem：相對於根元素 (:root or html) 的文字尺寸，預設是 16px，元素設定 2rem 則是 32px。</li>
+</ul>
+<h3 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定 inline (包含inline-block)的文字位置，left、right */</span></span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="comment">/*  none、overline、line-througn */</span></span><br><span class="line">    <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">    <span class="comment">/* 文字縮排 */</span></span><br><span class="line">    <span class="attribute">text-indent</span>: <span class="number">1.5rem</span>;</span><br><span class="line">    <span class="comment">/*  capitalize（每個單字第一個英文字大寫）、lowercase（全小寫）、uppercase（全大寫） */</span></span><br><span class="line">    <span class="attribute">text-transform</span>: uppercase;</span><br><span class="line">    <span class="comment">/* 水平、垂直、陰影模糊半徑、顏色，可以設定多重陰影 */</span></span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">3px</span> <span class="number">#999</span>;</span><br><span class="line">    <span class="comment">/* 英文字母或中文字的間隔 */</span></span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 單字間隔，要有空格，中文很難有空格，較適合英文。 */</span></span><br><span class="line">    <span class="attribute">word-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 文字換行，數字或英文字無空格時會產生不換行超出盒框區域，可用此屬性。 */</span></span><br><span class="line">    <span class="comment">/* break-word 在長單詞或URL地址內部進行換行。 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* break-word（過長的單字會自動折到下一行，可避免一江春水向東流。）*/</span></span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(預設，以每個瀏覽器喜好不一定相同，通常保留單字全部) </span></span><br><span class="line"><span class="comment">   break-all(允許在單字的字母換行，也就是不一定要完整的單字) </span></span><br><span class="line"><span class="comment">   keep-all(只能在半角空格或連字符處換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">word-break</span>: break-all;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(忽略空白)  </span></span><br><span class="line"><span class="comment">   pre(像pre標籤，保留空白) </span></span><br><span class="line"><span class="comment">   nowrap(不換行，除非有 br，否則不會斷行，會一直顯示超出區塊。) </span></span><br><span class="line"><span class="comment">   pre-wrap(保留空白，但是正常換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">white-space</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="連結"><a href="#連結" class="headerlink" title="連結"></a>連結</h3><p>連結狀態的變化使用了 CSS 的偽類，偽類家族有非常多種，連結這四個須注意其出現的順序。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+  </entry>
+  <entry>
     <title>CSS - 選擇器 (一)</title>
     <url>/2020/08/23/lesson-css-base-selector/</url>
     <content><![CDATA[<h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責頁面的版型、文字、顏色、尺寸、響應式等等。</p>
@@ -144,8 +166,6 @@
     <title>CSS資源</title>
     <url>/2020/08/18/resource-css-useful-site/</url>
     <content><![CDATA[<p>CSS 資源整合</p>
-<a id="more"></a>
-
 <h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><ul>
 <li><a href="https://uigradients.com/#eXpresso">UI Gradients</a></li>
 <li><a href="https://mycolor.space/gradient">Space</a></li>
@@ -153,6 +173,8 @@
 <li><a href="https://gradienthunt.com/">Gradient Hunt</a></li>
 <li><a href="https://www.colorzilla.com/gradient-editor/">Colorzilla</a></li>
 </ul>
+<a id="more"></a>
+
 <h3 id="按鈕"><a href="#按鈕" class="headerlink" title="按鈕"></a>按鈕</h3><ul>
 <li><a href="http://bttn.surge.sh/">Button Surge</a></li>
 <li><a href="https://www.bestcssbuttongenerator.com/">Best CSS Button</a></li>
