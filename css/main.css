@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff791b;
+  background: #a30eff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2700,14 +2700,11 @@ body {
   }
 }
 @media (min-width: 992px) {
-  .content-wrap {
-    width: calc(100% - 300px);
-    margin-right: -10px;
-  }
   .header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
   }
   .sidebar {
     position: fixed;

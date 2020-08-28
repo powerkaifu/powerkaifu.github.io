@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>部落格介紹</title>
-    <url>/2020/08/18/index/</url>
-    <content><![CDATA[<p>開始使用部落格…</p>
-<ul>
-<li>首頁：回首頁</li>
-<li>標籤：網站資源整合</li>
-<li>分類：前端技術筆記及心得</li>
-<li>搜尋：搜尋文章</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>CSS - 背景</title>
     <url>/2020/08/25/lesson-css-background/</url>
     <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* background-color 背景顏色 */</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#faa</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-image 背景圖片 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;https://picsum.photos/100/100/?random=1&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-repeat 背景重複 */</span></span><br><span class="line">    <span class="comment">/* repeat-x、repeat-y、no-repeat */</span></span><br><span class="line">    <span class="attribute">background-repeat</span>: repeat;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-size 背景尺寸 */</span></span><br><span class="line">    <span class="comment">/* contain、cover、數值、百分比 */</span></span><br><span class="line">    <span class="attribute">background-size</span>: contain;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-position 背景定位 */</span></span><br><span class="line">    <span class="comment">/* 可使用數值、百分比、left、right、center、top、bottom 關鍵字 */</span></span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -24,6 +12,18 @@
       <tags>
         <tag>css</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>部落格介紹</title>
+    <url>/2020/08/18/index/</url>
+    <content><![CDATA[<p>開始使用部落格…</p>
+<ul>
+<li>首頁：回首頁</li>
+<li>標籤：網站資源整合</li>
+<li>分類：前端技術筆記及心得</li>
+<li>搜尋：搜尋文章</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>CSS - 選擇器 (一)</title>
@@ -86,6 +86,44 @@
       <tags>
         <tag>css</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>CSS資源</title>
+    <url>/2020/08/18/resource-css-useful-site/</url>
+    <content><![CDATA[<p>CSS 資源整合</p>
+<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><ul>
+<li><a href="https://uigradients.com/#eXpresso">UI Gradients</a></li>
+<li><a href="https://mycolor.space/gradient">Space</a></li>
+<li><a href="http://jxnblk.com/shade/">Shade</a></li>
+<li><a href="https://gradienthunt.com/">Gradient Hunt</a></li>
+<li><a href="https://www.colorzilla.com/gradient-editor/">Colorzilla</a></li>
+</ul>
+<a id="more"></a>
+
+<h3 id="按鈕"><a href="#按鈕" class="headerlink" title="按鈕"></a>按鈕</h3><ul>
+<li><a href="http://bttn.surge.sh/">Button Surge</a></li>
+<li><a href="https://www.bestcssbuttongenerator.com/">Best CSS Button</a></li>
+</ul>
+<h3 id="轉場與動畫"><a href="#轉場與動畫" class="headerlink" title="轉場與動畫"></a>轉場與動畫</h3><ul>
+<li><a href="https://3d-book-css.netlify.app/">3D Book</a></li>
+<li><a href="https://matthewlein.com/tools/ceaser">調整動畫轉場速率</a></li>
+</ul>
+<h3 id="遮罩路徑"><a href="#遮罩路徑" class="headerlink" title="遮罩路徑"></a>遮罩路徑</h3><ul>
+<li><a href="https://www.html.cn/tool/css-clip-path/">Clip Path</a></li>
+</ul>
+<h3 id="語法產生器"><a href="#語法產生器" class="headerlink" title="語法產生器"></a>語法產生器</h3><ul>
+<li><a href="https://www.we-shop.net/css3/default.html">We Shop</a></li>
+<li><a href="http://css3generator.com/">CSS3 Generator</a></li>
+<li><a href="https://www.css3maker.com/index.html">CSS3 Maker</a></li>
+</ul>
+<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><ul>
+<li><a href="https://static.html.it/app/uploads/blog/layoutgala/index.html">Layout Gala</a></li>
+<li><a href="https://www.webdesignrankings.com/resources/csslayoutgenerator/">CSS Layout</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>CSS資源</category>
+      </categories>
   </entry>
   <entry>
     <title>HTML</title>
@@ -174,43 +212,5 @@
       <tags>
         <tag>html</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>CSS資源</title>
-    <url>/2020/08/18/resource-css-useful-site/</url>
-    <content><![CDATA[<p>CSS 資源整合</p>
-<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><ul>
-<li><a href="https://uigradients.com/#eXpresso">UI Gradients</a></li>
-<li><a href="https://mycolor.space/gradient">Space</a></li>
-<li><a href="http://jxnblk.com/shade/">Shade</a></li>
-<li><a href="https://gradienthunt.com/">Gradient Hunt</a></li>
-<li><a href="https://www.colorzilla.com/gradient-editor/">Colorzilla</a></li>
-</ul>
-<a id="more"></a>
-
-<h3 id="按鈕"><a href="#按鈕" class="headerlink" title="按鈕"></a>按鈕</h3><ul>
-<li><a href="http://bttn.surge.sh/">Button Surge</a></li>
-<li><a href="https://www.bestcssbuttongenerator.com/">Best CSS Button</a></li>
-</ul>
-<h3 id="轉場與動畫"><a href="#轉場與動畫" class="headerlink" title="轉場與動畫"></a>轉場與動畫</h3><ul>
-<li><a href="https://3d-book-css.netlify.app/">3D Book</a></li>
-<li><a href="https://matthewlein.com/tools/ceaser">調整動畫轉場速率</a></li>
-</ul>
-<h3 id="遮罩路徑"><a href="#遮罩路徑" class="headerlink" title="遮罩路徑"></a>遮罩路徑</h3><ul>
-<li><a href="https://www.html.cn/tool/css-clip-path/">Clip Path</a></li>
-</ul>
-<h3 id="語法產生器"><a href="#語法產生器" class="headerlink" title="語法產生器"></a>語法產生器</h3><ul>
-<li><a href="https://www.we-shop.net/css3/default.html">We Shop</a></li>
-<li><a href="http://css3generator.com/">CSS3 Generator</a></li>
-<li><a href="https://www.css3maker.com/index.html">CSS3 Maker</a></li>
-</ul>
-<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><ul>
-<li><a href="https://static.html.it/app/uploads/blog/layoutgala/index.html">Layout Gala</a></li>
-<li><a href="https://www.webdesignrankings.com/resources/csslayoutgenerator/">CSS Layout</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>CSS資源</category>
-      </categories>
   </entry>
 </search>
