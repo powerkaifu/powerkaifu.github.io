@@ -205,7 +205,7 @@ body {
 body {
   background: var(--body-bg-color);
   color: var(--text-color);
-  font-family: 'Noto Sans TC', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Noto Sans TC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1em;
   line-height: 2;
 }
@@ -221,7 +221,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Noto Sans TC', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Noto Sans TC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -442,7 +442,7 @@ pre {
 }
 pre,
 code {
-  font-family: 'Roboto Mono', consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+  font-family: 'Roboto Mono', consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
 }
 code {
   background: #eee;
@@ -1036,7 +1036,7 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 'Noto Sans TC', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Noto Sans TC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a30eff;
+  background: #fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1670,7 +1670,7 @@ pre .javascript .function {
   top: 0;
 }
 .post-body {
-  font-family: 'Noto Sans TC', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Noto Sans TC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1720,8 +1720,8 @@ pre .javascript .function {
 }
 @media (max-width: 767px) {
   .posts-collapse {
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 .posts-collapse .collection-title {
@@ -1968,7 +1968,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'Noto Sans TC', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Noto Sans TC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;
@@ -2498,12 +2498,12 @@ ul.breadcrumb li + li:last-child {
   padding: 20px 0;
 }
 .brand {
-  padding: 0;
   font-size: 1.3rem;
+  padding: 0;
 }
 .site-subtitle {
-  margin: 10px 10px 0;
   font-size: 1.1rem;
+  margin: 10px 10px 0;
 }
 .custom-logo-image {
   margin-top: 20px;
@@ -2638,8 +2638,8 @@ ul.breadcrumb li + li:last-child {
 .links-of-author {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
   justify-content: center;
+  margin-top: 10px;
 }
 .links-of-author-item {
   margin: 5px 0 0;
@@ -2685,8 +2685,8 @@ body {
   overflow-x: hidden;
 }
 .book-mark-link {
-  z-index: 9999;
   margin-top: -2px;
+  z-index: 9999;
 }
 .footer {
   background: var(--content-bg-color) !important;
@@ -2695,29 +2695,33 @@ body {
 @media (min-width: 768px) {
   .footer {
     background: var(--content-bg-color) !important;
-    width: 100%;
     float: right;
+    width: 100%;
   }
 }
 @media (min-width: 992px) {
+  .content-wrap {
+    margin-right: -10px;
+    width: calc(100% - 300px);
+  }
   .header {
+    left: 0;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 1;
   }
   .sidebar {
-    position: fixed;
+    background: #000;
     bottom: 0;
     left: 0;
     margin-top: 319px !important;
-    background: #000;
+    position: fixed;
   }
   .footer {
     background: var(--content-bg-color) !important;
-    width: calc(100% - 320px);
     float: right;
-    margin-top: 0px;
+    margin-top: 0;
+    width: calc(100% - 320px);
   }
   .footer-inner {
     padding-left: 0;
@@ -2729,9 +2733,9 @@ body {
   }
   .footer {
     background: var(--content-bg-color) !important;
-    width: calc(100% - 320px);
     float: right;
-    margin-top: 0px;
     margin-right: auto;
+    margin-top: 0;
+    width: calc(100% - 320px);
   }
 }
