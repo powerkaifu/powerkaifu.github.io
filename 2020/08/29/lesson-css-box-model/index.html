@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans TC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"slideDownIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+<style>
+    .headband{
+      height:0;
+    }
+    .pace .pace-progress {
+      background: rgba(255,255,255,1); /*進度條顏色*/
+      height: 1px;
+    }
+    .pace .pace-progress-inner {
+      box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*陰影顏色*/
+    }
+    .pace .pace-activity {
+      border-top-color: #ff009e; /*上邊框顏色*/
+      border-left-color: #ff009e; /*左邊框顏色*/
+    }
+</style>
+  <meta name="description" content="前言CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS - 盒模型">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/08/29/lesson-css-box-model/index.html">
+<meta property="og:site_name" content="泰山職訓AFU">
+<meta property="og:description" content="前言CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://powerkaifu.github.io/images/css/csss-box-model.png">
+<meta property="article:published_time" content="2020-08-29T13:07:51.000Z">
+<meta property="article:modified_time" content="2020-08-29T13:07:51.000Z">
+<meta property="article:author" content="Kai-Fu Chang">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://powerkaifu.github.io/images/css/csss-box-model.png">
+
+<link rel="canonical" href="https://powerkaifu.github.io/2020/08/29/lesson-css-box-model/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>CSS - 盒模型 | 泰山職訓AFU</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-175260737-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">泰山職訓AFU</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端筆記 / 資源整合</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-首頁">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">5</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/powerkaifu" class="github-corner" title="KaiFu&#39;s GitHub" aria-label="KaiFu&#39;s GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/29/lesson-css-box-model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.jpg">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="泰山職訓AFU">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS - 盒模型
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-08-29 21:07:51" itemprop="dateCreated datePublished" datetime="2020-08-29T21:07:51+08:00">2020-08-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。</p>
+<a id="more"></a>
+
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一個矩形的盒子，它通常被稱為元素盒（element box）。每個元素盒的中心是內容區域（content area），也就是放文字、圖片的區域，內容區域的周圍還有內距（padding）、邊框（border）、外距（margin），由這些屬性來形成盒模型。</p>
+<img data-src="/images/css/csss-box-model.png" width="500">
+
+<p>其中，這些屬性值得注意的是，它們都是選擇性的，內距（padding）的背景（顏色、重複圖片）預設是可以顯示在內距之內，它決定內容區域（content area）與邊框（border）之間的留白。外距（margin）它一定是透明，但可以顯示父元素的背景，也就是盒子與盒子之間的距離。內距無法使用負數，外距可以使用複數。邊框沒有指定顏色，會自動渲染內容區的前景色，也就是 color，邊框也是不能有負值。</p>
+<h3 id="基本盒"><a href="#基本盒" class="headerlink" title="基本盒"></a>基本盒</h3><p>盒模型可以由兩個基本盒子說起，區塊盒（block-level box）、行內盒（inline box）。這兩個盒子型態是 CSS 世界的大眾居民，大部分元素都是這兩種型態（按鈕元素表示哭哭），最經典的範例各自代表為 div、span，當我們建立 div 元素等同建立一個區塊盒，建立 span 則是行內盒，概念如此。</p>
+<h3 id="區塊盒"><a href="#區塊盒" class="headerlink" title="區塊盒"></a>區塊盒</h3><p>區塊盒這個居民是 CSS 世界的大地主，它們掌控了土地的霸權，所以當它們出現，正常流向由左至右的絕對空間（前、後換行），也就是整塊土地都會完全被它們佔有，非常霸道！區塊盒在正常流向裡會垂直堆疊。若有垂直外距有重疊時，則較大的外距會吃掉較小的外距。區塊盒的盒屬性相關設定都可以正常作用。</p>
+<blockquote>
+<p>區塊盒例子：div、h1、p、ul、li、table 等等。</p>
+</blockquote>
+<h3 id="行內盒"><a href="#行內盒" class="headerlink" title="行內盒"></a>行內盒</h3><p>行內盒是一般居民，它們是被大地主奴役的居民，它們只能擁有一小塊、一小塊的空間（寬、高隨著內容，無法設定寬、高）。這些行內居民必須一個一個由左至右乖乖排列著，脫離不了地主的控制。</p>
+<p>除非…它們有勇氣採取革命，獨立定位自己，讓自己進化成區塊級，不過…一山還有一山高，再厲害七十二變的孫悟空永遠脫離不了如來佛五指山的相對位置？還是像變了心的女朋友回不去？這一切就要看造物主的設定囉。</p>
+<blockquote>
+<p>行內盒例子：span、a、em 等等。</p>
+</blockquote>
+<h3 id="行內區塊盒"><a href="#行內區塊盒" class="headerlink" title="行內區塊盒"></a>行內區塊盒</h3><p>行內區塊盒（Inline-Block Box），它是介於居民與地主的角色，它的外在行為是行內居民，也就是會像居民乖乖排列，但內在行為卻是區塊地主，區塊盒的盒屬性相關設定它都可以正常作用。<br>那麼，誰才是 CSS 世界掌握最多資源的超級大地主？答案呼之欲出。</p>
+<h3 id="誰才是超級大地主？"><a href="#誰才是超級大地主？" class="headerlink" title="誰才是超級大地主？"></a>誰才是超級大地主？</h3><p>超級大地主指的是初始容器區塊（initial containing block），雖然 body 很像超級大地主，但可以說是表關的超級大地主，真正裏關的超級大地主是根元素，也就是 body 的上層 html 元素，html 元素建立的是初始容器區塊，而初始容器區塊是由瀏覽器視埠（viewport）決定本身的尺寸。這也是為甚麼 body 的高度百分比無效化，原來它被 html 這個超級大地主控制著。</p>
+<h3 id="Margin、Padding、Border"><a href="#Margin、Padding、Border" class="headerlink" title="Margin、Padding、Border"></a>Margin、Padding、Border</h3><ul>
+<li>外距、內距若設定百分比（如果有特殊需求），會根據父元素的寬度來計算，即便是上下外距、內距的百分比也是如此，而不是高度喔。</li>
+<li>外距可以負數，內距不可以負數。</li>
+<li>外距重疊現象指兩區塊外距發生垂直時，大外距會吃掉小外距，而不是兩者相加；左右外距並不會發生重疊。</li>
+<li>內距預設會有背景圖渲染。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="comment">/* margin 可為負值、padding 沒有 */</span></span><br><span class="line">    <span class="comment">/* margin-top、margin-right、margin-bottom、margin-left */</span></span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="comment">/* top、right、bottom、left*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">/* 第一個數字為上下外距，第二個數字為左右外距 */</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">/* 區塊置中，區塊元素一定要設定寬度 */</span></span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* padding-top、padding-right、padding-bottom、padding-left */</span></span><br><span class="line">    <span class="attribute">padding-top</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding-right</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 邊框 */</span></span><br><span class="line">    <span class="attribute">border-width</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    dotted  一組方格點，會依照邊框 width 的寬度改變方格的大小及間距，如果邊框是 2px，那麼方格是 2px 且每個點之間有 2px 的間距。</span></span><br><span class="line"><span class="comment">    dashed  一組短線</span></span><br><span class="line"><span class="comment">    double  兩條實線 （border-width 屬性值是兩條線的總和）</span></span><br><span class="line"><span class="comment">    groove  看起來像刻入頁面</span></span><br><span class="line"><span class="comment">    ridge   看起來像凸出頁面</span></span><br><span class="line"><span class="comment">    inset   看起來像嵌入頁面</span></span><br><span class="line"><span class="comment">    outset  看起來像浮雕</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    border-top-style</span></span><br><span class="line"><span class="comment">    border-right-style</span></span><br><span class="line"><span class="comment">    border-bottom-style</span></span><br><span class="line"><span class="comment">    border-left-style</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    border-top-color</span></span><br><span class="line"><span class="comment">    border-right-color</span></span><br><span class="line"><span class="comment">    border-bottom-color</span></span><br><span class="line"><span class="comment">    border-left-color</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">border-color</span>: <span class="number">#000</span>;</span><br><span class="line">    <span class="comment">/* 縮寫 */</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">    <span class="comment">/* 左上、右上、右下、左下 的圓角*/</span></span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 盒子陰影 */</span></span><br><span class="line">    <span class="comment">/* 水平(+右-左)、垂直(+下-上)、模糊半徑(0 或+不能-)、延展性(+為擴展-為內縮)、顏色、inset(內陰影) */</span></span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">3px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="display"><a href="#display" class="headerlink" title="display"></a>display</h3><p>display 屬性可以替盒子進行轉型態的設定，</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* inline 轉為 inline-block */</span></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* inline 轉為 block */</span></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* block 轉為 inline-block */</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>display:contents</li>
+</ul>
+<p>作用在元素上時，display:contents 會將元素從頁面格式化移除，將自身的子元素移到自身所在的層級。<br>以下例子會將 ul 視覺格式化，就像從來不曾存在過一般，不只邊框消失，ul 周圍的內容的上下外距也一同消失。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    ul &#123;</span><br><span class="line">        border: 1px solid red;</span><br><span class="line">        display: contents;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    li &#123;</span><br><span class="line">        border: 1px solid gray;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>link1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>link2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>link3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Box-sizing"><a href="#Box-sizing" class="headerlink" title="Box-sizing"></a>Box-sizing</h3><p>可以重新定義 Box 寬度的計算方式。時下流行將此屬性值設定為 border-box，也就是 padding、border 會被計算在 width 裡面，這樣在排版時，只要把焦點放在處理 margin。</p>
+<h3 id="Overflow"><a href="#Overflow" class="headerlink" title="Overflow"></a>Overflow</h3><p>如果對盒子設定高度 height，內容如果超過高度，則會產生內容溢出，一般頁面元素的高度通常不需要設定，會隨著內容長高。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/29/resource-learn/" rel="prev" title="學習資源">
+      <i class="fa fa-chevron-left"></i> 學習資源
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/29/lesson-css-position/" rel="next" title="CSS - 定位">
+      CSS - 定位 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9B%92"><span class="nav-number">3.</span> <span class="nav-text">基本盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%80%E5%A1%8A%E7%9B%92"><span class="nav-number">4.</span> <span class="nav-text">區塊盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%85%A7%E7%9B%92"><span class="nav-number">5.</span> <span class="nav-text">行內盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%85%A7%E5%8D%80%E5%A1%8A%E7%9B%92"><span class="nav-number">6.</span> <span class="nav-text">行內區塊盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%B0%E6%89%8D%E6%98%AF%E8%B6%85%E7%B4%9A%E5%A4%A7%E5%9C%B0%E4%B8%BB%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">誰才是超級大地主？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Margin%E3%80%81Padding%E3%80%81Border"><span class="nav-number">8.</span> <span class="nav-text">Margin、Padding、Border</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#display"><span class="nav-number">9.</span> <span class="nav-text">display</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Box-sizing"><span class="nav-number">10.</span> <span class="nav-text">Box-sizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overflow"><span class="nav-number">11.</span> <span class="nav-text">Overflow</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kai-Fu Chang"
+      src="/images/kaifu.jpg">
+  <p class="site-author-name" itemprop="name">Kai-Fu Chang</p>
+  <div class="site-description" itemprop="description">前端講師</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      相關資源
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wdaweb.github.io/" title="https:&#x2F;&#x2F;wdaweb.github.io&#x2F;" rel="noopener" target="_blank">泰山網頁設計官網</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://rogeraabbccdd.github.io/F2E-book/" title="https:&#x2F;&#x2F;rogeraabbccdd.github.io&#x2F;F2E-book&#x2F;" rel="noopener" target="_blank">泰山職訓前端班課程講義</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://summer10920.github.io/" title="https:&#x2F;&#x2F;summer10920.github.io&#x2F;" rel="noopener" target="_blank">洛奇的邪惡組織手札</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Created by KaiFu Chang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>
