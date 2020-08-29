@@ -13,11 +13,16 @@
 ]]></content>
   </entry>
   <entry>
-    <title>CSS - 定位</title>
-    <url>/2020/08/29/lesson-css-position/</url>
-    <content><![CDATA[]]></content>
+    <title>CSS - 背景</title>
+    <url>/2020/08/25/lesson-css-background/</url>
+    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* background-color 背景顏色 */</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#faa</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-image 背景圖片 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;https://picsum.photos/100/100/?random=1&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-repeat 背景重複 */</span></span><br><span class="line">    <span class="comment">/* repeat-x、repeat-y、no-repeat */</span></span><br><span class="line">    <span class="attribute">background-repeat</span>: repeat;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-size 背景尺寸 */</span></span><br><span class="line">    <span class="comment">/* contain、cover、數值、百分比 */</span></span><br><span class="line">    <span class="attribute">background-size</span>: contain;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-position 背景定位 */</span></span><br><span class="line">    <span class="comment">/* 可使用數值、百分比、left、right、center、top、bottom 關鍵字 */</span></span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 線性漸層 */</span></span><br><span class="line"><span class="selector-class">.linear-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定角度 */</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">45deg</span>, red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定漸層站點 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right top, #fff <span class="number">0%</span>, lightblue <span class="number">25%</span>, #fff <span class="number">50%</span>, lightblue <span class="number">75%</span>, #fff <span class="number">100%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 放射漸層 */</span></span><br><span class="line"><span class="selector-class">.radial-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(white, #ffffaa, pink);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
       <tags>
-        <tag>CSS</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -63,191 +68,7 @@
 <h3 id="Overflow"><a href="#Overflow" class="headerlink" title="Overflow"></a>Overflow</h3><p>如果對盒子設定高度 height，內容如果超過高度，則會產生內容溢出，一般頁面元素的高度通常不需要設定，會隨著內容長高。</p>
 ]]></content>
       <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>學習資源</title>
-    <url>/2020/08/29/resource-learn/</url>
-    <content><![CDATA[<ul>
-<li>無暇的程式碼 JavaScript <a href="https://github.com/AllJointTW/clean-code-javascript">Github</a></li>
-<li>網頁動畫大全 <a href="https://github.com/sergey-pimenov/awesome-web-animation">awesome-web-animation</a></li>
-<li>一行 JavaScript 處理陣列、日期、數字、DOM 等等 <a href="https://1loc.dev/">官網</a>、<a href="https://github.com/phuoc-ng/1loc">Github</a></li>
-<li>一行 CSS Layouts <a href="http://1linelayouts.glitch.me/?fbclid=IwAR2HAWUL1DYbaYLw2T9wQNcvTUEqQ0mZICjCPj9CgUd3y0f-tO8skAFNiTM">官網</a></li>
-<li>一個 Div 做出來的 CSS 物件 <a href="https://a.singlediv.com/">Single Div</a></li>
-<li>HEAD 大全 <a href="https://htmlhead.dev/">官網</a>、<a href="https://github.com/joshbuchea/HEAD">Github</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>學習資源</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>設計常用工具及網站</title>
-    <url>/2020/08/29/resource-normal-tools/</url>
-    <content><![CDATA[<h3 id="截圖"><a href="#截圖" class="headerlink" title="截圖"></a>截圖</h3><ul>
-<li><p><a href="https://www.playpcesor.com/2014/02/sharex.html">ShareX</a></p>
-<p>截圖工具，截圖後能自動上傳雲端硬碟、加浮水印，也能錄製 GIF</p>
-</li>
-</ul>
-<h3 id="秀圖"><a href="#秀圖" class="headerlink" title="秀圖"></a>秀圖</h3><ul>
-<li><a href="https://steachs.com/archives/32681">軟體說明</a></li>
-<li><a href="https://www.cherubicsoft.com/en/projects/sagethumbs#.VwKhKUeNjDA">SageThumbs</a></li>
-</ul>
-<p>檔案總管顯示 Photoshop 檔縮圖、一鍵轉 JPG、PNG、GIF、BMP</p>
-<h3 id="套版"><a href="#套版" class="headerlink" title="套版"></a>套版</h3><ul>
-<li><a href="https://mobirise.com/">Mobirise</a></li>
-</ul>
-<h3 id="版型"><a href="#版型" class="headerlink" title="版型"></a>版型</h3><ul>
-<li><a href="https://www.webdesignclip.com/">日本風版型(一)</a></li>
-<li><a href="https://responsive-jp.com/">日本風版型(二)</a></li>
-</ul>
-<h3 id="LOGO"><a href="#LOGO" class="headerlink" title="LOGO"></a>LOGO</h3><ul>
-<li><a href="https://www.launchaco.com/logo">LOGO 產生器</a></li>
-</ul>
-<h3 id="圖庫"><a href="#圖庫" class="headerlink" title="圖庫"></a>圖庫</h3><ul>
-<li><a href="https://www.deviantart.com/">Deviantart</a></li>
-<li><a href="https://pixabay.com/">Pixabay</a></li>
-<li><a href="https://unsplash.com/">Unsplash</a></li>
-<li><a href="http://www.morguefile.com/">Morguefile</a></li>
-<li><a href="https://www.pexels.com/">Pexels</a></li>
-<li><a href="http://tw.freeimages.com/">Freeimages</a></li>
-<li><a href="http://www.stockvault.net/">Stockvault</a></li>
-<li><a href="http://www.freedigitalphotos.net/">Freedigital</a></li>
-<li><a href="http://www.dreamstime.com/">Dreamstime/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>設計常用工具及網站</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>網頁設計證照資源</title>
-    <url>/2020/08/29/resource-web-license/</url>
-    <content><![CDATA[<h3 id="網頁設計乙、丙級素材"><a href="#網頁設計乙、丙級素材" class="headerlink" title="網頁設計乙、丙級素材"></a>網頁設計乙、丙級素材</h3><ul>
-<li><a href="https://techbank.wdasec.gov.tw/owInform/TestReferData.aspx#17300">技檢中心乙丙級題目和素材</a></li>
-</ul>
-<h3 id="網頁設計乙級"><a href="#網頁設計乙級" class="headerlink" title="網頁設計乙級"></a>網頁設計乙級</h3><ul>
-<li><a href="http://onlinetest2.slhs.tp.edu.tw/bestcontent.asp?examid=bests">學科測驗</a></li>
-<li><a href="https://bquiz.kento520.tw/">術科解題</a></li>
-<li><a href="https://bquiz.mackliu.com/">術科解題</a></li>
-<li><a href="https://reurl.cc/R10Ex6">術科解題</a></li>
-</ul>
-<h3 id="網頁設計丙級"><a href="#網頁設計丙級" class="headerlink" title="網頁設計丙級"></a>網頁設計丙級</h3><ul>
-<li><a href="http://onlinetest1-5.slhs.tp.edu.tw/bestcontent.asp?examid=t17300">學科測驗</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>網頁設計證照資源</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Coding 資源</title>
-    <url>/2020/08/29/resource-coding/</url>
-    <content><![CDATA[<h3 id="套件"><a href="#套件" class="headerlink" title="套件"></a>套件</h3><ul>
-<li><a href="https://www.highcharts.com/">HighCharts</a></li>
-<li><a href="https://github.com/validatorjs/validator.js">Validator</a></li>
-<li><a href="https://fontawesome.com/">fontawesome</a></li>
-</ul>
-<h3 id="動畫"><a href="#動畫" class="headerlink" title="動畫"></a>動畫</h3><ul>
-<li><a href="https://animate.style/">Animate.css</a></li>
-<li><a href="https://www.delac.io/wow/">WOW.js</a></li>
-<li><a href="https://elrumordelaluz.github.io/csshake/">CSShake</a></li>
-<li><a href="https://loading.io/">Loading.io</a></li>
-<li><a href="https://animejs.com/">Anime.js</a></li>
-<li><a href="https://css-doodle.com/">CSS-doodle</a></li>
-<li><a href="https://greensock.com/tweenmax/">greensock</a></li>
-<li><a href="https://maxwellito.github.io/vivus/">vivus</a></li>
-<li><a href="https://sarcadass.github.io/granim.js/">Granim.js</a></li>
-<li><a href="https://bennettfeely.com/ztext/">ztext.js</a></li>
-</ul>
-<h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><ul>
-<li><a href="https://easings.net/">easings</a></li>
-<li><a href="https://cubic-bezier.com/#.17,.67,.83,.67">cubic-bezier</a></li>
-<li><a href="https://matthewlein.com/tools/ceaser">調整轉場速率</a></li>
-</ul>
-<a id="more"></a>
-
-<h3 id="一頁式"><a href="#一頁式" class="headerlink" title="一頁式"></a>一頁式</h3><ul>
-<li><a href="https://alvarotrigo.com/fullPage/">FullPage</a></li>
-</ul>
-<h3 id="視差"><a href="#視差" class="headerlink" title="視差"></a>視差</h3><ul>
-<li><a href="https://dixonandmoe.com/rellax/">Dixonand moe</a></li>
-</ul>
-<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><ul>
-<li><a href="https://collectui.com/">Collect UI</a></li>
-<li><a href="https://bootswatch.com/">bootswatch</a></li>
-<li><a href="https://useanimations.com/?fbclid=IwAR2n6GIn9IHyt4HMv_SzWBDx-T78Vzkl5FpyHse7E1LUkd9XfFFVP6I0TJw">介面 ICON SVG 動畫</a></li>
-</ul>
-<h2 id="CSS-Frame"><a href="#CSS-Frame" class="headerlink" title="CSS Frame"></a>CSS Frame</h2><ul>
-<li><a href="https://getbootstrap.com/">Bootstrap</a></li>
-<li><a href="https://materializecss.com/">Materialize</a></li>
-</ul>
-<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><ul>
-<li><a href="https://fonts.google.com/">Google Fonts</a></li>
-</ul>
-<h3 id="Favicon"><a href="#Favicon" class="headerlink" title="Favicon"></a>Favicon</h3><ul>
-<li><a href="https://realfavicongenerator.net/">各裝置、瀏覽器 Favicon 產生器</a></li>
-</ul>
-<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><ul>
-<li><p><a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a></p>
-<p>提供線上 JSON，方便 API 串接測試。</p>
-</li>
-</ul>
-<h3 id="程式"><a href="#程式" class="headerlink" title="程式"></a>程式</h3><ul>
-<li><p><a href="https://codepen.io/">CODEPEN</a></p>
-<p>提供程式碼測試、程式創意來源之地。</p>
-</li>
-</ul>
-<h3 id="RWD-測試"><a href="#RWD-測試" class="headerlink" title="RWD 測試"></a>RWD 測試</h3><ul>
-<li><a href="https://responsively.app/">Responsively</a></li>
-</ul>
-<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><ul>
-<li><p><a href="https://hackmd.io/">HackMD</a></p>
-<p>線上 Markdown 編輯器，紀錄一生的學習。</p>
-</li>
-</ul>
-<h3 id="打字"><a href="#打字" class="headerlink" title="打字"></a>打字</h3><ul>
-<li><a href="https://10fastfingers.com/typing-test/english">打字練習</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Coding資源</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS - 背景</title>
-    <url>/2020/08/25/lesson-css-background/</url>
-    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* background-color 背景顏色 */</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#faa</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-image 背景圖片 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;https://picsum.photos/100/100/?random=1&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-repeat 背景重複 */</span></span><br><span class="line">    <span class="comment">/* repeat-x、repeat-y、no-repeat */</span></span><br><span class="line">    <span class="attribute">background-repeat</span>: repeat;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-size 背景尺寸 */</span></span><br><span class="line">    <span class="comment">/* contain、cover、數值、百分比 */</span></span><br><span class="line">    <span class="attribute">background-size</span>: contain;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-position 背景定位 */</span></span><br><span class="line">    <span class="comment">/* 可使用數值、百分比、left、right、center、top、bottom 關鍵字 */</span></span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 線性漸層 */</span></span><br><span class="line"><span class="selector-class">.linear-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定角度 */</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">45deg</span>, red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定漸層站點 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right top, #fff <span class="number">0%</span>, lightblue <span class="number">25%</span>, #fff <span class="number">50%</span>, lightblue <span class="number">75%</span>, #fff <span class="number">100%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 放射漸層 */</span></span><br><span class="line"><span class="selector-class">.radial-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(white, #ffffaa, pink);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS - 文字</title>
-    <url>/2020/08/25/lesson-css-text/</url>
-    <content><![CDATA[<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><p>CSS 常用的字型設定：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定字型家族 */</span></span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Microsoft JhengHei&#x27;</span>, Verdana, Geneva, Tahoma, sans-serif;</span><br><span class="line">    <span class="comment">/* 設定字體大小 px、em、rem */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="comment">/* 設定斜體 */</span></span><br><span class="line">    <span class="attribute">font-style</span>: italic;</span><br><span class="line">    <span class="comment">/* 設定粗體 */</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="comment">/* 設定字體都變成大寫，但第一個字較大 */</span></span><br><span class="line">    <span class="attribute">font-variant</span>: small-caps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h3 id="單位"><a href="#單位" class="headerlink" title="單位"></a>單位</h3><ul>
-<li>px：字型大小以像素為絕對單位。</li>
-<li>em：字型大小參考父元素為倍數相對縮放尺寸，例如：父元素外層是 10px，子元素 2em 則是 20px。</li>
-<li>rem：相對於根元素 (:root or html) 的文字尺寸，預設是 16px，元素設定 2rem 則是 32px。</li>
-</ul>
-<h3 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定 inline (包含inline-block)的文字位置，left、right */</span></span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="comment">/*  none、overline、line-througn */</span></span><br><span class="line">    <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">    <span class="comment">/* 文字縮排 */</span></span><br><span class="line">    <span class="attribute">text-indent</span>: <span class="number">1.5rem</span>;</span><br><span class="line">    <span class="comment">/*  capitalize（每個單字第一個英文字大寫）、lowercase（全小寫）、uppercase（全大寫） */</span></span><br><span class="line">    <span class="attribute">text-transform</span>: uppercase;</span><br><span class="line">    <span class="comment">/* 水平、垂直、陰影模糊半徑、顏色，可以設定多重陰影 */</span></span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">3px</span> <span class="number">#999</span>;</span><br><span class="line">    <span class="comment">/* 英文字母或中文字的間隔 */</span></span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 單字間隔，要有空格，中文很難有空格，較適合英文。 */</span></span><br><span class="line">    <span class="attribute">word-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 文字換行，數字或英文字無空格時會產生不換行超出盒框區域，可用此屬性。 */</span></span><br><span class="line">    <span class="comment">/* break-word 在長單詞或URL地址內部進行換行。 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* break-word（過長的單字會自動折到下一行，可避免一江春水向東流。）*/</span></span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(預設，以每個瀏覽器喜好不一定相同，通常保留單字全部) </span></span><br><span class="line"><span class="comment">   break-all(允許在單字的字母換行，也就是不一定要完整的單字) </span></span><br><span class="line"><span class="comment">   keep-all(只能在半角空格或連字符處換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">word-break</span>: break-all;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(忽略空白)  </span></span><br><span class="line"><span class="comment">   pre(像pre標籤，保留空白) </span></span><br><span class="line"><span class="comment">   nowrap(不換行，除非有 br，否則不會斷行，會一直顯示超出區塊。) </span></span><br><span class="line"><span class="comment">   pre-wrap(保留空白，但是正常換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">white-space</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="連結"><a href="#連結" class="headerlink" title="連結"></a>連結</h3><p>連結狀態的變化使用了 CSS 的偽類，偽類家族有非常多種，連結這四個須注意其出現的順序。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>CSS</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -287,7 +108,29 @@
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 以 屬性 + 屬性值 去選擇 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href=<span class="string">&quot;http://google.com.tw/&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 img 元素屬性為 title 的目標 */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[title]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性 type=&#x27;text&#x27; 的目標 */</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;text&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性有 kaifu 單字，根據屬性值中眾多詞中某個詞進行選擇（以空白分隔決定該詞） */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[class~=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 href 的屬性值起始字串為 http:// 的目標  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href^=<span class="string">&quot;http://&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 href 的屬性值結尾字串為 .pdf 的對象  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href$=<span class="string">&#x27;.pdf&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 img 所有 src 屬性值裡面包含單字 kaifu 的對象; */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src*=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取所有圖片裡面有 figure- 的圖片，例如:figure-01.jpg、figure-02.jpg */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src|=<span class="string">&#x27;figure&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>CSS</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS - 文字</title>
+    <url>/2020/08/25/lesson-css-text/</url>
+    <content><![CDATA[<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><p>CSS 常用的字型設定：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定字型家族 */</span></span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Microsoft JhengHei&#x27;</span>, Verdana, Geneva, Tahoma, sans-serif;</span><br><span class="line">    <span class="comment">/* 設定字體大小 px、em、rem */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="comment">/* 設定斜體 */</span></span><br><span class="line">    <span class="attribute">font-style</span>: italic;</span><br><span class="line">    <span class="comment">/* 設定粗體 */</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="comment">/* 設定字體都變成大寫，但第一個字較大 */</span></span><br><span class="line">    <span class="attribute">font-variant</span>: small-caps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="單位"><a href="#單位" class="headerlink" title="單位"></a>單位</h3><ul>
+<li>px：字型大小以像素為絕對單位。</li>
+<li>em：字型大小參考父元素為倍數相對縮放尺寸，例如：父元素外層是 10px，子元素 2em 則是 20px。</li>
+<li>rem：相對於根元素 (:root or html) 的文字尺寸，預設是 16px，元素設定 2rem 則是 32px。</li>
+</ul>
+<h3 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定 inline (包含inline-block)的文字位置，left、right */</span></span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="comment">/*  none、overline、line-througn */</span></span><br><span class="line">    <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">    <span class="comment">/* 文字縮排 */</span></span><br><span class="line">    <span class="attribute">text-indent</span>: <span class="number">1.5rem</span>;</span><br><span class="line">    <span class="comment">/*  capitalize（每個單字第一個英文字大寫）、lowercase（全小寫）、uppercase（全大寫） */</span></span><br><span class="line">    <span class="attribute">text-transform</span>: uppercase;</span><br><span class="line">    <span class="comment">/* 水平、垂直、陰影模糊半徑、顏色，可以設定多重陰影 */</span></span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">3px</span> <span class="number">#999</span>;</span><br><span class="line">    <span class="comment">/* 英文字母或中文字的間隔 */</span></span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 單字間隔，要有空格，中文很難有空格，較適合英文。 */</span></span><br><span class="line">    <span class="attribute">word-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 文字換行，數字或英文字無空格時會產生不換行超出盒框區域，可用此屬性。 */</span></span><br><span class="line">    <span class="comment">/* break-word 在長單詞或URL地址內部進行換行。 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* break-word（過長的單字會自動折到下一行，可避免一江春水向東流。）*/</span></span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(預設，以每個瀏覽器喜好不一定相同，通常保留單字全部) </span></span><br><span class="line"><span class="comment">   break-all(允許在單字的字母換行，也就是不一定要完整的單字) </span></span><br><span class="line"><span class="comment">   keep-all(只能在半角空格或連字符處換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">word-break</span>: break-all;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(忽略空白)  </span></span><br><span class="line"><span class="comment">   pre(像pre標籤，保留空白) </span></span><br><span class="line"><span class="comment">   nowrap(不換行，除非有 br，否則不會斷行，會一直顯示超出區塊。) </span></span><br><span class="line"><span class="comment">   pre-wrap(保留空白，但是正常換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">white-space</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="連結"><a href="#連結" class="headerlink" title="連結"></a>連結</h3><p>連結狀態的變化使用了 CSS 的偽類，偽類家族有非常多種，連結這四個須注意其出現的順序。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -379,6 +222,88 @@
       </tags>
   </entry>
   <entry>
+    <title>CSS - 定位</title>
+    <url>/2020/08/29/lesson-css-position/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Coding 資源</title>
+    <url>/2020/08/29/resource-coding/</url>
+    <content><![CDATA[<h3 id="套件"><a href="#套件" class="headerlink" title="套件"></a>套件</h3><ul>
+<li><a href="https://www.highcharts.com/">HighCharts</a></li>
+<li><a href="https://github.com/validatorjs/validator.js">Validator</a></li>
+<li><a href="https://fontawesome.com/">fontawesome</a></li>
+</ul>
+<h3 id="動畫"><a href="#動畫" class="headerlink" title="動畫"></a>動畫</h3><ul>
+<li><a href="https://animate.style/">Animate.css</a></li>
+<li><a href="https://www.delac.io/wow/">WOW.js</a></li>
+<li><a href="https://elrumordelaluz.github.io/csshake/">CSShake</a></li>
+<li><a href="https://loading.io/">Loading.io</a></li>
+<li><a href="https://animejs.com/">Anime.js</a></li>
+<li><a href="https://css-doodle.com/">CSS-doodle</a></li>
+<li><a href="https://greensock.com/tweenmax/">greensock</a></li>
+<li><a href="https://maxwellito.github.io/vivus/">vivus</a></li>
+<li><a href="https://sarcadass.github.io/granim.js/">Granim.js</a></li>
+<li><a href="https://bennettfeely.com/ztext/">ztext.js</a></li>
+</ul>
+<h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><ul>
+<li><a href="https://easings.net/">easings</a></li>
+<li><a href="https://cubic-bezier.com/#.17,.67,.83,.67">cubic-bezier</a></li>
+<li><a href="https://matthewlein.com/tools/ceaser">調整轉場速率</a></li>
+</ul>
+<a id="more"></a>
+
+<h3 id="一頁式"><a href="#一頁式" class="headerlink" title="一頁式"></a>一頁式</h3><ul>
+<li><a href="https://alvarotrigo.com/fullPage/">FullPage</a></li>
+</ul>
+<h3 id="視差"><a href="#視差" class="headerlink" title="視差"></a>視差</h3><ul>
+<li><a href="https://dixonandmoe.com/rellax/">Dixonand moe</a></li>
+</ul>
+<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><ul>
+<li><a href="https://collectui.com/">Collect UI</a></li>
+<li><a href="https://bootswatch.com/">bootswatch</a></li>
+<li><a href="https://useanimations.com/?fbclid=IwAR2n6GIn9IHyt4HMv_SzWBDx-T78Vzkl5FpyHse7E1LUkd9XfFFVP6I0TJw">介面 ICON SVG 動畫</a></li>
+</ul>
+<h2 id="CSS-Frame"><a href="#CSS-Frame" class="headerlink" title="CSS Frame"></a>CSS Frame</h2><ul>
+<li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+<li><a href="https://materializecss.com/">Materialize</a></li>
+</ul>
+<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><ul>
+<li><a href="https://fonts.google.com/">Google Fonts</a></li>
+</ul>
+<h3 id="Favicon"><a href="#Favicon" class="headerlink" title="Favicon"></a>Favicon</h3><ul>
+<li><a href="https://realfavicongenerator.net/">各裝置、瀏覽器 Favicon 產生器</a></li>
+</ul>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><ul>
+<li><p><a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a></p>
+<p>提供線上 JSON，方便 API 串接測試。</p>
+</li>
+</ul>
+<h3 id="程式"><a href="#程式" class="headerlink" title="程式"></a>程式</h3><ul>
+<li><p><a href="https://codepen.io/">CODEPEN</a></p>
+<p>提供程式碼測試、程式創意來源之地。</p>
+</li>
+</ul>
+<h3 id="RWD-測試"><a href="#RWD-測試" class="headerlink" title="RWD 測試"></a>RWD 測試</h3><ul>
+<li><a href="https://responsively.app/">Responsively</a></li>
+</ul>
+<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><ul>
+<li><p><a href="https://hackmd.io/">HackMD</a></p>
+<p>線上 Markdown 編輯器，紀錄一生的學習。</p>
+</li>
+</ul>
+<h3 id="打字"><a href="#打字" class="headerlink" title="打字"></a>打字</h3><ul>
+<li><a href="https://10fastfingers.com/typing-test/english">打字練習</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Coding資源</category>
+      </categories>
+  </entry>
+  <entry>
     <title>CSS資源</title>
     <url>/2020/08/18/resource-css-useful-site/</url>
     <content><![CDATA[<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><ul>
@@ -429,6 +354,81 @@
 ]]></content>
       <categories>
         <category>CSS資源</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>學習資源</title>
+    <url>/2020/08/29/resource-learn/</url>
+    <content><![CDATA[<ul>
+<li>無暇的程式碼 JavaScript <a href="https://github.com/AllJointTW/clean-code-javascript">Github</a></li>
+<li>網頁動畫大全 <a href="https://github.com/sergey-pimenov/awesome-web-animation">awesome-web-animation</a></li>
+<li>一行 JavaScript 處理陣列、日期、數字、DOM 等等 <a href="https://1loc.dev/">官網</a>、<a href="https://github.com/phuoc-ng/1loc">Github</a></li>
+<li>一行 CSS Layouts <a href="http://1linelayouts.glitch.me/?fbclid=IwAR2HAWUL1DYbaYLw2T9wQNcvTUEqQ0mZICjCPj9CgUd3y0f-tO8skAFNiTM">官網</a></li>
+<li>一個 Div 做出來的 CSS 物件 <a href="https://a.singlediv.com/">Single Div</a></li>
+<li>HEAD 大全 <a href="https://htmlhead.dev/">官網</a>、<a href="https://github.com/joshbuchea/HEAD">Github</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>學習資源</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>設計常用工具及網站</title>
+    <url>/2020/08/29/resource-normal-tools/</url>
+    <content><![CDATA[<h3 id="截圖"><a href="#截圖" class="headerlink" title="截圖"></a>截圖</h3><ul>
+<li><p><a href="https://www.playpcesor.com/2014/02/sharex.html">ShareX</a></p>
+<p>截圖工具，截圖後能自動上傳雲端硬碟、加浮水印，也能錄製 GIF</p>
+</li>
+</ul>
+<h3 id="秀圖"><a href="#秀圖" class="headerlink" title="秀圖"></a>秀圖</h3><ul>
+<li><a href="https://steachs.com/archives/32681">軟體說明</a></li>
+<li><a href="https://www.cherubicsoft.com/en/projects/sagethumbs#.VwKhKUeNjDA">SageThumbs</a></li>
+</ul>
+<p>檔案總管顯示 Photoshop 檔縮圖、一鍵轉 JPG、PNG、GIF、BMP</p>
+<h3 id="套版"><a href="#套版" class="headerlink" title="套版"></a>套版</h3><ul>
+<li><a href="https://mobirise.com/">Mobirise</a></li>
+</ul>
+<h3 id="版型"><a href="#版型" class="headerlink" title="版型"></a>版型</h3><ul>
+<li><a href="https://www.webdesignclip.com/">日本風版型(一)</a></li>
+<li><a href="https://responsive-jp.com/">日本風版型(二)</a></li>
+</ul>
+<h3 id="LOGO"><a href="#LOGO" class="headerlink" title="LOGO"></a>LOGO</h3><ul>
+<li><a href="https://www.launchaco.com/logo">LOGO 產生器</a></li>
+</ul>
+<h3 id="圖庫"><a href="#圖庫" class="headerlink" title="圖庫"></a>圖庫</h3><ul>
+<li><a href="https://www.deviantart.com/">Deviantart</a></li>
+<li><a href="https://pixabay.com/">Pixabay</a></li>
+<li><a href="https://unsplash.com/">Unsplash</a></li>
+<li><a href="http://www.morguefile.com/">Morguefile</a></li>
+<li><a href="https://www.pexels.com/">Pexels</a></li>
+<li><a href="http://tw.freeimages.com/">Freeimages</a></li>
+<li><a href="http://www.stockvault.net/">Stockvault</a></li>
+<li><a href="http://www.freedigitalphotos.net/">Freedigital</a></li>
+<li><a href="http://www.dreamstime.com/">Dreamstime/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>設計常用工具及網站</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>網頁設計證照資源</title>
+    <url>/2020/08/29/resource-web-license/</url>
+    <content><![CDATA[<h3 id="網頁設計乙、丙級素材"><a href="#網頁設計乙、丙級素材" class="headerlink" title="網頁設計乙、丙級素材"></a>網頁設計乙、丙級素材</h3><ul>
+<li><a href="https://techbank.wdasec.gov.tw/owInform/TestReferData.aspx#17300">技檢中心乙丙級題目和素材</a></li>
+</ul>
+<h3 id="網頁設計乙級"><a href="#網頁設計乙級" class="headerlink" title="網頁設計乙級"></a>網頁設計乙級</h3><ul>
+<li><a href="http://onlinetest2.slhs.tp.edu.tw/bestcontent.asp?examid=bests">學科測驗</a></li>
+<li><a href="https://bquiz.kento520.tw/">術科解題</a></li>
+<li><a href="https://bquiz.mackliu.com/">術科解題</a></li>
+<li><a href="https://reurl.cc/R10Ex6">術科解題</a></li>
+</ul>
+<h3 id="網頁設計丙級"><a href="#網頁設計丙級" class="headerlink" title="網頁設計丙級"></a>網頁設計丙級</h3><ul>
+<li><a href="http://onlinetest1-5.slhs.tp.edu.tw/bestcontent.asp?examid=t17300">學科測驗</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>網頁設計證照資源</category>
       </categories>
   </entry>
 </search>
