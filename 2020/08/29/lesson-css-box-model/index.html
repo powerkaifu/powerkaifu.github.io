@@ -39,12 +39,12 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="前言CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。">
+  <meta name="description" content="盒模型CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。 在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS - 盒模型">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/08/29/lesson-css-box-model/index.html">
 <meta property="og:site_name" content="泰山職訓AFU">
-<meta property="og:description" content="前言CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。">
+<meta property="og:description" content="盒模型CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。 在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://powerkaifu.github.io/images/css/csss-box-model.png">
 <meta property="article:published_time" content="2020-08-29T13:07:51.000Z">
@@ -263,10 +263,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。</p>
+        <h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。</p>
+<p>在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一個矩形的盒子，它通常被稱為元素盒（element box）。每個元素盒的中心是內容區域（content area），也就是放文字、圖片的區域，內容區域的周圍還有內距（padding）、邊框（border）、外距（margin），由這些屬性來形成盒模型。</p>
 <a id="more"></a>
 
-<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一個矩形的盒子，它通常被稱為元素盒（element box）。每個元素盒的中心是內容區域（content area），也就是放文字、圖片的區域，內容區域的周圍還有內距（padding）、邊框（border）、外距（margin），由這些屬性來形成盒模型。</p>
 <img data-src="/images/css/csss-box-model.png" width="500">
 
 <p>其中，這些屬性值得注意的是，它們都是選擇性的，內距（padding）的背景（顏色、重複圖片）預設是可以顯示在內距之內，它決定內容區域（content area）與邊框（border）之間的留白。外距（margin）它一定是透明，但可以顯示父元素的背景，也就是盒子與盒子之間的距離。內距無法使用負數，外距可以使用複數。邊框沒有指定顏色，會自動渲染內容區的前景色，也就是 color，邊框也是不能有負值。</p>
@@ -323,8 +323,8 @@
       <i class="fa fa-chevron-left"></i> 學習資源
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/08/29/lesson-css-position/" rel="next" title="CSS - 定位">
-      CSS - 定位 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/29/lesson-css-float/" rel="next" title="CSS - 浮動">
+      CSS - 浮動 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -384,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9B%92"><span class="nav-number">3.</span> <span class="nav-text">基本盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%80%E5%A1%8A%E7%9B%92"><span class="nav-number">4.</span> <span class="nav-text">區塊盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%85%A7%E7%9B%92"><span class="nav-number">5.</span> <span class="nav-text">行內盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%85%A7%E5%8D%80%E5%A1%8A%E7%9B%92"><span class="nav-number">6.</span> <span class="nav-text">行內區塊盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%B0%E6%89%8D%E6%98%AF%E8%B6%85%E7%B4%9A%E5%A4%A7%E5%9C%B0%E4%B8%BB%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">誰才是超級大地主？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Margin%E3%80%81Padding%E3%80%81Border"><span class="nav-number">8.</span> <span class="nav-text">Margin、Padding、Border</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#display"><span class="nav-number">9.</span> <span class="nav-text">display</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Box-sizing"><span class="nav-number">10.</span> <span class="nav-text">Box-sizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overflow"><span class="nav-number">11.</span> <span class="nav-text">Overflow</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9B%92"><span class="nav-number">2.</span> <span class="nav-text">基本盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%80%E5%A1%8A%E7%9B%92"><span class="nav-number">3.</span> <span class="nav-text">區塊盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%85%A7%E7%9B%92"><span class="nav-number">4.</span> <span class="nav-text">行內盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%85%A7%E5%8D%80%E5%A1%8A%E7%9B%92"><span class="nav-number">5.</span> <span class="nav-text">行內區塊盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%B0%E6%89%8D%E6%98%AF%E8%B6%85%E7%B4%9A%E5%A4%A7%E5%9C%B0%E4%B8%BB%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">誰才是超級大地主？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Margin%E3%80%81Padding%E3%80%81Border"><span class="nav-number">7.</span> <span class="nav-text">Margin、Padding、Border</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#display"><span class="nav-number">8.</span> <span class="nav-text">display</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Box-sizing"><span class="nav-number">9.</span> <span class="nav-text">Box-sizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overflow"><span class="nav-number">10.</span> <span class="nav-text">Overflow</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
