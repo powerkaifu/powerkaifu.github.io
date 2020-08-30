@@ -3,7 +3,7 @@
   <entry>
     <title>部落格介紹</title>
     <url>/2020/08/18/index/</url>
-    <content><![CDATA[<p>修修改改的筆記。</p>
+    <content><![CDATA[<p>我是修修改改的筆記本。</p>
 <ul>
 <li>首頁：回首頁</li>
 <li>標籤：課程筆記</li>
@@ -11,6 +11,14 @@
 <li>搜尋：搜尋文章</li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>lesson-css-position</title>
+    <url>/2020/08/30/lesson-css-position/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
   </entry>
   <entry>
     <title>CSS - 浮動</title>
@@ -38,7 +46,7 @@
 
 <p>其中，這些屬性值得注意的是，它們都是選擇性的，內距（padding）的背景（顏色、重複圖片）預設是可以顯示在內距之內，它決定內容區域（content area）與邊框（border）之間的留白。外距（margin）它一定是透明，但可以顯示父元素的背景，也就是盒子與盒子之間的距離。內距無法使用負數，外距可以使用複數。邊框沒有指定顏色，會自動渲染內容區的前景色，也就是 color，邊框也是不能有負值。</p>
 <h3 id="基本盒"><a href="#基本盒" class="headerlink" title="基本盒"></a>基本盒</h3><p>盒模型可以由兩個基本盒子說起，區塊盒（block-level box）、行內盒（inline box）。這兩個盒子型態是 CSS 世界的大眾居民，大部分元素都是這兩種型態（按鈕元素表示哭哭），最經典的範例各自代表為 div、span，當我們建立 div 元素等同建立一個區塊盒，建立 span 則是行內盒，概念如此。</p>
-<h3 id="區塊盒"><a href="#區塊盒" class="headerlink" title="區塊盒"></a>區塊盒</h3><p>區塊盒這個居民是 CSS 世界的大地主，它們掌控了土地的霸權，所以當它們出現，正常流向由左至右的絕對空間（前、後換行），也就是整塊土地都會完全被它們佔有，非常霸道！區塊盒在正常流向裡會垂直堆疊。若有垂直外距有重疊時，則較大的外距會吃掉較小的外距。區塊盒的盒屬性相關設定都可以正常作用。</p>
+<h3 id="區塊盒"><a href="#區塊盒" class="headerlink" title="區塊盒"></a>區塊盒</h3><p>區塊盒這個居民是 CSS 世界的地主，它們掌控了土地空間的霸權，所以當它們出現，正常流向由左至右的絕對空間（前、後換行），也就是整塊土地都會完全被它們佔有！區塊盒在正常流向裡會垂直堆疊。若有垂直外距有重疊時，則較大的外距會吃掉較小的外距。區塊盒的盒屬性相關設定都可以正常作用。</p>
 <blockquote>
 <p>區塊盒例子：div、h1、p、ul、li、table 等等。</p>
 </blockquote>
@@ -48,7 +56,7 @@
 <p>行內盒例子：span、a、em 等等。</p>
 </blockquote>
 <h3 id="行內區塊盒"><a href="#行內區塊盒" class="headerlink" title="行內區塊盒"></a>行內區塊盒</h3><p>行內區塊盒（Inline-Block Box），它是介於居民與地主的角色，它的外在行為是行內居民，也就是會像居民乖乖排列，但內在行為卻是區塊地主，區塊盒的盒屬性相關設定它都可以正常作用。<br>那麼，誰才是 CSS 世界掌握最多資源的超級大地主？答案呼之欲出。</p>
-<h3 id="誰才是超級大地主？"><a href="#誰才是超級大地主？" class="headerlink" title="誰才是超級大地主？"></a>誰才是超級大地主？</h3><p>超級大地主指的是初始容器區塊（initial containing block），雖然 body 很像超級大地主，但可以說是表關的超級大地主，真正裏關的超級大地主是根元素，也就是 body 的上層 html 元素，html 元素建立的是初始容器區塊，而初始容器區塊是由瀏覽器視埠（viewport）決定本身的尺寸。這也是為甚麼 body 的高度百分比無效化，原來它被 html 這個超級大地主控制著。</p>
+<h3 id="誰才是超級大地主？"><a href="#誰才是超級大地主？" class="headerlink" title="誰才是超級大地主？"></a>誰才是超級大地主？</h3><p>超級大地主指的是初始容器區塊（initial containing block），body 只能算是大地主，隱藏版的超級大地主是根元素，也就是 body 的上層 html 元素，html 元素建立的是初始容器區塊，而初始容器區塊是由瀏覽器視埠（viewport）決定本身的尺寸。這也是為甚麼 body 的高度百分比無效化，原來它被 html 這個超級大地主控制著。</p>
 <h3 id="Margin、Padding、Border"><a href="#Margin、Padding、Border" class="headerlink" title="Margin、Padding、Border"></a>Margin、Padding、Border</h3><ul>
 <li>外距、內距若設定百分比（如果有特殊需求），會根據父元素的寬度來計算，即便是上下外距、內距的百分比也是如此，而不是高度喔。</li>
 <li>外距可以負數，內距不可以負數。</li>
