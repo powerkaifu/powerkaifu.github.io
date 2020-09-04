@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f1a167;
+  background: #d4ffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2750,10 +2750,10 @@ h6 {
   }
 }
 @media (min-width: 1200px) {
-  .header {
-    box-shadow: 0 0 10px 3px rgba(0,0,0,0.8) !important;
-    height: 100% !important;
-    width: 320px !important;
+  .sidebar {
+    margin-top: 0 !important;
+    padding-top: 321px !important;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.8);
   }
   .content-wrap {
     width: calc(100% - 310px);
