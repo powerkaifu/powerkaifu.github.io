@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #deb4ff;
+  background: #74b1ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2691,17 +2691,18 @@ strong {
 a:hover {
   color: #eee;
 }
-.content-wrap {
-  background: #222;
+.header {
+  width: 320px !important;
+  height: 100% !important;
+  box-shadow: 0 0 10px 3px rgba(0,0,0,0.8) !important;
 }
-.header-inner {
-  background: #000;
-}
-.site-brand-container {
-  background: #000;
-}
+.header-inner,
+.site-brand-container,
 .sidebar-inner {
   background: #000;
+}
+.content-wrap {
+  background: #222;
 }
 .book-mark-link {
   margin-top: -2px;
@@ -2714,8 +2715,8 @@ a:hover {
 .post-body {
   background: rgba(0,0,0,0.2);
   border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
   border-radius: 1rem;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
   padding-bottom: 1.2rem !important;
   padding-top: 0.2rem !important;
 }
