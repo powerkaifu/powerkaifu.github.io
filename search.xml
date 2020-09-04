@@ -13,9 +13,31 @@
 ]]></content>
   </entry>
   <entry>
-    <title>lesson-css-position</title>
+    <title>CSS - 定位</title>
     <url>/2020/08/30/lesson-css-position/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是新人必須要了解的重點</strong>，也就是它們所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有個特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層（z-index）。</p>
+<a id="more"></a>
+
+<h3 id="西天取經"><a href="#西天取經" class="headerlink" title="西天取經"></a>西天取經</h3><p>以西遊記舉例，唐僧帶領了師徒三人及白龍馬前往西天取經，遭逢九九八十一難關…，我們現在假設父元素是唐三藏，子元素分別是會七十二變的悟空、好色諂媚愛搞分化的八戒、無聲努力辛勤的沙僧以及偶爾串場的白龍馬，我們將它們全部轉型為 inline-block 橫向流動排列，目前取經團子成員都乖乖在唐僧管理下正常流向排列著。</p>
+<img data-src="/images/css/css-position-01.png" width="500">
+
+<h3 id="相對定位"><a href="#相對定位" class="headerlink" title="相對定位"></a>相對定位</h3><p>此時，諂媚愛分化團隊的八戒使用了相對定位 position:relative，在瀏覽器的視覺上並未有任何改變，但其實八戒已經進入定位層（氣焰囂張），八戒還使用了偏移（top、bottom、left、right）會在團隊之間遊說不利團隊的話語，在西遊記裡，唐僧對八戒非常容忍，說容忍還是唐僧也愛聽諂媚的話？不會將其趕出團隊，我們發現八戒原本的位置會被保留空下，後方的沙僧、白馬並不會遞補上去，沒人敢挑戰二師兄的位置。這也讓我們知道相對定位並不會讓元素原本的位置脫離正常流向，就像八戒空出的位置一樣。</p>
+<img data-src="/images/css/css-position-02.png" width="500">
+
+<h3 id="絕對定位"><a href="#絕對定位" class="headerlink" title="絕對定位"></a>絕對定位</h3><p>大師兄孫悟空，師承菩提老祖習成七十二變，吃王母娘娘蟠桃、喝壽酒身體變成刀槍不入，又在太上老君金爐練成能看穿妖魔的「火眼金睛」，在團隊裡面衝鋒陷陣戰鬥力堪稱第一。八戒的挑撥是非，讓唐僧與悟空的關係好幾次讓團隊陷入危機，氣到悟空使用了絕對定位 position:absolute，下圖可以看到悟空也進入的定位層（腳踏觔斗雲原地起飛），我們也可以看到八戒一心想取代大師兄的位置，此時八戒在悟空的底下，也就是悟空原本的位置，悟空後方的師弟們都向前遞補了，這也讓我們知道了絕對定位會脫離正常流向。</p>
+<img data-src="/images/css/css-position-03.png" width="500">
+
+<p>若是八戒也如同上方設定了 position:relative，我們會更清楚看見八戒想取代悟空的野心，這是因為八戒是後方元素的關係，當悟空、八戒兩者都進入定位層，八戒就會覆蓋了悟空。</p>
+<img data-src="/images/css/css-position-04.png" width="500">
+
+<p>被師父誤會的悟空，內心百感交集，心想：「遇到妖怪我來打，Boss 太強，師傅被抓找救兵也是靠我的關係，現在師傅盡聽信老豬的廢話，沒把我放在心上」，一氣之下使用了偏移 top:0、left:0，搭上觔斗雲一個跟斗翻了十萬八千里回到了花果山（瀏覽器左上角位置），悟空徹底離開了團隊，尋找到最後的位置－花果山。</p>
+<img data-src="/images/css/css-position-05.png" width="500">
+
+<h3 id="唐僧的緊箍咒"><a href="#唐僧的緊箍咒" class="headerlink" title="唐僧的緊箍咒"></a>唐僧的緊箍咒</h3><p>那有甚麼辦法讓大師兄悟空繼續留在團隊呢？有的！那就是觀音給了唐僧「緊箍圈」與「緊箍咒」，緊箍圈已經帶在悟空的頭頂，而緊箍咒是當悟空不受控時發動，又名為定心真言，也就是唐僧對自己使用了 position:relative，那麼悟空就又會回到團隊裡面，即使悟空使用了 top、bottom、left、right 偏移，也會以唐僧為基準點。最後我們得到了一個結論，<strong>相對定位常會被父元素當作一個錨點定位，而讓子元素可以依據這個定位點進行絕對定位的偏移</strong>。</p>
+<img data-src="/images/css/css-position-06.png" width="500">
+
+<h3 id="固定定位"><a href="#固定定位" class="headerlink" title="固定定位"></a>固定定位</h3><p>position:fixed，固定定位可以說定位裡面最愛刷存在感的定位，它就像穿著寬鬆背心愛秀肌肉的猛男，希望成為大眾目光焦點，所以捲軸上下移動是無法脫離這位自戀狂，它就會像廣告看板固定在一個位置，說著：來看我，來看我。通常，固定定位只有一個基準點位置，那就是瀏覽器視窗的左上角為 left:0，top:0 為偏移基準點，但…若遇到了父元素有 transform 屬性就不是了。結論：<strong>絕對定位、固定定位都會讓元素脫離正常流向</strong>。</p>
+]]></content>
       <tags>
         <tag>css</tag>
       </tags>
@@ -42,7 +64,7 @@
 <p>在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一個矩形的盒子，它通常被稱為元素盒（element box）。每個元素盒的中心是內容區域（content area），也就是放文字、圖片的區域，內容區域的周圍還有內距（padding）、邊框（border）、外距（margin），由這些屬性來形成盒模型。</p>
 <a id="more"></a>
 
-<img data-src="/images/css/csss-box-model.png" width="500">
+<img data-src="/images/css/css-box-model.png" width="500">
 
 <p>其中，這些屬性值得注意的是，它們都是選擇性的，內距（padding）的背景（顏色、重複圖片）預設是可以顯示在內距之內，它決定內容區域（content area）與邊框（border）之間的留白。外距（margin）它一定是透明，但可以顯示父元素的背景，也就是盒子與盒子之間的距離。內距無法使用負數，外距可以使用複數。邊框沒有指定顏色，會自動渲染內容區的前景色，也就是 color，邊框也是不能有負值。</p>
 <h3 id="基本盒"><a href="#基本盒" class="headerlink" title="基本盒"></a>基本盒</h3><p>盒模型可以由兩個基本盒子說起，區塊盒（block-level box）、行內盒（inline box）。這兩個盒子型態是 CSS 世界的大眾居民，大部分元素都是這兩種型態（按鈕元素表示哭哭），最經典的範例各自代表為 div、span，當我們建立 div 元素等同建立一個區塊盒，建立 span 則是行內盒，概念如此。</p>

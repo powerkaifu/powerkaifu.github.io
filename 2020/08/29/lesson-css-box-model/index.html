@@ -46,13 +46,13 @@
 <meta property="og:site_name" content="泰山職訓AFU">
 <meta property="og:description" content="盒模型CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。 在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/csss-box-model.png">
+<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-box-model.png">
 <meta property="article:published_time" content="2020-08-29T13:07:51.000Z">
 <meta property="article:modified_time" content="2020-08-29T13:07:51.000Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://powerkaifu.github.io/images/css/csss-box-model.png">
+<meta name="twitter:image" content="https://powerkaifu.github.io/images/css/css-box-model.png">
 
 <link rel="canonical" href="https://powerkaifu.github.io/2020/08/29/lesson-css-box-model/">
 
@@ -267,7 +267,7 @@
 <p>在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一個矩形的盒子，它通常被稱為元素盒（element box）。每個元素盒的中心是內容區域（content area），也就是放文字、圖片的區域，內容區域的周圍還有內距（padding）、邊框（border）、外距（margin），由這些屬性來形成盒模型。</p>
 <a id="more"></a>
 
-<img data-src="/images/css/csss-box-model.png" width="500">
+<img data-src="/images/css/css-box-model.png" width="500">
 
 <p>其中，這些屬性值得注意的是，它們都是選擇性的，內距（padding）的背景（顏色、重複圖片）預設是可以顯示在內距之內，它決定內容區域（content area）與邊框（border）之間的留白。外距（margin）它一定是透明，但可以顯示父元素的背景，也就是盒子與盒子之間的距離。內距無法使用負數，外距可以使用複數。邊框沒有指定顏色，會自動渲染內容區的前景色，也就是 color，邊框也是不能有負值。</p>
 <h3 id="基本盒"><a href="#基本盒" class="headerlink" title="基本盒"></a>基本盒</h3><p>盒模型可以由兩個基本盒子說起，區塊盒（block-level box）、行內盒（inline box）。這兩個盒子型態是 CSS 世界的大眾居民，大部分元素都是這兩種型態（按鈕元素表示哭哭），最經典的範例各自代表為 div、span，當我們建立 div 元素等同建立一個區塊盒，建立 span 則是行內盒，概念如此。</p>
