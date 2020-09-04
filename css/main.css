@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d7ff7a;
+  background: #deb4ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2695,7 +2695,7 @@ a:hover {
   background: #222;
 }
 .header-inner {
-  background: #222;
+  background: #000;
 }
 .site-brand-container {
   background: #000;
@@ -2708,12 +2708,28 @@ a:hover {
   z-index: 9999;
 }
 .footer {
-  background: var(--content-bg-color) !important;
+  background: #000 !important;
   width: 100%;
+}
+.post-body {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  border-radius: 1rem;
+  padding-bottom: 1.2rem !important;
+  padding-top: 0.2rem !important;
+}
+.post-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 1px 1px 1px #000, 2px 2px 1px #000;
 }
 @media (min-width: 768px) {
   .footer {
-    background: var(--content-bg-color) !important;
     float: right;
     width: 100%;
   }
@@ -2737,7 +2753,6 @@ a:hover {
     position: fixed;
   }
   .footer {
-    background: var(--content-bg-color) !important;
     float: right;
     margin-top: 0;
     width: calc(100% - 320px);
@@ -2751,7 +2766,6 @@ a:hover {
     width: calc(100% - 310px);
   }
   .footer {
-    background: rgba(0,0,0,0.9) !important;
     float: right;
     margin-right: auto;
     margin-top: 0;
