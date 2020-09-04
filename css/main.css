@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #74b1ff;
+  background: #ff4fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2691,11 +2691,6 @@ strong {
 a:hover {
   color: #eee;
 }
-.header {
-  width: 320px !important;
-  height: 100% !important;
-  box-shadow: 0 0 10px 3px rgba(0,0,0,0.8) !important;
-}
 .header-inner,
 .site-brand-container,
 .sidebar-inner {
@@ -2711,14 +2706,6 @@ a:hover {
 .footer {
   background: #000 !important;
   width: 100%;
-}
-.post-body {
-  background: rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 1rem;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-  padding-bottom: 1.2rem !important;
-  padding-top: 0.2rem !important;
 }
 .post-title,
 h1,
@@ -2763,6 +2750,11 @@ h6 {
   }
 }
 @media (min-width: 1200px) {
+  .header {
+    box-shadow: 0 0 10px 3px rgba(0,0,0,0.8) !important;
+    height: 100% !important;
+    width: 320px !important;
+  }
   .content-wrap {
     width: calc(100% - 310px);
   }
@@ -2773,6 +2765,10 @@ h6 {
     width: calc(100% - 320px);
   }
   .post-body {
-    padding: 0 4rem;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 1rem;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    padding: 0.2rem 4rem 1.2rem;
   }
 }
