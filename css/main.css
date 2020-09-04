@@ -2,9 +2,9 @@
   --body-bg-color: #f5f7f9;
   --content-bg-color: rgba(0,0,0,0.8);
   --card-bg-color: #f5f5f5;
-  --text-color: #555;
+  --text-color: #fff;
   --blockquote-color: #666;
-  --link-color: #555;
+  --link-color: #fff;
   --link-hover-color: rgba(0,0,0,0.6);
   --brand-color: #fff;
   --brand-hover-color: #fff;
@@ -12,8 +12,8 @@
   --table-row-hover-bg-color: #f5f5f5;
   --menu-item-bg-color: #f5f5f5;
   --btn-default-bg: #fff;
-  --btn-default-color: #555;
-  --btn-default-border-color: #555;
+  --btn-default-color: #fff;
+  --btn-default-border-color: #fff;
   --btn-default-hover-bg: rgba(0,0,0,0.6);
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: rgba(0,0,0,0.6);
@@ -22,7 +22,7 @@
   :root {
     --body-bg-color: rgba(0,0,0,0.8);
     --content-bg-color: rgba(0,0,0,0.8);
-    --card-bg-color: #555;
+    --card-bg-color: #fff;
     --text-color: #ccc;
     --blockquote-color: #bbb;
     --link-color: #ccc;
@@ -31,10 +31,10 @@
     --brand-hover-color: #ddd;
     --table-row-odd-bg-color: #282828;
     --table-row-hover-bg-color: #363636;
-    --menu-item-bg-color: #555;
+    --menu-item-bg-color: #fff;
     --btn-default-bg: rgba(0,0,0,0.6);
     --btn-default-color: #ccc;
-    --btn-default-border-color: #555;
+    --btn-default-border-color: #fff;
     --btn-default-hover-bg: #666;
     --btn-default-hover-color: #ccc;
     --btn-default-hover-border-color: #666;
@@ -299,7 +299,7 @@ kbd {
   border: 1px solid #ccc;
   border-radius: 0.2em;
   box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.1);
-  color: #555;
+  color: #fff;
   font-family: inherit;
   padding: 0.1em 0.3em;
   white-space: nowrap;
@@ -447,7 +447,7 @@ code {
 code {
   background: #eee;
   border-radius: 3px;
-  color: #555;
+  color: #fff;
   padding: 2px 4px;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -631,7 +631,7 @@ pre .javascript .function {
   margin-bottom: 10px;
 }
 .post-body .label {
-  color: #555;
+  color: #fff;
   display: inline;
   padding: 0 2px;
 }
@@ -1307,7 +1307,7 @@ pre .javascript .function {
 }
 .links-of-author a,
 .links-of-author span.exturl {
-  border-bottom-color: #555;
+  border-bottom-color: #fff;
   display: inline-block;
   font-size: 0.9em;
   margin-bottom: 10px;
@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5dcf7d;
+  background: #ffacff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
