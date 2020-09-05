@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d4ffff;
+  background: #ffd485;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2691,6 +2691,15 @@ strong {
 a:hover {
   color: #eee;
 }
+.book-mark-link {
+  display: none;
+}
+.book-mark-link::before {
+  color: #fff;
+}
+.github-corner svg {
+  fill: #111;
+}
 .header-inner,
 .site-brand-container,
 .sidebar-inner {
@@ -2751,9 +2760,9 @@ h6 {
 }
 @media (min-width: 1200px) {
   .sidebar {
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.8);
     margin-top: 0 !important;
     padding-top: 321px !important;
-    box-shadow: 0 0 10px 5px rgba(0,0,0,0.8);
   }
   .content-wrap {
     width: calc(100% - 310px);
