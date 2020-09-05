@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c7ebff;
+  background: #ff94c2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2710,6 +2710,9 @@ a:hover {
 }
 .content-wrap {
   background: #222;
+}
+.tag-cloud-tags a {
+  color: rgba(255,255,255,0.3) !important;
 }
 .book-mark-link {
   margin-top: -2px;
