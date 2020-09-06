@@ -39,31 +39,36 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="泰山職訓局前端講師">
-<meta property="og:type" content="website">
-<meta property="og:title" content="泰山職訓AFU">
-<meta property="og:url" content="https://powerkaifu.github.io/page/2/index.html">
+  <meta name="description" content="變形transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS - 變形">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/09/07/lesson-css-transform/index.html">
 <meta property="og:site_name" content="泰山職訓AFU">
-<meta property="og:description" content="泰山職訓局前端講師">
+<meta property="og:description" content="變形transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-transform-01.png">
+<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-transform-02.png">
+<meta property="article:published_time" content="2020-09-06T18:44:02.000Z">
+<meta property="article:modified_time" content="2020-09-06T18:44:02.000Z">
 <meta property="article:author" content="Kai-Fu Chang">
-<meta property="article:tag" content="泰山職訓局,泰山前端,前端設計,前端工程,網頁設計,html,css,javascript,bootstrap">
+<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://powerkaifu.github.io/images/css/css-transform-01.png">
 
-<link rel="canonical" href="https://powerkaifu.github.io/page/2/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/09/07/lesson-css-transform/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>泰山職訓AFU</title>
+  <title>CSS - 變形 | 泰山職訓AFU</title>
   
     <script>
       function sendPageView() {
@@ -215,13 +220,14 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/25/lesson-css-text/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/07/lesson-css-transform/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.png">
@@ -233,10 +239,9 @@
       <meta itemprop="name" content="泰山職訓AFU">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/25/lesson-css-text/" class="post-title-link" itemprop="url">CSS - 文字</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          CSS - 變形
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -245,7 +250,7 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2020-08-25 14:26:31" itemprop="dateCreated datePublished" datetime="2020-08-25T14:26:31+08:00">2020-08-25</time>
+              <time title="創建時間：2020-09-07 02:44:02" itemprop="dateCreated datePublished" datetime="2020-09-07T02:44:02+08:00">2020-09-07</time>
             </span>
 
           
@@ -259,255 +264,63 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><p>CSS 常用的字型設定：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定字型家族 */</span></span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Microsoft JhengHei&#x27;</span>, Verdana, Geneva, Tahoma, sans-serif;</span><br><span class="line">    <span class="comment">/* 設定字體大小 px、em、rem */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="comment">/* 設定斜體 */</span></span><br><span class="line">    <span class="attribute">font-style</span>: italic;</span><br><span class="line">    <span class="comment">/* 設定粗體 */</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="comment">/* 設定字體都變成大寫，但第一個字較大 */</span></span><br><span class="line">    <span class="attribute">font-variant</span>: small-caps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/25/lesson-css-text/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
+        <h3 id="變形"><a href="#變形" class="headerlink" title="變形"></a>變形</h3><p>transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果不再是矩形呢？有了想打破這矩形的限制，transform 就這樣誕生了。</p>
+<p>變形有四個函式，分別是平移（translate）、縮放（scale）、旋轉（rotate）、歪斜（skew）。</p>
+<a id="more"></a>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/23/lesson-css-base-selector/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="泰山職訓局前端講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="泰山職訓AFU">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/23/lesson-css-base-selector/" class="post-title-link" itemprop="url">CSS - 選擇器 (一)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-08-23 10:47:59" itemprop="dateCreated datePublished" datetime="2020-08-23T10:47:59+08:00">2020-08-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責頁面的版型、文字、顏色、尺寸、響應式等等。</p>
-<h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><p>一個「選擇器」決定選擇的元素目標，連結著大括號「{}」，大括號裡面是屬性、屬性值，以冒號「:」分隔屬性與屬性值，屬性值後面以分號「;」結尾。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">選擇器 &#123;</span><br><span class="line">    屬性: 屬性值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/23/lesson-css-base-selector/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/19/lesson-html/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="泰山職訓局前端講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="泰山職訓AFU">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/19/lesson-html/" class="post-title-link" itemprop="url">HTML</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-08-19 12:20:46" itemprop="dateCreated datePublished" datetime="2020-08-19T12:20:46+08:00">2020-08-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><blockquote>
-<p>在網頁裡，每項技術都扮演了一個重要的角色</p>
+<h3 id="座標系統"><a href="#座標系統" class="headerlink" title="座標系統"></a>座標系統</h3><p>CSS 世界使用的座標系統是「笛卡爾座標系統」，沒錯，就是那位「我思，故我在」的笛卡爾。X 軸跟我們認知是一樣，往右為正值，往左為負值；但有點不同的是，一般我們的認知是 Y 軸 的正值應該是往上，但是對於 CSS 而言，不管是定位（position）、變形（transform）又或是使用文字陰影（text-shadow）、盒陰影（box-shadow）， Y 的正值是相反，也就是往下。而最後的 Z 軸，就如同定位的 z-index，朝著使用者是正，遠離使用者為負。</p>
+<blockquote>
+<p>X 軸（右正、左負），Y 軸（下正、上負），Z 軸（朝向使用者為正、遠離使用者為負）</p>
 </blockquote>
-<p>指的是 HTML、CSS、JavaScript 三兄弟，若用蓋房子來比喻，三兄弟各有自己執掌的工作，分別為：</p>
-<ul>
-<li>HTML（結構、內容）：如同蓋房子需要的基礎建材，鋼筋、水泥、門、窗等等。</li>
-<li>CSS（樣式、外觀）：如同蓋完房子後的裝潢設計師，打造漂亮的房子。</li>
-<li>JavaScript（事件、行為）：如同房子內部設施開關觸發後產生的能源。</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/19/lesson-html/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+<img data-src="/images/css/css-transform-01.png" width="700">
+
+<h3 id="球面系統"><a href="#球面系統" class="headerlink" title="球面系統"></a>球面系統</h3><p>其次，CSS 變形中旋轉（rotate）使用的是球面系統（spherical system）。這邊不容易理解，尤其對我這容易迷路的 2D 螞蟻人來說，我個人的記憶點是可以想成每個軸位方向如同一根棍子插入球體時，此時球體可以轉動的方向。</p>
+<blockquote>
+<p>X 軸（前後翻轉）、Y 軸（左右翻轉）、Z 軸（平面旋轉）</p>
+</blockquote>
+<img data-src="/images/css/css-transform-02.png" width="700">
+
+<h3 id="重要規則"><a href="#重要規則" class="headerlink" title="重要規則"></a>重要規則</h3><p>變形可以套用多個函式，寫法是之間<strong>不需要逗點分隔</strong>。變形函式的順序會由左至右套用，<strong>順序很重要，它會影響整個變形的結果</strong>。例如先旋轉再做平移，會往旋轉後的角度平移；而先平移再選轉，則是平移後再做旋轉。變形只要任何一個函式不符合語法，就會導致整個變形錯誤被忽略。另外，變形無法對任何行內盒（inline box），必須作用在 block、inline-block、flex-item、grid-item 這些等級盒子上。</p>
+<p>最後，變形是不會疊加，重寫變形只會讓後方覆寫前方效果，以最後一次變形為主。但這規則卻有個例外，那就是遇到轉場（transition）或動畫（animation），會疊加轉換的效果。</p>
+<h3 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h3><p>平移可以接受絕對數值或百分比（除了 Z 軸），只有 X、Y 軸接受百分比的設定，它會依據該盒子 width、height 的值為依據，進行百分比的計算。3D 版的 translate <strong>必須要有三個數值</strong>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.translate</span> &#123;</span><br><span class="line">    <span class="comment">/* 可以設定 X、Y 2D 平移 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>, <span class="number">100px</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 X 平移 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">50px</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 Y 平移 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">100px</span>);</span><br><span class="line">    <span class="comment">/* 也有 3D 版，一定要設定三個數值 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">100px</span>, <span class="number">100px</span>, <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="縮放"><a href="#縮放" class="headerlink" title="縮放"></a>縮放</h3><p>顧名思義，「縮」就是縮放的縮，「放」就是縮放的放，<strong>倍數縮放</strong>元素的寬、高。3D 版的 scale <strong>必須要有三個數值</strong>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.scale</span> &#123;</span><br><span class="line">    <span class="comment">/* 數值是以倍數顯示 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">/* 若是負數會呈現倒影型態 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(-<span class="number">2</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 X 縮放 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleX</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 Y 縮放 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 改變原點 */</span></span><br><span class="line">    <span class="comment">/* 預設值為 50% 50%，就是在 box 中心點。如果省略第 2 個值，會視為 center (50%)  */</span></span><br><span class="line">    <span class="comment">/* 數值可以是單位 em、px、%、left、right、top、bottom；center */</span></span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">    <span class="comment">/* scale3d()設定數值跟 translate3d 一樣要 3 個數值 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="旋轉"><a href="#旋轉" class="headerlink" title="旋轉"></a>旋轉</h3><p>旋轉函式涉及到 3D，是所有變形函式中最不容易理解的函式，因為它並須搭配球體系統以及 trasform-style（選擇 3D 樣式） 與 perspective（透視）。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.rotate</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="comment">/* 記得要加單位 deg，正為順時針，負為逆時針 */</span></span><br><span class="line">    <span class="comment">/* 可以搭配 transform-style、perspective 屬性作到翻轉透視的效果。 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="comment">/* rotate3D(1, 1, 0, 45deg) 不等於 rotateX(45deg)、rotateY(45deg)、rotateZ(0deg) */</span></span><br><span class="line">    <span class="comment">/* 其實是 rotate3d(300px,300px,300px,45deg)，指旋轉的中心軸會從原點指向右方300px、下方300px，旋轉 45deg */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate3D</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="歪斜"><a href="#歪斜" class="headerlink" title="歪斜"></a>歪斜</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.skew</span> &#123;</span><br><span class="line">    <span class="comment">/* 記得要加單位 deg */</span></span><br><span class="line">    <span class="comment">/* 第一個數值為 X 的歪斜角，第二個數值為 Y 的歪斜角 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">45deg</span>, <span class="number">0deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewX</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewY</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/css/" rel="tag"># css</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/18/resource-css-useful-site/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="泰山職訓局前端講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="泰山職訓AFU">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/18/resource-css-useful-site/" class="post-title-link" itemprop="url">CSS資源</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-08-18 21:34:26" itemprop="dateCreated datePublished" datetime="2020-08-18T21:34:26+08:00">2020-08-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS%E8%B3%87%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">CSS資源</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://uigradients.com/#eXpresso">UI Gradients</a></li>
-<li><a target="_blank" rel="noopener" href="https://mycolor.space/gradient">Space</a></li>
-<li><a target="_blank" rel="noopener" href="http://jxnblk.com/shade/">Shade</a></li>
-<li><a target="_blank" rel="noopener" href="https://gradienthunt.com/">Gradient Hunt</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.colorzilla.com/gradient-editor/">Colorzilla</a></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/18/resource-css-useful-site/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/30/lesson-css-position/" rel="prev" title="CSS - 定位">
+      <i class="fa fa-chevron-left"></i> CSS - 定位
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
 
 
 
@@ -559,6 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%8A%E5%BD%A2"><span class="nav-number">1.</span> <span class="nav-text">變形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%A7%E6%A8%99%E7%B3%BB%E7%B5%B1"><span class="nav-number">2.</span> <span class="nav-text">座標系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%83%E9%9D%A2%E7%B3%BB%E7%B5%B1"><span class="nav-number">3.</span> <span class="nav-text">球面系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E8%A6%8F%E5%89%87"><span class="nav-number">4.</span> <span class="nav-text">重要規則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB"><span class="nav-number">5.</span> <span class="nav-text">平移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%AE%E6%94%BE"><span class="nav-number">6.</span> <span class="nav-text">縮放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%89"><span class="nav-number">7.</span> <span class="nav-text">旋轉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%AA%E6%96%9C"><span class="nav-number">8.</span> <span class="nav-text">歪斜</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
