@@ -8,7 +8,7 @@
   </entry>
   <entry>
     <title>CSS - 變形</title>
-    <url>/2020/09/07/lesson-css-transform/</url>
+    <url>/2020/09/07/lesson-css-07.transform/</url>
     <content><![CDATA[<h3 id="變形-transform"><a href="#變形-transform" class="headerlink" title="變形 - transform"></a>變形 - transform</h3><p>transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果不再是矩形呢？有了想打破這矩形的限制，transform 就這樣誕生了。</p>
 <p>變形有四個函式，分別是平移（translate）、縮放（scale）、旋轉（rotate）、歪斜（skew）。</p>
 <a id="more"></a>
@@ -43,7 +43,7 @@
   </entry>
   <entry>
     <title>CSS - 定位</title>
-    <url>/2020/08/30/lesson-css-position/</url>
+    <url>/2020/08/30/lesson-css-06.position/</url>
     <content><![CDATA[<h3 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h3><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是新人必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層（z-index）。</p>
 <a id="more"></a>
 
@@ -73,7 +73,7 @@
   </entry>
   <entry>
     <title>CSS - 浮動</title>
-    <url>/2020/08/29/lesson-css-float/</url>
+    <url>/2020/08/29/lesson-css-05.float/</url>
     <content><![CDATA[<h3 id="浮動"><a href="#浮動" class="headerlink" title="浮動"></a>浮動</h3><p>浮動（float）屬性的初衷是希望用來設計「文繞圖」，但是，技術始終來自創意，網頁設計師天馬行空的想法，讓 float 屬性有了新的出路，設計師發現原來浮動厲害的很，可以用來佈局設計版型，也因此一股「浮動流」旋風式颳起，在彈性盒（flex box）穩定前，浮動是排版布局的好幫手。</p>
 <a id="more"></a>
 
@@ -92,7 +92,7 @@
   </entry>
   <entry>
     <title>CSS - 盒模型</title>
-    <url>/2020/08/29/lesson-css-box-model/</url>
+    <url>/2020/08/29/lesson-css-04.box-model/</url>
     <content><![CDATA[<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完它的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解它。而本篇主題盒模型（Box-Model）的是其中一。</p>
 <p>在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一個矩形的盒子，它通常被稱為元素盒（element box）。每個元素盒的中心是內容區域（content area），也就是放文字、圖片的區域，內容區域的周圍還有內距（padding）、邊框（border）、外距（margin），由這些屬性來形成盒模型。</p>
 <a id="more"></a>
@@ -287,7 +287,7 @@
   </entry>
   <entry>
     <title>CSS - 背景</title>
-    <url>/2020/08/25/lesson-css-background/</url>
+    <url>/2020/08/25/lesson-css-03.background/</url>
     <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* background-color 背景顏色 */</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#faa</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-image 背景圖片 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;https://picsum.photos/100/100/?random=1&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-repeat 背景重複 */</span></span><br><span class="line">    <span class="comment">/* repeat-x、repeat-y、no-repeat */</span></span><br><span class="line">    <span class="attribute">background-repeat</span>: repeat;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-size 背景尺寸 */</span></span><br><span class="line">    <span class="comment">/* contain、cover、數值、百分比 */</span></span><br><span class="line">    <span class="attribute">background-size</span>: contain;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-position 背景定位 */</span></span><br><span class="line">    <span class="comment">/* 可使用數值、百分比、left、right、center、top、bottom 關鍵字 */</span></span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
@@ -300,7 +300,7 @@
   </entry>
   <entry>
     <title>CSS - 文字</title>
-    <url>/2020/08/25/lesson-css-text/</url>
+    <url>/2020/08/25/lesson-css-02.text/</url>
     <content><![CDATA[<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><p>CSS 常用的字型設定：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定字型家族 */</span></span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Microsoft JhengHei&#x27;</span>, Verdana, Geneva, Tahoma, sans-serif;</span><br><span class="line">    <span class="comment">/* 設定字體大小 px、em、rem */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="comment">/* 設定斜體 */</span></span><br><span class="line">    <span class="attribute">font-style</span>: italic;</span><br><span class="line">    <span class="comment">/* 設定粗體 */</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="comment">/* 設定字體都變成大寫，但第一個字較大 */</span></span><br><span class="line">    <span class="attribute">font-variant</span>: small-caps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -322,7 +322,7 @@
   </entry>
   <entry>
     <title>CSS - 選擇器 (一)</title>
-    <url>/2020/08/23/lesson-css-base-selector/</url>
+    <url>/2020/08/23/lesson-css-01.base-selector/</url>
     <content><![CDATA[<h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責頁面的版型、文字、顏色、尺寸、響應式等等。</p>
 <h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><p>一個「選擇器」決定選擇的元素目標，連結著大括號「{}」，大括號裡面是屬性、屬性值，以冒號「:」分隔屬性與屬性值，屬性值後面以分號「;」結尾。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">選擇器 &#123;</span><br><span class="line">    屬性: 屬性值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
