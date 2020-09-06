@@ -39,12 +39,12 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="變形transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果">
+  <meta name="description" content="變形 - transformtransform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS - 變形">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/09/07/lesson-css-transform/index.html">
 <meta property="og:site_name" content="泰山職訓AFU">
-<meta property="og:description" content="變形transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果">
+<meta property="og:description" content="變形 - transformtransform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://powerkaifu.github.io/images/css/css-transform-01.png">
 <meta property="og:image" content="https://powerkaifu.github.io/images/css/css-transform-02.png">
@@ -264,7 +264,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="變形"><a href="#變形" class="headerlink" title="變形"></a>變形</h3><p>transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果不再是矩形呢？有了想打破這矩形的限制，transform 就這樣誕生了。</p>
+        <h3 id="變形-transform"><a href="#變形-transform" class="headerlink" title="變形 - transform"></a>變形 - transform</h3><p>transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果不再是矩形呢？有了想打破這矩形的限制，transform 就這樣誕生了。</p>
 <p>變形有四個函式，分別是平移（translate）、縮放（scale）、旋轉（rotate）、歪斜（skew）。</p>
 <a id="more"></a>
 
@@ -371,7 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%8A%E5%BD%A2"><span class="nav-number">1.</span> <span class="nav-text">變形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%A7%E6%A8%99%E7%B3%BB%E7%B5%B1"><span class="nav-number">2.</span> <span class="nav-text">座標系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%83%E9%9D%A2%E7%B3%BB%E7%B5%B1"><span class="nav-number">3.</span> <span class="nav-text">球面系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E8%A6%8F%E5%89%87"><span class="nav-number">4.</span> <span class="nav-text">重要規則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB-translate"><span class="nav-number">5.</span> <span class="nav-text">平移 - translate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%AE%E6%94%BE-scale"><span class="nav-number">6.</span> <span class="nav-text">縮放 - scale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%89-rotate"><span class="nav-number">7.</span> <span class="nav-text">旋轉 - rotate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%AA%E6%96%9C-skew"><span class="nav-number">8.</span> <span class="nav-text">歪斜 - skew</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%8A%E5%BD%A2-transform"><span class="nav-number">1.</span> <span class="nav-text">變形 - transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%A7%E6%A8%99%E7%B3%BB%E7%B5%B1"><span class="nav-number">2.</span> <span class="nav-text">座標系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%83%E9%9D%A2%E7%B3%BB%E7%B5%B1"><span class="nav-number">3.</span> <span class="nav-text">球面系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E8%A6%8F%E5%89%87"><span class="nav-number">4.</span> <span class="nav-text">重要規則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB-translate"><span class="nav-number">5.</span> <span class="nav-text">平移 - translate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%AE%E6%94%BE-scale"><span class="nav-number">6.</span> <span class="nav-text">縮放 - scale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%89-rotate"><span class="nav-number">7.</span> <span class="nav-text">旋轉 - rotate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%AA%E6%96%9C-skew"><span class="nav-number">8.</span> <span class="nav-text">歪斜 - skew</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
