@@ -3,79 +3,69 @@
   <entry>
     <title>KaiFu&#39;s Blog</title>
     <url>/2020/08/18/index/</url>
-    <content><![CDATA[<h3 id="部落格介紹"><a href="#部落格介紹" class="headerlink" title="部落格介紹"></a>部落格介紹</h3><p>這裡規劃記錄了<strong>泰山職訓前端班課程</strong>、<strong>技術心得筆記</strong>、<strong>生活記錄</strong>等類的文章。</p>
+    <content><![CDATA[<h3 id="部落格介紹"><a href="#部落格介紹" class="headerlink" title="部落格介紹"></a>部落格介紹</h3><p>這裡規劃記錄了<strong>泰山職訓前端班課程</strong>、<strong>技術心得筆記</strong>、<strong>我的生活</strong>等類的文章。</p>
 ]]></content>
   </entry>
   <entry>
-    <title>CSS - 選擇器 (一)</title>
-    <url>/2020/08/23/lesson-css-01.base-selector/</url>
-    <content><![CDATA[<h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責頁面的版型、文字、顏色、尺寸、響應式等等。</p>
-<h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><p>一個「選擇器」決定選擇的元素目標，連結著大括號「{}」，大括號裡面是屬性、屬性值，以冒號「:」分隔屬性與屬性值，屬性值後面以分號「;」結尾。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">選擇器 &#123;</span><br><span class="line">    屬性: 屬性值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+    <title>CSS - 變形</title>
+    <url>/2020/09/07/lesson-css-07.transform/</url>
+    <content><![CDATA[<h3 id="變形-transform"><a href="#變形-transform" class="headerlink" title="變形 - transform"></a>變形 - transform</h3><p>transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果不再是矩形呢？有了想打破這矩形的限制，transform 就這樣誕生了。</p>
+<p>變形有四個函式，分別是平移（translate）、縮放（scale）、旋轉（rotate）、歪斜（skew）。</p>
 <a id="more"></a>
 
-<h3 id="元素選擇器"><a href="#元素選擇器" class="headerlink" title="元素選擇器"></a>元素選擇器</h3><p>以元素名稱作為選擇器，又稱為標籤選擇器。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ff0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="座標系統"><a href="#座標系統" class="headerlink" title="座標系統"></a>座標系統</h3><p>CSS 世界使用的座標系統是「笛卡爾座標系統」，沒錯，就是那位「我思，故我在」的笛卡爾。X 軸跟我們認知是一樣，往右為正值，往左為負值；但有點不同的是，一般我們的認知是 Y 軸 的正值應該是往上，但是對於 CSS 而言，不管是定位（position）、變形（transform）又或是使用文字陰影（text-shadow）、盒陰影（box-shadow）， Y 的正值是相反，也就是往下。而最後的 Z 軸，就如同定位的 z-index，朝著使用者是正，遠離使用者為負。</p>
+<blockquote>
+<p>X 軸（右正、左負），Y 軸（下正、上負），Z 軸（朝向使用者為正、遠離使用者為負）</p>
+</blockquote>
+<img data-src="/images/css/css-transform-01.png" width="700">
 
-<h3 id="群組選擇器"><a href="#群組選擇器" class="headerlink" title="群組選擇器"></a>群組選擇器</h3><p>選擇器之間以「,」分隔，可以一次選擇指定的選擇對象。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="球面系統"><a href="#球面系統" class="headerlink" title="球面系統"></a>球面系統</h3><p>其次，CSS 變形中旋轉（rotate）使用的是球面系統（spherical system）。這邊不容易理解，尤其對我這容易迷路的 2D 螞蟻人來說，我個人的記憶點是可以想成每個軸位方向如同一根棍子插入球體時，此時球體可以轉動的方向。</p>
+<blockquote>
+<p>X 軸（前後翻轉）、Y 軸（左右翻轉）、Z 軸（平面旋轉）</p>
+</blockquote>
+<img data-src="/images/css/css-transform-02.png" width="700">
 
-<h3 id="類別選擇器"><a href="#類別選擇器" class="headerlink" title="類別選擇器"></a>類別選擇器</h3><p>替選擇器取名稱，前面加「.」。此選擇器具有「重覆使用」或「同中求異」的特性，也是使用率最高的選擇器。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.txt</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="重要規則"><a href="#重要規則" class="headerlink" title="重要規則"></a>重要規則</h3><p>變形可以套用多個函式，寫法是之間<strong>不需要逗點分隔</strong>。變形函式的順序會由左至右套用，<strong>順序很重要，它會影響整個變形的結果</strong>。例如先旋轉再做平移，會往旋轉後的角度平移；而先平移再選轉，則是平移後再做旋轉。變形只要任何一個函式不符合語法，就會導致整個變形錯誤被忽略。另外，變形無法對任何行內盒（inline box），必須作用在 block、inline-block、flex-item、grid-item 這些等級盒子上。最後，變形是不會疊加，重寫變形只會讓後方覆寫前方效果，以最後一次變形為主。但這規則卻有個例外，那就是遇到轉場（transition）或動畫（animation），會疊加轉換的效果。</p>
+<h3 id="平移-translate"><a href="#平移-translate" class="headerlink" title="平移 - translate"></a>平移 - translate</h3><p>平移可以接受絕對數值或百分比（除了 Z 軸），只有 X、Y 軸接受百分比的設定，它會依據該盒子 width、height 的值為依據，進行百分比的計算。3D 版的 translate <strong>必須要有三個數值</strong>。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.translate</span> &#123;</span><br><span class="line">    <span class="comment">/* 可以設定 X、Y 2D 平移 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>, <span class="number">100px</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 X 平移 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">50px</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 Y 平移 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">100px</span>);</span><br><span class="line">    <span class="comment">/* 也有 3D 版，一定要設定三個數值 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">100px</span>, <span class="number">100px</span>, <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="ID-選擇器"><a href="#ID-選擇器" class="headerlink" title="ID 選擇器"></a>ID 選擇器</h3><p>替選擇器取名稱，前面加「#」。此選擇器具有「唯一」的特性，通常被當作區塊的名稱或是 JavaScript 快速獲取 DOM 目標的方式。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="縮放-scale"><a href="#縮放-scale" class="headerlink" title="縮放 - scale"></a>縮放 - scale</h3><p>顧名思義，「縮」就是縮放的縮，「放」就是縮放的放，<strong>倍數縮放</strong>元素的寬、高。3D 版的 scale <strong>必須要有三個數值</strong>。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.scale</span> &#123;</span><br><span class="line">    <span class="comment">/* 數值是以倍數顯示 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">/* 若是負數會呈現倒影型態 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(-<span class="number">2</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 X 縮放 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleX</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 Y 縮放 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 改變原點 */</span></span><br><span class="line">    <span class="comment">/* 預設值為 50% 50%，就是在 box 中心點。如果省略第 2 個值，會視為 center (50%)  */</span></span><br><span class="line">    <span class="comment">/* 數值可以是單位 em、px、%、left、right、top、bottom；center */</span></span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">    <span class="comment">/* scale3d()設定數值跟 translate3d 一樣要 3 個數值 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="子代選擇器"><a href="#子代選擇器" class="headerlink" title="子代選擇器"></a>子代選擇器</h3><p>選擇器之間以「&gt;」分隔，選擇到兒子，也就是只選擇到下一層，第三層不會被選擇，常與後代選擇器搞混。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="旋轉-rotate"><a href="#旋轉-rotate" class="headerlink" title="旋轉 - rotate"></a>旋轉 - rotate</h3><p>旋轉函式涉及到 3D，是所有變形函式中最不容易理解的函式，因為它並須搭配球體系統以及 trasform-style（選擇 3D 樣式） 與 perspective（透視）。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.rotate</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="comment">/* 記得要加單位 deg，正為順時針，負為逆時針 */</span></span><br><span class="line">    <span class="comment">/* 可以搭配 transform-style、perspective 屬性作到翻轉透視的效果。 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="comment">/* rotate3D(1, 1, 0, 45deg) 不等於 rotateX(45deg)、rotateY(45deg)、rotateZ(0deg) */</span></span><br><span class="line">    <span class="comment">/* 其實是 rotate3d(300px,300px,300px,45deg)，指旋轉的中心軸會從原點指向右方300px、下方300px，旋轉 45deg */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate3D</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="後代選擇器"><a href="#後代選擇器" class="headerlink" title="後代選擇器"></a>後代選擇器</h3><p>選擇器之間以「空白」分隔，可選擇到子孫們，也就是起始選擇目標之後的後代都會被選擇到，使用率很高的選擇器。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="同層相鄰選擇器"><a href="#同層相鄰選擇器" class="headerlink" title="同層相鄰選擇器"></a>同層相鄰選擇器</h3><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="同層全體選擇器"><a href="#同層全體選擇器" class="headerlink" title="同層全體選擇器"></a>同層全體選擇器</h3><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的弟元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> ~ <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="屬性選擇器"><a href="#屬性選擇器" class="headerlink" title="屬性選擇器"></a>屬性選擇器</h3><p>指以 HTML 元素屬性作為選擇器，有許多種選擇方式，如下：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 以 屬性 + 屬性值 去選擇 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href=<span class="string">&quot;http://google.com.tw/&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 img 元素屬性為 title 的目標 */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[title]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性 type=&#x27;text&#x27; 的目標 */</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;text&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性有 kaifu 單字，根據屬性值中眾多詞中某個詞進行選擇（以空白分隔決定該詞） */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[class~=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 href 的屬性值起始字串為 http:// 的目標  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href^=<span class="string">&quot;http://&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 href 的屬性值結尾字串為 .pdf 的對象  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href$=<span class="string">&#x27;.pdf&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 img 所有 src 屬性值裡面包含單字 kaifu 的對象; */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src*=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取所有圖片裡面有 figure- 的圖片，例如:figure-01.jpg、figure-02.jpg */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src|=<span class="string">&#x27;figure&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="歪斜-skew"><a href="#歪斜-skew" class="headerlink" title="歪斜 - skew"></a>歪斜 - skew</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.skew</span> &#123;</span><br><span class="line">    <span class="comment">/* 記得要加單位 deg */</span></span><br><span class="line">    <span class="comment">/* 第一個數值為 X 的歪斜角，第二個數值為 Y 的歪斜角 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">45deg</span>, <span class="number">0deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewX</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewY</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>css</tag>
       </tags>
   </entry>
   <entry>
-    <title>CSS - 文字</title>
-    <url>/2020/08/25/lesson-css-02.text/</url>
-    <content><![CDATA[<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><p>CSS 常用的字型設定：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定字型家族 */</span></span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Microsoft JhengHei&#x27;</span>, Verdana, Geneva, Tahoma, sans-serif;</span><br><span class="line">    <span class="comment">/* 設定字體大小 px、em、rem */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="comment">/* 設定斜體 */</span></span><br><span class="line">    <span class="attribute">font-style</span>: italic;</span><br><span class="line">    <span class="comment">/* 設定粗體 */</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="comment">/* 設定字體都變成大寫，但第一個字較大 */</span></span><br><span class="line">    <span class="attribute">font-variant</span>: small-caps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+    <title>CSS - 定位</title>
+    <url>/2020/08/30/lesson-css-06.position/</url>
+    <content><![CDATA[<h3 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h3><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是新人必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層（z-index）。</p>
 <a id="more"></a>
 
-<h3 id="單位"><a href="#單位" class="headerlink" title="單位"></a>單位</h3><ul>
-<li>px：字型大小以像素為絕對單位。</li>
-<li>em：字型大小參考父元素為倍數相對縮放尺寸，例如：父元素外層是 10px，子元素 2em 則是 20px。</li>
-<li>rem：相對於根元素 (:root or html) 的文字尺寸，預設是 16px，元素設定 2rem 則是 32px。</li>
-</ul>
-<h3 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定 inline (包含inline-block)的文字位置，left、right */</span></span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="comment">/*  none、overline、line-througn */</span></span><br><span class="line">    <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">    <span class="comment">/* 文字縮排 */</span></span><br><span class="line">    <span class="attribute">text-indent</span>: <span class="number">1.5rem</span>;</span><br><span class="line">    <span class="comment">/*  capitalize（每個單字第一個英文字大寫）、lowercase（全小寫）、uppercase（全大寫） */</span></span><br><span class="line">    <span class="attribute">text-transform</span>: uppercase;</span><br><span class="line">    <span class="comment">/* 水平、垂直、陰影模糊半徑、顏色，可以設定多重陰影 */</span></span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">3px</span> <span class="number">#999</span>;</span><br><span class="line">    <span class="comment">/* 英文字母或中文字的間隔 */</span></span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 單字間隔，要有空格，中文很難有空格，較適合英文。 */</span></span><br><span class="line">    <span class="attribute">word-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 文字換行，數字或英文字無空格時會產生不換行超出盒框區域，可用此屬性。 */</span></span><br><span class="line">    <span class="comment">/* break-word 在長單詞或URL地址內部進行換行。 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* break-word（過長的單字會自動折到下一行，可避免一江春水向東流。）*/</span></span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(預設，以每個瀏覽器喜好不一定相同，通常保留單字全部) </span></span><br><span class="line"><span class="comment">   break-all(允許在單字的字母換行，也就是不一定要完整的單字) </span></span><br><span class="line"><span class="comment">   keep-all(只能在半角空格或連字符處換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">word-break</span>: break-all;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(忽略空白)  </span></span><br><span class="line"><span class="comment">   pre(像pre標籤，保留空白) </span></span><br><span class="line"><span class="comment">   nowrap(不換行，除非有 br，否則不會斷行，會一直顯示超出區塊。) </span></span><br><span class="line"><span class="comment">   pre-wrap(保留空白，但是正常換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">white-space</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="西天取經"><a href="#西天取經" class="headerlink" title="西天取經"></a>西天取經</h3><p>以西遊記舉例，唐僧帶領了師徒三人及白龍馬前往西天取經，遭逢九九八十一難關…，我們現在假設父元素是唐僧，子元素分別是會七十二變的悟空、好色諂媚愛搞分化的八戒、無聲努力辛勤的沙僧以及偶爾串場的白龍馬，我們將它們全部轉型為 inline-block 橫向流動排列，目前取經團子成員都乖乖在唐僧管理下正常流向排列著。</p>
+<img data-src="/images/css/css-position-01.png" width="700">
 
-<h3 id="連結"><a href="#連結" class="headerlink" title="連結"></a>連結</h3><p>連結狀態的變化使用了 CSS 的偽類，偽類家族有非常多種，連結這四個須注意其出現的順序。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS - 背景</title>
-    <url>/2020/08/25/lesson-css-03.background/</url>
-    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* background-color 背景顏色 */</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#faa</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-image 背景圖片 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;https://picsum.photos/100/100/?random=1&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-repeat 背景重複 */</span></span><br><span class="line">    <span class="comment">/* repeat-x、repeat-y、no-repeat */</span></span><br><span class="line">    <span class="attribute">background-repeat</span>: repeat;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-size 背景尺寸 */</span></span><br><span class="line">    <span class="comment">/* contain、cover、數值、百分比 */</span></span><br><span class="line">    <span class="attribute">background-size</span>: contain;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-position 背景定位 */</span></span><br><span class="line">    <span class="comment">/* 可使用數值、百分比、left、right、center、top、bottom 關鍵字 */</span></span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="相對定位-relative"><a href="#相對定位-relative" class="headerlink" title="相對定位 - relative"></a>相對定位 - relative</h3><p>此時，諂媚愛分化團隊的八戒使用了相對定位 position:relative，在瀏覽器的視覺上並未有任何改變，但其實八戒已經進入定位層（氣焰囂張），八戒還使用了偏移（top、bottom、left、right）會在團隊之間遊說不利團隊的話語，在西遊記裡，唐僧對八戒非常容忍，說容忍還是唐僧也愛聽諂媚的話？不會將其趕出團隊，我們發現八戒原本的位置會被保留空下，後方的沙僧、白馬並不會遞補上去，沒人敢挑戰二師兄的位置。這也讓我們知道相對定位並不會讓元素原本的位置脫離正常流向，就像八戒空出的位置一樣。</p>
+<img data-src="/images/css/css-position-02.png" width="700">
 
-<a id="more"></a>
+<h3 id="絕對定位-absolute"><a href="#絕對定位-absolute" class="headerlink" title="絕對定位 - absolute"></a>絕對定位 - absolute</h3><p>大師兄孫悟空，師承菩提老祖習成七十二變，偷吃王母娘娘蟠桃、喝壽酒身體變成刀槍不入，又在太上老君煉金爐練成能看穿妖魔的「火眼金睛」，在團隊裡面衝鋒陷陣戰鬥力堪稱第一。八戒的挑撥是非，讓唐僧與悟空的關係好幾次讓團隊陷入危機，氣到悟空使用了絕對定位 position:absolute，下圖可以看到悟空也進入的定位層（腳踏觔斗雲原地起飛），我們也可以看到八戒一心想取代大師兄的位置，此時八戒在悟空的底下，也就是悟空原本的位置，悟空後方的師弟們都向前遞補了，這也讓我們知道了絕對定位的元素會脫離正常流向，後方元素則會往前遞補。</p>
+<img data-src="/images/css/css-position-03.png" width="700">
 
-<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 線性漸層 */</span></span><br><span class="line"><span class="selector-class">.linear-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定角度 */</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">45deg</span>, red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定漸層站點 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right top, #fff <span class="number">0%</span>, lightblue <span class="number">25%</span>, #fff <span class="number">50%</span>, lightblue <span class="number">75%</span>, #fff <span class="number">100%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 放射漸層 */</span></span><br><span class="line"><span class="selector-class">.radial-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(white, #ffffaa, pink);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>若是八戒也如同上方設定了 position:relative，我們會更清楚看見八戒想取代悟空的野心，這是因為八戒是後方元素的關係，當悟空、八戒兩者都進入定位層，八戒會覆蓋悟空。</p>
+<img data-src="/images/css/css-position-04.png" width="700">
+
+<p>劇情往下走，被師父誤會的悟空，內心百感交集，心想：「遇到妖怪我來打，Boss 太強師傅被抓找救兵也是靠我的關係，現在師傅盡聽信老豬的廢話，沒把我放在心上」，一氣之下使用了偏移 top:0、left:0，搭上觔斗雲一個跟斗翻了十萬八千里回到了花果山（瀏覽器左上角位置），悟空徹底離開了團隊（唐僧範圍），尋找到最後的位置－花果山。</p>
+<img data-src="/images/css/css-position-05.png" width="700">
+
+<h3 id="唐僧的緊箍咒"><a href="#唐僧的緊箍咒" class="headerlink" title="唐僧的緊箍咒"></a>唐僧的緊箍咒</h3><p>這種結果令人悲傷，不是我們想看到的結局，那有甚麼辦法讓大師兄悟空繼續留在團隊呢？有的！那就是觀音姐姐給唐僧的「緊箍圈」與「緊箍咒」，緊箍圈已經套在悟空的頭頂，而緊箍咒是當悟空不受控時發動，又名為定心真言（當大哥真是難為），發動條件即是唐僧自己使用了 position:relative，那麼悟空又會回到團隊裡面，即使悟空使用了 top、bottom、left、right 位移，也會以唐僧為基準點偏移。最後我們得到了一個結論，<strong>相對定位常會讓父元素變成子元素的一個定位點，子元素可以依據這個定位點進行絕對定位的偏移，若父元素沒有任何定位點（relative、absolute），則會繼續往外尋找直到瀏覽器為定位點</strong>。</p>
+<img data-src="/images/css/css-position-06.png" width="700">
+
+<h3 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 - fixed"></a>固定定位 - fixed</h3><p>position:fixed，固定定位可以說定位裡面最愛刷存在感的傢伙，它就像穿著寬鬆背心愛秀肌肉的猛男，希望成為大眾目光焦點，所以捲軸上下移動是無法脫離這位自戀狂，它就會像醒目的廣告看板固定在一個位置，說著：來看我，來看我。通常，固定定位只有一個基準點位置，那就是以瀏覽器視窗為偏移基準點，但…若遇到了父元素有 transform 屬性結果就不同了。結論：<strong>絕對定位、固定定位它們都會讓元素脫離正常流向</strong>。</p>
 ]]></content>
       <tags>
         <tag>css</tag>
@@ -147,65 +137,224 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS - 定位</title>
-    <url>/2020/08/30/lesson-css-06.position/</url>
-    <content><![CDATA[<h3 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h3><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是新人必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層（z-index）。</p>
+    <title>學習資源</title>
+    <url>/2020/08/29/resource-learn/</url>
+    <content><![CDATA[<ul>
+<li>無暇的程式碼 JavaScript <a href="https://github.com/AllJointTW/clean-code-javascript">Github</a></li>
+<li>網頁動畫大全 <a href="https://github.com/sergey-pimenov/awesome-web-animation">awesome-web-animation</a></li>
+<li>一行 JavaScript 處理陣列、日期、數字、DOM 等等 <a href="https://1loc.dev/">官網</a>、<a href="https://github.com/phuoc-ng/1loc">Github</a></li>
+<li>一行 CSS Layouts <a href="http://1linelayouts.glitch.me/?fbclid=IwAR2HAWUL1DYbaYLw2T9wQNcvTUEqQ0mZICjCPj9CgUd3y0f-tO8skAFNiTM">官網</a></li>
+<li>一個 Div 做出來的 CSS 物件 <a href="https://a.singlediv.com/">Single Div</a></li>
+<li>HEAD 大全 <a href="https://htmlhead.dev/">官網</a>、<a href="https://github.com/joshbuchea/HEAD">Github</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>學習資源</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>設計常用工具及網站</title>
+    <url>/2020/08/29/resource-normal-tools/</url>
+    <content><![CDATA[<h3 id="截圖"><a href="#截圖" class="headerlink" title="截圖"></a>截圖</h3><ul>
+<li><p><a href="https://www.playpcesor.com/2014/02/sharex.html">ShareX</a></p>
+<p>截圖工具，截圖後能自動上傳雲端硬碟、加浮水印，也能錄製 GIF</p>
+</li>
+</ul>
+<h3 id="秀圖"><a href="#秀圖" class="headerlink" title="秀圖"></a>秀圖</h3><ul>
+<li><a href="https://steachs.com/archives/32681">軟體說明</a></li>
+<li><a href="https://www.cherubicsoft.com/en/projects/sagethumbs#.VwKhKUeNjDA">SageThumbs</a></li>
+</ul>
+<p>檔案總管顯示 Photoshop 檔縮圖、一鍵轉 JPG、PNG、GIF、BMP</p>
+<h3 id="套版"><a href="#套版" class="headerlink" title="套版"></a>套版</h3><ul>
+<li><a href="https://mobirise.com/">Mobirise</a></li>
+</ul>
+<h3 id="版型"><a href="#版型" class="headerlink" title="版型"></a>版型</h3><ul>
+<li><a href="https://www.webdesignclip.com/">日本風版型(一)</a></li>
+<li><a href="https://responsive-jp.com/">日本風版型(二)</a></li>
+</ul>
+<h3 id="LOGO"><a href="#LOGO" class="headerlink" title="LOGO"></a>LOGO</h3><ul>
+<li><a href="https://www.launchaco.com/logo">LOGO 產生器</a></li>
+</ul>
+<h3 id="圖庫"><a href="#圖庫" class="headerlink" title="圖庫"></a>圖庫</h3><ul>
+<li><a href="https://www.deviantart.com/">Deviantart</a></li>
+<li><a href="https://pixabay.com/">Pixabay</a></li>
+<li><a href="https://unsplash.com/">Unsplash</a></li>
+<li><a href="http://www.morguefile.com/">Morguefile</a></li>
+<li><a href="https://www.pexels.com/">Pexels</a></li>
+<li><a href="http://tw.freeimages.com/">Freeimages</a></li>
+<li><a href="http://www.stockvault.net/">Stockvault</a></li>
+<li><a href="http://www.freedigitalphotos.net/">Freedigital</a></li>
+<li><a href="http://www.dreamstime.com/">Dreamstime/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>設計常用工具及網站</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>網頁設計證照資源</title>
+    <url>/2020/08/29/resource-web-license/</url>
+    <content><![CDATA[<h3 id="網頁設計乙、丙級素材"><a href="#網頁設計乙、丙級素材" class="headerlink" title="網頁設計乙、丙級素材"></a>網頁設計乙、丙級素材</h3><ul>
+<li><a href="https://techbank.wdasec.gov.tw/owInform/TestReferData.aspx#17300">技檢中心乙丙級題目和素材</a></li>
+</ul>
+<h3 id="網頁設計乙級"><a href="#網頁設計乙級" class="headerlink" title="網頁設計乙級"></a>網頁設計乙級</h3><ul>
+<li><a href="http://onlinetest2.slhs.tp.edu.tw/bestcontent.asp?examid=bests">學科測驗</a></li>
+<li><a href="https://bquiz.kento520.tw/">術科解題</a></li>
+<li><a href="https://bquiz.mackliu.com/">術科解題</a></li>
+<li><a href="https://reurl.cc/R10Ex6">術科解題</a></li>
+</ul>
+<h3 id="網頁設計丙級"><a href="#網頁設計丙級" class="headerlink" title="網頁設計丙級"></a>網頁設計丙級</h3><ul>
+<li><a href="http://onlinetest1-5.slhs.tp.edu.tw/bestcontent.asp?examid=t17300">學科測驗</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>網頁設計證照資源</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Coding 資源</title>
+    <url>/2020/08/29/resource-coding/</url>
+    <content><![CDATA[<h3 id="套件"><a href="#套件" class="headerlink" title="套件"></a>套件</h3><ul>
+<li><a href="https://www.highcharts.com/">HighCharts</a></li>
+<li><a href="https://github.com/validatorjs/validator.js">Validator</a></li>
+<li><a href="https://fontawesome.com/">fontawesome</a></li>
+</ul>
+<h3 id="動畫"><a href="#動畫" class="headerlink" title="動畫"></a>動畫</h3><ul>
+<li><a href="https://animate.style/">Animate.css</a></li>
+<li><a href="https://www.delac.io/wow/">WOW.js</a></li>
+<li><a href="https://elrumordelaluz.github.io/csshake/">CSShake</a></li>
+<li><a href="https://loading.io/">Loading.io</a></li>
+<li><a href="https://animejs.com/">Anime.js</a></li>
+<li><a href="https://css-doodle.com/">CSS-doodle</a></li>
+<li><a href="https://greensock.com/tweenmax/">greensock</a></li>
+<li><a href="https://maxwellito.github.io/vivus/">vivus</a></li>
+<li><a href="https://sarcadass.github.io/granim.js/">Granim.js</a></li>
+<li><a href="https://bennettfeely.com/ztext/">ztext.js</a></li>
+</ul>
+<h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><ul>
+<li><a href="https://easings.net/">easings</a></li>
+<li><a href="https://cubic-bezier.com/#.17,.67,.83,.67">cubic-bezier</a></li>
+<li><a href="https://matthewlein.com/tools/ceaser">調整轉場速率</a></li>
+</ul>
 <a id="more"></a>
 
-<h3 id="西天取經"><a href="#西天取經" class="headerlink" title="西天取經"></a>西天取經</h3><p>以西遊記舉例，唐僧帶領了師徒三人及白龍馬前往西天取經，遭逢九九八十一難關…，我們現在假設父元素是唐僧，子元素分別是會七十二變的悟空、好色諂媚愛搞分化的八戒、無聲努力辛勤的沙僧以及偶爾串場的白龍馬，我們將它們全部轉型為 inline-block 橫向流動排列，目前取經團子成員都乖乖在唐僧管理下正常流向排列著。</p>
-<img data-src="/images/css/css-position-01.png" width="700">
+<h3 id="一頁式"><a href="#一頁式" class="headerlink" title="一頁式"></a>一頁式</h3><ul>
+<li><a href="https://alvarotrigo.com/fullPage/">FullPage</a></li>
+</ul>
+<h3 id="視差"><a href="#視差" class="headerlink" title="視差"></a>視差</h3><ul>
+<li><a href="https://dixonandmoe.com/rellax/">Dixonand moe</a></li>
+</ul>
+<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><ul>
+<li><a href="https://collectui.com/">Collect UI</a></li>
+<li><a href="https://bootswatch.com/">bootswatch</a></li>
+<li><a href="https://useanimations.com/?fbclid=IwAR2n6GIn9IHyt4HMv_SzWBDx-T78Vzkl5FpyHse7E1LUkd9XfFFVP6I0TJw">介面 ICON SVG 動畫</a></li>
+</ul>
+<h2 id="CSS-Frame"><a href="#CSS-Frame" class="headerlink" title="CSS Frame"></a>CSS Frame</h2><ul>
+<li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+<li><a href="https://materializecss.com/">Materialize</a></li>
+</ul>
+<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><ul>
+<li><a href="https://fonts.google.com/">Google Fonts</a></li>
+</ul>
+<h3 id="Favicon"><a href="#Favicon" class="headerlink" title="Favicon"></a>Favicon</h3><ul>
+<li><a href="https://realfavicongenerator.net/">各裝置、瀏覽器 Favicon 產生器</a></li>
+</ul>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><ul>
+<li><p><a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a></p>
+<p>提供線上 JSON，方便 API 串接測試。</p>
+</li>
+</ul>
+<h3 id="程式"><a href="#程式" class="headerlink" title="程式"></a>程式</h3><ul>
+<li><p><a href="https://codepen.io/">CODEPEN</a></p>
+<p>提供程式碼測試、程式創意來源之地。</p>
+</li>
+</ul>
+<h3 id="RWD-測試"><a href="#RWD-測試" class="headerlink" title="RWD 測試"></a>RWD 測試</h3><ul>
+<li><a href="https://responsively.app/">Responsively</a></li>
+</ul>
+<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><ul>
+<li><p><a href="https://hackmd.io/">HackMD</a></p>
+<p>線上 Markdown 編輯器，紀錄一生的學習。</p>
+</li>
+</ul>
+<h3 id="打字"><a href="#打字" class="headerlink" title="打字"></a>打字</h3><ul>
+<li><a href="https://10fastfingers.com/typing-test/english">打字練習</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Coding資源</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CSS - 背景</title>
+    <url>/2020/08/25/lesson-css-03.background/</url>
+    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* background-color 背景顏色 */</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#faa</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-image 背景圖片 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;https://picsum.photos/100/100/?random=1&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-repeat 背景重複 */</span></span><br><span class="line">    <span class="comment">/* repeat-x、repeat-y、no-repeat */</span></span><br><span class="line">    <span class="attribute">background-repeat</span>: repeat;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-size 背景尺寸 */</span></span><br><span class="line">    <span class="comment">/* contain、cover、數值、百分比 */</span></span><br><span class="line">    <span class="attribute">background-size</span>: contain;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-position 背景定位 */</span></span><br><span class="line">    <span class="comment">/* 可使用數值、百分比、left、right、center、top、bottom 關鍵字 */</span></span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="相對定位-relative"><a href="#相對定位-relative" class="headerlink" title="相對定位 - relative"></a>相對定位 - relative</h3><p>此時，諂媚愛分化團隊的八戒使用了相對定位 position:relative，在瀏覽器的視覺上並未有任何改變，但其實八戒已經進入定位層（氣焰囂張），八戒還使用了偏移（top、bottom、left、right）會在團隊之間遊說不利團隊的話語，在西遊記裡，唐僧對八戒非常容忍，說容忍還是唐僧也愛聽諂媚的話？不會將其趕出團隊，我們發現八戒原本的位置會被保留空下，後方的沙僧、白馬並不會遞補上去，沒人敢挑戰二師兄的位置。這也讓我們知道相對定位並不會讓元素原本的位置脫離正常流向，就像八戒空出的位置一樣。</p>
-<img data-src="/images/css/css-position-02.png" width="700">
+<a id="more"></a>
 
-<h3 id="絕對定位-absolute"><a href="#絕對定位-absolute" class="headerlink" title="絕對定位 - absolute"></a>絕對定位 - absolute</h3><p>大師兄孫悟空，師承菩提老祖習成七十二變，偷吃王母娘娘蟠桃、喝壽酒身體變成刀槍不入，又在太上老君煉金爐練成能看穿妖魔的「火眼金睛」，在團隊裡面衝鋒陷陣戰鬥力堪稱第一。八戒的挑撥是非，讓唐僧與悟空的關係好幾次讓團隊陷入危機，氣到悟空使用了絕對定位 position:absolute，下圖可以看到悟空也進入的定位層（腳踏觔斗雲原地起飛），我們也可以看到八戒一心想取代大師兄的位置，此時八戒在悟空的底下，也就是悟空原本的位置，悟空後方的師弟們都向前遞補了，這也讓我們知道了絕對定位的元素會脫離正常流向，後方元素則會往前遞補。</p>
-<img data-src="/images/css/css-position-03.png" width="700">
-
-<p>若是八戒也如同上方設定了 position:relative，我們會更清楚看見八戒想取代悟空的野心，這是因為八戒是後方元素的關係，當悟空、八戒兩者都進入定位層，八戒會覆蓋悟空。</p>
-<img data-src="/images/css/css-position-04.png" width="700">
-
-<p>劇情往下走，被師父誤會的悟空，內心百感交集，心想：「遇到妖怪我來打，Boss 太強師傅被抓找救兵也是靠我的關係，現在師傅盡聽信老豬的廢話，沒把我放在心上」，一氣之下使用了偏移 top:0、left:0，搭上觔斗雲一個跟斗翻了十萬八千里回到了花果山（瀏覽器左上角位置），悟空徹底離開了團隊（唐僧範圍），尋找到最後的位置－花果山。</p>
-<img data-src="/images/css/css-position-05.png" width="700">
-
-<h3 id="唐僧的緊箍咒"><a href="#唐僧的緊箍咒" class="headerlink" title="唐僧的緊箍咒"></a>唐僧的緊箍咒</h3><p>這種結果令人悲傷，不是我們想看到的結局，那有甚麼辦法讓大師兄悟空繼續留在團隊呢？有的！那就是觀音姐姐給唐僧的「緊箍圈」與「緊箍咒」，緊箍圈已經套在悟空的頭頂，而緊箍咒是當悟空不受控時發動，又名為定心真言（當大哥真是難為），發動條件即是唐僧自己使用了 position:relative，那麼悟空又會回到團隊裡面，即使悟空使用了 top、bottom、left、right 位移，也會以唐僧為基準點偏移。最後我們得到了一個結論，<strong>相對定位常會讓父元素變成子元素的一個定位點，子元素可以依據這個定位點進行絕對定位的偏移，若父元素沒有任何定位點（relative、absolute），則會繼續往外尋找直到瀏覽器為定位點</strong>。</p>
-<img data-src="/images/css/css-position-06.png" width="700">
-
-<h3 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 - fixed"></a>固定定位 - fixed</h3><p>position:fixed，固定定位可以說定位裡面最愛刷存在感的傢伙，它就像穿著寬鬆背心愛秀肌肉的猛男，希望成為大眾目光焦點，所以捲軸上下移動是無法脫離這位自戀狂，它就會像醒目的廣告看板固定在一個位置，說著：來看我，來看我。通常，固定定位只有一個基準點位置，那就是以瀏覽器視窗為偏移基準點，但…若遇到了父元素有 transform 屬性結果就不同了。結論：<strong>絕對定位、固定定位它們都會讓元素脫離正常流向</strong>。</p>
+<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 線性漸層 */</span></span><br><span class="line"><span class="selector-class">.linear-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定角度 */</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">45deg</span>, red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定漸層站點 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right top, #fff <span class="number">0%</span>, lightblue <span class="number">25%</span>, #fff <span class="number">50%</span>, lightblue <span class="number">75%</span>, #fff <span class="number">100%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 放射漸層 */</span></span><br><span class="line"><span class="selector-class">.radial-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(white, #ffffaa, pink);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>css</tag>
       </tags>
   </entry>
   <entry>
-    <title>CSS - 變形</title>
-    <url>/2020/09/07/lesson-css-07.transform/</url>
-    <content><![CDATA[<h3 id="變形-transform"><a href="#變形-transform" class="headerlink" title="變形 - transform"></a>變形 - transform</h3><p>transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果不再是矩形呢？有了想打破這矩形的限制，transform 就這樣誕生了。</p>
-<p>變形有四個函式，分別是平移（translate）、縮放（scale）、旋轉（rotate）、歪斜（skew）。</p>
+    <title>CSS - 文字</title>
+    <url>/2020/08/25/lesson-css-02.text/</url>
+    <content><![CDATA[<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><p>CSS 常用的字型設定：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定字型家族 */</span></span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Microsoft JhengHei&#x27;</span>, Verdana, Geneva, Tahoma, sans-serif;</span><br><span class="line">    <span class="comment">/* 設定字體大小 px、em、rem */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="comment">/* 設定斜體 */</span></span><br><span class="line">    <span class="attribute">font-style</span>: italic;</span><br><span class="line">    <span class="comment">/* 設定粗體 */</span></span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="comment">/* 設定字體都變成大寫，但第一個字較大 */</span></span><br><span class="line">    <span class="attribute">font-variant</span>: small-caps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h3 id="座標系統"><a href="#座標系統" class="headerlink" title="座標系統"></a>座標系統</h3><p>CSS 世界使用的座標系統是「笛卡爾座標系統」，沒錯，就是那位「我思，故我在」的笛卡爾。X 軸跟我們認知是一樣，往右為正值，往左為負值；但有點不同的是，一般我們的認知是 Y 軸 的正值應該是往上，但是對於 CSS 而言，不管是定位（position）、變形（transform）又或是使用文字陰影（text-shadow）、盒陰影（box-shadow）， Y 的正值是相反，也就是往下。而最後的 Z 軸，就如同定位的 z-index，朝著使用者是正，遠離使用者為負。</p>
-<blockquote>
-<p>X 軸（右正、左負），Y 軸（下正、上負），Z 軸（朝向使用者為正、遠離使用者為負）</p>
-</blockquote>
-<img data-src="/images/css/css-transform-01.png" width="700">
+<h3 id="單位"><a href="#單位" class="headerlink" title="單位"></a>單位</h3><ul>
+<li>px：字型大小以像素為絕對單位。</li>
+<li>em：字型大小參考父元素為倍數相對縮放尺寸，例如：父元素外層是 10px，子元素 2em 則是 20px。</li>
+<li>rem：相對於根元素 (:root or html) 的文字尺寸，預設是 16px，元素設定 2rem 則是 32px。</li>
+</ul>
+<h3 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* 設定 inline (包含inline-block)的文字位置，left、right */</span></span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="comment">/*  none、overline、line-througn */</span></span><br><span class="line">    <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">    <span class="comment">/* 文字縮排 */</span></span><br><span class="line">    <span class="attribute">text-indent</span>: <span class="number">1.5rem</span>;</span><br><span class="line">    <span class="comment">/*  capitalize（每個單字第一個英文字大寫）、lowercase（全小寫）、uppercase（全大寫） */</span></span><br><span class="line">    <span class="attribute">text-transform</span>: uppercase;</span><br><span class="line">    <span class="comment">/* 水平、垂直、陰影模糊半徑、顏色，可以設定多重陰影 */</span></span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">3px</span> <span class="number">#999</span>;</span><br><span class="line">    <span class="comment">/* 英文字母或中文字的間隔 */</span></span><br><span class="line">    <span class="attribute">letter-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 單字間隔，要有空格，中文很難有空格，較適合英文。 */</span></span><br><span class="line">    <span class="attribute">word-spacing</span>: <span class="number">1rem</span>;</span><br><span class="line">    <span class="comment">/* 文字換行，數字或英文字無空格時會產生不換行超出盒框區域，可用此屬性。 */</span></span><br><span class="line">    <span class="comment">/* break-word 在長單詞或URL地址內部進行換行。 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="comment">/* break-word（過長的單字會自動折到下一行，可避免一江春水向東流。）*/</span></span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(預設，以每個瀏覽器喜好不一定相同，通常保留單字全部) </span></span><br><span class="line"><span class="comment">   break-all(允許在單字的字母換行，也就是不一定要完整的單字) </span></span><br><span class="line"><span class="comment">   keep-all(只能在半角空格或連字符處換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">word-break</span>: break-all;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">   normal(忽略空白)  </span></span><br><span class="line"><span class="comment">   pre(像pre標籤，保留空白) </span></span><br><span class="line"><span class="comment">   nowrap(不換行，除非有 br，否則不會斷行，會一直顯示超出區塊。) </span></span><br><span class="line"><span class="comment">   pre-wrap(保留空白，但是正常換行) </span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">    <span class="attribute">white-space</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="球面系統"><a href="#球面系統" class="headerlink" title="球面系統"></a>球面系統</h3><p>其次，CSS 變形中旋轉（rotate）使用的是球面系統（spherical system）。這邊不容易理解，尤其對我這容易迷路的 2D 螞蟻人來說，我個人的記憶點是可以想成每個軸位方向如同一根棍子插入球體時，此時球體可以轉動的方向。</p>
-<blockquote>
-<p>X 軸（前後翻轉）、Y 軸（左右翻轉）、Z 軸（平面旋轉）</p>
-</blockquote>
-<img data-src="/images/css/css-transform-02.png" width="700">
+<h3 id="連結"><a href="#連結" class="headerlink" title="連結"></a>連結</h3><p>連結狀態的變化使用了 CSS 的偽類，偽類家族有非常多種，連結這四個須注意其出現的順序。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS - 選擇器 (一)</title>
+    <url>/2020/08/23/lesson-css-01.base-selector/</url>
+    <content><![CDATA[<h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責頁面的版型、文字、顏色、尺寸、響應式等等。</p>
+<h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><p>一個「選擇器」決定選擇的元素目標，連結著大括號「{}」，大括號裡面是屬性、屬性值，以冒號「:」分隔屬性與屬性值，屬性值後面以分號「;」結尾。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">選擇器 &#123;</span><br><span class="line">    屬性: 屬性值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="重要規則"><a href="#重要規則" class="headerlink" title="重要規則"></a>重要規則</h3><p>變形可以套用多個函式，寫法是之間<strong>不需要逗點分隔</strong>。變形函式的順序會由左至右套用，<strong>順序很重要，它會影響整個變形的結果</strong>。例如先旋轉再做平移，會往旋轉後的角度平移；而先平移再選轉，則是平移後再做旋轉。變形只要任何一個函式不符合語法，就會導致整個變形錯誤被忽略。另外，變形無法對任何行內盒（inline box），必須作用在 block、inline-block、flex-item、grid-item 這些等級盒子上。最後，變形是不會疊加，重寫變形只會讓後方覆寫前方效果，以最後一次變形為主。但這規則卻有個例外，那就是遇到轉場（transition）或動畫（animation），會疊加轉換的效果。</p>
-<h3 id="平移-translate"><a href="#平移-translate" class="headerlink" title="平移 - translate"></a>平移 - translate</h3><p>平移可以接受絕對數值或百分比（除了 Z 軸），只有 X、Y 軸接受百分比的設定，它會依據該盒子 width、height 的值為依據，進行百分比的計算。3D 版的 translate <strong>必須要有三個數值</strong>。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.translate</span> &#123;</span><br><span class="line">    <span class="comment">/* 可以設定 X、Y 2D 平移 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>, <span class="number">100px</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 X 平移 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">50px</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 Y 平移 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">100px</span>);</span><br><span class="line">    <span class="comment">/* 也有 3D 版，一定要設定三個數值 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">100px</span>, <span class="number">100px</span>, <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 
-<h3 id="縮放-scale"><a href="#縮放-scale" class="headerlink" title="縮放 - scale"></a>縮放 - scale</h3><p>顧名思義，「縮」就是縮放的縮，「放」就是縮放的放，<strong>倍數縮放</strong>元素的寬、高。3D 版的 scale <strong>必須要有三個數值</strong>。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.scale</span> &#123;</span><br><span class="line">    <span class="comment">/* 數值是以倍數顯示 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">/* 若是負數會呈現倒影型態 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(-<span class="number">2</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 X 縮放 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleX</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">/* 可以設定單軸 Y 縮放 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 改變原點 */</span></span><br><span class="line">    <span class="comment">/* 預設值為 50% 50%，就是在 box 中心點。如果省略第 2 個值，會視為 center (50%)  */</span></span><br><span class="line">    <span class="comment">/* 數值可以是單位 em、px、%、left、right、top、bottom；center */</span></span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">    <span class="comment">/* scale3d()設定數值跟 translate3d 一樣要 3 個數值 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="元素選擇器"><a href="#元素選擇器" class="headerlink" title="元素選擇器"></a>元素選擇器</h3><p>以元素名稱作為選擇器，又稱為標籤選擇器。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ff0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="旋轉-rotate"><a href="#旋轉-rotate" class="headerlink" title="旋轉 - rotate"></a>旋轉 - rotate</h3><p>旋轉函式涉及到 3D，是所有變形函式中最不容易理解的函式，因為它並須搭配球體系統以及 trasform-style（選擇 3D 樣式） 與 perspective（透視）。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.rotate</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="comment">/* 記得要加單位 deg，正為順時針，負為逆時針 */</span></span><br><span class="line">    <span class="comment">/* 可以搭配 transform-style、perspective 屬性作到翻轉透視的效果。 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="comment">/* rotate3D(1, 1, 0, 45deg) 不等於 rotateX(45deg)、rotateY(45deg)、rotateZ(0deg) */</span></span><br><span class="line">    <span class="comment">/* 其實是 rotate3d(300px,300px,300px,45deg)，指旋轉的中心軸會從原點指向右方300px、下方300px，旋轉 45deg */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate3D</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="群組選擇器"><a href="#群組選擇器" class="headerlink" title="群組選擇器"></a>群組選擇器</h3><p>選擇器之間以「,」分隔，可以一次選擇指定的選擇對象。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="歪斜-skew"><a href="#歪斜-skew" class="headerlink" title="歪斜 - skew"></a>歪斜 - skew</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.skew</span> &#123;</span><br><span class="line">    <span class="comment">/* 記得要加單位 deg */</span></span><br><span class="line">    <span class="comment">/* 第一個數值為 X 的歪斜角，第二個數值為 Y 的歪斜角 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">45deg</span>, <span class="number">0deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewX</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewY</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="類別選擇器"><a href="#類別選擇器" class="headerlink" title="類別選擇器"></a>類別選擇器</h3><p>替選擇器取名稱，前面加「.」。此選擇器具有「重覆使用」或「同中求異」的特性，也是使用率最高的選擇器。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.txt</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ID-選擇器"><a href="#ID-選擇器" class="headerlink" title="ID 選擇器"></a>ID 選擇器</h3><p>替選擇器取名稱，前面加「#」。此選擇器具有「唯一」的特性，通常被當作區塊的名稱或是 JavaScript 快速獲取 DOM 目標的方式。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="子代選擇器"><a href="#子代選擇器" class="headerlink" title="子代選擇器"></a>子代選擇器</h3><p>選擇器之間以「&gt;」分隔，選擇到兒子，也就是只選擇到下一層，第三層不會被選擇，常與後代選擇器搞混。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="後代選擇器"><a href="#後代選擇器" class="headerlink" title="後代選擇器"></a>後代選擇器</h3><p>選擇器之間以「空白」分隔，可選擇到子孫們，也就是起始選擇目標之後的後代都會被選擇到，使用率很高的選擇器。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="同層相鄰選擇器"><a href="#同層相鄰選擇器" class="headerlink" title="同層相鄰選擇器"></a>同層相鄰選擇器</h3><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="同層全體選擇器"><a href="#同層全體選擇器" class="headerlink" title="同層全體選擇器"></a>同層全體選擇器</h3><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的弟元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> ~ <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="屬性選擇器"><a href="#屬性選擇器" class="headerlink" title="屬性選擇器"></a>屬性選擇器</h3><p>指以 HTML 元素屬性作為選擇器，有許多種選擇方式，如下：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 以 屬性 + 屬性值 去選擇 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href=<span class="string">&quot;http://google.com.tw/&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 img 元素屬性為 title 的目標 */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[title]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性 type=&#x27;text&#x27; 的目標 */</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;text&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性有 kaifu 單字，根據屬性值中眾多詞中某個詞進行選擇（以空白分隔決定該詞） */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[class~=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 href 的屬性值起始字串為 http:// 的目標  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href^=<span class="string">&quot;http://&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 href 的屬性值結尾字串為 .pdf 的對象  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href$=<span class="string">&#x27;.pdf&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 img 所有 src 屬性值裡面包含單字 kaifu 的對象; */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src*=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取所有圖片裡面有 figure- 的圖片，例如:figure-01.jpg、figure-02.jpg */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src|=<span class="string">&#x27;figure&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>css</tag>
@@ -300,80 +449,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Coding 資源</title>
-    <url>/2020/08/29/resource-coding/</url>
-    <content><![CDATA[<h3 id="套件"><a href="#套件" class="headerlink" title="套件"></a>套件</h3><ul>
-<li><a href="https://www.highcharts.com/">HighCharts</a></li>
-<li><a href="https://github.com/validatorjs/validator.js">Validator</a></li>
-<li><a href="https://fontawesome.com/">fontawesome</a></li>
-</ul>
-<h3 id="動畫"><a href="#動畫" class="headerlink" title="動畫"></a>動畫</h3><ul>
-<li><a href="https://animate.style/">Animate.css</a></li>
-<li><a href="https://www.delac.io/wow/">WOW.js</a></li>
-<li><a href="https://elrumordelaluz.github.io/csshake/">CSShake</a></li>
-<li><a href="https://loading.io/">Loading.io</a></li>
-<li><a href="https://animejs.com/">Anime.js</a></li>
-<li><a href="https://css-doodle.com/">CSS-doodle</a></li>
-<li><a href="https://greensock.com/tweenmax/">greensock</a></li>
-<li><a href="https://maxwellito.github.io/vivus/">vivus</a></li>
-<li><a href="https://sarcadass.github.io/granim.js/">Granim.js</a></li>
-<li><a href="https://bennettfeely.com/ztext/">ztext.js</a></li>
-</ul>
-<h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><ul>
-<li><a href="https://easings.net/">easings</a></li>
-<li><a href="https://cubic-bezier.com/#.17,.67,.83,.67">cubic-bezier</a></li>
-<li><a href="https://matthewlein.com/tools/ceaser">調整轉場速率</a></li>
-</ul>
-<a id="more"></a>
-
-<h3 id="一頁式"><a href="#一頁式" class="headerlink" title="一頁式"></a>一頁式</h3><ul>
-<li><a href="https://alvarotrigo.com/fullPage/">FullPage</a></li>
-</ul>
-<h3 id="視差"><a href="#視差" class="headerlink" title="視差"></a>視差</h3><ul>
-<li><a href="https://dixonandmoe.com/rellax/">Dixonand moe</a></li>
-</ul>
-<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><ul>
-<li><a href="https://collectui.com/">Collect UI</a></li>
-<li><a href="https://bootswatch.com/">bootswatch</a></li>
-<li><a href="https://useanimations.com/?fbclid=IwAR2n6GIn9IHyt4HMv_SzWBDx-T78Vzkl5FpyHse7E1LUkd9XfFFVP6I0TJw">介面 ICON SVG 動畫</a></li>
-</ul>
-<h2 id="CSS-Frame"><a href="#CSS-Frame" class="headerlink" title="CSS Frame"></a>CSS Frame</h2><ul>
-<li><a href="https://getbootstrap.com/">Bootstrap</a></li>
-<li><a href="https://materializecss.com/">Materialize</a></li>
-</ul>
-<h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><ul>
-<li><a href="https://fonts.google.com/">Google Fonts</a></li>
-</ul>
-<h3 id="Favicon"><a href="#Favicon" class="headerlink" title="Favicon"></a>Favicon</h3><ul>
-<li><a href="https://realfavicongenerator.net/">各裝置、瀏覽器 Favicon 產生器</a></li>
-</ul>
-<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><ul>
-<li><p><a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a></p>
-<p>提供線上 JSON，方便 API 串接測試。</p>
-</li>
-</ul>
-<h3 id="程式"><a href="#程式" class="headerlink" title="程式"></a>程式</h3><ul>
-<li><p><a href="https://codepen.io/">CODEPEN</a></p>
-<p>提供程式碼測試、程式創意來源之地。</p>
-</li>
-</ul>
-<h3 id="RWD-測試"><a href="#RWD-測試" class="headerlink" title="RWD 測試"></a>RWD 測試</h3><ul>
-<li><a href="https://responsively.app/">Responsively</a></li>
-</ul>
-<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><ul>
-<li><p><a href="https://hackmd.io/">HackMD</a></p>
-<p>線上 Markdown 編輯器，紀錄一生的學習。</p>
-</li>
-</ul>
-<h3 id="打字"><a href="#打字" class="headerlink" title="打字"></a>打字</h3><ul>
-<li><a href="https://10fastfingers.com/typing-test/english">打字練習</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Coding資源</category>
-      </categories>
-  </entry>
-  <entry>
     <title>CSS資源</title>
     <url>/2020/08/18/resource-css-useful-site/</url>
     <content><![CDATA[<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><ul>
@@ -424,81 +499,6 @@
 ]]></content>
       <categories>
         <category>CSS資源</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>學習資源</title>
-    <url>/2020/08/29/resource-learn/</url>
-    <content><![CDATA[<ul>
-<li>無暇的程式碼 JavaScript <a href="https://github.com/AllJointTW/clean-code-javascript">Github</a></li>
-<li>網頁動畫大全 <a href="https://github.com/sergey-pimenov/awesome-web-animation">awesome-web-animation</a></li>
-<li>一行 JavaScript 處理陣列、日期、數字、DOM 等等 <a href="https://1loc.dev/">官網</a>、<a href="https://github.com/phuoc-ng/1loc">Github</a></li>
-<li>一行 CSS Layouts <a href="http://1linelayouts.glitch.me/?fbclid=IwAR2HAWUL1DYbaYLw2T9wQNcvTUEqQ0mZICjCPj9CgUd3y0f-tO8skAFNiTM">官網</a></li>
-<li>一個 Div 做出來的 CSS 物件 <a href="https://a.singlediv.com/">Single Div</a></li>
-<li>HEAD 大全 <a href="https://htmlhead.dev/">官網</a>、<a href="https://github.com/joshbuchea/HEAD">Github</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>學習資源</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>設計常用工具及網站</title>
-    <url>/2020/08/29/resource-normal-tools/</url>
-    <content><![CDATA[<h3 id="截圖"><a href="#截圖" class="headerlink" title="截圖"></a>截圖</h3><ul>
-<li><p><a href="https://www.playpcesor.com/2014/02/sharex.html">ShareX</a></p>
-<p>截圖工具，截圖後能自動上傳雲端硬碟、加浮水印，也能錄製 GIF</p>
-</li>
-</ul>
-<h3 id="秀圖"><a href="#秀圖" class="headerlink" title="秀圖"></a>秀圖</h3><ul>
-<li><a href="https://steachs.com/archives/32681">軟體說明</a></li>
-<li><a href="https://www.cherubicsoft.com/en/projects/sagethumbs#.VwKhKUeNjDA">SageThumbs</a></li>
-</ul>
-<p>檔案總管顯示 Photoshop 檔縮圖、一鍵轉 JPG、PNG、GIF、BMP</p>
-<h3 id="套版"><a href="#套版" class="headerlink" title="套版"></a>套版</h3><ul>
-<li><a href="https://mobirise.com/">Mobirise</a></li>
-</ul>
-<h3 id="版型"><a href="#版型" class="headerlink" title="版型"></a>版型</h3><ul>
-<li><a href="https://www.webdesignclip.com/">日本風版型(一)</a></li>
-<li><a href="https://responsive-jp.com/">日本風版型(二)</a></li>
-</ul>
-<h3 id="LOGO"><a href="#LOGO" class="headerlink" title="LOGO"></a>LOGO</h3><ul>
-<li><a href="https://www.launchaco.com/logo">LOGO 產生器</a></li>
-</ul>
-<h3 id="圖庫"><a href="#圖庫" class="headerlink" title="圖庫"></a>圖庫</h3><ul>
-<li><a href="https://www.deviantart.com/">Deviantart</a></li>
-<li><a href="https://pixabay.com/">Pixabay</a></li>
-<li><a href="https://unsplash.com/">Unsplash</a></li>
-<li><a href="http://www.morguefile.com/">Morguefile</a></li>
-<li><a href="https://www.pexels.com/">Pexels</a></li>
-<li><a href="http://tw.freeimages.com/">Freeimages</a></li>
-<li><a href="http://www.stockvault.net/">Stockvault</a></li>
-<li><a href="http://www.freedigitalphotos.net/">Freedigital</a></li>
-<li><a href="http://www.dreamstime.com/">Dreamstime/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>設計常用工具及網站</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>網頁設計證照資源</title>
-    <url>/2020/08/29/resource-web-license/</url>
-    <content><![CDATA[<h3 id="網頁設計乙、丙級素材"><a href="#網頁設計乙、丙級素材" class="headerlink" title="網頁設計乙、丙級素材"></a>網頁設計乙、丙級素材</h3><ul>
-<li><a href="https://techbank.wdasec.gov.tw/owInform/TestReferData.aspx#17300">技檢中心乙丙級題目和素材</a></li>
-</ul>
-<h3 id="網頁設計乙級"><a href="#網頁設計乙級" class="headerlink" title="網頁設計乙級"></a>網頁設計乙級</h3><ul>
-<li><a href="http://onlinetest2.slhs.tp.edu.tw/bestcontent.asp?examid=bests">學科測驗</a></li>
-<li><a href="https://bquiz.kento520.tw/">術科解題</a></li>
-<li><a href="https://bquiz.mackliu.com/">術科解題</a></li>
-<li><a href="https://reurl.cc/R10Ex6">術科解題</a></li>
-</ul>
-<h3 id="網頁設計丙級"><a href="#網頁設計丙級" class="headerlink" title="網頁設計丙級"></a>網頁設計丙級</h3><ul>
-<li><a href="http://onlinetest1-5.slhs.tp.edu.tw/bestcontent.asp?examid=t17300">學科測驗</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>網頁設計證照資源</category>
       </categories>
   </entry>
 </search>
