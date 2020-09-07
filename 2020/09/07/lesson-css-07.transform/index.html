@@ -292,6 +292,9 @@
 
 <h3 id="歪斜-skew"><a href="#歪斜-skew" class="headerlink" title="歪斜 - skew"></a>歪斜 - skew</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.skew</span> &#123;</span><br><span class="line">    <span class="comment">/* 記得要加單位 deg */</span></span><br><span class="line">    <span class="comment">/* 第一個數值為 X 的歪斜角，第二個數值為 Y 的歪斜角 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">45deg</span>, <span class="number">0deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewX</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewY</span>(<span class="number">45deg</span>);</span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="原點-transform-origin"><a href="#原點-transform-origin" class="headerlink" title="原點 transform-origin"></a>原點 transform-origin</h3><p>變形大部分的屬性都會有一個原點去支撐該屬性變化的依據，例如旋轉時，原點的初始值為 50%,50%。也就是正中央的位置，因此我們會看到旋轉式依據中心點去做旋轉，我們也可以使用 transform-origin 這個屬性改變原點的位置，讓變形擁有更多變化性。它由水平方向、垂直方向兩個值組成，預設為 50%,50%（center,center），也可以使用關鍵字 left、right、center、bottom、top 去組合，若是以百分比則是以元素尺寸的基準去計算。最後注意的是，<strong>translate（平移）沒有所謂的原點</strong>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.transform-origin</span> &#123;</span><br><span class="line">    <span class="comment">/* 改變原點 */</span></span><br><span class="line">    <span class="comment">/* 預設值為 50% 50%，就是在 box 中心點。如果省略第 2 個值，會視為 center (50%)  */</span></span><br><span class="line">    <span class="comment">/* 數值可以是單位 em、px、%、left、right、top、bottom；center */</span></span><br><span class="line">    <span class="attribute">transform-origin</span>: center center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -312,7 +315,10 @@
     <a href="/2020/08/30/lesson-css-06.position/" rel="prev" title="CSS - 定位">
       <i class="fa fa-chevron-left"></i> CSS - 定位
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/07/lesson-css-08-transition/" rel="next" title="CSS - 轉場">
+      CSS - 轉場 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -371,7 +377,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%8A%E5%BD%A2-transform"><span class="nav-number">1.</span> <span class="nav-text">變形 - transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%A7%E6%A8%99%E7%B3%BB%E7%B5%B1"><span class="nav-number">2.</span> <span class="nav-text">座標系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%83%E9%9D%A2%E7%B3%BB%E7%B5%B1"><span class="nav-number">3.</span> <span class="nav-text">球面系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E8%A6%8F%E5%89%87"><span class="nav-number">4.</span> <span class="nav-text">重要規則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB-translate"><span class="nav-number">5.</span> <span class="nav-text">平移 - translate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%AE%E6%94%BE-scale"><span class="nav-number">6.</span> <span class="nav-text">縮放 - scale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%89-rotate"><span class="nav-number">7.</span> <span class="nav-text">旋轉 - rotate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%AA%E6%96%9C-skew"><span class="nav-number">8.</span> <span class="nav-text">歪斜 - skew</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%8A%E5%BD%A2-transform"><span class="nav-number">1.</span> <span class="nav-text">變形 - transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%A7%E6%A8%99%E7%B3%BB%E7%B5%B1"><span class="nav-number">2.</span> <span class="nav-text">座標系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%83%E9%9D%A2%E7%B3%BB%E7%B5%B1"><span class="nav-number">3.</span> <span class="nav-text">球面系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E8%A6%8F%E5%89%87"><span class="nav-number">4.</span> <span class="nav-text">重要規則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB-translate"><span class="nav-number">5.</span> <span class="nav-text">平移 - translate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%AE%E6%94%BE-scale"><span class="nav-number">6.</span> <span class="nav-text">縮放 - scale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%89-rotate"><span class="nav-number">7.</span> <span class="nav-text">旋轉 - rotate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%AA%E6%96%9C-skew"><span class="nav-number">8.</span> <span class="nav-text">歪斜 - skew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E9%BB%9E-transform-origin"><span class="nav-number">9.</span> <span class="nav-text">原點 transform-origin</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,7 +392,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>

@@ -39,20 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="背景12345678910111213141516171819.box &amp;#123;    &#x2F;* background-color 背景顏色 *&#x2F;    background-color: #faa;    &#x2F;* background-image 背景圖片 *&#x2F;    background-image: url(&amp;#x27;https:&#x2F;&#x2F;picsum.photos&#x2F;100&#x2F;100&#x2F;?random">
+  <meta name="description" content="轉場 - transition轉場指的是從一個狀態到另一個狀態，樣式轉變補間的過程。它通常發生於與使用者的互動，但也有可能是程式改變了 class、ID 或使用了其他狀態。最好的例子就是 :hover 偽類，也就是當滑鼠移到元素時所發生的狀態改變。轉場或動畫的使用，關係到與使用者的互動感受，因此 duration 時間拿捏非常重要。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS - 背景">
-<meta property="og:url" content="https://powerkaifu.github.io/2020/08/25/lesson-css-03.background/index.html">
+<meta property="og:title" content="CSS - 轉場">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/09/07/lesson-css-08-transition/index.html">
 <meta property="og:site_name" content="泰山職訓AFU">
-<meta property="og:description" content="背景12345678910111213141516171819.box &amp;#123;    &#x2F;* background-color 背景顏色 *&#x2F;    background-color: #faa;    &#x2F;* background-image 背景圖片 *&#x2F;    background-image: url(&amp;#x27;https:&#x2F;&#x2F;picsum.photos&#x2F;100&#x2F;100&#x2F;?random">
+<meta property="og:description" content="轉場 - transition轉場指的是從一個狀態到另一個狀態，樣式轉變補間的過程。它通常發生於與使用者的互動，但也有可能是程式改變了 class、ID 或使用了其他狀態。最好的例子就是 :hover 偽類，也就是當滑鼠移到元素時所發生的狀態改變。轉場或動畫的使用，關係到與使用者的互動感受，因此 duration 時間拿捏非常重要。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-08-25T07:37:00.000Z">
-<meta property="article:modified_time" content="2020-08-25T07:37:00.000Z">
+<meta property="article:published_time" content="2020-09-07T11:24:23.000Z">
+<meta property="article:modified_time" content="2020-09-07T11:24:23.000Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://powerkaifu.github.io/2020/08/25/lesson-css-03.background/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/09/07/lesson-css-08-transition/">
 
 
 <script id="page-configurations">
@@ -65,7 +65,7 @@
   };
 </script>
 
-  <title>CSS - 背景 | 泰山職訓AFU</title>
+  <title>CSS - 轉場 | 泰山職訓AFU</title>
   
     <script>
       function sendPageView() {
@@ -224,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/25/lesson-css-03.background/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/07/lesson-css-08-transition/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.png">
@@ -237,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CSS - 背景
+          CSS - 轉場
         </h1>
 
         <div class="post-meta">
@@ -247,7 +247,7 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2020-08-25 15:37:00" itemprop="dateCreated datePublished" datetime="2020-08-25T15:37:00+08:00">2020-08-25</time>
+              <time title="創建時間：2020-09-07 19:24:23" itemprop="dateCreated datePublished" datetime="2020-09-07T19:24:23+08:00">2020-09-07</time>
             </span>
 
           
@@ -261,11 +261,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* background-color 背景顏色 */</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#faa</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-image 背景圖片 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;https://picsum.photos/100/100/?random=1&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-repeat 背景重複 */</span></span><br><span class="line">    <span class="comment">/* repeat-x、repeat-y、no-repeat */</span></span><br><span class="line">    <span class="attribute">background-repeat</span>: repeat;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-size 背景尺寸 */</span></span><br><span class="line">    <span class="comment">/* contain、cover、數值、百分比 */</span></span><br><span class="line">    <span class="attribute">background-size</span>: contain;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* background-position 背景定位 */</span></span><br><span class="line">    <span class="comment">/* 可使用數值、百分比、left、right、center、top、bottom 關鍵字 */</span></span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h3 id="轉場-transition"><a href="#轉場-transition" class="headerlink" title="轉場 - transition"></a>轉場 - transition</h3><p>轉場指的是從一個狀態到另一個狀態，樣式轉變補間的過程。它通常發生於與使用者的互動，但也有可能是程式改變了 class、ID 或使用了其他狀態。最好的例子就是 :hover 偽類，也就是當滑鼠移到元素時所發生的狀態改變。轉場或動畫的使用，關係到與使用者的互動感受，因此 duration 時間拿捏非常重要。</p>
 <a id="more"></a>
 
-<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 線性漸層 */</span></span><br><span class="line"><span class="selector-class">.linear-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定角度 */</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">45deg</span>, red, yellow, white);</span><br><span class="line">    <span class="comment">/* 設定漸層站點 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right top, #fff <span class="number">0%</span>, lightblue <span class="number">25%</span>, #fff <span class="number">50%</span>, lightblue <span class="number">75%</span>, #fff <span class="number">100%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 放射漸層 */</span></span><br><span class="line"><span class="selector-class">.radial-gradient</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(white, #ffffaa, pink);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以下是當滑鼠移到盒子上時，可以讓背景顏色<strong>延遲 1 秒</strong>由灰色慢慢變成黃色，<strong>間隔 1 秒</strong>的轉場範例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 轉場 bakcground-color 的縮寫 */</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">    <span class="attribute">transition</span>: background-color <span class="number">1s</span> ease <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="轉場屬性"><a href="#轉場屬性" class="headerlink" title="轉場屬性"></a>轉場屬性</h3><p>轉場可以設定四個屬性值，分別為 transition-property（轉場指定 CSS 屬性）、transition-duration（轉場持續時間）、transition-timing-function（轉場速率）以及　 transition-delay（轉場延遲時間），將上面範例縮寫改成個別屬性如下所示：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">    <span class="comment">/* 適用所有元素以及偽元素::before、::after */</span></span><br><span class="line">    <span class="attribute">transition-property</span>: background-color;</span><br><span class="line">    <span class="attribute">transition-duration</span>: <span class="number">1s</span>;</span><br><span class="line">    <span class="attribute">transition-timing-function</span>: ease;</span><br><span class="line">    <span class="attribute">transition-delay</span>: <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="重要規則"><a href="#重要規則" class="headerlink" title="重要規則"></a>重要規則</h3><ul>
+<li>轉場個別屬性若要設定多屬性值，要以逗號來區隔，代表每個屬性轉場持續時間、轉場速率、延遲時間都不相同。</li>
+<li>沒有轉場效果或停用可設定 transition-property:none，或將持續與延遲時間設定為 0s，轉場沒有發生作用一樣。</li>
+<li>可以用 all 來指定全部 css 可支援 transition 的屬性效果，但預設已經是 all。</li>
+<li>border-style 不具備轉場效果。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* 逗號隔開屬性，分別對應了各自屬性、持續時間、轉場速率、延遲時間 */</span></span><br><span class="line">    <span class="attribute">transition-property</span>: color, border, border-radius, transform, opacity;</span><br><span class="line">    <span class="attribute">transition-duration</span>: <span class="number">1s</span>, <span class="number">2s</span>, <span class="number">3s</span>, <span class="number">4s</span>, <span class="number">5s</span>;</span><br><span class="line">    <span class="attribute">transition-timing-function</span>: ease, ease-in, ease-out, linear, ease;</span><br><span class="line">    <span class="attribute">transition-delay</span>: <span class="number">1s</span>, <span class="number">2s</span>, <span class="number">3s</span>, <span class="number">4s</span>, <span class="number">5s</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 沒有轉場效果 */</span></span><br><span class="line">    <span class="attribute">transition-property</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>當 transform-property 少於持續時間的個數，會忽略多出來的持續時間。</li>
+<li>當 transform-property 多於持續時間的個數，則會以流水號重複去分配持續時間，例如 2 個，則會 1,2,1,2,1,2 去分配。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* color、border-radius、opacity、width 會被分配到 1 秒 */</span></span><br><span class="line">    <span class="comment">/* border、transform、box-shadow、padding 會被分配到 2 秒 */</span></span><br><span class="line">    <span class="attribute">transition-property</span>: color, border, border-radius, transform, opacity, box-shadow, width, padding;</span><br><span class="line">    <span class="attribute">transition-duration</span>: <span class="number">1s</span>, <span class="number">2s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="轉場速率"><a href="#轉場速率" class="headerlink" title="轉場速率"></a>轉場速率</h3><p><strong>轉場速率</strong>與<strong>動畫速率</strong>都是相同的設定，除了分為 ease、ease-in、ease-out、ease-in-out、linear 五個基礎可以設定的數值外，還有 cubic-bezier() 函式與 step-start、step-end、steps(n,start)、steps(n,end) 四種步進函式的設定。</p>
+<p>更多 cubic-bezier 函式可參考：<a target="_blank" rel="noopener" href="https://easings.net/">https://easings.net/</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">    <span class="attribute">transition</span>: background-color <span class="number">1s</span> <span class="number">1s</span>;</span><br><span class="line">    <span class="comment">/* 五種基礎速率函式 */</span></span><br><span class="line">    <span class="comment">/* ease（預設）、ease-in、ease-out、ease-in-out、linear */</span></span><br><span class="line">    <span class="attribute">transition-timing-function</span>: ease;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* cubic-bezier() 函式 */</span></span><br><span class="line">    <span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(<span class="number">0.12</span>, <span class="number">0</span>, <span class="number">0.39</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 步進函式 */</span></span><br><span class="line">    <span class="comment">/* step-start 等於 steps(1,start) */</span></span><br><span class="line">    <span class="attribute">transition-timing-function</span>: step-start;</span><br><span class="line">    <span class="comment">/* step-end 等於 steps(1,end) */</span></span><br><span class="line">    <span class="attribute">transition-timing-function</span>: step-end;</span><br><span class="line">    <span class="comment">/* steps(5,start) 第一步動畫開始就步近 */</span></span><br><span class="line">    <span class="attribute">transition-timing-function</span>: <span class="built_in">steps</span>(<span class="number">5</span>, start);</span><br><span class="line">    <span class="comment">/* steps(5,end) 延遲一步動畫才開始步近 */</span></span><br><span class="line">    <span class="attribute">transition-timing-function</span>: <span class="built_in">steps</span>(<span class="number">5</span>, end);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -284,13 +305,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/25/lesson-css-02.text/" rel="prev" title="CSS - 文字">
-      <i class="fa fa-chevron-left"></i> CSS - 文字
+    <a href="/2020/09/07/lesson-css-07.transform/" rel="prev" title="CSS - 變形">
+      <i class="fa fa-chevron-left"></i> CSS - 變形
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/29/resource-coding/" rel="next" title="Coding 資源">
-      Coding 資源 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -349,7 +367,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%B8%E5%B1%A4"><span class="nav-number">2.</span> <span class="nav-text">漸層</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%89%E5%A0%B4-transition"><span class="nav-number">1.</span> <span class="nav-text">轉場 - transition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%89%E5%A0%B4%E5%B1%AC%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">轉場屬性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E8%A6%8F%E5%89%87"><span class="nav-number">3.</span> <span class="nav-text">重要規則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%89%E5%A0%B4%E9%80%9F%E7%8E%87"><span class="nav-number">4.</span> <span class="nav-text">轉場速率</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
