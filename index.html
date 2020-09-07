@@ -318,54 +318,14 @@
 
       
           <h3 id="動畫-Animation"><a href="#動畫-Animation" class="headerlink" title="動畫 - Animation"></a>動畫 - Animation</h3><p>我們知道轉場可以在觸發狀態時，讓起始、結束狀態兩組樣式產生一組簡單的補間動畫，它是容易且強大的效果，但若要製作複雜的動畫時，這就不是轉場的工作囉，因為它屬於一次性的動畫，例如黑色與白色的補間動畫，但若是要黑色變成黃色，再變成白色，再變…，這時候就要使用動畫（animation），其概念與 Flash 影格（keyframes）概念一樣，可以設定好幾個關鍵影格來告訴瀏覽器在該關鍵影格時要渲染的效果，因此，每個關鍵影格與關鍵影格之間都將會是一組補間動畫，可以形成好幾組補間動畫，產生強大複雜的動畫效果。</p>
-<h3 id="動畫設定"><a href="#動畫設定" class="headerlink" title="動畫設定"></a>動畫設定</h3><p>動畫設定以 @keyframes 宣告一組動畫的開始，它必須要一個<strong>動畫名稱</strong>，{} 大括號區塊裡面描述著動畫的循環行為，可以用百分比來告訴動畫時間分配的進度，也可以用 from 或 to 關鍵字。但請記住一件事，@keyframes 只掌管動畫時間的進度分配及紀錄 CSS 屬性，至於持續時間？重複幾次？延遲時間？速率如何？動畫播放方向？動畫終止時的狀態？動畫是否暫停？等等都由動畫其它屬性來設定，動畫很多屬性，對吧，這就是它比轉場可以設定更複雜的效果原因。以下為一個簡單的動畫範例，當滑鼠移到 .box 元素上時，在 5 秒內，<code>紅&gt;綠&gt;藍&gt;綠&gt;紅</code> 順序變化顏色，並且可以無限循環。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">animation</span>: animate <span class="number">5s</span> infinite;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@keyframes</span> animate &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        <span class="attribute">background</span>: red;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    25% &#123;</span><br><span class="line">        <span class="attribute">background</span>: green;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    50% &#123;</span><br><span class="line">        <span class="attribute">background</span>: blue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    75% &#123;</span><br><span class="line">        <span class="attribute">background</span>: green;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    100% &#123;</span><br><span class="line">        <span class="attribute">background</span>: red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="動畫屬性"><a href="#動畫屬性" class="headerlink" title="動畫屬性"></a>動畫屬性</h3><table>
-<thead>
-<tr>
-<th>屬性</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>animation-name</td>
-<td>動畫名稱</td>
-</tr>
-<tr>
-<td>animation-duration</td>
-<td>動畫持續時間，預設 0，單位 s 或 ms。</td>
-</tr>
-<tr>
-<td>animation-delay</td>
-<td>動畫延遲播放時間，預設 0，單位 s 或 ms。</td>
-</tr>
-<tr>
-<td>animation-iteration-count</td>
-<td>動畫播放次數，預設 1。其他還有 infinite。</td>
-</tr>
-<tr>
-<td>animation-timing-function</td>
-<td>動畫加速度函式，預設 ease。其他還有：linear、ease-in、ease-out、ease-in-out</td>
-</tr>
-<tr>
-<td>animation-direction</td>
-<td>動畫播放方向，預設 normal。其他還有 reverse、alternate、alternate-reverse。</td>
-</tr>
-<tr>
-<td>animation-fill-mode</td>
-<td>動畫播放前後模式，預設 none。其他還有 forwards、backwards、both。</td>
-</tr>
-<tr>
-<td>animation-play-state</td>
-<td>動畫播放或暫停狀態，預設 running。其他還有 paused。</td>
-</tr>
-</tbody></table>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 動畫名稱 */</span></span><br><span class="line">    <span class="attribute">animation-name</span>: animate;</span><br><span class="line">    <span class="comment">/* 動畫間隔 */</span></span><br><span class="line">    <span class="attribute">animation-duration</span>: <span class="number">1s</span>;</span><br><span class="line">    <span class="comment">/* 速度函式 */</span></span><br><span class="line">    <span class="attribute">animation-timing-function</span>: ease;</span><br><span class="line">    <span class="comment">/* 動畫延遲 */</span></span><br><span class="line">    <span class="attribute">animation-delay</span>: <span class="number">0.1s</span>;</span><br><span class="line">    <span class="comment">/* 播放次數 */</span></span><br><span class="line">    <span class="attribute">animation-iteration-count</span>: infinite;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 循環交替或反向播放   */</span></span><br><span class="line">    <span class="comment">/* normal（默認，正常播放）、revers（反向播放） */</span></span><br><span class="line">    <span class="comment">/* alternate（輪流交替播放，動畫在奇數次 1,3,5 正向播放，在偶數次 2,4,6 反向播放） */</span></span><br><span class="line">    <span class="comment">/* alternate-reverse（動畫在奇數次 1,3,5 反向播放，在偶數次 2,4,6 正向播放） */</span></span><br><span class="line">    <span class="attribute">animation-direction</span>: alternate;</span><br><span class="line">    <span class="comment">/* forwards（保留動畫結束後的樣式，例如顏色、位置） */</span></span><br><span class="line">    <span class="comment">/* backwards（返回動畫一開始的樣式，例如顏色、位置） */</span></span><br><span class="line">    <span class="attribute">animation-fill-mode</span>: forwards;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 縮寫 */</span></span><br><span class="line">    <span class="comment">/* animation: name duration timing-function delay iteration-count direction fill-mode play-state; */</span></span><br><span class="line">    <span class="attribute">animation</span>: animate <span class="number">1s</span> infinite alternate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 宣告關鍵影格為動畫、動畫名稱、開始、結束 */</span></span><br><span class="line"><span class="keyword">@keyframes</span> animate &#123;</span><br><span class="line">    <span class="selector-tag">from</span> &#123;</span><br><span class="line">        <span class="attribute">background</span>: red;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">to</span> &#123;</span><br><span class="line">        <span class="attribute">background</span>: yellow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="動畫權重"><a href="#動畫權重" class="headerlink" title="動畫權重"></a>動畫權重</h3><p>正在執行元素的動畫（@keyframes），權重會提高至行內樣式權重（比 ID 權重高），此外，不要在動畫宣告區塊的屬性後方加上 !important，沒有這種用法，會被忽略。</p>
-<h3 id="display-none"><a href="#display-none" class="headerlink" title="display:none"></a>display:none</h3><p>display:none 會中斷動畫的播放，並在下次設定 display:block 或其他不為 none 的值時，動畫會重頭再跑一次，而不會接續在中斷點。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/08/lesson-css-09-animation/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
