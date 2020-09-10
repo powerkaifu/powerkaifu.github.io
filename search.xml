@@ -491,9 +491,8 @@
 </li>
 </ul>
 <h3 id="程式"><a href="#程式" class="headerlink" title="程式"></a>程式</h3><ul>
-<li><p><a href="https://codepen.io/">CODEPEN</a></p>
-<p>提供程式碼測試、程式創意來源之地。</p>
-</li>
+<li><a href="https://codepen.io/">CODEPEN</a> 提供程式碼測試、程式創意來源之地。</li>
+<li><a href="https://regex101.com/">RegEx</a> RegEx</li>
 </ul>
 <h3 id="RWD-測試"><a href="#RWD-測試" class="headerlink" title="RWD 測試"></a>RWD 測試</h3><ul>
 <li><a href="https://responsively.app/">Responsively</a></li>
