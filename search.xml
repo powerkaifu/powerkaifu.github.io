@@ -360,7 +360,7 @@
   <entry>
     <title>學習資源</title>
     <url>/2020/08/29/resource-learn/</url>
-    <content><![CDATA[<ul>
+    <content><![CDATA[<h3 id="學習資源"><a href="#學習資源" class="headerlink" title="學習資源"></a>學習資源</h3><ul>
 <li>無暇的程式碼 JavaScript <a href="https://github.com/AllJointTW/clean-code-javascript">Github</a></li>
 <li>網頁動畫大全 <a href="https://github.com/sergey-pimenov/awesome-web-animation">awesome-web-animation</a></li>
 <li>一行 JavaScript 處理陣列、日期、數字、DOM 等等 <a href="https://1loc.dev/">前往</a>、<a href="https://github.com/phuoc-ng/1loc">Github</a></li>
@@ -370,7 +370,7 @@
 <li>從 ES6 開始的 JavaScript 學習生活<a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/">前往</a></li>
 <li>JavaScript 編程精解中文第三版<a href="https://wizardforcel.gitbooks.io/eloquent-js-3e/content/">前往</a></li>
 </ul>
-<h3 id="程式小遊戲"><a href="#程式小遊戲" class="headerlink" title="程式小遊戲"></a>程式小遊戲</h3><ul>
+<h3 id="程式遊戲"><a href="#程式遊戲" class="headerlink" title="程式遊戲"></a>程式遊戲</h3><ul>
 <li>CODE COMBAT<a href="https://codecombat.com/home">前往</a></li>
 </ul>
 ]]></content>
