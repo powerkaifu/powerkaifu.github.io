@@ -452,10 +452,10 @@
 <li><a href="https://loading.io/">Loading.io</a></li>
 <li><a href="https://animejs.com/">Anime.js</a></li>
 <li><a href="https://css-doodle.com/">CSS-doodle</a></li>
-<li><a href="https://greensock.com/tweenmax/">greensock</a></li>
 <li><a href="https://maxwellito.github.io/vivus/">vivus</a></li>
 <li><a href="https://sarcadass.github.io/granim.js/">Granim.js</a></li>
 <li><a href="https://bennettfeely.com/ztext/">ztext.js</a></li>
+<li><a href="https://greensock.com/tweenmax/">greensock</a></li>
 </ul>
 <h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><ul>
 <li><a href="https://easings.net/">easings</a></li>
@@ -482,25 +482,26 @@
 <h3 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h3><ul>
 <li><a href="https://fonts.google.com/">Google Fonts</a></li>
 </ul>
-<h3 id="Favicon"><a href="#Favicon" class="headerlink" title="Favicon"></a>Favicon</h3><ul>
-<li><a href="https://realfavicongenerator.net/">各裝置、瀏覽器 Favicon 產生器</a></li>
+<h3 id="程式碼工具"><a href="#程式碼工具" class="headerlink" title="程式碼工具"></a>程式碼工具</h3><ul>
+<li><a href="https://cdnjs.com/">cdnjS</a> cdn 提供。</li>
+<li><a href="https://j11y.io/jquery/">jQuery source viewer</a></li>
+<li><a href="https://regex101.com/">RegEx</a> RegEx。</li>
+</ul>
+<h3 id="線上程式碼"><a href="#線上程式碼" class="headerlink" title="線上程式碼"></a>線上程式碼</h3><ul>
+<li><a href="https://codepen.io/">CODEPEN</a> 程式碼測試、程式創意來源之地。</li>
+<li><a href="https://jsbin.com/?html,css,js,output">JSBIN</a> 程式碼測試。</li>
 </ul>
 <h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><ul>
-<li><p><a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a></p>
-<p>提供線上 JSON，方便 API 串接測試。</p>
-</li>
+<li><a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a> 線上 JSON，方便 API 串接測試。</li>
 </ul>
-<h3 id="程式"><a href="#程式" class="headerlink" title="程式"></a>程式</h3><ul>
-<li><a href="https://codepen.io/">CODEPEN</a> 提供程式碼測試、程式創意來源之地。</li>
-<li><a href="https://regex101.com/">RegEx</a> RegEx</li>
+<h3 id="Favicon"><a href="#Favicon" class="headerlink" title="Favicon"></a>Favicon</h3><ul>
+<li><a href="https://realfavicongenerator.net/">各裝置、瀏覽器 Favicon 產生器</a></li>
 </ul>
 <h3 id="RWD-測試"><a href="#RWD-測試" class="headerlink" title="RWD 測試"></a>RWD 測試</h3><ul>
 <li><a href="https://responsively.app/">Responsively</a></li>
 </ul>
 <h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><ul>
-<li><p><a href="https://hackmd.io/">HackMD</a></p>
-<p>線上 Markdown 編輯器，紀錄學習。</p>
-</li>
+<li><a href="https://hackmd.io/">HackMD</a> Markdown 編輯器。</li>
 </ul>
 <h3 id="打字"><a href="#打字" class="headerlink" title="打字"></a>打字</h3><ul>
 <li><a href="https://10fastfingers.com/typing-test/english">打字練習</a></li>
