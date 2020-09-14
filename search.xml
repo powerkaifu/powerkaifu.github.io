@@ -237,7 +237,7 @@
 </blockquote>
 <img data-src="/images/css/css-transform-01.png" width="700">
 
-<h3 id="球面系統"><a href="#球面系統" class="headerlink" title="球面系統"></a>球面系統</h3><p>其次，CSS 變形中旋轉（rotate）使用的是球面系統（spherical system）。這邊不容易理解，尤其對我這容易迷路的 2D 螞蟻人來說，我個人的記憶點是可以想成每個軸位方向如同一根棍子插入球體時，此時球體可以轉動的方向。</p>
+<h3 id="球面系統"><a href="#球面系統" class="headerlink" title="球面系統"></a>球面系統</h3><p>其次，CSS 變形中旋轉（rotate）使用的是球面系統（spherical system）。可以想成每個軸位方向如同一根棍子插入球體時，此時球體可以轉動的方向。</p>
 <blockquote>
 <p>X 軸（前後翻轉）、Y 軸（左右翻轉）、Z 軸（平面旋轉）</p>
 </blockquote>
@@ -369,6 +369,7 @@
 <li>HEAD 大全 <a href="https://htmlhead.dev/">前往</a>、<a href="https://github.com/joshbuchea/HEAD">Github</a></li>
 <li>從 ES6 開始的 JavaScript 學習生活<a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/">前往</a></li>
 <li>JavaScript 編程精解中文第三版<a href="https://wizardforcel.gitbooks.io/eloquent-js-3e/content/">前往</a></li>
+<li>新手入門 freecodecamp<a href="https://www.freecodecamp.org/">前往</a></li>
 </ul>
 <h3 id="程式遊戲"><a href="#程式遊戲" class="headerlink" title="程式遊戲"></a>程式遊戲</h3><ul>
 <li>CODE COMBAT<a href="https://codecombat.com/home">前往</a></li>
