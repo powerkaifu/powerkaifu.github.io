@@ -301,9 +301,9 @@
 <h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
 <li>浮動元素會影響排版，它會進入浮動層，後方元素的區塊部分會顯示在它的下方，而內容會圍繞著浮動元素。</li>
 <li>有可能會造成父元素高度崩塌。</li>
-<li>只有左邊或右邊，沒有中間。</li>
+<li>只有左邊或右邊的設定，沒有中間。</li>
 <li>具有內容包覆性，並且讓元素區塊化（block-level）。</li>
-<li>浮動是 BFC（Block formatting context）家族之一。</li>
+<li>BFC（Block formatting context）家族之一。</li>
 </ul>
 <h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 浮動 */</span></span><br><span class="line"><span class="selector-class">.float</span> &#123;</span><br><span class="line">    <span class="comment">/* right */</span></span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 清除浮動 */</span></span><br><span class="line"><span class="selector-class">.clear</span> &#123;</span><br><span class="line">    <span class="comment">/* left、right */</span></span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
