@@ -330,8 +330,8 @@
 <blockquote>
 <p>行內盒例子：span、a、em 等等。</p>
 </blockquote>
-<h3 id="行內區塊盒-inline-block-box"><a href="#行內區塊盒-inline-block-box" class="headerlink" title="行內區塊盒 - inline-block box"></a>行內區塊盒 - inline-block box</h3><p>行內區塊盒（Inline-Block Box），他是介於居民與地主的角色，他的外在行為是行內居民，也就是會像居民乖乖排列，但內在行為卻是區塊地主，區塊盒的盒屬性相關設定他都可以正常作用。<br>那麼，誰才是 CSS 世界掌握最多資源的超級大地主？答案呼之欲出。</p>
-<h3 id="誰才是超級大地主？"><a href="#誰才是超級大地主？" class="headerlink" title="誰才是超級大地主？"></a>誰才是超級大地主？</h3><p>超級大地主指的是初始容器區塊（initial containing block），body 只能算是大地主，隱藏版的超級大地主是根元素，也就是 body 的上層 html 元素，html 元素建立的是初始容器區塊，而初始容器區塊是由瀏覽器視埠（viewport）決定本身的尺寸。這也是為甚麼 body 的高度百分比無效化，原來他被 html 這個超級大地主控制著。</p>
+<h3 id="行內區塊盒-inline-block-box"><a href="#行內區塊盒-inline-block-box" class="headerlink" title="行內區塊盒 - inline-block box"></a>行內區塊盒 - inline-block box</h3><p>行內區塊盒（Inline-Block Box），他是介於居民與地主的角色，他的外在行為是行內居民，也就是會像居民乖乖排列，但內在行為卻是區塊地主，區塊盒的盒屬性相關設定因為他的內在行為關係，都可以正常作用。<br>那麼，最後，誰才是 CSS 世界掌握最多資源的超級大地主？答案呼之欲出。</p>
+<h3 id="誰才是超級大地主？"><a href="#誰才是超級大地主？" class="headerlink" title="誰才是超級大地主？"></a>誰才是超級大地主？</h3><p>超級大地主指的是初始容器區塊（initial containing block），body 只算是大地主，隱藏版的超級大地主是根元素，也就是 body 的上層 html 元素，html 元素建立的是初始容器區塊，而初始容器區塊是由瀏覽器視埠（viewport）決定本身的尺寸。這也是為甚麼 body 的高度百分比無效化，他被 html 超級大地主控制著。</p>
 <h3 id="Margin、Padding、Border"><a href="#Margin、Padding、Border" class="headerlink" title="Margin、Padding、Border"></a>Margin、Padding、Border</h3><ul>
 <li>外距、內距若設定百分比（如果有特殊需求），會根據父元素的寬度來計算，即便是上下外距、內距的百分比也是如此，而不是高度喔。</li>
 <li>外距可以負數，內距不可以負數。</li>
