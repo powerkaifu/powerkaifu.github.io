@@ -228,7 +228,9 @@
     <title>CSS - 變形</title>
     <url>/2020/09/07/lesson-css-07.transform/</url>
     <content><![CDATA[<h3 id="變形-transform"><a href="#變形-transform" class="headerlink" title="變形 - transform"></a>變形 - transform</h3><p>transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果不再是矩形呢？有了想打破這矩形的限制，transform 就這樣誕生了。</p>
+<blockquote>
 <p>變形有四個函式，分別是平移（translate）、縮放（scale）、旋轉（rotate）、歪斜（skew）。</p>
+</blockquote>
 <a id="more"></a>
 
 <h3 id="座標系統"><a href="#座標系統" class="headerlink" title="座標系統"></a>座標系統</h3><p>CSS 世界使用的座標系統是「笛卡爾座標系統」，沒錯，就是那位「我思，故我在」的笛卡爾。X 軸跟我們認知是一樣，往右為正值，往左為負值；但有點不同的是，一般我們的認知是 Y 軸 的正值應該是往上，但是對於 CSS 而言，不管是定位（position）、變形（transform）又或是使用文字陰影（text-shadow）、盒陰影（box-shadow）， Y 的正值是相反，也就是往下。而最後的 Z 軸，就如同定位的 z-index，朝著使用者是正，遠離使用者為負。</p>
