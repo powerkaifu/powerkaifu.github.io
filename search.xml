@@ -233,9 +233,9 @@
 </blockquote>
 <a id="more"></a>
 
-<h3 id="座標系統"><a href="#座標系統" class="headerlink" title="座標系統"></a>座標系統</h3><p>CSS 世界使用的座標系統是「笛卡爾座標系統」，沒錯，就是那位「我思，故我在」的笛卡爾。X 軸跟我們認知是一樣，往右為正值，往左為負值；但有點不同的是，一般我們的認知是 Y 軸 的正值應該是往上，但是對於 CSS 而言，不管是定位（position）、變形（transform）又或是使用文字陰影（text-shadow）、盒陰影（box-shadow）， Y 的正值是相反，也就是往下。而最後的 Z 軸，就如同定位的 z-index，朝著使用者是正，遠離使用者為負。</p>
+<h3 id="座標系統"><a href="#座標系統" class="headerlink" title="座標系統"></a>座標系統</h3><p>CSS 世界使用的座標系統是「笛卡爾座標系統」，沒錯，就是那位「我思，故我在」的笛卡爾。X 軸跟我們認知是一樣，往右為正值，往左為負值；但有點不同的是，一般我們的認知是 Y 軸 的正值應該是往上，但是對於 CSS 而言，不管是定位（position）、變形（transform）又或是使用文字陰影（text-shadow）、盒陰影（box-shadow）， Y 的正值是相反，也就是往下。而最後的 Z 軸，就如同定位的 z-index，朝著使用者是數值是越大，遠離使用者為數值越小。</p>
 <blockquote>
-<p>X 軸（右正、左負），Y 軸（下正、上負），Z 軸（朝向使用者為正、遠離使用者為負）</p>
+<p>X 軸（右正、左負），Y 軸（下正、上負），Z 軸（朝向使用者數值越大、遠離使用者值越小）</p>
 </blockquote>
 <img data-src="/images/css/css-transform-01.png" width="700">
 
