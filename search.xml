@@ -43,6 +43,9 @@
 <img data-src="/images/css/css-before-after-02.jpg" width="700">
 
 <p>這兩分身應用非常多元，難以一一談論，大致上可以拿來修飾本體缺少的部分，或是替主體增加更多層次的樣式，又或是三位一體組合的概念，舉個例子，我要畫米老鼠的頭部，本體元素畫了圓臉，兩分身再各畫一隻圓耳朵，只用了一個元素做到了三個圓的樣式。因此，偽元素具有節省元素數量的效果。</p>
+<ul>
+<li><a href="https://powerkaifu.github.io/CSS_Naruto_Before_After/">鳴人的影分身</a></li>
+</ul>
 ]]></content>
       <tags>
         <tag>css</tag>
