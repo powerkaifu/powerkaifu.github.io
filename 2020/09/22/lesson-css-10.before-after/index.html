@@ -39,20 +39,23 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="浮動 - float浮動（float）屬性的初衷是希望用來設計「文繞圖」，但是，技術始終來自創意，網頁設計師天馬行空的想法，讓 float 屬性有了新的出路，設計師發現原來浮動厲害的很，可以用來佈局設計版型，也因此一股「浮動流」旋風式颳起，在彈性盒（flex box）穩定前，浮動是排版布局的好幫手。">
+  <meta name="description" content="偽類與偽元素偽類（Pseudo-classes ）與偽元素（Pseudo-element）兩者都是 CSS 為了擴張變化性而衍生出的選擇器，偽類以元素狀態、結構為主要的選擇方式：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS - 浮動">
-<meta property="og:url" content="https://powerkaifu.github.io/2020/08/29/lesson-css-05.float/index.html">
+<meta property="og:title" content="CSS - 偽元素">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/09/22/lesson-css-10.before-after/index.html">
 <meta property="og:site_name" content="漂遊前端無盡海">
-<meta property="og:description" content="浮動 - float浮動（float）屬性的初衷是希望用來設計「文繞圖」，但是，技術始終來自創意，網頁設計師天馬行空的想法，讓 float 屬性有了新的出路，設計師發現原來浮動厲害的很，可以用來佈局設計版型，也因此一股「浮動流」旋風式颳起，在彈性盒（flex box）穩定前，浮動是排版布局的好幫手。">
+<meta property="og:description" content="偽類與偽元素偽類（Pseudo-classes ）與偽元素（Pseudo-element）兩者都是 CSS 為了擴張變化性而衍生出的選擇器，偽類以元素狀態、結構為主要的選擇方式：">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-08-29T15:15:05.000Z">
-<meta property="article:modified_time" content="2020-08-29T15:15:05.000Z">
+<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-before-after-01.jpg">
+<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-before-after-02.jpg">
+<meta property="article:published_time" content="2020-09-22T00:39:09.000Z">
+<meta property="article:modified_time" content="2020-09-22T00:39:09.000Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://powerkaifu.github.io/images/css/css-before-after-01.jpg">
 
-<link rel="canonical" href="https://powerkaifu.github.io/2020/08/29/lesson-css-05.float/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/09/22/lesson-css-10.before-after/">
 
 
 <script id="page-configurations">
@@ -65,7 +68,7 @@
   };
 </script>
 
-  <title>CSS - 浮動 | 漂遊前端無盡海</title>
+  <title>CSS - 偽元素 | 漂遊前端無盡海</title>
   
     <script>
       function sendPageView() {
@@ -224,7 +227,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/29/lesson-css-05.float/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/22/lesson-css-10.before-after/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.png">
@@ -237,7 +240,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CSS - 浮動
+          CSS - 偽元素
         </h1>
 
         <div class="post-meta">
@@ -247,7 +250,7 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2020-08-29 23:15:05" itemprop="dateCreated datePublished" datetime="2020-08-29T23:15:05+08:00">2020-08-29</time>
+              <time title="創建時間：2020-09-22 08:39:09" itemprop="dateCreated datePublished" datetime="2020-09-22T08:39:09+08:00">2020-09-22</time>
             </span>
 
           
@@ -261,17 +264,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="浮動-float"><a href="#浮動-float" class="headerlink" title="浮動 - float"></a>浮動 - float</h3><p>浮動（float）屬性的初衷是希望用來設計「文繞圖」，但是，技術始終來自創意，網頁設計師天馬行空的想法，讓 float 屬性有了新的出路，設計師發現原來浮動厲害的很，可以用來佈局設計版型，也因此一股「浮動流」旋風式颳起，在彈性盒（flex box）穩定前，浮動是排版布局的好幫手。</p>
+        <h3 id="偽類與偽元素"><a href="#偽類與偽元素" class="headerlink" title="偽類與偽元素"></a>偽類與偽元素</h3><p>偽類（Pseudo-classes ）與偽元素（Pseudo-element）兩者都是 CSS 為了擴張變化性而衍生出的選擇器，偽類以元素狀態、結構為主要的選擇方式：</p>
 <a id="more"></a>
 
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
-<li>浮動元素會影響排版，它會進入浮動層，後方元素的區塊部分會顯示在它的下方，而內容會圍繞著浮動元素。</li>
-<li>有可能會造成父元素高度崩塌。</li>
-<li>只有左邊或右邊的設定，沒有中間。</li>
-<li>具有內容包覆性，並且讓元素區塊化（block-level）。</li>
-<li>BFC（Block formatting context）家族之一。</li>
+<ul>
+<li>:checked（狀態）</li>
+<li>:focus（狀態）</li>
+<li>:root（結構）</li>
+<li>:first-child（結構）</li>
+<li>:nth-child（結構）</li>
 </ul>
-<h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 浮動 */</span></span><br><span class="line"><span class="selector-class">.float</span> &#123;</span><br><span class="line">    <span class="comment">/* right */</span></span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 清除浮動 */</span></span><br><span class="line"><span class="selector-class">.clear</span> &#123;</span><br><span class="line">    <span class="comment">/* left、right */</span></span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而偽元素則是以 before、after 這兩兄弟為主要被探討的對象，可以說是偽元素的代名詞！截至目前為止，偽元素家族比起偽類家族，算是少數。追朔早期，偽元素與偽類一樣，都是以單冒號 : 為主，至今依舊可以使用單冒號來選擇偽元素，但自 CSS3 開始，偽類與偽元素開始分家，偽元素被定義成雙冒號 :: 作為選擇器，隨著前端思維的浪潮的前進，<strong>你應該使用雙冒號來表示偽元素，不要使用單冒號</strong>。</p>
+<ul>
+<li>::before</li>
+<li>::after</li>
+<li>::first-line</li>
+<li>::first-letter</li>
+<li>::selection</li>
+<li>::backdrop</li>
+</ul>
+<p>以瀏覽器來看偽類與偽元素，進入開發者模式，偽類不會出現在 Elements 結構畫面裡面，但是偽元素 before、after 會在被選擇的元素內容前後出現，雖然它們長在 DOM 身上，但依舊不被 DOM 接納，只能被 CSSOM 所渲染，因此不能使用 JavaScript 或 jQuery 任何獲取 DOM 元素的方式選擇到偽元素。</p>
+<h3 id="偽元素建立與特性"><a href="#偽元素建立與特性" class="headerlink" title="偽元素建立與特性"></a>偽元素建立與特性</h3><ol>
+<li>content 是必須的屬性，沒有偽元素無法建立。</li>
+<li>before、after 被建立時，類型為 inline。</li>
+<li>img、input、iframe 等置換元素無法使用偽元素。</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 建立偽元素時，一定要有 content */</span></span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="偽元素即是元素分身"><a href="#偽元素即是元素分身" class="headerlink" title="偽元素即是元素分身"></a>偽元素即是元素分身</h3><p>before 與 after 兩兄弟其實是元素的分身，也就是<strong>元素可以多出兩個容器來做更多事情</strong>。就好像 1942~1945 射擊遊戲兩側的小飛機，好吧，我知道沒人聽過。</p>
+<img data-src="/images/css/css-before-after-01.jpg" width="700">
+
+<p>又或像是火影忍者的影分身之術，聽過了吧。</p>
+<img data-src="/images/css/css-before-after-02.jpg" width="700">
+
+<p>這兩分身應用非常多元，難以一一談論，大致上可以拿來修飾本體缺少的部分，或是替主體增加更多層次的樣式，又或是三位一體組合的概念，舉個例子，我要畫米老鼠的頭部，本體元素畫了圓臉，兩分身再各畫一隻圓耳朵，只用了一個元素做到了三個圓的樣式。因此，偽元素具有節省元素數量的效果。</p>
 
     </div>
 
@@ -290,13 +316,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/29/lesson-css-04.box-model/" rel="prev" title="CSS - 盒模型">
-      <i class="fa fa-chevron-left"></i> CSS - 盒模型
+    <a href="/2020/09/08/lesson-css-09.animation/" rel="prev" title="CSS - 動畫">
+      <i class="fa fa-chevron-left"></i> CSS - 動畫
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/30/lesson-css-06.position/" rel="next" title="CSS - 定位">
-      CSS - 定位 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -355,7 +378,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E5%8B%95-float"><span class="nav-number">1.</span> <span class="nav-text">浮動 - float</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">語法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%BD%E9%A1%9E%E8%88%87%E5%81%BD%E5%85%83%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">偽類與偽元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%BD%E5%85%83%E7%B4%A0%E5%BB%BA%E7%AB%8B%E8%88%87%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">偽元素建立與特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%BD%E5%85%83%E7%B4%A0%E5%8D%B3%E6%98%AF%E5%85%83%E7%B4%A0%E5%88%86%E8%BA%AB"><span class="nav-number">3.</span> <span class="nav-text">偽元素即是元素分身</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

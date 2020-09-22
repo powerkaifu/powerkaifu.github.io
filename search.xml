@@ -676,7 +676,7 @@
   </entry>
   <entry>
     <title>CSS - 動畫</title>
-    <url>/2020/09/08/lesson-css-09-animation/</url>
+    <url>/2020/09/08/lesson-css-09.animation/</url>
     <content><![CDATA[<h3 id="動畫-Animation"><a href="#動畫-Animation" class="headerlink" title="動畫 - Animation"></a>動畫 - Animation</h3><p>「轉場」與「動畫」可說是兄弟，兩人分工負責了 CSS 世界的動態效果。轉場可以在觸發狀態時，讓起始、結束狀態兩組樣式產生一組簡單的補間動畫，它是容易且強大的效果，但若要製作較為複雜的效果時，這就不是轉場的工作囉，因為它屬於<strong>一次性</strong>的動畫，例如黑色與白色的補間動畫。若是要黑色變成黃色，再變成白色，再變其他顏色，這時候就是動畫（animation）登場的時候。</p>
 <a id="more"></a>
 
@@ -743,6 +743,48 @@
 <h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3><p>動畫的使用其中一個是常被設計成 CSS class，再使用 JavaScript 或 jQuery 新增或刪除。</p>
 <h3 id="position"><a href="#position" class="headerlink" title="position"></a>position</h3><p>使用到 top、right、bottom、left 作為動畫 keyframe 裡面的屬性時，要先確認方框元素有沒有 position。</p>
 <h3 id="display-none"><a href="#display-none" class="headerlink" title="display:none"></a>display:none</h3><p>display:none 會中斷動畫的播放，並在下次設定 display:block 或其他不為 none 的值時，動畫會重頭再跑一次，而不會接續在中斷點。</p>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS - 偽元素</title>
+    <url>/2020/09/22/lesson-css-10.before-after/</url>
+    <content><![CDATA[<h3 id="偽類與偽元素"><a href="#偽類與偽元素" class="headerlink" title="偽類與偽元素"></a>偽類與偽元素</h3><p>偽類（Pseudo-classes ）與偽元素（Pseudo-element）兩者都是 CSS 為了擴張變化性而衍生出的選擇器，偽類以元素狀態、結構為主要的選擇方式：</p>
+<a id="more"></a>
+
+<ul>
+<li>:checked（狀態）</li>
+<li>:focus（狀態）</li>
+<li>:root（結構）</li>
+<li>:first-child（結構）</li>
+<li>:nth-child（結構）</li>
+</ul>
+<p>而偽元素則是以 before、after 這兩兄弟為主要被探討的對象，可以說是偽元素的代名詞！截至目前為止，偽元素家族比起偽類家族，算是少數。追朔早期，偽元素與偽類一樣，都是以單冒號 : 為主，至今依舊可以使用單冒號來選擇偽元素，但自 CSS3 開始，偽類與偽元素開始分家，偽元素被定義成雙冒號 :: 作為選擇器，隨著前端思維的浪潮的前進，<strong>你應該使用雙冒號來表示偽元素，不要使用單冒號</strong>。</p>
+<ul>
+<li>::before</li>
+<li>::after</li>
+<li>::first-line</li>
+<li>::first-letter</li>
+<li>::selection</li>
+<li>::backdrop</li>
+</ul>
+<p>以瀏覽器來看偽類與偽元素，進入開發者模式，偽類不會出現在 Elements 結構畫面裡面，但是偽元素 before、after 會在被選擇的元素內容前後出現，雖然它們長在 DOM 身上，但依舊不被 DOM 接納，只能被 CSSOM 所渲染，因此不能使用 JavaScript 或 jQuery 任何獲取 DOM 元素的方式選擇到偽元素。</p>
+<h3 id="偽元素建立與特性"><a href="#偽元素建立與特性" class="headerlink" title="偽元素建立與特性"></a>偽元素建立與特性</h3><ol>
+<li>content 是必須的屬性，沒有偽元素無法建立。</li>
+<li>before、after 被建立時，類型為 inline。</li>
+<li>img、input、iframe 等置換元素無法使用偽元素。</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 建立偽元素時，一定要有 content */</span></span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="偽元素即是元素分身"><a href="#偽元素即是元素分身" class="headerlink" title="偽元素即是元素分身"></a>偽元素即是元素分身</h3><p>before 與 after 兩兄弟其實是元素的分身，也就是<strong>元素可以多出兩個容器來做更多事情</strong>。就好像 1942~1945 射擊遊戲兩側的小飛機，好吧，我知道沒人聽過。</p>
+<img data-src="/images/css/css-before-after-01.jpg" width="700">
+
+<p>又或像是火影忍者的影分身之術，聽過了吧。</p>
+<img data-src="/images/css/css-before-after-02.jpg" width="700">
+
+<p>這兩分身應用非常多元，難以一一談論，大致上可以拿來修飾本體缺少的部分，或是替主體增加更多層次的樣式，又或是三位一體組合的概念，舉個例子，我要畫米老鼠的頭部，本體元素畫了圓臉，兩分身再各畫一隻圓耳朵，只用了一個元素做到了三個圓的樣式。因此，偽元素具有節省元素數量的效果。</p>
 ]]></content>
       <tags>
         <tag>css</tag>
