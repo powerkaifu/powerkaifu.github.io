@@ -36,13 +36,13 @@
 </ol>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 建立偽元素時，一定要有 content */</span></span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="偽元素是元素的分身"><a href="#偽元素是元素的分身" class="headerlink" title="偽元素是元素的分身"></a>偽元素是元素的分身</h3><p>元素如果是本體，before 與 after 兩兄弟是元素本體的分身，也就是<strong>元素可以多出兩個容器來做更多事情</strong>。就好像 1942~1945 射擊遊戲兩側的小飛機，好吧，我知道沒人聽過。</p>
+<h3 id="偽元素是元素的分身"><a href="#偽元素是元素的分身" class="headerlink" title="偽元素是元素的分身"></a>偽元素是元素的分身</h3><p>元素如果是主體，before 與 after 兩兄弟是元素主體的分身，也就是<strong>元素可以多出兩個容器來做更多事情</strong>。就好像 1942~1945 射擊遊戲兩側的小飛機，好吧，我知道沒人聽過。</p>
 <img data-src="/images/css/css-before-after-01.jpg" width="700">
 
 <p>又或像是火影忍者的影分身之術，聽過了．．．吧。</p>
 <img data-src="/images/css/css-before-after-02.jpg" width="700">
 
-<p>這兩分身應用非常多元，難以一一談論，大致上可以拿來修飾本體缺少的部分，或是替主體增加更多層次的樣式，又或是三位一體組合的概念，舉個例子，我要畫米老鼠的頭部，本體元素畫了圓臉，兩分身再各畫一隻圓耳朵，只用了一個元素做到了三個圓的樣式。因此，偽元素具有節省元素數量的效果。</p>
+<p>這兩分身應用非常多元、非常廣，難以一一談論，能發揮在各種場合，大致上可以分為<strong>修飾主體缺少的部分</strong>，或是<strong>替主體增加更多層次的樣式</strong>，又或是<strong>三位一體組合的概念</strong>，舉個例子，我要畫米老鼠的頭部，元素主體畫了圓臉，兩分身再各畫一隻圓耳朵，這樣只用了一個元素做到了三個圓的樣式。因此，<strong>偽元素具有節省元素數量的效果</strong>，不用為了做一個效果而多使用一個元素。</p>
 <ul>
 <li><a href="https://powerkaifu.github.io/CSS_Naruto_Before_After/">鳴人的影分身</a></li>
 </ul>
