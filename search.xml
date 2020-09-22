@@ -31,7 +31,7 @@
 <li>::selection</li>
 <li>::backdrop</li>
 </ul>
-<p>以瀏覽器來看偽類與偽元素，進入開發者模式，偽類不會出現在 Elements 結構畫面裡面，但是偽元素 before、after 會在被選擇的元素內容前後出現，雖然它們長在 DOM 身上，但依舊不被 DOM 接納，只能被 CSSOM 所渲染，因此不能使用 JavaScript 或 jQuery 任何獲取 DOM 元素的方式選擇到偽元素。</p>
+<p>以瀏覽器來看偽類與偽元素，進入開發者模式，偽類不會出現在 Elements 結構畫面，但是偽元素 ::before、::after 會在被選擇的元素內容前後出現，雖然它們可以長在 DOM 身上，但依舊不被 DOM 接納，只能被 CSSOM 所渲染，因此不能使用 JavaScript 或 jQuery 任何獲取 DOM 元素的方式選擇到偽元素。</p>
 <h3 id="偽元素建立與特性"><a href="#偽元素建立與特性" class="headerlink" title="偽元素建立與特性"></a>偽元素建立與特性</h3><p>這裡的偽元素指的是 ::before 與 ::after 。</p>
 <ol>
 <li>content 是必須的屬性，沒有無法建立偽元素。</li>
