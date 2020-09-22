@@ -284,7 +284,7 @@
 <li>::backdrop</li>
 </ul>
 <p>以瀏覽器來看偽類與偽元素，進入開發者模式，偽類不會出現在 Elements 結構畫面裡面，但是偽元素 before、after 會在被選擇的元素內容前後出現，雖然它們長在 DOM 身上，但依舊不被 DOM 接納，只能被 CSSOM 所渲染，因此不能使用 JavaScript 或 jQuery 任何獲取 DOM 元素的方式選擇到偽元素。</p>
-<h3 id="偽元素建立與特性"><a href="#偽元素建立與特性" class="headerlink" title="偽元素建立與特性"></a>偽元素建立與特性</h3><p>這裡的偽元素指的都是 before 與 after 。</p>
+<h3 id="偽元素建立與特性"><a href="#偽元素建立與特性" class="headerlink" title="偽元素建立與特性"></a>偽元素建立與特性</h3><p>這裡的偽元素指的是 ::before 與 ::after 。</p>
 <ol>
 <li>content 是必須的屬性，沒有無法建立偽元素。</li>
 <li>被建立時，類型為 inline。</li>
@@ -294,7 +294,7 @@
 </ol>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 建立偽元素時，一定要有 content */</span></span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="偽元素是元素的分身"><a href="#偽元素是元素的分身" class="headerlink" title="偽元素是元素的分身"></a>偽元素是元素的分身</h3><p>元素如果是主體，before 與 after 兩兄弟是元素主體的分身，也就是<strong>元素可以多出兩個容器來做更多事情</strong>。就好像 1942~1945 射擊遊戲兩側的小飛機，好吧，我知道沒人聽過。</p>
+<h3 id="偽元素是元素的分身"><a href="#偽元素是元素的分身" class="headerlink" title="偽元素是元素的分身"></a>偽元素是元素的分身</h3><p>元素如果是主體，::before 與 ::after 兩兄弟是元素主體的分身，也就是<strong>元素可以多出兩個容器來做更多事情</strong>。就好像 1942~1945 射擊遊戲兩側的小飛機，好吧，我知道沒人聽過。</p>
 <img data-src="/images/css/css-before-after-01.jpg" width="700">
 
 <p>又或像是火影忍者的影分身之術，聽過了．．．吧。</p>
