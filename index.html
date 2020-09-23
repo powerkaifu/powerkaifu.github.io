@@ -221,67 +221,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/18/index/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="前端設計講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="漫遊前端無盡海">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/18/index/" class="post-title-link" itemprop="url">部落格介紹</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-08-18 22:37:47" itemprop="dateCreated datePublished" datetime="2020-08-18T22:37:47+08:00">2020-08-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="部落格介紹"><a href="#部落格介紹" class="headerlink" title="部落格介紹"></a>部落格介紹</h3><blockquote>
-<p>一入前端無盡海，八方無極見無形，步步求穩步步進，從此一切是無端。</p>
-</blockquote>
-<p>前端世界，如同一片沒有盡頭，無邊無際的大海。因為無盡，所以自由；因為無盡，所以心隨所欲。充滿著迷人勾人心魂的知識，也遍布了詭譎多變的蟲坑，渦旋在黑暗深處，等待著冒險者們的靠近…</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/24/lesson-tailwind-css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -320,38 +259,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Tailwind-CSS-設定"><a href="#Tailwind-CSS-設定" class="headerlink" title="Tailwind CSS 設定"></a>Tailwind CSS 設定</h3><ol>
-<li>建立專案目錄，在此目錄下安裝 Tailwind CSS</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install tailwindcss</span><br></pre></td></tr></table></figure>
+          <h3 id="介紹篇"><a href="#介紹篇" class="headerlink" title="介紹篇"></a>介紹篇</h3><p>使用過 Bootstrap CSS，我們知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，以至於設計出的版型常常長得很像，但這不能怪 Bootstrap，它之所以成為全球著名的 CSS Framework 之一，設計的核心是希望被普遍大眾接受，容易使用。</p>
+<p>Tailwind CSS 屬於通用工具類型（Utility）的 CSS 框架，Bootstrap 則被歸類為（Component UI），與 Bootstrap 最大的不同是，Tailwind CSS 全力支持使用工具類型的 class 讓設計者完成客製化的版型，甚至可以不用寫 CSS 或鮮少就能完成版型，在元素標籤內靈活操作 Class。由於 Tailwind 靈活度高，使用的都是 Class 組合技，切版速度更快，能針對客製化符合修改需求，但比起 Bootstrap 更考驗了設計者對於 CSS 的了解。</p>
+<h3 id="設定篇"><a href="#設定篇" class="headerlink" title="設定篇"></a>設定篇</h3><p>必須要 node 環境，請先安裝 node.js。</p>
+<h4 id="初始化專案"><a href="#初始化專案" class="headerlink" title="初始化專案"></a>初始化專案</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>建立 CSS 檔案</li>
-</ol>
-<p>根目錄建立一個 tailwind.css，引入 Tailwind CSS 三個 partials，分別是 base、components、utilities。這支是主要的 CSS，之後要增加 CSS 都必須放在對應的區塊內。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 基本 HTML 樣式，包含調整過的 Normalize.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="comment">/* 組件區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="comment">/* Utility區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
+<h4 id="安裝-Tailwind-CSS"><a href="#安裝-Tailwind-CSS" class="headerlink" title="安裝 Tailwind CSS"></a>安裝 Tailwind CSS</h4><p>在專案目錄下安裝 Tailwind CSS</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install tailwindcss</span><br></pre></td></tr></table></figure>
 
-<p>現在，可以做個測試，在根目錄下，使用指令編譯出 CSS，注意檔名是否正確，目前編譯出來 CSS 2MB 以上，非常大，之後可以使用 PurgeCSS 壓縮。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tailwindcss build tailwind.css -o style.css</span><br></pre></td></tr></table></figure>
+<h4 id="建立-CSS-檔案"><a href="#建立-CSS-檔案" class="headerlink" title="建立 CSS 檔案"></a>建立 CSS 檔案</h4><p>在專案根目錄下建立一個 tailwind.css，引入 Tailwind CSS 三個 partials，分別是 base、components、utilities。這支是主要的 CSS，之後要增加 CSS 都必須放在對應的區塊內。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 基本 HTML 樣式，包含調整過的 Normalize.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="comment">/* 組件區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="comment">/* Utility區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>根目錄建立 postcss.config.js，這是編譯 tailwind.css 前的設定檔。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// postcss.config.js</span></span><br><span class="line"><span class="keyword">const</span> purgecss = <span class="built_in">require</span>(<span class="string">&#x27;@fullhuman/postcss-purgecss&#x27;</span>)(&#123;</span><br><span class="line">    <span class="comment">// Specify the paths to all of the template files in your project</span></span><br><span class="line">    content: [</span><br><span class="line">        <span class="string">&#x27;./src/**/*.html&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;./src/**/*.vue&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;./src/**/*.jsx&#x27;</span>,</span><br><span class="line">        <span class="comment">// etc.</span></span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    <span class="comment">// This is the function used to extract class names from your templates</span></span><br><span class="line">    defaultExtractor: <span class="function"><span class="params">content</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// Capture as liberally as possible, including things like `h-(screen-1.5)`</span></span><br><span class="line">        <span class="keyword">const</span> broadMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s]*[^&lt;&gt;&quot;&#x27;`\s:]/g</span>) || []</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Capture classes within other delimiters like .block(class=&quot;w-1/2&quot;) in Pug</span></span><br><span class="line">        <span class="keyword">const</span> innerMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s.()]*[^&lt;&gt;&quot;&#x27;`\s.():]/g</span>) || []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> broadMatches.concat(innerMatches)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [<span class="built_in">require</span>(<span class="string">&#x27;tailwindcss&#x27;</span>), <span class="built_in">require</span>(<span class="string">&#x27;autoprefixer&#x27;</span>), purgecss],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>現在，可以做個測試，在根目錄下，輸入以下指令編譯出 CSS，注意檔名是否正確，目前編譯出來 CSS 檔案 2MB 以上，容量可說非常大，之後可以使用 PurgeCSS 壓縮。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build tailwind.css -o style.css</span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>PurgeCSS</li>
-</ol>
-<p>將 CSS 壓縮的好東西，需要安裝以下的套件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install @fullhuman&#x2F;postcss-purgecss --save-dev</span><br><span class="line">npm i postcss postcss-cli</span><br><span class="line">npm i autoprefixer</span><br><span class="line">npm i postcss-import --save-dev</span><br></pre></td></tr></table></figure>
+<h4 id="建立-postcss-config-js"><a href="#建立-postcss-config-js" class="headerlink" title="建立 postcss.config.js"></a>建立 postcss.config.js</h4><p>在專案根目錄下建立 postcss.config.js，這是編譯 tailwind.css 前的設定檔。。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// postcss.config.js</span></span><br><span class="line"><span class="keyword">const</span> purgecss = <span class="built_in">require</span>(<span class="string">&#x27;@fullhuman/postcss-purgecss&#x27;</span>)(&#123;</span><br><span class="line">    <span class="comment">// Specify the paths to all of the template files in your project</span></span><br><span class="line">    content: [</span><br><span class="line">        <span class="string">&#x27;./src/**/*.html&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;./src/**/*.vue&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;./src/**/*.jsx&#x27;</span>,</span><br><span class="line">        <span class="comment">// etc.</span></span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    <span class="comment">// This is the function used to extract class names from your templates</span></span><br><span class="line">    defaultExtractor: <span class="function"><span class="params">content</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// Capture as liberally as possible, including things like `h-(screen-1.5)`</span></span><br><span class="line">        <span class="keyword">const</span> broadMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s]*[^&lt;&gt;&quot;&#x27;`\s:]/g</span>) || []</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Capture classes within other delimiters like .block(class=&quot;w-1/2&quot;) in Pug</span></span><br><span class="line">        <span class="keyword">const</span> innerMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s.()]*[^&lt;&gt;&quot;&#x27;`\s.():]/g</span>) || []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> broadMatches.concat(innerMatches)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [<span class="built_in">require</span>(<span class="string">&#x27;tailwindcss&#x27;</span>), <span class="built_in">require</span>(<span class="string">&#x27;autoprefixer&#x27;</span>), purgecss],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="5">
+<h4 id="PurgeCSS"><a href="#PurgeCSS" class="headerlink" title="PurgeCSS"></a>PurgeCSS</h4><p>這是將 CSS 壓縮的好東西，前提是必需要安裝以下的套件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install @fullhuman&#x2F;postcss-purgecss --save-dev</span><br><span class="line">npm i postcss postcss-cli</span><br><span class="line">npm i autoprefixer</span><br><span class="line">npm i postcss-import --save-dev</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
 <li>打開 package.json 新增指令</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;postcss&quot;: &quot;postcss tailwind.css -o style.css&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;postcss&quot;: &quot;postcss tailwind.css -o style.css&quot;</span><br></pre></td></tr></table></figure>
 
-<p>現在可以輸入以下指令編譯出瘦身過後的 CSS 檔。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
+<p>現在可以輸入以下指令編譯出瘦身過後的 CSS 檔，只有．．．7KB ～ WOW！</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -890,6 +824,103 @@
 </ul>
 <h3 id="程式遊戲"><a href="#程式遊戲" class="headerlink" title="程式遊戲"></a>程式遊戲</h3><ul>
 <li>CODE COMBAT<a target="_blank" rel="noopener" href="https://codecombat.com/home">前往</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/29/resource-normal-tools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="漫遊前端無盡海">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/29/resource-normal-tools/" class="post-title-link" itemprop="url">設計常用工具及網站</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-08-29 14:28:37" itemprop="dateCreated datePublished" datetime="2020-08-29T14:28:37+08:00">2020-08-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A8%AD%E8%A8%88%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%8F%8A%E7%B6%B2%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">設計常用工具及網站</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="截圖"><a href="#截圖" class="headerlink" title="截圖"></a>截圖</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.playpcesor.com/2014/02/sharex.html">ShareX</a></p>
+<p>截圖工具，截圖後能自動上傳雲端硬碟、加浮水印，也能錄製 GIF</p>
+</li>
+</ul>
+<h3 id="秀圖"><a href="#秀圖" class="headerlink" title="秀圖"></a>秀圖</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://steachs.com/archives/32681">軟體說明</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cherubicsoft.com/en/projects/sagethumbs#.VwKhKUeNjDA">SageThumbs</a></li>
+</ul>
+<p>檔案總管顯示 Photoshop 檔縮圖、一鍵轉 JPG、PNG、GIF、BMP</p>
+<h3 id="套版"><a href="#套版" class="headerlink" title="套版"></a>套版</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://mobirise.com/">Mobirise</a></li>
+</ul>
+<h3 id="版型"><a href="#版型" class="headerlink" title="版型"></a>版型</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.webdesignclip.com/">日本風版型(一)</a></li>
+<li><a target="_blank" rel="noopener" href="https://responsive-jp.com/">日本風版型(二)</a></li>
+</ul>
+<h3 id="LOGO"><a href="#LOGO" class="headerlink" title="LOGO"></a>LOGO</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.launchaco.com/logo">LOGO 產生器</a></li>
+</ul>
+<h3 id="圖庫"><a href="#圖庫" class="headerlink" title="圖庫"></a>圖庫</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.deviantart.com/">Deviantart</a></li>
+<li><a target="_blank" rel="noopener" href="https://pixabay.com/">Pixabay</a></li>
+<li><a target="_blank" rel="noopener" href="https://unsplash.com/">Unsplash</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.morguefile.com/">Morguefile</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.pexels.com/">Pexels</a></li>
+<li><a target="_blank" rel="noopener" href="http://tw.freeimages.com/">Freeimages</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.stockvault.net/">Stockvault</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.freedigitalphotos.net/">Freedigital</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.dreamstime.com/">Dreamstime/</a></li>
 </ul>
 
       
