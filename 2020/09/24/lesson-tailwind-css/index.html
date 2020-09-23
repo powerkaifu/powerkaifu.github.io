@@ -39,12 +39,12 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="Tailwind CSS如果使用過 Bootstrap CSS，我們知道它擁有強大的 Components UI 工具提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離 Tailwind CSS 屬於通用工具類型（Utility）的 CSS 框架，它與 Utility 與 UI ComponentsTailwind CSS 設定 建立專案目錄，在此目錄下安裝 tailwind">
+  <meta name="description" content="Tailwind CSS 設定 建立專案目錄，在此目錄下安裝 Tailwind CSS  1npm install tailwindcss   建立 CSS 檔案  根目錄建立一個 tailwind.css，引入 Tailwind CSS 三個 partials，分別是 base、components、utilities。這支是主要的 CSS，之後要增加 CSS 都必須放在對應的區塊內。 1234">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tailwind CSS">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/09/24/lesson-tailwind-css/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="Tailwind CSS如果使用過 Bootstrap CSS，我們知道它擁有強大的 Components UI 工具提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離 Tailwind CSS 屬於通用工具類型（Utility）的 CSS 框架，它與 Utility 與 UI ComponentsTailwind CSS 設定 建立專案目錄，在此目錄下安裝 tailwind">
+<meta property="og:description" content="Tailwind CSS 設定 建立專案目錄，在此目錄下安裝 Tailwind CSS  1npm install tailwindcss   建立 CSS 檔案  根目錄建立一個 tailwind.css，引入 Tailwind CSS 三個 partials，分別是 base、components、utilities。這支是主要的 CSS，之後要增加 CSS 都必須放在對應的區塊內。 1234">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-09-23T19:23:30.000Z">
 <meta property="article:modified_time" content="2020-09-23T19:23:30.000Z">
@@ -261,12 +261,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Tailwind-CSS"><a href="#Tailwind-CSS" class="headerlink" title="Tailwind CSS"></a>Tailwind CSS</h3><p>如果使用過 Bootstrap CSS，我們知道它擁有強大的 Components UI 工具提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離</p>
-<p>Tailwind CSS 屬於通用工具類型（Utility）的 CSS 框架，它與</p>
-<h3 id="Utility-與-UI-Components"><a href="#Utility-與-UI-Components" class="headerlink" title="Utility 與 UI Components"></a>Utility 與 UI Components</h3><h3 id="Tailwind-CSS-設定"><a href="#Tailwind-CSS-設定" class="headerlink" title="Tailwind CSS 設定"></a>Tailwind CSS 設定</h3><ol>
-<li>建立專案目錄，在此目錄下安裝 tailwind css</li>
+        <h3 id="Tailwind-CSS-設定"><a href="#Tailwind-CSS-設定" class="headerlink" title="Tailwind CSS 設定"></a>Tailwind CSS 設定</h3><ol>
+<li>建立專案目錄，在此目錄下安裝 Tailwind CSS</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install tailwindcss</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>建立 CSS 檔案</li>
+</ol>
+<p>根目錄建立一個 tailwind.css，引入 Tailwind CSS 三個 partials，分別是 base、components、utilities。這支是主要的 CSS，之後要增加 CSS 都必須放在對應的區塊內。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 基本 HTML 樣式，包含調整過的 Normalize.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="comment">/* 組件區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="comment">/* Utility區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
+
+<p>現在，可以做個測試，在根目錄下，使用指令編譯出 CSS，注意檔名是否正確，目前編譯出來 CSS 2MB 以上，非常大，之後可以使用 PurgeCSS 壓縮。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tailwindcss build tailwind.css -o style.css</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>根目錄建立 postcss.config.js，這是編譯 tailwind.css 前的設定檔。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// postcss.config.js</span></span><br><span class="line"><span class="keyword">const</span> purgecss = <span class="built_in">require</span>(<span class="string">&#x27;@fullhuman/postcss-purgecss&#x27;</span>)(&#123;</span><br><span class="line">    <span class="comment">// Specify the paths to all of the template files in your project</span></span><br><span class="line">    content: [</span><br><span class="line">        <span class="string">&#x27;./src/**/*.html&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;./src/**/*.vue&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;./src/**/*.jsx&#x27;</span>,</span><br><span class="line">        <span class="comment">// etc.</span></span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    <span class="comment">// This is the function used to extract class names from your templates</span></span><br><span class="line">    defaultExtractor: <span class="function"><span class="params">content</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// Capture as liberally as possible, including things like `h-(screen-1.5)`</span></span><br><span class="line">        <span class="keyword">const</span> broadMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s]*[^&lt;&gt;&quot;&#x27;`\s:]/g</span>) || []</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Capture classes within other delimiters like .block(class=&quot;w-1/2&quot;) in Pug</span></span><br><span class="line">        <span class="keyword">const</span> innerMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s.()]*[^&lt;&gt;&quot;&#x27;`\s.():]/g</span>) || []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> broadMatches.concat(innerMatches)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [<span class="built_in">require</span>(<span class="string">&#x27;tailwindcss&#x27;</span>), <span class="built_in">require</span>(<span class="string">&#x27;autoprefixer&#x27;</span>), purgecss],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>PurgeCSS</li>
+</ol>
+<p>將 CSS 壓縮的好東西，需要安裝以下的套件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install @fullhuman&#x2F;postcss-purgecss --save-dev</span><br><span class="line">npm i postcss postcss-cli</span><br><span class="line">npm i autoprefixer</span><br><span class="line">npm i postcss-import --save-dev</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>打開 package.json 新增指令</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;postcss&quot;: &quot;postcss tailwind.css -o style.css&quot;</span><br></pre></td></tr></table></figure>
+
+<p>現在可以輸入以下指令編譯出瘦身過後的 CSS 檔。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -347,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tailwind-CSS"><span class="nav-number">1.</span> <span class="nav-text">Tailwind CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Utility-%E8%88%87-UI-Components"><span class="nav-number">2.</span> <span class="nav-text">Utility 與 UI Components</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tailwind-CSS-%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.</span> <span class="nav-text">Tailwind CSS 設定</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tailwind-CSS-%E8%A8%AD%E5%AE%9A"><span class="nav-number">1.</span> <span class="nav-text">Tailwind CSS 設定</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
