@@ -64,7 +64,7 @@
 <blockquote>
 <p>npm i autoprefixer</p>
 </blockquote>
-<h4 id="打開-package-json-新增指令"><a href="#打開-package-json-新增指令" class="headerlink" title="打開 package.json 新增指令"></a>打開 package.json 新增指令</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指令要對應的路徑位置</span></span><br><span class="line"><span class="comment">// npm run tailwind =&gt; Tailwind 整包 css</span></span><br><span class="line"><span class="comment">// npm run postcss =&gt; Tailwind 瘦身 css</span></span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;tailwind&quot;: &quot;npx tailwindcss build ./src/css/tailwind.css -o ./src/css/style.css&quot;,</span><br><span class="line">    &quot;postcss&quot;: &quot;postcss ./src/css/tailwind.css -o ./src/css/style.css&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="打開-package-json-新增指令"><a href="#打開-package-json-新增指令" class="headerlink" title="打開 package.json 新增指令"></a>打開 package.json 新增指令</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指令要對應的路徑位置</span></span><br><span class="line"><span class="comment">// npm run tailwind =&gt; Tailwind 整包 css</span></span><br><span class="line"><span class="comment">// npm run postcss =&gt; Tailwind 瘦身 css</span></span><br><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;tailwind&quot;</span>: <span class="string">&quot;npx tailwindcss build ./src/css/tailwind.css -o ./src/css/style.css&quot;</span>,</span><br><span class="line">    <span class="string">&quot;postcss&quot;</span>: <span class="string">&quot;postcss ./src/css/tailwind.css -o ./src/css/style.css&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>現在輸入以下指令編譯出瘦身過後的 CSS 檔，只有．．．7KB ～ WOW！</p>
 <blockquote>
@@ -75,26 +75,13 @@
 <p>npx tailwindcss init–full</p>
 </blockquote>
 <p>此外，也可以在 tailwind.config.js 設置 purge 瘦身，這樣再進行一次 npm run tailwind 編譯過後，會得到使用過的 class。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// tailwind.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  future: &#123;</span><br><span class="line">    removeDeprecatedGapUtilities: <span class="literal">true</span>,</span><br><span class="line">    purgeLayersByDefault: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  purge: &#123;</span><br><span class="line">    enabled: <span class="literal">true</span>,</span><br><span class="line">    content: [</span><br><span class="line">      <span class="string">&#x27;./src/**/*.html&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;./src/**/*.vue&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;./src/**/*.jsx&#x27;</span>,</span><br><span class="line">      <span class="comment">// etc.</span></span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  theme: &#123;&#125;,</span><br><span class="line">  variants: &#123;&#125;,</span><br><span class="line">  plugins: [],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// tailwind.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  future: &#123;</span><br><span class="line">    removeDeprecatedGapUtilities: <span class="literal">true</span>,</span><br><span class="line">    purgeLayersByDefault: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  purge: &#123;</span><br><span class="line">    enabled: <span class="literal">true</span>,</span><br><span class="line">    content: [<span class="string">&#x27;./src/**/*.html&#x27;</span>, <span class="string">&#x27;./src/**/*.vue&#x27;</span>, <span class="string">&#x27;./src/**/*.jsx&#x27;</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="修改-tailwind-config-js"><a href="#修改-tailwind-config-js" class="headerlink" title="修改 tailwind.config.js"></a>修改 tailwind.config.js</h4><ul>
-<li>可以自訂義屬於自己的 class，例如：想新增一個 kaifu 顏色。</li>
+<li>可以自訂義屬於自己的 class，例如：想新增一個 kaifu 顏色，會定義出 text-kaifu、bg-kaifu、border-kaifu 等相關的 class。</li>
 </ul>
 <img data-src="/images/tailwind/tailwind-01.png" width="700">
 
-<ul>
-<li><p>執行以下 Tailwindcss 整包指令，驗證是否成功，若成功 style.css 都會有 kaifu 相關 class，例如 text-kaifu、bg-kaifu、border-kaifu 等等。</p>
-<blockquote>
-<p>npx tailwindcss build ./src/css/tailwind.css -o ./src/css/style.css</p>
-</blockquote>
-</li>
-<li><p>若執行 postcss + PurgeCSS 瘦身指令，會判斷使用了甚麼 class 才會篩選進來，注意！前提是已經將 style.css link 到文件才會判斷使用了甚麼 class，例如只使用</p>
-<p>text-kaifu，就只有 text-kaifu 被篩選進來，這是 PurgeCSS 的概念。</p>
-<blockquote>
-<p>npm run postcss</p>
-</blockquote>
-</li>
-</ul>
 <h3 id="流程篇"><a href="#流程篇" class="headerlink" title="流程篇"></a>流程篇</h3><ul>
 <li><p>可先執行以下指令，使用整包 Tailwind CSS 進行設計，文件記得先 link 這支 css。</p>
 <blockquote>
@@ -103,14 +90,7 @@
 </li>
 <li><p>搭配 VSCode 套件提示 class 名稱 <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</a>，<strong>注意，必須要有 tailwind.config.js 才會有提示！</strong></p>
 </li>
-<li><p>設計完成再進行瘦身。</p>
-<blockquote>
-<p>npm run postcss</p>
-</blockquote>
-<p>或</p>
-<blockquote>
-<p>npm run tailwind</p>
-</blockquote>
+<li><p>設計完成再進行瘦身。<code>npm run postcss</code> 或 <code>npm run tailwind</code></p>
 </li>
 <li><p>另外，練習時，可先使用 CDN 配合官網文件熟悉 Utility Class。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
