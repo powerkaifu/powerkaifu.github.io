@@ -88,8 +88,10 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>搭配 VSCode 套件提示 class 名稱 <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</a></li>
-<li>設計完成再進行瘦身。</li>
+<li><p>搭配 VSCode 套件提示 class 名稱 <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</a>，<strong>注意，必須要有 tailwind.config.js 才會有提示！</strong></p>
+</li>
+<li><p>設計完成再進行瘦身。</p>
+</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
