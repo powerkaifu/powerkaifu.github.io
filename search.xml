@@ -33,10 +33,10 @@
 </ul>
 <h3 id="設定篇"><a href="#設定篇" class="headerlink" title="設定篇"></a>設定篇</h3><p>使用 Node.js 環境，請先安裝 <a href="https://nodejs.org/zh-tw/">Node.js</a>。</p>
 <h4 id="初始化專案"><a href="#初始化專案" class="headerlink" title="初始化專案"></a>初始化專案</h4><p>建立一個專案目錄，在此專案目錄下輸入以下指令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
 
 <h4 id="安裝-Tailwind-CSS"><a href="#安裝-Tailwind-CSS" class="headerlink" title="安裝 Tailwind CSS"></a>安裝 Tailwind CSS</h4><p>在專案目錄下安裝 Tailwind CSS</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install tailwindcss</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install tailwindcss</span><br></pre></td></tr></table></figure>
 
 <h4 id="建立-CSS-檔案"><a href="#建立-CSS-檔案" class="headerlink" title="建立 CSS 檔案"></a>建立 CSS 檔案</h4><ol>
 <li>在專案根目錄下建立一個目錄 src，並在 src 下建立 css 目錄。</li>
