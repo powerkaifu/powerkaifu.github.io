@@ -321,40 +321,14 @@
 
       
           <h3 id="介紹篇"><a href="#介紹篇" class="headerlink" title="介紹篇"></a>介紹篇</h3><p>Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootstrap，它之所以成為全球著名的 CSS Framework 之一，設計的核心是希望被普遍大眾接受且容易使用，使用組件來設計 RWD 版型這方面來說，Bootstrap 真的非常快速。</p>
-<p>Tailwind CSS 屬於通用工具類型（Utility）的 CSS 框架，與 Bootstrap 最大的不同點在於 Tailwind CSS 全力支持使用工具類型的 Class 讓設計者完成客製化的版型，甚至可以不用寫 CSS 或鮮少就能完成版型設計，它可在元素內靈活操作 Class，也因為這特性，你必須使用 Class 去組合各種 CSS 的觀念技巧，類似一種組合技的概念，所以客製化切版速度非常快，但比起 Bootstrap，它更考驗了設計者對於 CSS 整體的了解。</p>
-<h3 id="設定篇"><a href="#設定篇" class="headerlink" title="設定篇"></a>設定篇</h3><p>使用 Node.js 環境，請先安裝 <a target="_blank" rel="noopener" href="https://nodejs.org/zh-tw/">Node.js</a>。</p>
-<h4 id="初始化專案"><a href="#初始化專案" class="headerlink" title="初始化專案"></a>初始化專案</h4><p>建立一個專案目錄，在此專案目錄下輸入以下指令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
-
-<h4 id="安裝-Tailwind-CSS"><a href="#安裝-Tailwind-CSS" class="headerlink" title="安裝 Tailwind CSS"></a>安裝 Tailwind CSS</h4><p>在專案目錄下安裝 Tailwind CSS</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install tailwindcss</span><br></pre></td></tr></table></figure>
-
-<h4 id="建立-CSS-檔案"><a href="#建立-CSS-檔案" class="headerlink" title="建立 CSS 檔案"></a>建立 CSS 檔案</h4><ol>
-<li>在專案根目錄下建立一個目錄 src，並在 src 下建立 css 目錄。</li>
-<li>在 css 目錄下，建立 tailwind.css。</li>
-<li>引入 Tailwind CSS 三個 partials，分別是 base、components、utilities。Tailwind 主要的 CSS 區塊。</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 基本 HTML 樣式，包含調整過的 Normalize.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="comment">/* 組件區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="comment">/* Utility區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
-
-<p>現在，可以做個測試，在根目錄下，輸入以下指令編譯出 CSS，<strong>注意路徑檔名是否正確</strong>，編譯出 CSS 檔案有 2MB 以上，容量非常大，Bootstrap 約 10000 多行樣式碼，Tailwind 有 100000 多行樣式碼，可以說是十倍界王拳？不擔心，之後可以使用 PurgeCSS 進行瘦身，測試完可以將 style.css 刪除掉。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
-
-<h4 id="建立-postcss-config-js"><a href="#建立-postcss-config-js" class="headerlink" title="建立 postcss.config.js"></a>建立 postcss.config.js</h4><p>在專案根目錄下建立 postcss.config.js，這是編譯 tailwind.css 前的設定檔，等等需要安裝其相關套件。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// postcss.config.js</span></span><br><span class="line"><span class="keyword">const</span> purgecss = <span class="built_in">require</span>(<span class="string">&#x27;@fullhuman/postcss-purgecss&#x27;</span>)(&#123;</span><br><span class="line">    <span class="comment">// 指定 template 檔案路徑</span></span><br><span class="line">    content: [</span><br><span class="line">        <span class="string">&#x27;./src/**/*.html&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;./src/**/*.vue&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;./src/**/*.jsx&#x27;</span>,</span><br><span class="line">        <span class="comment">// etc.</span></span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    defaultExtractor: <span class="function"><span class="params">content</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> broadMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s]*[^&lt;&gt;&quot;&#x27;`\s:]/g</span>) || []</span><br><span class="line">        <span class="keyword">const</span> innerMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s.()]*[^&lt;&gt;&quot;&#x27;`\s.():]/g</span>) || []</span><br><span class="line">        <span class="keyword">return</span> broadMatches.concat(innerMatches)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [<span class="built_in">require</span>(<span class="string">&#x27;tailwindcss&#x27;</span>), <span class="built_in">require</span>(<span class="string">&#x27;autoprefixer&#x27;</span>), purgecss],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="PurgeCSS-Postcss"><a href="#PurgeCSS-Postcss" class="headerlink" title="PurgeCSS + Postcss"></a>PurgeCSS + Postcss</h4><p>PurgeCSS 是將 CSS 瘦身的好物，打包時會將沒使用到的 Class 拿掉，而 Postcss 可以編譯 CSS 延伸的功能，例如自動前綴詞，安裝以下的套件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install @fullhuman&#x2F;postcss-purgecss --save-dev</span><br><span class="line">npm i postcss postcss-cli</span><br><span class="line">npm i autoprefixer</span><br></pre></td></tr></table></figure>
-
-<h4 id="打開-package-json-新增指令"><a href="#打開-package-json-新增指令" class="headerlink" title="打開 package.json 新增指令"></a>打開 package.json 新增指令</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指令要對應的路徑位置</span></span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;postcss&quot;: &quot;postcss ./src/css/tailwind.css -o ./src/css/style.css&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<p>現在輸入以下指令編譯出瘦身過後的 CSS 檔，只有．．．7KB ～ WOW！</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
-
-<h3 id="建立-tailwind-config-js-設定檔"><a href="#建立-tailwind-config-js-設定檔" class="headerlink" title="建立 tailwind.config.js 設定檔"></a>建立 tailwind.config.js 設定檔</h3><p><strong>Tailwind CSS 最重要的設定檔</strong>，所有客製化都是在這裡設定，輸入以下指令，會產生在專案根目錄，裡面已經設置了 Tailwind 所有預設的選項。</p>
-<blockquote>
-<p>npx tailwindcss init –full</p>
-</blockquote>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/24/lesson-tailwind-css/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

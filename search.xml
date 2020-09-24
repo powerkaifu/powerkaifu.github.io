@@ -13,6 +13,8 @@
     <title>Tailwind CSS</title>
     <url>/2020/09/24/lesson-tailwind-css/</url>
     <content><![CDATA[<h3 id="介紹篇"><a href="#介紹篇" class="headerlink" title="介紹篇"></a>介紹篇</h3><p>Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootstrap，它之所以成為全球著名的 CSS Framework 之一，設計的核心是希望被普遍大眾接受且容易使用，使用組件來設計 RWD 版型這方面來說，Bootstrap 真的非常快速。</p>
+<a id="more"></a>
+
 <p>Tailwind CSS 屬於通用工具類型（Utility）的 CSS 框架，與 Bootstrap 最大的不同點在於 Tailwind CSS 全力支持使用工具類型的 Class 讓設計者完成客製化的版型，甚至可以不用寫 CSS 或鮮少就能完成版型設計，它可在元素內靈活操作 Class，也因為這特性，你必須使用 Class 去組合各種 CSS 的觀念技巧，類似一種組合技的概念，所以客製化切版速度非常快，但比起 Bootstrap，它更考驗了設計者對於 CSS 整體的了解。</p>
 <h3 id="設定篇"><a href="#設定篇" class="headerlink" title="設定篇"></a>設定篇</h3><p>使用 Node.js 環境，請先安裝 <a href="https://nodejs.org/zh-tw/">Node.js</a>。</p>
 <h4 id="初始化專案"><a href="#初始化專案" class="headerlink" title="初始化專案"></a>初始化專案</h4><p>建立一個專案目錄，在此專案目錄下輸入以下指令：</p>
@@ -42,7 +44,7 @@
 <p>現在輸入以下指令編譯出瘦身過後的 CSS 檔，只有．．．7KB ～ WOW！</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
-<h3 id="建立-tailwind-config-js-設定檔"><a href="#建立-tailwind-config-js-設定檔" class="headerlink" title="建立 tailwind.config.js 設定檔"></a>建立 tailwind.config.js 設定檔</h3><p><strong>Tailwind CSS 最重要的設定檔</strong>，所有客製化都是在這裡設定，輸入以下指令，會產生在專案根目錄，裡面已經設置了 Tailwind 所有預設的選項。</p>
+<h3 id="建立-tailwind-config-js-設定檔"><a href="#建立-tailwind-config-js-設定檔" class="headerlink" title="建立 tailwind.config.js 設定檔"></a>建立 tailwind.config.js 設定檔</h3><p><strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化屬於自己的 Tailwind，可以在這裡設定，輸入以下指令，會產生在專案根目錄，裡面已經設置了 Tailwind 所有預設的選項。</p>
 <blockquote>
 <p>npx tailwindcss init –full</p>
 </blockquote>
