@@ -12,20 +12,20 @@
   <entry>
     <title>Tailwind CSS</title>
     <url>/2020/09/24/lesson-tailwind-css/</url>
-    <content><![CDATA[<h3 id="介紹篇"><a href="#介紹篇" class="headerlink" title="介紹篇"></a>介紹篇</h3><p>Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、<br>寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootstrap，它之所以成為全球著名的 CSS Framework<br>之一，設計的核心是希望被普遍大眾接受且容易使用，它確實做到了，使用組件來設計 RWD 版型，Bootstrap 真的非常快速。</p>
+    <content><![CDATA[<h3 id="介紹篇"><a href="#介紹篇" class="headerlink" title="介紹篇"></a>介紹篇</h3><p>Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootstrap，它之所以成為全球著名的 CSS Framework之一，設計的核心是希望被普遍大眾接受且容易使用，它確實做到了，使用組件來設計 RWD 版型，Bootstrap 真的非常快速。</p>
 <a id="more"></a>
 
-<p>Tailwind CSS 屬於實用工具類型（Utility）的 CSS 框架，與 Bootstrap 最大的不同點在於 Tailwind CSS 全力支持使用工具類型的 Class 讓設計者完成客製化的版型，甚至可以<br>不用寫 CSS 或鮮少就能完成版型設計，它可在元素內靈活操作 Class，也因為這特性，你必須使用 Class 去組合各種 CSS 的觀念技巧，類似一種組合技的概念，所以客製化切版速<br>度非常快，但比起 Bootstrap，它更考驗了設計者對於 CSS 整體的了解。</p>
-<h3 id="核心篇"><a href="#核心篇" class="headerlink" title="核心篇"></a>核心篇</h3><h4 id="實用工具優先"><a href="#實用工具優先" class="headerlink" title="實用工具優先"></a>實用工具優先</h4><p>在傳統設計上，你要為一個區塊去制定屬於它的樣式，因此整個區塊會是這樣定義，例如要設計一個 card，會將 card 拆成幾個部分來放置內容。這示屬於 UI Component 的設計理<br>念。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* card 樣式 */</span></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.card</span> &gt; <span class="selector-class">.card-header</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.card</span> &gt; <span class="selector-class">.card-body</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.card</span> &gt; <span class="selector-class">.card-footer</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Tailwind CSS 屬於實用工具類型（Utility）的 CSS 框架，與 Bootstrap 最大的不同點在於 Tailwind CSS 全力支持使用工具類型的 Class 讓設計者完成客製化的版型，甚至可以不用寫 CSS 或鮮少就能完成版型設計，它可在元素內靈活操作 Class，也因為這特性，你必須使用 Class 去組合各種 CSS 的觀念技巧，類似一種組合技的概念，所以客製化切版速度非常快，但比起 Bootstrap，它更考驗了設計者對於 CSS 整體的了解。</p>
+<h3 id="核心篇"><a href="#核心篇" class="headerlink" title="核心篇"></a>核心篇</h3><h4 id="實用工具優先"><a href="#實用工具優先" class="headerlink" title="實用工具優先"></a>實用工具優先</h4><p>在傳統設計上，你要為一個區塊去制定屬於它的樣式，因此整個區塊會是這樣定義，例如要設計一個 card，會將 card 拆成幾個部分來放置內容。這示屬於 UI Component 的設計理念。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* card 樣式 */</span></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span>&gt;<span class="selector-class">.card-header</span> &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span>&gt;<span class="selector-class">.card-body</span> &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span>&gt;<span class="selector-class">.card-footer</span> &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用 Tailwind CSS，全部使用 Utility Class 來完成，你看不到任何 class 彼此有關係，而且能完成區塊設計，這就是 Utility 設計理念。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;flex-shrink-0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;h-12 w-12&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/img/logo.svg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;ChitChat Logo&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ml-6 pt-1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">&quot;text-xl text-gray-900 leading-tight&quot;</span>&gt;</span>ChitChat<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;text-base text-gray-600 leading-normal&quot;</span>&gt;</span>You have a new message!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;flex-shrink-0&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;h-12 w-12&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/img/logo.svg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;ChitChat Logo&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ml-6 pt-1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">&quot;text-xl text-gray-900 leading-tight&quot;</span>&gt;</span>ChitChat<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;text-base text-gray-600 leading-normal&quot;</span>&gt;</span>You have a new message!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>WTF！甚麼 Utility 設計理念，這不就是在寫 class 級的行內樣式嗎？真是又臭又髒的結構，這是因為我們在網頁學習進程裡，學到的是結構、樣式、行為應該要分離，要使用這種<br>方式太可怕了！官網也承認，你是對的喔！</p>
+<p>WTF！甚麼 Utility 設計理念，這不就是在寫 class 級的行內樣式嗎？真是又臭又髒的結構，這是因為我們在網頁學習進程裡，學到的是結構、樣式、行為應該要分離，要使用這種方式太可怕了！官網也承認，你是對的喔！</p>
 <img data-src="/images/tailwind/tailwind-02.jpg" width="700">
 
-<p>想想，前端似乎來到了顛覆的時代，在 vue.js 也可以發現為了資料驅動畫面，把邏輯、程式述句寫在元素結構裡面，或許是前端的複雜性開始衍生出的方式，框架思維也開始轉變。<br>話說回來，雖然 Utility Class 讓結構變長了，換個觀點，你從此不用再浪費時間去為組件想一個 class 名稱，可以很直覺的以 CSS 知識來設計樣式，所有的 css 相關樣式都已經<br>被建置成 Utility 化，也不需要編寫新的 CSS。使用 Tailwind CSS，只需要關心如何使用 class 來完成區塊設計，設計非常直覺自由，與行內樣式不同的是：</p>
+<p>想想，前端似乎來到了顛覆的時代，在 vue.js 也可以發現為了資料驅動畫面，把邏輯、程式述句寫在元素結構裡面，或許是前端的複雜性開始衍生出的方式，框架思維也開始轉變。話說回來，雖然 Utility Class 讓結構變長了，換個觀點，你從此不用再浪費時間去為組件想一個 class 名稱，可以很直覺的以 CSS 知識來設計樣式，所有的 css 相關樣式都已經被建置成 Utility 化，也不需要編寫新的 CSS。使用 Tailwind CSS，只需要關心如何使用 class 來完成區塊設計，設計非常直覺自由，與行內樣式不同的是：</p>
 <ul>
 <li>行內樣式的屬性值是死的，Tailwind CSS 可以系統性自訂 Class，讓外觀具有一致性。</li>
 <li>Tailwind CSS 可以在行內 Class 使用響應式設計。</li>
@@ -33,10 +33,10 @@
 </ul>
 <h3 id="設定篇"><a href="#設定篇" class="headerlink" title="設定篇"></a>設定篇</h3><p>使用 Node.js 環境，請先安裝 <a href="https://nodejs.org/zh-tw/">Node.js</a>。</p>
 <h4 id="初始化專案"><a href="#初始化專案" class="headerlink" title="初始化專案"></a>初始化專案</h4><p>建立一個專案目錄，在此專案目錄下輸入以下指令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">npm init -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="安裝-Tailwind-CSS"><a href="#安裝-Tailwind-CSS" class="headerlink" title="安裝 Tailwind CSS"></a>安裝 Tailwind CSS</h4><p>在專案目錄下安裝 Tailwind CSS</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">npm install tailwindcss</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install tailwindcss</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="建立-CSS-檔案"><a href="#建立-CSS-檔案" class="headerlink" title="建立 CSS 檔案"></a>建立 CSS 檔案</h4><ol>
 <li>在專案根目錄下建立一個目錄 src，並在 src 下建立 css 目錄。</li>
@@ -45,11 +45,11 @@
 </ol>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 基本 HTML 樣式，包含調整過的 Normalize.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="comment">/* 組件區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="comment">/* Utility區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
 
-<p>現在，可以做個測試，在根目錄下，輸入以下指令編譯出 CSS，<strong>注意路徑檔名是否正確</strong>，編譯出 Tailwind CSS 檔案有 2MB 以上，容量非常大，Bootstrap 約 10000 多行樣式碼<br>，Tailwind 有 100000 多行樣式碼，可以說是十倍界王拳？不擔心，之後可以使用 PurgeCSS 進行瘦身。</p>
+<p>現在，可以做個測試，在根目錄下，輸入以下指令編譯出 CSS，<strong>注意路徑檔名是否正確</strong>，編譯出 Tailwind CSS 檔案有 2MB 以上，容量非常大，Bootstrap 約 10000 多行樣式碼，Tailwind 有 100000 多行樣式碼，可以說是十倍界王拳？不擔心，之後可以使用 PurgeCSS 進行瘦身。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
 
 <h4 id="建立-postcss-config-js"><a href="#建立-postcss-config-js" class="headerlink" title="建立 postcss.config.js"></a>建立 postcss.config.js</h4><p>在專案根目錄下建立 postcss.config.js，這是編譯 tailwind.css 前的設定檔，等等需要安裝其相關套件。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// postcss.config.js</span></span><br><span class="line"><span class="keyword">const</span> purgecss = <span class="built_in">require</span>(<span class="string">&#x27;@fullhuman/postcss-purgecss&#x27;</span>)(&#123;</span><br><span class="line">  content: [<span class="string">&#x27;./src/**/*.html&#x27;</span>, <span class="string">&#x27;./src/**/*.vue&#x27;</span>, <span class="string">&#x27;./src/**/*.jsx&#x27;</span>],</span><br><span class="line"></span><br><span class="line">  defaultExtractor: <span class="function"><span class="params">content</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> broadMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s]*[^&lt;&gt;&quot;&#x27;`\s:]/g</span>) || []</span><br><span class="line">    <span class="keyword">const</span> innerMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27;`\s.()]*[^&lt;&gt;&quot;&#x27;`\s.():]/g</span>) || []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> broadMatches.concat(innerMatches)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [<span class="built_in">require</span>(<span class="string">&#x27;tailwindcss&#x27;</span>), <span class="built_in">require</span>(<span class="string">&#x27;autoprefixer&#x27;</span>), ...(process.env.NODE_ENV === <span class="string">&#x27;production&#x27;</span> ? [purgecss] : [])],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// postcss.config.js</span></span><br><span class="line"><span class="keyword">const</span> purgecss = <span class="built_in">require</span>(<span class="string">&#x27;@fullhuman/postcss-purgecss&#x27;</span>)(&#123;</span><br><span class="line">    content: [<span class="string">&#x27;./src/**/*.html&#x27;</span>, <span class="string">&#x27;./src/**/*.vue&#x27;</span>, <span class="string">&#x27;./src/**/*.jsx&#x27;</span>],</span><br><span class="line"></span><br><span class="line">    defaultExtractor: <span class="function"><span class="params">content</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> broadMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27; `\s]*[^&lt;&gt;&quot;&#x27;` \s:]/g</span>) || []</span><br><span class="line">        <span class="keyword">const</span> innerMatches = content.match(<span class="regexp">/[^&lt;&gt;&quot;&#x27; `\s.()]*[^&lt;&gt;&quot;&#x27;` \s.():]/g</span>) || []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> broadMatches.concat(innerMatches)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [<span class="built_in">require</span>(<span class="string">&#x27;tailwindcss&#x27;</span>), <span class="built_in">require</span>(<span class="string">&#x27;autoprefixer&#x27;</span>), ...(process.env.NODE_ENV === <span class="string">&#x27;production&#x27;</span> ? [purgecss] : [])],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="PurgeCSS-Postcss"><a href="#PurgeCSS-Postcss" class="headerlink" title="PurgeCSS + Postcss"></a>PurgeCSS + Postcss</h4><p>PurgeCSS 是將 CSS 瘦身的好物，打包時會將沒使用到的 Class 拿掉，而 Postcss 可以編譯 CSS 延伸的功能，例如自動前綴詞，安裝以下的套件：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install @fullhuman&#x2F;postcss-purgecss --save-dev</span><br><span class="line">npm i postcss postcss-cli</span><br><span class="line">npm i autoprefixer</span><br></pre></td></tr></table></figure>
@@ -59,11 +59,11 @@
 <p>現在輸入以下指令編譯出瘦身過後的 CSS 檔，只有．．．7KB ～ WOW！</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
-<h3 id="自訂篇"><a href="#自訂篇" class="headerlink" title="自訂篇"></a>自訂篇</h3><h4 id="建立-tailwind-config-js"><a href="#建立-tailwind-config-js" class="headerlink" title="建立 tailwind.config.js"></a>建立 tailwind.config.js</h4><p>tailwind.config.js 是 <strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化屬於自己的 Tailwind，可以在這裡設定，輸入以下指令，它會產生在專案根目錄，裡面已經設置了<br>Tailwind 所有預設的選項。</p>
+<h3 id="自訂篇"><a href="#自訂篇" class="headerlink" title="自訂篇"></a>自訂篇</h3><h4 id="建立-tailwind-config-js"><a href="#建立-tailwind-config-js" class="headerlink" title="建立 tailwind.config.js"></a>建立 tailwind.config.js</h4><p>tailwind.config.js 是 <strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化屬於自己的 Tailwind，可以在這裡設定，輸入以下指令，它會產生在專案根目錄，裡面已經設置了所有預設的選項。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss init --full</span><br></pre></td></tr></table></figure>
 
 <p>此外，也可以在 tailwind.config.js 設置 purge 瘦身，這樣再進行一次 npm run tailwind 編譯過後，會得到使用過的 class。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// tailwind.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  future: &#123;</span><br><span class="line">    removeDeprecatedGapUtilities: <span class="literal">true</span>,</span><br><span class="line">    purgeLayersByDefault: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  purge: &#123;</span><br><span class="line">    enabled: <span class="literal">true</span>,</span><br><span class="line">    content: [</span><br><span class="line">      <span class="string">&#x27;./src/**/*.html&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;./src/**/*.vue&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;./src/**/*.jsx&#x27;</span>,</span><br><span class="line">      <span class="comment">// etc.</span></span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  theme: &#123;&#125;,</span><br><span class="line">  variants: &#123;&#125;,</span><br><span class="line">  plugins: [],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// tailwind.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    future: &#123;</span><br><span class="line">        removeDeprecatedGapUtilities: <span class="literal">true</span>,</span><br><span class="line">        purgeLayersByDefault: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    purge: &#123;</span><br><span class="line">        enabled: <span class="literal">true</span>,</span><br><span class="line">        content: [</span><br><span class="line">            <span class="string">&#x27;./src/**/*.html&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;./src/**/*.vue&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;./src/**/*.jsx&#x27;</span>,</span><br><span class="line">            <span class="comment">// etc.</span></span><br><span class="line">        ],</span><br><span class="line">    &#125;,</span><br><span class="line">    theme: &#123;&#125;,</span><br><span class="line">    variants: &#123;&#125;,</span><br><span class="line">    plugins: [],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="修改-tailwind-config-js"><a href="#修改-tailwind-config-js" class="headerlink" title="修改 tailwind.config.js"></a>修改 tailwind.config.js</h4><ul>
 <li>可以自訂義屬於自己的 class，例如：想新增一個 kaifu 顏色。</li>
@@ -71,30 +71,35 @@
 <img data-src="/images/tailwind/tailwind-01.png" width="700">
 
 <ul>
-<li><p>執行以下 Tailwindcss 整包指令，驗證是否成功，若成功 style.css 都會有 kaifu 相關 class，例如 text-kaifu、bg-kaifu、border-kaifu 等等。</p>
+<li>執行以下 Tailwindcss 整包指令，驗證是否成功，若成功 style.css 都會有 kaifu 相關 class，例如 text-kaifu、bg-kaifu、border-kaifu 等等。</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>若執行 postcss + PurgeCSS 瘦身指令，會判斷使用了甚麼 class 才會篩選進來，注意！前提是已經將 style.css link 到文件才會判斷使用了甚麼 class，例如只使用</p>
+<p>text-kaifu，就只有 text-kaifu 被篩選進來，這是 PurgeCSS 的概念。</p>
 </li>
-<li><p>若執行 postcss + PurgeCSS 瘦身指令，會判斷使用了甚麼 class 才會篩選進來，注意！前提是已經將 style.css link 到文件才會判斷使用了甚麼 class，例如只使用<br>text-kaifu，就只有 text-kaifu 被篩選進來，這是 PurgeCSS 的概念。</p>
+</ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
 <h3 id="流程篇"><a href="#流程篇" class="headerlink" title="流程篇"></a>流程篇</h3><ul>
-<li><p>先使用整包 Tailwind CSS 進行設計，文件記得先 link 這支 css。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>搭配 VSCode 套件提示 class 名稱 <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</a></p>
-</li>
-<li><p>設計完成再進行瘦身。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>另外，練習時，先使用 CDN 配合官網文件。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>先使用整包 Tailwind CSS 進行設計，文件記得先 link 這支 css。</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>搭配 VSCode 套件提示 class 名稱 <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</a></li>
+<li>設計完成再進行瘦身。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>另外，練習時，先使用 CDN 配合官網文件。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>TailwindCSS</tag>
+        <tag>+ TailwindCSS</tag>
       </tags>
   </entry>
   <entry>
