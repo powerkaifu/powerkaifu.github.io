@@ -39,7 +39,7 @@
 <h4 id="PurgeCSS-Postcss"><a href="#PurgeCSS-Postcss" class="headerlink" title="PurgeCSS + Postcss"></a>PurgeCSS + Postcss</h4><p>PurgeCSS 是將 CSS 瘦身的好物，打包時會將沒使用到的 Class 拿掉，而 Postcss 可以編譯 CSS 延伸的功能，例如自動前綴詞，安裝以下的套件：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install @fullhuman&#x2F;postcss-purgecss --save-dev</span><br><span class="line">npm i postcss postcss-cli</span><br><span class="line">npm i autoprefixer</span><br></pre></td></tr></table></figure>
 
-<h4 id="打開-package-json-新增指令"><a href="#打開-package-json-新增指令" class="headerlink" title="打開 package.json 新增指令"></a>打開 package.json 新增指令</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指令要對應的路徑位置</span></span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;postcss&quot;: &quot;postcss ./src/css/tailwind.css -o ./src/css/style.css&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="打開-package-json-新增指令"><a href="#打開-package-json-新增指令" class="headerlink" title="打開 package.json 新增指令"></a>打開 package.json 新增指令</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指令要對應的路徑位置</span></span><br><span class="line"><span class="comment">// npm run tailwind =&gt; Tailwind 整包 css</span></span><br><span class="line"><span class="comment">// npm run postcss =&gt; Tailwind 瘦身 css</span></span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;tailwind&quot;: &quot;npx tailwindcss build ./src/css/tailwind.css -o ./src/css/style.css&quot;,</span><br><span class="line">    &quot;postcss&quot;: &quot;postcss ./src/css/tailwind.css -o ./src/css/style.css&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
 <p>現在輸入以下指令編譯出瘦身過後的 CSS 檔，只有．．．7KB ～ WOW！</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
@@ -61,7 +61,7 @@
 
 </li>
 </ul>
-<h4 id="流程篇"><a href="#流程篇" class="headerlink" title="流程篇"></a>流程篇</h4><ul>
+<h3 id="流程篇"><a href="#流程篇" class="headerlink" title="流程篇"></a>流程篇</h3><ul>
 <li><p>先使用整包 Tailwind CSS 進行設計，文件記得 link。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
 </li>
