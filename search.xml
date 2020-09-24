@@ -44,10 +44,33 @@
 <p>現在輸入以下指令編譯出瘦身過後的 CSS 檔，只有．．．7KB ～ WOW！</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
-<h3 id="建立-tailwind-config-js-設定檔"><a href="#建立-tailwind-config-js-設定檔" class="headerlink" title="建立 tailwind.config.js 設定檔"></a>建立 tailwind.config.js 設定檔</h3><p><strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化屬於自己的 Tailwind，可以在這裡設定，輸入以下指令，會產生在專案根目錄，裡面已經設置了 Tailwind 所有預設的選項。</p>
-<blockquote>
-<p>npx tailwindcss init –full</p>
-</blockquote>
+<h3 id="自訂篇"><a href="#自訂篇" class="headerlink" title="自訂篇"></a>自訂篇</h3><h4 id="建立-tailwind-config-js"><a href="#建立-tailwind-config-js" class="headerlink" title="建立 tailwind.config.js"></a>建立 tailwind.config.js</h4><p><strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化屬於自己的 Tailwind，可以在這裡設定，輸入以下指令，會產生在專案根目錄，裡面已經設置了 Tailwind 所有預設的選項。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss init --full</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改-tailwind-config-js"><a href="#修改-tailwind-config-js" class="headerlink" title="修改 tailwind.config.js"></a>修改 tailwind.config.js</h4><ul>
+<li>可以自訂義屬於自己的 class，例如：想新增一個 kaifu 顏色。</li>
+</ul>
+<img data-src="/images/tailwind/tailwind-01.png" width="700">
+
+<ul>
+<li><p>執行以下 Tailwindcss 整包指令，驗證是否成功，若成功 style.css 都會有 kaifu 相關 class，例如 text-kaifu、bg-kaifu、border-kaifu 等等。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若執行 postcss + PurgeCSS 瘦身指令，會判斷使用了甚麼 class 才會篩選進來，注意！前提是已經將 style.css link 到文件才會判斷使用了甚麼 class，例如只使用 text-kaifu，就只有 text-kaifu 被篩選進來，這是 PurgeCSS 的概念。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="流程篇"><a href="#流程篇" class="headerlink" title="流程篇"></a>流程篇</h4><ul>
+<li><p>先使用整包 Tailwind CSS 進行設計，文件記得 link。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搭配 VSCode 套件提示 class 名稱 <a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</a></p>
+</li>
+<li><p>設計完成再瘦身。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 ]]></content>
       <tags>
         <tag>CSS FrameWork</tag>

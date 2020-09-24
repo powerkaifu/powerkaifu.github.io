@@ -46,11 +46,13 @@
 <meta property="og:site_name" content="漫遊前端無盡海">
 <meta property="og:description" content="介紹篇Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootstrap，它之所以成為全球著名的 CSS">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://powerkaifu.github.io/images/tailwind/tailwind-01.png">
 <meta property="article:published_time" content="2020-09-23T19:23:30.000Z">
 <meta property="article:modified_time" content="2020-09-23T19:23:30.000Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="CSS FrameWork">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://powerkaifu.github.io/images/tailwind/tailwind-01.png">
 
 <link rel="canonical" href="https://powerkaifu.github.io/2020/09/24/lesson-tailwind-css/">
 
@@ -293,10 +295,33 @@
 <p>現在輸入以下指令編譯出瘦身過後的 CSS 檔，只有．．．7KB ～ WOW！</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
-<h3 id="建立-tailwind-config-js-設定檔"><a href="#建立-tailwind-config-js-設定檔" class="headerlink" title="建立 tailwind.config.js 設定檔"></a>建立 tailwind.config.js 設定檔</h3><p><strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化屬於自己的 Tailwind，可以在這裡設定，輸入以下指令，會產生在專案根目錄，裡面已經設置了 Tailwind 所有預設的選項。</p>
-<blockquote>
-<p>npx tailwindcss init –full</p>
-</blockquote>
+<h3 id="自訂篇"><a href="#自訂篇" class="headerlink" title="自訂篇"></a>自訂篇</h3><h4 id="建立-tailwind-config-js"><a href="#建立-tailwind-config-js" class="headerlink" title="建立 tailwind.config.js"></a>建立 tailwind.config.js</h4><p><strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化屬於自己的 Tailwind，可以在這裡設定，輸入以下指令，會產生在專案根目錄，裡面已經設置了 Tailwind 所有預設的選項。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss init --full</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改-tailwind-config-js"><a href="#修改-tailwind-config-js" class="headerlink" title="修改 tailwind.config.js"></a>修改 tailwind.config.js</h4><ul>
+<li>可以自訂義屬於自己的 class，例如：想新增一個 kaifu 顏色。</li>
+</ul>
+<img data-src="/images/tailwind/tailwind-01.png" width="700">
+
+<ul>
+<li><p>執行以下 Tailwindcss 整包指令，驗證是否成功，若成功 style.css 都會有 kaifu 相關 class，例如 text-kaifu、bg-kaifu、border-kaifu 等等。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若執行 postcss + PurgeCSS 瘦身指令，會判斷使用了甚麼 class 才會篩選進來，注意！前提是已經將 style.css link 到文件才會判斷使用了甚麼 class，例如只使用 text-kaifu，就只有 text-kaifu 被篩選進來，這是 PurgeCSS 的概念。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="流程篇"><a href="#流程篇" class="headerlink" title="流程篇"></a>流程篇</h4><ul>
+<li><p>先使用整包 Tailwind CSS 進行設計，文件記得 link。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搭配 VSCode 套件提示 class 名稱 <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</a></p>
+</li>
+<li><p>設計完成再瘦身。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
     </div>
 
@@ -377,7 +402,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">介紹篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text">設定篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B0%88%E6%A1%88"><span class="nav-number">2.1.</span> <span class="nav-text">初始化專案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Tailwind-CSS"><span class="nav-number">2.2.</span> <span class="nav-text">安裝 Tailwind CSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-CSS-%E6%AA%94%E6%A1%88"><span class="nav-number">2.3.</span> <span class="nav-text">建立 CSS 檔案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-postcss-config-js"><span class="nav-number">2.4.</span> <span class="nav-text">建立 postcss.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PurgeCSS-Postcss"><span class="nav-number">2.5.</span> <span class="nav-text">PurgeCSS + Postcss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E9%96%8B-package-json-%E6%96%B0%E5%A2%9E%E6%8C%87%E4%BB%A4"><span class="nav-number">2.6.</span> <span class="nav-text">打開 package.json 新增指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-tailwind-config-js-%E8%A8%AD%E5%AE%9A%E6%AA%94"><span class="nav-number">3.</span> <span class="nav-text">建立 tailwind.config.js 設定檔</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">介紹篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text">設定篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B0%88%E6%A1%88"><span class="nav-number">2.1.</span> <span class="nav-text">初始化專案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Tailwind-CSS"><span class="nav-number">2.2.</span> <span class="nav-text">安裝 Tailwind CSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-CSS-%E6%AA%94%E6%A1%88"><span class="nav-number">2.3.</span> <span class="nav-text">建立 CSS 檔案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-postcss-config-js"><span class="nav-number">2.4.</span> <span class="nav-text">建立 postcss.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PurgeCSS-Postcss"><span class="nav-number">2.5.</span> <span class="nav-text">PurgeCSS + Postcss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E9%96%8B-package-json-%E6%96%B0%E5%A2%9E%E6%8C%87%E4%BB%A4"><span class="nav-number">2.6.</span> <span class="nav-text">打開 package.json 新增指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E7%AF%87"><span class="nav-number">3.</span> <span class="nav-text">自訂篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-tailwind-config-js"><span class="nav-number">3.1.</span> <span class="nav-text">建立 tailwind.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-tailwind-config-js"><span class="nav-number">3.2.</span> <span class="nav-text">修改 tailwind.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E7%AF%87"><span class="nav-number">3.3.</span> <span class="nav-text">流程篇</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
