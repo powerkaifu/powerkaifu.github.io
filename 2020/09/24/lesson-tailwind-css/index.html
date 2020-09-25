@@ -288,7 +288,7 @@
 
 <h4 id="移動優先"><a href="#移動優先" class="headerlink" title="移動優先"></a>移動優先</h4><p>Tailwind 具有移動優先的概念，這類似於 Bootstrap 與 Foundation 中所使用的系統。也就是您沒加斷點前綴詞，它是對所有尺寸都有效，而加上 md:text-red-500 則表示從 md 尺寸開始之後的文字顏色的改變，在此之前維持另一組樣式（若有設定沒有綴詞的 Class）。在設計時，只需考慮甚麼尺寸開始生效的觀念即可。</p>
 <h4 id="使用偽類"><a href="#使用偽類" class="headerlink" title="使用偽類"></a>使用偽類</h4><p>除了響應式設計，也可以在 Class 上使用狀態型偽類（hover:、focus:、active:…），來增加互動性。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white...&quot;</span>&gt;</span>Hover me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white&quot;</span>&gt;</span>Hover me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><a target="_blank" rel="noopener" href="https://tailwindcss.com/docs/pseudo-class-variants">更多 Tailwind CSS 偽類</a></p>
 <h4 id="添加樣式與函式功能"><a href="#添加樣式與函式功能" class="headerlink" title="添加樣式與函式功能"></a>添加樣式與函式功能</h4><p>首先，您應該使用現有 Tailwind Utility Class 來設計版型，而不是編寫新的 CSS，但如果要將某些基本樣式用於特定元素，可以使用 @layer 添加，通過使用 @layer 指令，Tailwind 將自動將這些樣式移到同一位置。</p>
