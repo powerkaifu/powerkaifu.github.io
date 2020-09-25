@@ -31,9 +31,10 @@
 <li>Tailwind CSS 可以在行內 Class 使用響應式設計。</li>
 <li>行內樣式無法使用偽類 :hover 或 :focus，Tailwind CSS 可以使用。</li>
 </ul>
-<h4 id="響應式設計"><a href="#響應式設計" class="headerlink" title="響應式設計"></a>響應式設計</h4><p>你可以在 Utility Class 加入斷點（breakpoints）前綴詞而不用離開 HTML，官方說明每一個 class 都可以使用喔，並提供了四種可被自訂的響應式斷點，它們都可以在 tailwind-config.js 設定。若覺得不夠也可以新增斷點前綴詞來擴充專案需求。以下範例，在各尺寸會改變文字顏色，注意，它們都加上了斷點前綴詞。</p>
+<h4 id="響應式設計"><a href="#響應式設計" class="headerlink" title="響應式設計"></a>響應式設計</h4><p>你可以在 Utility Class 加入斷點（breakpoints）前綴詞而不用離開 HTML，官方說明每一個 class 都可以使用喔，並提供了四種可被自訂的響應式斷點，它們都可以在 tailwind-config.js 設定。<strong>若覺得裝置尺寸不夠或前綴詞名稱不夠潮，也可以新增來擴充專案需求</strong>。以下範例，在各尺寸會改變文字顏色，注意，它們都加上了斷點前綴詞。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;text-6xl sm:text-red-500 md:text-green-500 lg:text-blue-500 xl:text-yellow-500&quot;</span>&gt;</span>KaiFu<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="移動優先"><a href="#移動優先" class="headerlink" title="移動優先"></a>移動優先</h4><p>Tailwind 具有移動優先的概念，這類似於 Bootstrap 與 Foundation 中所使用的系統。也就是你沒加斷點前綴詞，它是對所有尺寸都有效，而加上 md:text-red-500 則表示從 md 尺寸開始之後的文字顏色的改變，在此之前維持另一組樣式（若有設定沒有綴詞的 class）。在設計時，只需考慮甚麼尺寸開始生效的觀念即可。</p>
 <h3 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h3><p>使用 Node.js 環境，請先安裝 <a href="https://nodejs.org/zh-tw/">Node.js</a>。</p>
 <h4 id="初始化專案"><a href="#初始化專案" class="headerlink" title="初始化專案"></a>初始化專案</h4><p>建立一個專案目錄，在此專案目錄下輸入以下指令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
