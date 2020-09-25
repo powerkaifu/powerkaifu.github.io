@@ -42,7 +42,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white...&quot;</span>&gt;</span>Hover me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><a href="https://tailwindcss.com/docs/pseudo-class-variants">更多 Tailwind CSS 偽類</a></p>
-<h4 id="添加樣式"><a href="#添加樣式" class="headerlink" title="添加樣式"></a>添加樣式</h4><p>首先，您應該使用現有 Tailwind Utility Class 來設計版型，而不是編寫新的 CSS，但如果要將某些基本樣式用於特定元素，可以使用 @layer 添加，通過使用 @layer 指令，Tailwind 將自動將這些樣式移到同一位置。</p>
+<h4 id="添加樣式與函式功能"><a href="#添加樣式與函式功能" class="headerlink" title="添加樣式與函式功能"></a>添加樣式與函式功能</h4><p>首先，您應該使用現有 Tailwind Utility Class 來設計版型，而不是編寫新的 CSS，但如果要將某些基本樣式用於特定元素，可以使用 @layer 添加，通過使用 @layer 指令，Tailwind 將自動將這些樣式移到同一位置。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@layer</span> base &#123;</span><br><span class="line">  <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    @apply text-2xl;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">h2</span> &#123;</span><br><span class="line">    @apply text-xl;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
