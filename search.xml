@@ -16,30 +16,30 @@
 <a id="more"></a>
 
 <p>Tailwind CSS 屬於實用工具類型（Utility）的 CSS 框架，與 Bootstrap 最大的不同點在於 Tailwind CSS 全力支持使用工具類型的 Class 讓設計者完成客製化的版型，甚至可以不用寫 CSS 或鮮少就能完成版型設計，它可在 HTML 文件的元素內靈活操作 Class，也因為這特性，必須使用 Class 去組合各種 CSS 的觀念技巧，類似一種組合技的概念，所以客製化切版速度非常快，但比起 Bootstrap，它更考驗了設計者對於 CSS 的了解以及 Tailwind CSS 的環境設定，可能比較不適合新手。</p>
-<h3 id="核心設計理念"><a href="#核心設計理念" class="headerlink" title="核心設計理念"></a>核心設計理念</h3><h4 id="實用工具優先"><a href="#實用工具優先" class="headerlink" title="實用工具優先"></a>實用工具優先</h4><p>在傳統設計上，你要為一個區塊去制定屬於它的樣式，因此整個區塊會是這樣定義，例如要設計一個 card，會將 card 拆成幾個部分來放置內容。屬於 UI Component 的設計理念。</p>
+<h3 id="核心設計理念"><a href="#核心設計理念" class="headerlink" title="核心設計理念"></a>核心設計理念</h3><h4 id="實用工具優先"><a href="#實用工具優先" class="headerlink" title="實用工具優先"></a>實用工具優先</h4><p>在傳統設計上，您要為一個區塊去制定屬於它的樣式，因此整個區塊會是這樣定義，例如要設計一個 card，會將 card 拆成幾個部分來放置內容。屬於 UI Component 的設計理念。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* card 樣式 */</span></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &gt; <span class="selector-class">.card-header</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &gt; <span class="selector-class">.card-body</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &gt; <span class="selector-class">.card-footer</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>使用 Tailwind CSS，全部使用 Utility Class 來完成，你看不到任何 class 彼此有關係，而且能完成區塊設計，這就是直覺式 Utility 設計理念。</p>
+<p>使用 Tailwind CSS，全部使用 Utility Class 來完成，您看不到任何 class 彼此有關係，而且能完成區塊設計，這就是直覺式 Utility 設計理念。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;flex-shrink-0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;h-12 w-12&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/img/logo.svg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;ChitChat Logo&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ml-6 pt-1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">&quot;text-xl text-gray-900 leading-tight&quot;</span>&gt;</span>ChitChat<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;text-base text-gray-600 leading-normal&quot;</span>&gt;</span>You have a new message!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>WTF！甚麼 Utility 設計理念，這不就是在寫 class 級的行內樣式嗎？真是又臭又髒的結構，沒錯，確實如此，這是因為我們在網頁學習進程裡，學到的是結構、樣式、行為應該要分離，要使用這種方式太可怕了！官網也承認，你是對的喔！</p>
+<p>WTF！甚麼 Utility 設計理念，這不就是在寫 class 級的行內樣式嗎？真是又臭又髒的結構，沒錯，確實如此，這是因為我們在網頁學習進程裡，學到的是結構、樣式、行為應該要分離，要使用這種方式太可怕了！官網也承認，您是對的喔！</p>
 <img data-src="/images/tailwind/tailwind-02.jpg" width="700">
 
-<p>想想，前端似乎來到了顛覆的時代，在 vue.js 也可以發現為了資料驅動畫面，把邏輯、程式述句寫在元素結構裡面，或許是前端的複雜性開始衍生出人類偏愛直覺簡單的邏輯，一潮之後又一潮的循環，因此框架設計的思維也開始轉變。話說回來，雖然 Utility Class 讓結構變長了，換個觀點，你從此不用再浪費時間去為組件想一個 class 名稱，可以很直覺的以 CSS 知識來設計樣式（你得先習慣 Tailwind），所有的 CSS 相關樣式都已經被建置成 Utility 化，盡可能不需要編寫新的 CSS。使用 Tailwind CSS，只需要關心如何使用 Utility Class 來完成區塊設計，設計非常直覺自由，且它與行內樣式不同的是：</p>
+<p>想想，前端似乎來到了顛覆的時代，在 vue.js 也可以發現為了資料驅動畫面，把邏輯、程式述句寫在元素結構裡面，或許是前端的複雜性開始衍生出人類偏愛直覺簡單的邏輯，一潮之後又一潮的循環，因此框架設計的思維也開始轉變。話說回來，雖然 Utility Class 讓結構變長了，換個觀點，您從此不用再浪費時間去為組件想一個 class 名稱，可以很直覺的以 CSS 知識來設計樣式（您得先習慣 Tailwind），所有的 CSS 相關樣式都已經被建置成 Utility 化，盡可能不需要編寫新的 CSS。使用 Tailwind CSS，只需要關心如何使用 Utility Class 來完成區塊設計，設計非常直覺自由，且它與行內樣式不同的是：</p>
 <ul>
 <li>行內樣式的屬性值是死的，Tailwind 可以系統性自訂 Class，讓外觀具有一致性。</li>
 <li>Tailwind 可以在行內 Class 使用響應式設計。</li>
 <li>行內樣式無法使用偽類 :hover 或 :focus，Tailwind CSS 可以使用。</li>
 </ul>
-<h4 id="響應式設計"><a href="#響應式設計" class="headerlink" title="響應式設計"></a>響應式設計</h4><p>你可以在 Utility Class 加入斷點（breakpoints）前綴詞而不用離開 HTML，官方說明每一個 class 都可以使用喔，並提供了四種可被自訂的響應式斷點，它們都可以在 tailwind-config.js 設定。<strong>若覺得裝置尺寸不夠或前綴詞名稱不夠潮，也可以新增來擴充專案需求</strong>。以下範例，在各尺寸會改變文字顏色，注意，它們都加上了斷點前綴詞。</p>
+<h4 id="響應式設計"><a href="#響應式設計" class="headerlink" title="響應式設計"></a>響應式設計</h4><p>您可以在 Utility Class 加入斷點（breakpoints）前綴詞而不用離開 HTML，官方說明每一個 class 都可以使用喔，並提供了四種可被自訂的響應式斷點，它們都可以在 tailwind-config.js 設定。<strong>若覺得裝置尺寸不夠或前綴詞名稱不夠潮，也可以新增來擴充專案需求</strong>。以下範例，在各尺寸會改變文字顏色，注意，它們都加上了斷點前綴詞。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;text-6xl sm:text-red-500 md:text-green-500 lg:text-blue-500 xl:text-yellow-500&quot;</span>&gt;</span>KaiFu<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="移動優先"><a href="#移動優先" class="headerlink" title="移動優先"></a>移動優先</h4><p>Tailwind 具有移動優先的概念，這類似於 Bootstrap 與 Foundation 中所使用的系統。也就是你沒加斷點前綴詞，它是對所有尺寸都有效，而加上 md:text-red-500 則表示從 md 尺寸開始之後的文字顏色的改變，在此之前維持另一組樣式（若有設定沒有綴詞的 Class）。在設計時，只需考慮甚麼尺寸開始生效的觀念即可。</p>
+<h4 id="移動優先"><a href="#移動優先" class="headerlink" title="移動優先"></a>移動優先</h4><p>Tailwind 具有移動優先的概念，這類似於 Bootstrap 與 Foundation 中所使用的系統。也就是您沒加斷點前綴詞，它是對所有尺寸都有效，而加上 md:text-red-500 則表示從 md 尺寸開始之後的文字顏色的改變，在此之前維持另一組樣式（若有設定沒有綴詞的 Class）。在設計時，只需考慮甚麼尺寸開始生效的觀念即可。</p>
 <h4 id="使用偽類"><a href="#使用偽類" class="headerlink" title="使用偽類"></a>使用偽類</h4><p>除了響應式設計，也可以在 Class 上使用狀態型偽類（hover:、focus:、active:…），來增加互動性。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white...&quot;</span>&gt;</span>Hover me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><a href="https://tailwindcss.com/docs/pseudo-class-variants">更多 Tailwind CSS 偽類</a></p>
-<h4 id="添加樣式"><a href="#添加樣式" class="headerlink" title="添加樣式"></a>添加樣式</h4><p>首先，你應該使用現有 Tailwind Utility Class 來設計版型，而不是編寫新的 CSS，但如果要將某些基本樣式用於特定元素，可以使用 @layer 添加，通過使用 @layer 指令，Tailwind 將自動將這些樣式移到同一位置。</p>
+<h4 id="添加樣式"><a href="#添加樣式" class="headerlink" title="添加樣式"></a>添加樣式</h4><p>首先，您應該使用現有 Tailwind Utility Class 來設計版型，而不是編寫新的 CSS，但如果要將某些基本樣式用於特定元素，可以使用 @layer 添加，通過使用 @layer 指令，Tailwind 將自動將這些樣式移到同一位置。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@layer</span> base &#123;</span><br><span class="line">  <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    @apply text-2xl;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">h2</span> &#123;</span><br><span class="line">    @apply text-xl;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -82,19 +82,24 @@
 <p>輸入以下指令編譯出瘦身過後的 CSS 檔。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
-<h3 id="重要的-tailwind-config-js"><a href="#重要的-tailwind-config-js" class="headerlink" title="重要的 tailwind.config.js"></a>重要的 tailwind.config.js</h3><h4 id="建立-tailwind-config-js"><a href="#建立-tailwind-config-js" class="headerlink" title="建立 tailwind.config.js"></a>建立 tailwind.config.js</h4><p>tailwind.config.js 是 <strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化自己的 Tailwind，全部在這裡設定，你也可以在 tailwind.config.js 設置 purge 瘦身，並且再進行一次 npm run tailwind 編譯，就會得到使用過的 class，前提是要先要有文件，並且該文件 link 了樣式檔使用了 Utility Class，tailwind.config.js 才會去偵測。另外，使用 VSCode 套件 Tailwind CSS IntelliSense，沒有該檔案也無法有提示的作用喔。</p>
+<h3 id="重要的-tailwind-config-js"><a href="#重要的-tailwind-config-js" class="headerlink" title="重要的 tailwind.config.js"></a>重要的 tailwind.config.js</h3><h4 id="建立-tailwind-config-js"><a href="#建立-tailwind-config-js" class="headerlink" title="建立 tailwind.config.js"></a>建立 tailwind.config.js</h4><p>tailwind.config.js 是 <strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化自己的 Tailwind，全部在這裡設定，您也可以在 tailwind.config.js 設置 purge 瘦身，並且再進行一次 npm run tailwind 編譯，就會得到使用過的 class，前提是要先要有文件，並且該文件 link 了樣式檔使用了 Utility Class，tailwind.config.js 才會去偵測。另外，使用 VSCode 套件 Tailwind CSS IntelliSense，沒有該檔案也無法有提示的作用喔。</p>
 <ul>
-<li>輸入以下指令，會產生全部預設的選項，它會在專案根目錄：</li>
+<li>以下指令會產生全部預設的配置，它會在專案根目錄：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss init--full</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss init --full</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以下指令只會產生設定檔初始架構：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss init</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>使用 tailwind.config.js 設定 purge</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// tailwind.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  future: &#123;</span><br><span class="line">    removeDeprecatedGapUtilities: <span class="literal">true</span>,</span><br><span class="line">    purgeLayersByDefault: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  purge: &#123;</span><br><span class="line">    enabled: <span class="literal">true</span>,</span><br><span class="line">    content: [<span class="string">&#x27;./src/**/*.html&#x27;</span>, <span class="string">&#x27;./src/**/*.vue&#x27;</span>, <span class="string">&#x27;./src/**/*.jsx&#x27;</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="修改-tailwind-config-js"><a href="#修改-tailwind-config-js" class="headerlink" title="修改 tailwind.config.js"></a>修改 tailwind.config.js</h4><ul>
-<li>可以自訂義屬於自己的 class，例如：想新增一個 kaifu 顏色，會定義出 text-kaifu、bg-kaifu、border-kaifu 等相關的 class。</li>
+<h4 id="自訂-tailwind-config-js"><a href="#自訂-tailwind-config-js" class="headerlink" title="自訂 tailwind.config.js"></a>自訂 tailwind.config.js</h4><ul>
+<li>您可以自訂義屬於自己的 class，例如：想新增一個 kaifu class，會定義出 text-kaifu、bg-kaifu、border-kaifu 等相關的 class，可以自由修改 CSS 屬性相關的屬性值，或是修改斷點 RWD 的尺寸，tailwind.config.js 設定檔寫得很清楚。</li>
 </ul>
 <img data-src="/images/tailwind/tailwind-01.png" width="700">
 
@@ -108,6 +113,9 @@
 </li>
 <li><p>設計完成後再進行瘦身， <code>npm run postcss</code> 或 <code>npm run tailwind</code>。</p>
 </li>
+</ul>
+<h3 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h3><ul>
+<li><a href="https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js">tailwind.config.js 改壞了怎麼辦？</a></li>
 </ul>
 ]]></content>
       <tags>
