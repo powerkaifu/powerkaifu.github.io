@@ -39,12 +39,12 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="介紹篇Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootstrap，它之所以成為全球著名的 CSS">
+  <meta name="description" content="Component 與 Utility 框架Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootst">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tailwind CSS 大全（修訂中）">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/09/24/lesson-tailwind-css/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="介紹篇Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootstrap，它之所以成為全球著名的 CSS">
+<meta property="og:description" content="Component 與 Utility 框架Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootst">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://powerkaifu.github.io/images/tailwind/tailwind-02.jpg">
 <meta property="og:image" content="https://powerkaifu.github.io/images/tailwind/tailwind-01.png">
@@ -264,11 +264,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="介紹篇"><a href="#介紹篇" class="headerlink" title="介紹篇"></a>介紹篇</h3><p>Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootstrap，它之所以成為全球著名的 CSS Framework 之一，設計的核心是希望被普遍大眾接受且容易使用，它確實做到了，使用組件來設計 RWD 版型，Bootstrap 真的非常快速。</p>
+        <h3 id="Component-與-Utility-框架"><a href="#Component-與-Utility-框架" class="headerlink" title="Component 與 Utility 框架"></a>Component 與 Utility 框架</h3><p>Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，我想這不能怪 Bootstrap，它之所以成為全球著名的 CSS Framework 之一，設計的核心是希望被普遍大眾接受且容易使用，它確實做到了，使用組件來設計 RWD 版型，Bootstrap 真的非常快速。</p>
 <a id="more"></a>
 
 <p>Tailwind CSS 屬於實用工具類型（Utility）的 CSS 框架，與 Bootstrap 最大的不同點在於 Tailwind CSS 全力支持使用工具類型的 Class 讓設計者完成客製化的版型，甚至可以不用寫 CSS 或鮮少就能完成版型設計，它可在元素內靈活操作 Class，也因為這特性，你必須使用 Class 去組合各種 CSS 的觀念技巧，類似一種組合技的概念，所以客製化切版速度非常快，但比起 Bootstrap，它更考驗了設計者對於 CSS 整體的了解。</p>
-<h3 id="核心篇"><a href="#核心篇" class="headerlink" title="核心篇"></a>核心篇</h3><h4 id="實用工具優先"><a href="#實用工具優先" class="headerlink" title="實用工具優先"></a>實用工具優先</h4><p>在傳統設計上，你要為一個區塊去制定屬於它的樣式，因此整個區塊會是這樣定義，例如要設計一個 card，會將 card 拆成幾個部分來放置內容。這示屬於 UI Component 的設計理念。</p>
+<h3 id="核心設計理念"><a href="#核心設計理念" class="headerlink" title="核心設計理念"></a>核心設計理念</h3><h4 id="實用工具優先"><a href="#實用工具優先" class="headerlink" title="實用工具優先"></a>實用工具優先</h4><p>在傳統設計上，你要為一個區塊去制定屬於它的樣式，因此整個區塊會是這樣定義，例如要設計一個 card，會將 card 拆成幾個部分來放置內容。這示屬於 UI Component 的設計理念。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* card 樣式 */</span></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &gt; <span class="selector-class">.card-header</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &gt; <span class="selector-class">.card-body</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &gt; <span class="selector-class">.card-footer</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用 Tailwind CSS，全部使用 Utility Class 來完成，你看不到任何 class 彼此有關係，而且能完成區塊設計，這就是 Utility 設計理念。</p>
@@ -283,7 +283,7 @@
 <li>Tailwind CSS 可以在行內 Class 使用響應式設計。</li>
 <li>行內樣式無法使用偽類 :hover 或 :focus，Tailwind CSS 可以使用。</li>
 </ul>
-<h3 id="設定篇"><a href="#設定篇" class="headerlink" title="設定篇"></a>設定篇</h3><p>使用 Node.js 環境，請先安裝 <a target="_blank" rel="noopener" href="https://nodejs.org/zh-tw/">Node.js</a>。</p>
+<h3 id="安裝設定"><a href="#安裝設定" class="headerlink" title="安裝設定"></a>安裝設定</h3><p>使用 Node.js 環境，請先安裝 <a target="_blank" rel="noopener" href="https://nodejs.org/zh-tw/">Node.js</a>。</p>
 <h4 id="初始化專案"><a href="#初始化專案" class="headerlink" title="初始化專案"></a>初始化專案</h4><p>建立一個專案目錄，在此專案目錄下輸入以下指令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
 
@@ -311,7 +311,7 @@
 <p>輸入以下指令編譯出瘦身過後的 CSS 檔。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run postcss</span><br></pre></td></tr></table></figure>
 
-<h3 id="自訂篇"><a href="#自訂篇" class="headerlink" title="自訂篇"></a>自訂篇</h3><h4 id="建立-tailwind-config-js"><a href="#建立-tailwind-config-js" class="headerlink" title="建立 tailwind.config.js"></a>建立 tailwind.config.js</h4><p>tailwind.config.js 是 <strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化自己的 Tailwind，全部在這裡設定，你也可以在 tailwind.config.js 設置 purge 瘦身，並且再進行一次 npm run tailwind 編譯，就會得到使用過的 class，前提是要先要有文件，並且該文件 link 了樣式檔使用了 Utility Class，tailwind.config.js 才會去偵測。另外，使用 VSCode 套件 Tailwind CSS IntelliSense，沒有該檔案也無法有提示的作用喔。</p>
+<h3 id="重要的-tailwind-config-js"><a href="#重要的-tailwind-config-js" class="headerlink" title="重要的 tailwind.config.js"></a>重要的 tailwind.config.js</h3><h4 id="建立-tailwind-config-js"><a href="#建立-tailwind-config-js" class="headerlink" title="建立 tailwind.config.js"></a>建立 tailwind.config.js</h4><p>tailwind.config.js 是 <strong>Tailwind CSS 最重要的設定檔</strong>，如果要客製化自己的 Tailwind，全部在這裡設定，你也可以在 tailwind.config.js 設置 purge 瘦身，並且再進行一次 npm run tailwind 編譯，就會得到使用過的 class，前提是要先要有文件，並且該文件 link 了樣式檔使用了 Utility Class，tailwind.config.js 才會去偵測。另外，使用 VSCode 套件 Tailwind CSS IntelliSense，沒有該檔案也無法有提示的作用喔。</p>
 <ul>
 <li>輸入以下指令，會產生全部預設的選項，它會在專案根目錄：</li>
 </ul>
@@ -327,16 +327,13 @@
 </ul>
 <img data-src="/images/tailwind/tailwind-01.png" width="700">
 
-<h3 id="流程篇"><a href="#流程篇" class="headerlink" title="流程篇"></a>流程篇</h3><ul>
-<li><p>可先執行以下指令，使用整包 Tailwind CSS 進行設計，文件記得先 link 這支 css。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx tailwindcss build .&#x2F;src&#x2F;css&#x2F;tailwind.css -o .&#x2F;src&#x2F;css&#x2F;style.css</span><br></pre></td></tr></table></figure>
+<h3 id="使用流程建議"><a href="#使用流程建議" class="headerlink" title="使用流程建議"></a>使用流程建議</h3><ul>
+<li><p>可先使用 CDN 配合官網文件熟悉 Utility Class。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>搭配 VSCode 套件提示 class 名稱 <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</a>，<strong>注意，必須要有 tailwind.config.js 才會有提示！</strong></p>
 </li>
-<li><p>設計完成再進行瘦身。<code>npm run postcss</code> 或 <code>npm run tailwind</code></p>
-</li>
-<li><p>另外，練習時，可先使用 CDN 配合官網文件熟悉 Utility Class。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>設計完成後再進行瘦身。<code>npm run postcss</code> 或 <code>npm run tailwind</code></p>
 </li>
 </ul>
 
@@ -419,7 +416,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">介紹篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text">核心篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%A6%E7%94%A8%E5%B7%A5%E5%85%B7%E5%84%AA%E5%85%88"><span class="nav-number">2.1.</span> <span class="nav-text">實用工具優先</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%AF%87"><span class="nav-number">3.</span> <span class="nav-text">設定篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B0%88%E6%A1%88"><span class="nav-number">3.1.</span> <span class="nav-text">初始化專案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Tailwind-CSS"><span class="nav-number">3.2.</span> <span class="nav-text">安裝 Tailwind CSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-CSS-%E6%AA%94%E6%A1%88"><span class="nav-number">3.3.</span> <span class="nav-text">建立 CSS 檔案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-postcss-config-js"><span class="nav-number">3.4.</span> <span class="nav-text">建立 postcss.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PurgeCSS-Postcss"><span class="nav-number">3.5.</span> <span class="nav-text">PurgeCSS + Postcss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E9%96%8B-package-json-%E6%96%B0%E5%A2%9E%E6%8C%87%E4%BB%A4"><span class="nav-number">3.6.</span> <span class="nav-text">打開 package.json 新增指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E7%AF%87"><span class="nav-number">4.</span> <span class="nav-text">自訂篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-tailwind-config-js"><span class="nav-number">4.1.</span> <span class="nav-text">建立 tailwind.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-tailwind-config-js"><span class="nav-number">4.2.</span> <span class="nav-text">修改 tailwind.config.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E7%AF%87"><span class="nav-number">5.</span> <span class="nav-text">流程篇</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Component-%E8%88%87-Utility-%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">Component 與 Utility 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E8%A8%AD%E8%A8%88%E7%90%86%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">核心設計理念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%A6%E7%94%A8%E5%B7%A5%E5%85%B7%E5%84%AA%E5%85%88"><span class="nav-number">2.1.</span> <span class="nav-text">實用工具優先</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.</span> <span class="nav-text">安裝設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B0%88%E6%A1%88"><span class="nav-number">3.1.</span> <span class="nav-text">初始化專案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Tailwind-CSS"><span class="nav-number">3.2.</span> <span class="nav-text">安裝 Tailwind CSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-CSS-%E6%AA%94%E6%A1%88"><span class="nav-number">3.3.</span> <span class="nav-text">建立 CSS 檔案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-postcss-config-js"><span class="nav-number">3.4.</span> <span class="nav-text">建立 postcss.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PurgeCSS-Postcss"><span class="nav-number">3.5.</span> <span class="nav-text">PurgeCSS + Postcss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E9%96%8B-package-json-%E6%96%B0%E5%A2%9E%E6%8C%87%E4%BB%A4"><span class="nav-number">3.6.</span> <span class="nav-text">打開 package.json 新增指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84-tailwind-config-js"><span class="nav-number">4.</span> <span class="nav-text">重要的 tailwind.config.js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-tailwind-config-js"><span class="nav-number">4.1.</span> <span class="nav-text">建立 tailwind.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-tailwind-config-js"><span class="nav-number">4.2.</span> <span class="nav-text">修改 tailwind.config.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%BB%BA%E8%AD%B0"><span class="nav-number">5.</span> <span class="nav-text">使用流程建議</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
