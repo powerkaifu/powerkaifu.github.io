@@ -158,7 +158,7 @@
 <li><p>設計完成後再進行瘦身， <code>npm run postcss</code> 或 <code>npm run tailwind</code>。</p>
 </li>
 </ul>
-<h3 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h3><ul>
+<h3 id="重點補充"><a href="#重點補充" class="headerlink" title="重點補充"></a>重點補充</h3><ul>
 <li><a href="https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js">tailwind.config.js 改壞了怎麼辦？</a></li>
 </ul>
 ]]></content>
