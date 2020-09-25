@@ -31,7 +31,7 @@
 <li>Tailwind 可以在行內 Class 使用響應式設計。</li>
 <li>行內樣式無法使用偽類 :hover 或 :focus，Tailwind CSS 可以使用。</li>
 </ul>
-<h4 id="響應式設計"><a href="#響應式設計" class="headerlink" title="響應式設計"></a>響應式設計</h4><p>您可以在 Utility Class 加入斷點（breakpoints）前綴詞而不用離開 HTML，官方說明每一個 class 都可以使用喔，並提供了四種可被自訂的響應式斷點，它們都可以在 tailwind-config.js 設定。<strong>若覺得裝置尺寸不夠或前綴詞名稱不夠潮，也可以新增來擴充專案需求</strong>。以下範例，在各尺寸會改變文字顏色，注意，它們都加上了斷點前綴詞。</p>
+<h4 id="響應式設計"><a href="#響應式設計" class="headerlink" title="響應式設計"></a>響應式設計</h4><p>您可以在 Utility Class 加入斷點（breakpoints）前綴詞而不用離開 HTML，官方說明每一個 class 都可以使用喔，並提供了四種可被自訂的響應式斷點，它們都可以在 tailwind-config.js 設定。<strong>若覺得裝置尺寸不夠或前綴詞名稱不夠潮，也可以新增來擴充專案需求</strong>。以下範例，在各尺寸會改變文字顏色，注意，它們都加上了響應式的斷點前綴詞。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;text-6xl sm:text-red-500 md:text-green-500 lg:text-blue-500 xl:text-yellow-500&quot;</span>&gt;</span>KaiFu<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="移動優先"><a href="#移動優先" class="headerlink" title="移動優先"></a>移動優先</h4><p>Tailwind 具有移動優先的概念，這類似於 Bootstrap 與 Foundation 中所使用的系統。也就是您沒加斷點前綴詞，它是對所有尺寸都有效，而加上 md:text-red-500 則表示從 md 尺寸開始之後的文字顏色的改變，在此之前維持另一組樣式（若有設定沒有綴詞的 Class）。在設計時，只需考慮甚麼尺寸開始生效的觀念即可。</p>
@@ -49,10 +49,22 @@
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@layer</span> base &#123;</span><br><span class="line">  <span class="keyword">@font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: Proxima Nova;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">400</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(/fonts/proxima-nova/<span class="number">400</span>-regular.woff) <span class="built_in">format</span>(<span class="string">&#x27;woff&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">@font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: Proxima Nova;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(/fonts/proxima-nova/<span class="number">500</span>-medium.woff) <span class="built_in">format</span>(<span class="string">&#x27;woff&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>使用 CSS</li>
+<li>@apply</li>
 </ul>
-<p>將自己的實用程序添加到 Tailwind 的最簡單方法是將它們簡單地添加到 CSS。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@layer</span> utilities &#123;</span><br><span class="line">  <span class="selector-class">.scroll-snap-none</span> &#123;</span><br><span class="line">    <span class="attribute">scroll-snap-type</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.scroll-snap-x</span> &#123;</span><br><span class="line">    <span class="attribute">scroll-snap-type</span>: x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.scroll-snap-y</span> &#123;</span><br><span class="line">    <span class="attribute">scroll-snap-type</span>: y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>提取相同重複的 Class 進行組件化，在設計的過程，元素區塊常常重複使用，例如以下的按鈕，使用 Tailwind CSS 來撰寫會需要很長的 Class，按鈕如果重複在文件出現時，會讓整份文件變得又臭又長，此時可以使用 @apply 來提取重複的部分，放在一個制定的 Class 裡面，注意的是，偽類無法直接使用，需要另外寫 .className:hover 來指定。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.btn-blue</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="keyword">@apply</span> bg-blue-<span class="number">500</span> text-white font-bold py-<span class="number">2</span> px-<span class="number">4</span> rounded;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="css">  <span class="selector-class">.btn-blue</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="keyword">@apply</span> bg-blue-<span class="number">700</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;btn-blue&quot;</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@layer</li>
+</ul>
+<p>將制定的 Class 添加到 Tailwind 對應的區塊。Tailwind 會將這些樣式自動移到與相同的位置 @tailwind components，因此您不必擔心在源文件中正確放置順序。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@layer</span> components &#123;</span><br><span class="line">  <span class="selector-class">.btn-blue</span> &#123;</span><br><span class="line">    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.btn-blue</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    @apply bg-blue-700;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@responsive</li>
+</ul>
+<p>新增自己的 class 且具有 RWD 效果。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@responsive</span> &#123;</span><br><span class="line">  <span class="selector-class">.bg-brand-gradient</span> &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h3><p>使用 Node.js 環境，請先安裝 <a href="https://nodejs.org/zh-tw/">Node.js</a>。</p>
 <h4 id="初始化專案"><a href="#初始化專案" class="headerlink" title="初始化專案"></a>初始化專案</h4><p>建立一個專案目錄，在此專案目錄下輸入以下指令：</p>
@@ -64,7 +76,7 @@
 <h4 id="建立-CSS-檔案"><a href="#建立-CSS-檔案" class="headerlink" title="建立 CSS 檔案"></a>建立 CSS 檔案</h4><ol>
 <li>在專案根目錄下建立一個目錄 src，並在 src 下建立 css 目錄。</li>
 <li>在 css 目錄下，建立 tailwind.css。</li>
-<li>引入 Tailwind CSS 三個 partials，分別是 base、components、utilities。Tailwind 主要的 CSS 區塊。</li>
+<li>引入 Tailwind CSS 三個組件區塊，分別是 base、components、utilities。Tailwind 主要的組件區塊。</li>
 </ol>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 基本 HTML 樣式，包含調整過的 Normalize.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="comment">/* 組件區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="comment">/* Utility區塊 */</span></span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
 
