@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e30a8c;
+  background: #49856a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2738,12 +2738,12 @@ h6 {
 .posts-collapse .post-title a,
 .posts-collapse .post-title span.exturl {
   border-bottom: none;
-  color: #fff;
+  color: #fff !important;
 }
 a,
 span.exturl {
   border-bottom: 1px solid #999;
-  color: #fff;
+  color: #fff !important;
   outline: 0;
   text-decoration: none;
   overflow-wrap: break-word;
