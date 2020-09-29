@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f5ff22;
+  background: #a340d2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2724,8 +2724,8 @@ a:hover {
   color: #ff0 !important;
 }
 .btn {
-  background: 333;
-  color: #fff;
+  background: 333 !important;
+  color: #fff !important;
 }
 .content-wrap {
   background: #222;
