@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f1ff8b;
+  background: #8ebd96;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2751,7 +2751,8 @@ span.exturl {
   word-wrap: break-word;
   cursor: pointer;
 }
-.post-toc .nav .active-current > a {
+.post-toc .nav .active > a {
+  border-bottom-color: #ff0 !important;
   color: #ff0 !important;
 }
 @media (min-width: 768px) {
