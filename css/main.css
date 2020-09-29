@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #cd44d1;
+  background: #f2c9ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2768,7 +2768,7 @@ a.category-list-link {
   border-bottom: 1px solid #fff !important;
   color: #fff !important;
 }
-a.post-title-link {
+.post-header a.post-title-link {
   color: #fff !important;
 }
 @media (min-width: 768px) {
