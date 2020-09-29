@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a340d2;
+  background: #34fb24;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2723,8 +2723,14 @@ a:hover {
   border-bottom-color: #ff0 !important;
   color: #ff0 !important;
 }
+.tag-cloud-tags a {
+  color: #fff !important;
+}
+.tag-cloud-tags a:hover {
+  color: #ff0 !important;
+}
 .btn {
-  background: 333 !important;
+  background: 0 !important;
   color: #fff !important;
 }
 .content-wrap {
@@ -2754,17 +2760,6 @@ h6 {
 .posts-collapse .post-title span.exturl {
   border-bottom: none;
   color: #fff !important;
-}
-a,
-span.exturl {
-  border-bottom: 1px solid #999;
-  color: #fff !important;
-  outline: 0;
-  text-decoration: none;
-  overflow-wrap: break-word;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  cursor: pointer;
 }
 @media (min-width: 768px) {
   .footer {
