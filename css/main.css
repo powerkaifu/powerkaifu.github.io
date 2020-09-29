@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f2c9ff;
+  background: #121bff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2764,9 +2764,12 @@ h6 {
 .btn:hover {
   color: #ff0 !important;
 }
-a.category-list-link {
-  border-bottom: 1px solid #fff !important;
+.category-list a.category-list-link {
+  border-bottom: none;
   color: #fff !important;
+}
+.category-list a.category-list-link:hover {
+  border-bottom: 1px solid #fff;
 }
 .post-header a.post-title-link {
   color: #fff !important;
