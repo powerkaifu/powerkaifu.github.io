@@ -39,22 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="角色 在網頁裡，每項技術都扮演了一個重要的角色  指的是 HTML、CSS、JavaScript 三兄弟，若用蓋房子來比喻，三兄弟各有自己執掌的工作，分別為：  HTML（結構、內容）：如同蓋房子需要的基礎建材，鋼筋、水泥、門、窗等等。 CSS（樣式、外觀）：如同蓋完房子後的裝潢設計師，打造漂亮的房子。 JavaScript（事件、行為）：如同房子內部設施開關觸發後產生的能源。">
+  <meta name="description" content="jQuery()函式jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 jQuery 物件。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML">
-<meta property="og:url" content="https://powerkaifu.github.io/2020/08/19/lesson-html/index.html">
+<meta property="og:title" content="jQuery的核心">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/09/30/lesson-jq-02-core/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="角色 在網頁裡，每項技術都扮演了一個重要的角色  指的是 HTML、CSS、JavaScript 三兄弟，若用蓋房子來比喻，三兄弟各有自己執掌的工作，分別為：  HTML（結構、內容）：如同蓋房子需要的基礎建材，鋼筋、水泥、門、窗等等。 CSS（樣式、外觀）：如同蓋完房子後的裝潢設計師，打造漂亮的房子。 JavaScript（事件、行為）：如同房子內部設施開關觸發後產生的能源。">
+<meta property="og:description" content="jQuery()函式jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 jQuery 物件。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://powerkaifu.github.io/images/request_response.png">
-<meta property="article:published_time" content="2020-08-19T04:20:46.000Z">
-<meta property="article:modified_time" content="2020-08-19T04:20:46.000Z">
+<meta property="article:published_time" content="2020-09-30T09:10:41.968Z">
+<meta property="article:modified_time" content="2020-09-30T19:02:30.959Z">
 <meta property="article:author" content="Kai-Fu Chang">
-<meta property="article:tag" content="html">
+<meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://powerkaifu.github.io/images/request_response.png">
 
-<link rel="canonical" href="https://powerkaifu.github.io/2020/08/19/lesson-html/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/09/30/lesson-jq-02-core/">
 
 
 <script id="page-configurations">
@@ -67,7 +65,7 @@
   };
 </script>
 
-  <title>HTML | 漫遊前端無盡海</title>
+  <title>jQuery的核心 | 漫遊前端無盡海</title>
   
     <script>
       function sendPageView() {
@@ -159,12 +157,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">3</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>技術筆記<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">5</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>文章分類<span class="badge">5</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -226,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/19/lesson-html/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/30/lesson-jq-02-core/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.png">
@@ -239,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HTML
+          jQuery的核心
         </h1>
 
         <div class="post-meta">
@@ -249,8 +247,15 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2020-08-19 12:20:46" itemprop="dateCreated datePublished" datetime="2020-08-19T12:20:46+08:00">2020-08-19</time>
+              <time title="創建時間：2020-09-30 17:10:41" itemprop="dateCreated datePublished" datetime="2020-09-30T17:10:41+08:00">2020-09-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-01 03:02:30" itemprop="dateModified" datetime="2020-10-01T03:02:30+08:00">2020-10-01</time>
+              </span>
 
           
 
@@ -263,86 +268,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><blockquote>
-<p>在網頁裡，每項技術都扮演了一個重要的角色</p>
-</blockquote>
-<p>指的是 HTML、CSS、JavaScript 三兄弟，若用蓋房子來比喻，三兄弟各有自己執掌的工作，分別為：</p>
-<ul>
-<li>HTML（結構、內容）：如同蓋房子需要的基礎建材，鋼筋、水泥、門、窗等等。</li>
-<li>CSS（樣式、外觀）：如同蓋完房子後的裝潢設計師，打造漂亮的房子。</li>
-<li>JavaScript（事件、行為）：如同房子內部設施開關觸發後產生的能源。</li>
-</ul>
+        <h3 id="jQuery-函式"><a href="#jQuery-函式" class="headerlink" title="jQuery()函式"></a>jQuery()函式</h3><p>jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 <strong>jQuery 物件</strong>。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。</p>
 <a id="more"></a>
 
-<h3 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h3><p>對於 HTML（HyperText Markup Language）而言，它扮演了「結構」的角色。這角色在網頁中，雖是最基礎但卻是很重要的骨幹，如同蓋棟大樓需要的鋼筋、水泥、門、窗的基礎建材，它是網頁的基礎。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- html 結構 --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>結構<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="標記"><a href="#標記" class="headerlink" title="標記"></a>標記</h3><p>Markup（標記）是 HTML 的核心，意思是「使用標籤標記內容，產生語義化結構」。標記什麼內容？標記文字、圖片、影音等等，網頁中傳達資訊的媒體元素。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- a 標籤標記了「泰山職訓網頁設計」文字 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://wdaweb.github.io/&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>泰山職訓網頁設計<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><p>元素是由標籤（tag）及標記的內容（content）所組成，它有以下這些特性：</p>
-<ul>
-<li>不分大小寫，養成使用小寫的習慣。</li>
-<li>大部份會有&lt;&gt;起始標籤，&lt;/&gt;結束標籤，之間為標記的內容。</li>
-<li>具有屬性與值，屬性之間需要空格。</li>
-<li>屬性值不限制用單引號或雙引號，養成使用雙引號的習慣。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/example.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="空元素"><a href="#空元素" class="headerlink" title="空元素"></a>空元素</h3><p>沒有結束標籤的元素，又稱「獨立標籤」、「無結尾標籤」、「空標籤」。<br>常見的空元素有 &lt;meta&gt;、&lt;link&gt;、&lt;br&gt;、&lt;hr&gt;、&lt;img&gt; … 等等。</p>
-<!-- ### id 與 class -->
-
-<h3 id="舞台"><a href="#舞台" class="headerlink" title="舞台"></a>舞台</h3><!-- <img data-src="/images/request_response.png" width="500"> -->
-
-<p>若 HTML 是一個舞台，每個元素如同一位演員，瀏覽器在讀取 HTML 這個舞台時，它是由上而下進行解讀，元素會逐一被解讀成一位演員，每位演員有著它要做的基本工作來顯示內容。</p>
-<p>「head」 演員像是舞台的後面，標記的是給瀏覽器或搜尋引擎才能看到的資訊，舞台前面的使用者是看不到的。<br>「body」 演員像是舞台的前面，標記的是給使用者欣賞觀看的文字、圖片、影片等等。</p>
-<p>此外，還有兩位較為特別的演員，一個是負責外觀的「style」與負責行為的「script」，「style」演員的工作是負責顯示樣式外觀，白話點就是幫演員們化妝，而讀取到最後會遇到「script」演員，我們可以把裡面標記的內容想成一套劇本，告訴演員們該如何表現行為及事件發生時該做甚麼事情。</p>
+<p>當這個函式建立 jQuery 物件，表示將選取元件集合，它會<strong>儲存一個參考值指向 DOM 樹中對應的元件節點，但並不會複製這些節點</strong>，這些集合（封裝 1 個或多個 DOM 元素），一般稱為符合條件的元件集合（Method set），或稱為 jQuery 選取元件集合（jQuery selection），有了它們就可以使用 jQuery 提供的方法和屬性來操作元素。</p>
+<p><strong>jQuery 物件是一種類陣列（array-like）物件，它有一些陣列特性但並不是陣列</strong>，跟陣列一樣有個 length 屬性，以及 0 到 length - 1 的數值屬性。這表示可用標準的中括號[]陣列記號來存取 jQuery 物件的內容。</p>
 <blockquote>
-<p>記住的是，元素演員得先上場，劇本才能上演好戲，若是劇本先出現，元素演員未上場，等同白念劇本了。</p>
+<p>回傳是一個 jQuery.fn.init(n) 物件</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-tw&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- head 紀錄的是給瀏覽器或者是搜尋引擎看的重要資訊，一般瀏覽者無法看到 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;這是我的第一個網頁&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>我的第一個網頁<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="comment">/* 本頁使用的 css 樣式外觀，幫網頁化妝　*/</span></span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- body 是顯示給瀏覽者觀看的內容，藉由標籤標記的文字、圖片、影片等等 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 本頁使用的 js，想成一套劇本</span></span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">jQuery()</span><br><span class="line"><span class="comment">// 縮寫</span></span><br><span class="line">$()</span><br></pre></td></tr></table></figure>
 
-<h3 id="語義化"><a href="#語義化" class="headerlink" title="語義化"></a>語義化</h3><p>雖然在排版上，大多數習慣還是用 &lt;div&gt; 來排版，但 HTML5 提供更多語意標籤使用，甚麼是語意標籤？簡單說就是直接給標籤一個好懂的名稱，來表示其結構及意義，例如:</p>
-<table>
-<thead>
-<tr>
-<th>標籤名稱</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&lt;header&gt;</td>
-<td>定義網頁頁首的區域。</td>
-</tr>
-<tr>
-<td>&lt;nav&gt;</td>
-<td>定義網頁導覽區域。</td>
-</tr>
-<tr>
-<td>&lt;footer&gt;</td>
-<td>定義網頁頁尾的區域。</td>
-</tr>
-<tr>
-<td>&lt;main&gt;</td>
-<td>定義網頁主要內容區域。</td>
-</tr>
-<tr>
-<td>&lt;section&gt;</td>
-<td>定義一個區段範圍。</td>
-</tr>
-<tr>
-<td>&lt;aside&gt;</td>
-<td>定義一個側邊區域範圍，次要區域。</td>
-</tr>
-<tr>
-<td>&lt;article&gt;</td>
-<td>定義文章內容。</td>
-</tr>
-<tr>
-<td>&lt;figure&gt;</td>
-<td>定義圖形影像的區塊。</td>
-</tr>
-</tbody></table>
+<h3 id="jQuery-函式五種使用方式"><a href="#jQuery-函式五種使用方式" class="headerlink" title="jQuery()函式五種使用方式"></a>jQuery()函式五種使用方式</h3><p>jQuery()函式提供 JavaScript 封裝功能，它有五種常使用的方式。</p>
+<h4 id="1-傳入-CSS-選擇器"><a href="#1-傳入-CSS-選擇器" class="headerlink" title="1. 傳入 CSS 選擇器"></a>1. 傳入 CSS 選擇器</h4><blockquote>
+<p>jQuery( selector [, context ] )</p>
+</blockquote>
+<p>這是最常使用的方式，傳入 CSS selector 作為選擇的對象，回傳 jQuery 物件來操作。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;.col&#x27;</span>).length</span><br></pre></td></tr></table></figure>
+
+<p>第二參數很少使用，它必須存在於上下文關係中，例如下方 this，span 被指定在 div.foo 才能有作用，或是選擇一個集合後，第二參數會回傳指定符合的子元素。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;div.foo&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;span&#x27;</span>, <span class="built_in">this</span>).addClass(<span class="string">&#x27;bar&#x27;</span>) <span class="comment">// $(&#x27;span&#x27;, this) 等同於 $(this).find(&#x27;span&#x27;)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-選擇元素操作"><a href="#2-選擇元素操作" class="headerlink" title="2. 選擇元素操作"></a>2. 選擇元素操作</h4><blockquote>
+<p>jQuery( element )</p>
+</blockquote>
+<p>除了 CSS 選擇器，也可以直接抓取 DOM 元素標籤的名稱。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;body&#x27;</span>).css(&#123;</span><br><span class="line">  backgroundColor: <span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-建立一個元素"><a href="#3-建立一個元素" class="headerlink" title="3. 建立一個元素"></a>3. 建立一個元素</h4><blockquote>
+<p>jQuery( html [, optionObject ] )</p>
+</blockquote>
+<p>可直接傳入 html 標籤建立一個 html 元素， optionObject 是一個可選的物件，可直接設定 html 的屬性。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一個引數必須為 HTML 元素</span></span><br><span class="line"><span class="comment">// 第二個引數為可選物件，可以設定該元素的屬性 name/value。</span></span><br><span class="line">$(<span class="string">&#x27;&lt;input&gt;&#x27;</span>, &#123;</span><br><span class="line">  type: <span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">  val: <span class="string">&#x27;Test&#x27;</span>,</span><br><span class="line">  focusin: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).addClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  focusout: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).removeClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;).appendTo(<span class="string">&#x27;form&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-傳入一個函式"><a href="#4-傳入一個函式" class="headerlink" title="4. 傳入一個函式"></a>4. 傳入一個函式</h4><p>傳入一個函式給它，函式會在文件已經載入，DOM 準備就緒可供操作時被呼叫。這是 jQuery 版的 onload()函式。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [縮寫]</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do，與上方相同</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.50 支援 ES6</span></span><br><span class="line">$(() =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-複製陣列、物件"><a href="#5-複製陣列、物件" class="headerlink" title="5. 複製陣列、物件"></a>5. 複製陣列、物件</h4><p>jQuery 函式可以複製陣列、物件，須注意每種物件的值，尤其是物件，它是被指向同一個記憶體位置，也就是說改變了一個，另一個也會更改。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> ary2 = $(ary1)</span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = $(obj1)</span><br><span class="line">obj1.a = <span class="number">100</span> <span class="comment">// obj2[0].a 也會更改為 200</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ready-和-load-的區別"><a href="#ready-和-load-的區別" class="headerlink" title="ready 和 load 的區別"></a>ready 和 load 的區別</h3><ul>
+<li><p>$(document).ready</p>
+<p>會在 HTML 結構載入後，並且 DOM 就緒後呼叫，不包含圖片，觸發時間較早，使用了 JavaScript 的 DOMContentLoaded 事件。</p>
+</li>
+<li><p>$(window).load</p>
+<p>會在 HTML 結構載入後，DOM 就緒後，頁面渲染結束（iframe、img 圖片加載完成）後呼叫，也就是網頁讀取完成，使用了 JavaScript 的 load 事件。</p>
+</li>
+</ul>
 
     </div>
 
@@ -352,7 +323,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/jQuery/" rel="tag"># jQuery</a>
           </div>
 
         
@@ -361,13 +332,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/18/resource-css-useful-site/" rel="prev" title="CSS資源">
-      <i class="fa fa-chevron-left"></i> CSS資源
+    <a href="/2020/09/30/lesson-jq-01-intro/" rel="prev" title="jQuery 介紹與設定">
+      <i class="fa fa-chevron-left"></i> jQuery 介紹與設定
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/23/lesson-css-01.base-selector/" rel="next" title="CSS - 選擇器 (一)">
-      CSS - 選擇器 (一) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -426,7 +394,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%92%E8%89%B2"><span class="nav-number">1.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E6%A7%8B"><span class="nav-number">2.</span> <span class="nav-text">結構</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E8%A8%98"><span class="nav-number">3.</span> <span class="nav-text">標記</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E5%85%83%E7%B4%A0"><span class="nav-number">5.</span> <span class="nav-text">空元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%88%9E%E5%8F%B0"><span class="nav-number">6.</span> <span class="nav-text">舞台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%9E%E7%BE%A9%E5%8C%96"><span class="nav-number">7.</span> <span class="nav-text">語義化</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-%E5%87%BD%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">jQuery()函式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-%E5%87%BD%E5%BC%8F%E4%BA%94%E7%A8%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">jQuery()函式五種使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%82%B3%E5%85%A5-CSS-%E9%81%B8%E6%93%87%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">1. 傳入 CSS 選擇器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%81%B8%E6%93%87%E5%85%83%E7%B4%A0%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">2. 選擇元素操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%85%83%E7%B4%A0"><span class="nav-number">2.3.</span> <span class="nav-text">3. 建立一個元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%82%B3%E5%85%A5%E4%B8%80%E5%80%8B%E5%87%BD%E5%BC%8F"><span class="nav-number">2.4.</span> <span class="nav-text">4. 傳入一個函式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E8%A4%87%E8%A3%BD%E9%99%A3%E5%88%97%E3%80%81%E7%89%A9%E4%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">5. 複製陣列、物件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ready-%E5%92%8C-load-%E7%9A%84%E5%8D%80%E5%88%A5"><span class="nav-number">3.</span> <span class="nav-text">ready 和 load 的區別</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -441,7 +409,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -454,7 +422,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

@@ -39,18 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="前端設計講師">
-<meta property="og:type" content="website">
-<meta property="og:title" content="漫遊前端無盡海">
-<meta property="og:url" content="https://powerkaifu.github.io/archives/2020/page/2/index.html">
+  <meta name="description" content="介紹jQuery 的作者是 John Resig，橫空出世於 2006 年 1 月瀏覽器紛爭的戰場，當時各家瀏覽器相容是個難題，jQuery 解決了這方面的問題。jQuery 是 JavaScript 的函式庫，封裝並簡化了 JavaScript 的功能，可以輕鬆找出文件元素 DOM、新增元素內容、編輯 HTML 與 CSS 屬性，定義事件處理器，或是加上動畫效果等等，它使得操作元素變得容易，也有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 介紹與設定">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/09/30/lesson-jq-01-intro/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="前端設計講師">
+<meta property="og:description" content="介紹jQuery 的作者是 John Resig，橫空出世於 2006 年 1 月瀏覽器紛爭的戰場，當時各家瀏覽器相容是個難題，jQuery 解決了這方面的問題。jQuery 是 JavaScript 的函式庫，封裝並簡化了 JavaScript 的功能，可以輕鬆找出文件元素 DOM、新增元素內容、編輯 HTML 與 CSS 屬性，定義事件處理器，或是加上動畫效果等等，它使得操作元素變得容易，也有">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-09-30T09:10:41.909Z">
+<meta property="article:modified_time" content="2020-09-30T19:02:29.269Z">
 <meta property="article:author" content="Kai-Fu Chang">
-<meta property="article:tag" content="泰山職訓局,泰山前端,前端網頁開發技術,前端設計,前端工程,網頁設計,html,css,javascript,jQuery,bootstrap,sass,scss,HotCode,HotCode Encore">
+<meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://powerkaifu.github.io/archives/2020/page/2/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/09/30/lesson-jq-01-intro/">
 
 
 <script id="page-configurations">
@@ -58,12 +60,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>歸檔 | 漫遊前端無盡海</title>
+  <title>jQuery 介紹與設定 | 漫遊前端無盡海</title>
   
     <script>
       function sendPageView() {
@@ -215,214 +217,106 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共有 19 篇文章。 繼續努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/30/lesson-jq-01-intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="漫遊前端無盡海">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jQuery 介紹與設定
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-09-30 17:10:41" itemprop="dateCreated datePublished" datetime="2020-09-30T17:10:41+08:00">2020-09-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-01 03:02:29" itemprop="dateModified" datetime="2020-10-01T03:02:29+08:00">2020-10-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
+        <h3 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h3><p>jQuery 的作者是 John Resig，橫空出世於 2006 年 1 月瀏覽器紛爭的戰場，當時各家瀏覽器相容是個難題，jQuery 解決了這方面的問題。jQuery 是 JavaScript 的函式庫，封裝並簡化了 JavaScript 的功能，可以輕鬆找出文件元素 DOM、新增元素內容、編輯 HTML 與 CSS 屬性，定義事件處理器，或是加上動畫效果等等，它使得操作元素變得容易，也有完善的 Ajax 工具，還有一般用途的函式用來處理物件與陣列。這些功能對於當時網站開發都帶來相當的便利，因此 jQuery 很快成為一個時代很重要的函式庫，而如其名稱所示，jQuery 它專注於 Query（查詢）各種功能。</p>
+<h3 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h3><ul>
+<li>跨瀏覽器平台，解決不同類型瀏覽器不一致性造成的問題，不需要額外撰寫向下相容的程式碼。</li>
+<li>選取元素容易，可以使用 CSS 選擇器。</li>
+<li>具有一次選取元素的特性。</li>
+<li>事件處理簡單，提供的方法都可在主流瀏覽器正常運作。</li>
+<li>提供常用的動畫效果。</li>
+<li>有鏈式（method chaining）用來表示一連串的動作。</li>
+<li>AJAX 操作簡單。</li>
+</ul>
+<h3 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h3><p>jQuery 的設定非常簡單，只需要有來源即可使用，可從官方下載：</p>
+<p><a target="_blank" rel="noopener" href="https://jquery.com/download/">官網下載</a></p>
+<p>官網分為幾個版本，一般開發使用會使用 uncompressed 版本，而 compressed 版本則是產品發布時會使用的壓縮版本，你可在官網下載頁面找到它們。下載完 jQuery 即可使用 <code>&lt;script&gt;</code> 標籤標記它，例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 產品版本</span></span><br><span class="line">&lt;script src = <span class="string">&quot;./js/jquery-3.5.1.min.js&quot;</span> /&gt;</span><br><span class="line"><span class="comment">// 開發版本</span></span><br><span class="line">&lt;script src = <span class="string">&quot;./js/jquery-3.5.1.js&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T16:57:58+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/resource-learn/" itemprop="url">
-            <span itemprop="name">學習資源</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T14:28:37+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/resource-normal-tools/" itemprop="url">
-            <span itemprop="name">設計常用工具及網站</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T14:04:43+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/resource-web-license/" itemprop="url">
-            <span itemprop="name">網頁設計證照資源</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T13:53:53+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/resource-coding/" itemprop="url">
-            <span itemprop="name">Coding 資源</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-25T15:37:00+08:00"
-              content="2020-08-25">
-          08-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/25/lesson-css-03.background/" itemprop="url">
-            <span itemprop="name">CSS - 背景</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-25T14:26:31+08:00"
-              content="2020-08-25">
-          08-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/25/lesson-css-02.text/" itemprop="url">
-            <span itemprop="name">CSS - 文字</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-23T13:50:42+08:00"
-              content="2020-08-23">
-          08-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/23/resource-css-useful-site/" itemprop="url">
-            <span itemprop="name">CSS資源</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-23T13:50:42+08:00"
-              content="2020-08-23">
-          08-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/23/lesson-html/" itemprop="url">
-            <span itemprop="name">HTML</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-23T13:50:42+08:00"
-              content="2020-08-23">
-          08-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/23/lesson-css-01.base-selector/" itemprop="url">
-            <span itemprop="name">CSS - 選擇器 (一)</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+<p>也可以使用各家提供的 CDN 服務來設定：</p>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/speed/libraries#jquery">Google</a><br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/aspnet/ajax/cdn/overview#jQuery_Releases_on_the_CDN_0">Mircrosoft</a><br><a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/jquery">cdnjs</a><br><a target="_blank" rel="noopener" href="https://www.jsdelivr.com/package/npm/jquery">jsdelivr</a></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/24/lesson-tailwind-css/" rel="prev" title="Tailwind CSS 大全">
+      <i class="fa fa-chevron-left"></i> Tailwind CSS 大全
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/30/lesson-jq-02-core/" rel="next" title="jQuery的核心">
+      jQuery的核心 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2020/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span>
-  </nav>
+  
+  
 
 
 
@@ -474,6 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E8%89%B2"><span class="nav-number">2.</span> <span class="nav-text">特色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.</span> <span class="nav-text">設定</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
