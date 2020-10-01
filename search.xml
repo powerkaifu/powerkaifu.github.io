@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>jQuery的核心</title>
-    <url>/2020/09/30/lesson-jq-02-core/</url>
+    <title>第一章 - jQuery的核心</title>
+    <url>/2020/09/30/lesson-jq-01-core/</url>
     <content><![CDATA[<h3 id="jQuery-函式"><a href="#jQuery-函式" class="headerlink" title="jQuery()函式"></a>jQuery()函式</h3><p>jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 <strong>jQuery 物件</strong>。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。</p>
 <a id="more"></a>
 
@@ -96,8 +96,8 @@
       </tags>
   </entry>
   <entry>
-    <title>jQuery 介紹與設定</title>
-    <url>/2020/09/30/lesson-jq-01-intro/</url>
+    <title>序章 - jQuery 介紹與設定</title>
+    <url>/2020/09/30/lesson-jq-00-intro/</url>
     <content><![CDATA[<h3 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h3><p>jQuery 的作者是 John Resig，橫空出世於 2006 年 1 月瀏覽器紛爭的戰場，當時各家瀏覽器相容是個難題，jQuery 解決了這方面的問題。jQuery 是 JavaScript 的函式庫，封裝並簡化了 JavaScript 的功能，可以輕鬆找出文件元素 DOM、新增元素內容、編輯 HTML 與 CSS 屬性，定義事件處理器，或是加上動畫效果等等，它使得操作元素變得容易，也有完善的 Ajax 工具，還有一般用途的函式用來處理物件與陣列。這些功能對於當時網站開發都帶來相當的便利，因此 jQuery 很快成為一個時代很重要的函式庫，而如其名稱所示，jQuery 它專注於 Query（查詢）各種功能。</p>
 <a id="more"></a>
 
