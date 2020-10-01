@@ -47,7 +47,7 @@
 <meta property="og:description" content="jQuery()函式jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 jQuery 物件。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-09-30T09:10:41.968Z">
-<meta property="article:modified_time" content="2020-10-01T17:53:48.164Z">
+<meta property="article:modified_time" content="2020-10-01T18:07:24.442Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-02 01:53:48" itemprop="dateModified" datetime="2020-10-02T01:53:48+08:00">2020-10-02</time>
+                <time title="修改時間：2020-10-02 02:07:24" itemprop="dateModified" datetime="2020-10-02T02:07:24+08:00">2020-10-02</time>
               </span>
 
           
@@ -328,35 +328,45 @@
 <tr>
 <th>選擇方法</th>
 <th>回傳物件</th>
-<th></th>
+<th>是否新物件</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>$()</td>
 <td>jQuery</td>
-<td>新物件</td>
+<td>是</td>
 </tr>
 <tr>
 <td>querySelectorAll()</td>
 <td>NodeList()</td>
-<td></td>
-</tr>
-<tr>
-<td>getElementsByClassName()</td>
-<td>HTMLCollection()</td>
-<td></td>
+<td>是</td>
 </tr>
 <tr>
 <td>getElementsByTagName</td>
 <td>HTMLCollection()</td>
+<td>否</td>
+</tr>
+<tr>
+<td>getElementsByClassName()</td>
+<td>HTMLCollection()</td>
+<td>否</td>
+</tr>
+<tr>
+<td>querySelector()</td>
 <td></td>
+<td>否</td>
+</tr>
+<tr>
+<td>getElementById()</td>
+<td></td>
+<td>否</td>
 </tr>
 </tbody></table>
 <ul>
 <li>NodeList 與 HTMLCollection 這兩個物件是唯讀的類陣列物件（array-like objects），具有 length 屬性可被迴圈索引逐一讀取（但無法寫入）。</li>
 <li>使用 $() 選擇元素時，jQuery 都會幫你獨立一個記憶體位置，且每一個都是全新的 jQuery 物件，要特別注意，濫用會造成記憶體的浪費。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// jQuery</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;jQuery&#x27;</span>, a === b) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelectorAll</span></span><br><span class="line"><span class="keyword">let</span> c = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> d = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelectorAll&#x27;</span>, c === d) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelector</span></span><br><span class="line"><span class="keyword">let</span> e = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> f = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelector&#x27;</span>, e === f) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByTagName</span></span><br><span class="line"><span class="keyword">let</span> g = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> h = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByTagName&#x27;</span>, g === h) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByClassName</span></span><br><span class="line"><span class="keyword">let</span> i = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> j = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByClassName&#x27;</span>, i === j) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementById</span></span><br><span class="line"><span class="keyword">let</span> k = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> l = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementById&#x27;</span>, k === l) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// jQuery</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;jQuery&#x27;</span>, a === b) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelectorAll</span></span><br><span class="line"><span class="keyword">let</span> c = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> d = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelectorAll&#x27;</span>, c === d) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelector</span></span><br><span class="line"><span class="keyword">let</span> e = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> f = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelector&#x27;</span>, e === f) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByTagName</span></span><br><span class="line"><span class="keyword">let</span> g = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> h = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByTagName&#x27;</span>, g === h) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByClassName</span></span><br><span class="line"><span class="keyword">let</span> i = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> j = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByClassName&#x27;</span>, i === j) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementById</span></span><br><span class="line"><span class="keyword">let</span> k = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> l = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementById&#x27;</span>, k === l) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="jQuery-Chaining-鍊式串接"><a href="#jQuery-Chaining-鍊式串接" class="headerlink" title="jQuery Chaining 鍊式串接"></a>jQuery Chaining 鍊式串接</h3><p>鍊式串接，又稱為方法鍊，是方法間以句點連續串接，可針對單一選擇器執行多個處理。jQuery 大部分的方法其回傳值都是回傳處理後的 jQuery 物件，也就是 return 該物件，並且會記錄在一個叫 prevObject 的物件（指上一層），它是紀錄鍊式上一層的 jQuery 物件，可以在選擇到 jQuery 物件時可以看到它。其中，end() 方法就是指向 prevObject，可以一直 end() 到虛無沒東西 <code>S.fn.init &#123;&#125;</code> 。但也有回傳非 jQuery 物件的方法，如果在方法鍊中使用 next()、end()方法，可能會因此改變處理目標的選擇器，回到原本狀態。</p>
 <ul>
