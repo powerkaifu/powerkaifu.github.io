@@ -38,17 +38,58 @@
 <h4 id="4-傳入一個函式"><a href="#4-傳入一個函式" class="headerlink" title="4. 傳入一個函式"></a>4. 傳入一個函式</h4><p>傳入一個函式給它，函式會在文件已經載入，DOM 準備就緒可供操作時被呼叫。這是 jQuery 版的 onload()函式。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [縮寫]</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do，與上方相同</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.50 支援 ES6</span></span><br><span class="line">$(() =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-複製陣列、物件"><a href="#5-複製陣列、物件" class="headerlink" title="5. 複製陣列、物件"></a>5. 複製陣列、物件</h4><p>jQuery 函式可以複製陣列、物件，須注意每種物件的值，尤其是物件，它是被指向同一個記憶體位置，也就是說改變了一個，另一個也會更改。</p>
+<h4 id="5-複製陣列、物件"><a href="#5-複製陣列、物件" class="headerlink" title="5. 複製陣列、物件"></a>5. 複製陣列、物件</h4><p>jQuery 函式可以複製陣列、物件，可以注意資料類型，尤其是 JSON 物件，它是被指向同一個記憶體位置，也就是說改變了一個，另一個也會更改。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> ary2 = $(ary1)</span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = $(obj1)</span><br><span class="line">obj1.a = <span class="number">100</span> <span class="comment">// obj2[0].a 也會更改為 200</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="ready-和-load-的區別"><a href="#ready-和-load-的區別" class="headerlink" title="ready 和 load 的區別"></a>ready 和 load 的區別</h3><ul>
-<li><p>$(document).ready</p>
-<p>會在 HTML 結構載入後，並且 DOM 就緒後呼叫，不包含圖片，觸發時間較早，使用了 JavaScript 的 DOMContentLoaded 事件。</p>
+<li><p>$(document).ready<br>會在 HTML 結構載入後，並且 DOM 就緒後呼叫，不包含圖片，觸發時間較早，使用了 JavaScript 的 DOMContentLoaded 事件。</p>
 </li>
-<li><p>$(window).load</p>
-<p>會在 HTML 結構載入後，DOM 就緒後，頁面渲染結束（iframe、img 圖片加載完成）後呼叫，也就是網頁讀取完成，使用了 JavaScript 的 load 事件。</p>
+<li><p>$(window).load<br>會在 HTML 結構載入後，DOM 就緒後，頁面渲染結束（iframe、img 圖片加載完成）後呼叫，也就是網頁讀取完成，使用了 JavaScript 的 load 事件。</p>
 </li>
 </ul>
+<h3 id="與-querySelectorAll"><a href="#與-querySelectorAll" class="headerlink" title="$() 與 querySelectorAll()"></a>$() 與 querySelectorAll()</h3><p>兩者皆取一個 CSS 選擇器作為它們的引數，並回傳一個類陣列物件。jQuery 的實作會在有支援的瀏覽器中使用 querySelectorAll()，<br>如果使用 $() 來取代 querySelectorAll()有個好處，$() 回傳的類陣列物件是一個 jQuery 物件，它比 querySelectorAll() 所回傳的類陣列物件（一個 NodeList）有用多了，因為 jQuery 物件還可以使用 jQuery 的方法。</p>
+<table>
+<thead>
+<tr>
+<th>選擇方法</th>
+<th>回傳物件</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$()</td>
+<td>jQuery</td>
+<td>新物件</td>
+</tr>
+<tr>
+<td>querySelectorAll()</td>
+<td>NodeList()</td>
+<td></td>
+</tr>
+<tr>
+<td>getElementsByClassName()</td>
+<td>HTMLCollection()</td>
+<td></td>
+</tr>
+<tr>
+<td>getElementsByTagName</td>
+<td>HTMLCollection()</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>NodeList 與 HTMLCollection 這兩個物件是唯讀的類陣列物件（array-like objects），具有 length 屬性可被迴圈索引逐一讀取（但無法寫入）。</li>
+<li>使用 $() 選擇元素時，jQuery 都會幫你獨立一個記憶體位置，且每一個都是全新的 jQuery 物件，要特別注意，濫用會造成記憶體的浪費。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// jQuery</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;jQuery&#x27;</span>, a === b) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelectorAll</span></span><br><span class="line"><span class="keyword">let</span> c = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> d = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelectorAll&#x27;</span>, c === d) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelector</span></span><br><span class="line"><span class="keyword">let</span> e = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> f = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelector&#x27;</span>, e === f) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByTagName</span></span><br><span class="line"><span class="keyword">let</span> g = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> h = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByTagName&#x27;</span>, g === h) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByClassName</span></span><br><span class="line"><span class="keyword">let</span> i = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> j = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByClassName&#x27;</span>, i === j) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementById</span></span><br><span class="line"><span class="keyword">let</span> k = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> l = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementById&#x27;</span>, k === l) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="jQuery’s-Chain-鍊式串接"><a href="#jQuery’s-Chain-鍊式串接" class="headerlink" title="jQuery’s Chain 鍊式串接"></a>jQuery’s Chain 鍊式串接</h3><p>鍊式串接，又稱為方法鍊，是方法間以句點連續串接，可針對單一選擇器執行多個處理。jQuery 大部分的方法其回傳值都是回傳處理後的 jQuery 物件，也就是 return 該物件，並且會記錄在一個叫 prevObject 的物件（指上一層），它是紀錄鍊式上一層的 jQuery 物件，可以在選擇到 jQuery 物件時可以看到它。其中，end() 方法就是指向 prevObject，可以一直 end() 到虛無沒東西 <code>S.fn.init &#123;&#125;</code> 。但也有回傳非 jQuery 物件的方法，如果在方法鍊中使用 next()、end()方法，可能會因此改變處理目標的選擇器，回到原本狀態。</p>
+<ul>
+<li>可以幫助遍歷遨遊 DOM 結構樹，爬樹方便。</li>
+<li>可以讓動畫更豐富。</li>
+<li>鍊式中一個方法無法正確執行時，後續的方法也不會被執行。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// != 這種選擇是 jQ 獨創的用法，CSS沒有</span></span><br><span class="line">$(<span class="string">&#x27;li[id!=&quot;one&quot;]&#x27;</span>).hide().delay(<span class="number">500</span>).fadeIn(<span class="number">1400</span>).css(&#123;</span><br><span class="line">  <span class="string">&#x27;background-color&#x27;</span>: <span class="string">&#x27;#F00&#x27;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>jQuery</tag>
