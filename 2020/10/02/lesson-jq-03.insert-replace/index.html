@@ -39,20 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="學習資源 無暇的程式碼 JavaScript Github 網頁動畫大全 awesome-web-animation 一行 JavaScript 處理陣列、日期、數字、DOM 等等 前往、Github 一行 CSS Layouts 前往 一個 Div 做出來的 CSS 物件 Single Div HEAD 大全 前往、Github 從 ES6 開始的 JavaScript 學習生活前往 JavaS">
+  <meta name="description" content="插入與取代元素插入元素before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="學習資源">
-<meta property="og:url" content="https://powerkaifu.github.io/2020/08/29/resource-learn/index.html">
+<meta property="og:title" content="第三章 - 插入、取代、刪除元素">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="學習資源 無暇的程式碼 JavaScript Github 網頁動畫大全 awesome-web-animation 一行 JavaScript 處理陣列、日期、數字、DOM 等等 前往、Github 一行 CSS Layouts 前往 一個 Div 做出來的 CSS 物件 Single Div HEAD 大全 前往、Github 從 ES6 開始的 JavaScript 學習生活前往 JavaS">
+<meta property="og:description" content="插入與取代元素插入元素before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-08-29T08:57:58.081Z">
-<meta property="article:modified_time" content="2020-09-30T19:02:41.039Z">
+<meta property="article:published_time" content="2020-10-02T15:34:45.035Z">
+<meta property="article:modified_time" content="2020-10-02T19:56:02.157Z">
 <meta property="article:author" content="Kai-Fu Chang">
-<meta property="article:tag" content="泰山職訓局,泰山前端,前端網頁開發技術,前端設計,前端工程,網頁設計,html,css,javascript,jQuery,bootstrap,sass,scss,HotCode,HotCode Encore">
+<meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://powerkaifu.github.io/2020/08/29/resource-learn/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/">
 
 
 <script id="page-configurations">
@@ -65,7 +65,7 @@
   };
 </script>
 
-  <title>學習資源 | 漫遊前端無盡海</title>
+  <title>第三章 - 插入、取代、刪除元素 | 漫遊前端無盡海</title>
   
     <script>
       function sendPageView() {
@@ -224,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/29/resource-learn/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.png">
@@ -237,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          學習資源
+          第三章 - 插入、取代、刪除元素
         </h1>
 
         <div class="post-meta">
@@ -247,24 +247,15 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2020-08-29 16:57:58" itemprop="dateCreated datePublished" datetime="2020-08-29T16:57:58+08:00">2020-08-29</time>
+              <time title="創建時間：2020-10-02 23:34:45" itemprop="dateCreated datePublished" datetime="2020-10-02T23:34:45+08:00">2020-10-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-01 03:02:41" itemprop="dateModified" datetime="2020-10-01T03:02:41+08:00">2020-10-01</time>
+                <time title="修改時間：2020-10-03 03:56:02" itemprop="dateModified" datetime="2020-10-03T03:56:02+08:00">2020-10-03</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%B8%E7%BF%92%E8%B3%87%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">學習資源</span></a>
-                </span>
-            </span>
 
           
 
@@ -277,20 +268,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="學習資源"><a href="#學習資源" class="headerlink" title="學習資源"></a>學習資源</h3><ul>
-<li>無暇的程式碼 JavaScript <a target="_blank" rel="noopener" href="https://github.com/AllJointTW/clean-code-javascript">Github</a></li>
-<li>網頁動畫大全 <a target="_blank" rel="noopener" href="https://github.com/sergey-pimenov/awesome-web-animation">awesome-web-animation</a></li>
-<li>一行 JavaScript 處理陣列、日期、數字、DOM 等等 <a target="_blank" rel="noopener" href="https://1loc.dev/">前往</a>、<a target="_blank" rel="noopener" href="https://github.com/phuoc-ng/1loc">Github</a></li>
-<li>一行 CSS Layouts <a target="_blank" rel="noopener" href="http://1linelayouts.glitch.me/?fbclid=IwAR2HAWUL1DYbaYLw2T9wQNcvTUEqQ0mZICjCPj9CgUd3y0f-tO8skAFNiTM">前往</a></li>
-<li>一個 Div 做出來的 CSS 物件 <a target="_blank" rel="noopener" href="https://a.singlediv.com/">Single Div</a></li>
-<li>HEAD 大全 <a target="_blank" rel="noopener" href="https://htmlhead.dev/">前往</a>、<a target="_blank" rel="noopener" href="https://github.com/joshbuchea/HEAD">Github</a></li>
-<li>從 ES6 開始的 JavaScript 學習生活<a target="_blank" rel="noopener" href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/">前往</a></li>
-<li>JavaScript 編程精解中文第三版<a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/eloquent-js-3e/content/">前往</a></li>
-<li>新手入門 freecodecamp<a target="_blank" rel="noopener" href="https://www.freecodecamp.org/">前往</a></li>
-</ul>
-<h3 id="程式遊戲"><a href="#程式遊戲" class="headerlink" title="程式遊戲"></a>程式遊戲</h3><ul>
-<li>CODE COMBAT<a target="_blank" rel="noopener" href="https://codecombat.com/home">前往</a></li>
-</ul>
+        <h1 id="插入與取代元素"><a href="#插入與取代元素" class="headerlink" title="插入與取代元素"></a>插入與取代元素</h1><h2 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h2><p>before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。</p>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以選擇器為主，指定要插入的內容，此方式可以有函式引數</span></span><br><span class="line">$(selector).append(content)</span><br></pre></td></tr></table></figure>
+
+<p>插入的位置如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[before] &lt;p&gt; [prepend] 我是內容 [append] &lt;&#x2F;p&gt; [after]</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;p&#x27;</span>).append(<span class="string">&#x27;&lt;span&gt;P結束標籤前面&lt;/span&gt;&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;p&#x27;</span>).prepend(<span class="string">&#x27;&lt;span&gt;p開始標籤後面&lt;/span&gt;&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;p&#x27;</span>).before(<span class="string">&#x27;&lt;span&gt;p開始標籤前面&lt;/span&gt;&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;p&#x27;</span>).after(<span class="string">&#x27;&lt;span&gt;p開始標籤後面&lt;/span&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>這四個更動文件結構的方法也都接受函式，<br>append()、prepend()，第二個引數是指當下選擇目標的 HTML 字串表示的<strong>原內容</strong>，<br>before()、after() 不會有第二引數。</p>
+<blockquote>
+<p>$(selector).append(function(index,oldContent))<br>$(selector).prepend(function(index,oldContent))<br>$(selector).before(function(index))<br>$(selector).after(function(index))</p>
+</blockquote>
+<hr>
+<h2 id="replaceWith-取代元素"><a href="#replaceWith-取代元素" class="headerlink" title="replaceWith() 取代元素"></a>replaceWith() 取代元素</h2><p>replaceWith() 方法用指定的 HTML 內容或元素替換被選元素。<br>replaceWith()與 replaceAll()作用相同。差異在於語法：內容和選擇器的位置，以及 replaceAll()無法使用函數進行替換。</p>
+<p>跟上面四個插入內容一樣可接受函式：</p>
+<blockquote>
+<p>$(selector).replaceWith(function(index,oldContent))</p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;hr&#x27;</span>).replaceWith(<span class="string">&#x27;&lt;br&gt;&#x27;</span>) <span class="comment">// 用 &lt;br&gt; 取代 &lt;hr&gt; 元素，hr被取代後不會存在於文件中</span></span><br><span class="line">$(<span class="string">&#x27;h2&#x27;</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 用 h1 取代 h2，內容不變</span></span><br><span class="line">  <span class="keyword">var</span> h2 = $(<span class="built_in">this</span>)</span><br><span class="line">  h2.replaceWith(<span class="string">&#x27;&lt;h1&gt;&#x27;</span> + h2.html() + <span class="string">&#x27;&lt;/h1&gt;&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以用 map()，在每個 h1 開頭加上章節符號</span></span><br><span class="line">$(<span class="string">&#x27;h1&#x27;</span>)</span><br><span class="line">  .map(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.firstChild <span class="comment">//回傳 firstChild， 是 js 屬性</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .before(<span class="string">&#x27;§&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner first&quot;</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner second&quot;</span>&gt;</span>And<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner third&quot;</span>&gt;</span>Goodbye<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// replaceWith()　以選擇器開始，指定要插入的內容</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;div.second&#x27;</span>).replaceWith(<span class="string">&#x27;&lt;h2&gt;New heading&lt;/h2&gt;&#x27;</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="comment">// replaceAll()　反過來以建立內容開始，並插入指定的位置</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;&lt;h2&gt;New heading&lt;/h2&gt;&#x27;</span>).replaceAll(<span class="string">&#x27;.inner&#x27;</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以上五個方法都是在目標元素上呼叫，並傳入要插入的內容作為引數。<br>也可以反過來，用內容來呼叫，並傳入目標元素作為引數。<br>它們是 appendTo()、prependTo()、insertAfter、insertBefore()、replaceAll()，</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以內容為主，指定要被插入到哪個選擇器，選擇器可以是一個 jQuery 物件、Element、文字節點，這種方式沒有函式引數</span></span><br><span class="line">$(content).appendTo(selector)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="clone-複製元素"><a href="#clone-複製元素" class="headerlink" title="clone() 複製元素"></a>clone() 複製元素</h2><p>clone() 複製出一份選取集合的副本（包含所有的後代子孫以及文字），<br>如果想要將文件上的元素複製到新的位置，而非移動它們，必須先用 clone() 方法來複製它們的副本。<br>clone()會製作並回傳每個所選元素（連同這些元素的所有子元素）的副本。</p>
+<p>但是，回傳的 jQuery 物件中的元素尚未成為文件的一部分，要使用上面提到的的方法<strong>插入</strong>。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;clone&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://www.google.com&quot;</span>&gt;</span>Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 複製 a元素到 p</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> content = $(<span class="string">&#x27;a.clone&#x27;</span>).clone()</span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;p.box&#x27;</span>).append(content)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="刪除元素"><a href="#刪除元素" class="headerlink" title="刪除元素"></a>刪除元素</h2><h3 id="empty"><a href="#empty" class="headerlink" title="empty()"></a>empty()</h3><p>只有清空子元素，移除每個所選元素全部的子元素（包括文字節點），不會更動到所選元素本身。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// .hello 裡面的子元素及內容會被清空</span></span><br><span class="line">$(<span class="string">&#x27;.hello&#x27;</span>).empty()</span><br></pre></td></tr></table></figure>
+
+<h3 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h3><p>連同自己以及子孫元素都一併從 DOM 樹中移除，而且還會移除任何先前已繫結的事件處理器。<br>remove()通常不帶引數，並會移除 jQuery 物件中所有的元素。不過如果傳入一個引數，那個引數會被視為選擇器，當然，也可以使用 filter 來篩選。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以指定要移除的對象</span></span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).remove(<span class="string">&#x27;.hello&#x27;</span>)</span><br><span class="line"><span class="comment">// 這種做法相當於使用 filter</span></span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).filter(<span class="string">&#x27;.hello&#x27;</span>).remove()</span><br></pre></td></tr></table></figure>
+
+<h3 id="detach"><a href="#detach" class="headerlink" title="detach()"></a>detach()</h3><p>detach() 就像 remove()，但不會移除事件處理器與資料。仍會保留所有事件處理器，若只想暫時自文件中移除某些元素，之後還要放回去的話，detach()會比較適合。<br>會在記憶體中保留一份相同的複製資料。</p>
+<h3 id="unwrap-、wrap-、wrap"><a href="#unwrap-、wrap-、wrap" class="headerlink" title="unwrap()、wrap()、wrap"></a>unwrap()、wrap()、wrap</h3><p>.unwrap 是解包裹的概念，它會將選擇到的元素集合的父元素移除掉。<br>.wrap 是包裹的概念，它會將選擇到的元素集合，<strong>每一個</strong>都加上一個父元素。<br>.wrapAll 是全包裹的概念，它會將選擇到的元素集合，全部包裹在一個指定的父元素中。</p>
+<p>不同於 remove()、detach()，unwrap()並不接受一個額外的選擇器引數。</p>
 
     </div>
 
@@ -299,6 +321,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          </div>
 
         
 
@@ -306,13 +331,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/29/resource-normal-tools/" rel="prev" title="設計常用工具及網站">
-      <i class="fa fa-chevron-left"></i> 設計常用工具及網站
+    <a href="/2020/10/02/lesson-jq-02.set-and-get/" rel="prev" title="第二章 - 變更及取得內容">
+      <i class="fa fa-chevron-left"></i> 第二章 - 變更及取得內容
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/29/lesson-css-04.box-model/" rel="next" title="CSS - 盒模型">
-      CSS - 盒模型 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -371,7 +393,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%B8%E7%BF%92%E8%B3%87%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">學習資源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E9%81%8A%E6%88%B2"><span class="nav-number">2.</span> <span class="nav-text">程式遊戲</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E8%88%87%E5%8F%96%E4%BB%A3%E5%85%83%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">插入與取代元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.</span> <span class="nav-text">插入元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#replaceWith-%E5%8F%96%E4%BB%A3%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.</span> <span class="nav-text">replaceWith() 取代元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone-%E8%A4%87%E8%A3%BD%E5%85%83%E7%B4%A0"><span class="nav-number">1.3.</span> <span class="nav-text">clone() 複製元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%AA%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">1.4.</span> <span class="nav-text">刪除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#empty"><span class="nav-number">1.4.1.</span> <span class="nav-text">empty()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove"><span class="nav-number">1.4.2.</span> <span class="nav-text">remove()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detach"><span class="nav-number">1.4.3.</span> <span class="nav-text">detach()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unwrap-%E3%80%81wrap-%E3%80%81wrap"><span class="nav-number">1.4.4.</span> <span class="nav-text">unwrap()、wrap()、wrap</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
