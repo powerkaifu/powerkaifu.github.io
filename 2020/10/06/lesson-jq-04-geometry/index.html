@@ -39,15 +39,15 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="設定或查詢寬度與高度有三種設置及查詢元素的寬度（width）、高度（height）的方式。 width() 與 height()width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。">
+  <meta name="description" content="寬度與高度有三種設置及查詢元素的寬度（width）、高度（height）的方式。 width() 與 height()width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第四章 - 元素的位置與大小">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/10/06/lesson-jq-04-geometry/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="設定或查詢寬度與高度有三種設置及查詢元素的寬度（width）、高度（height）的方式。 width() 與 height()width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。">
+<meta property="og:description" content="寬度與高度有三種設置及查詢元素的寬度（width）、高度（height）的方式。 width() 與 height()width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-06T09:26:01.306Z">
-<meta property="article:modified_time" content="2020-10-06T18:50:58.080Z">
+<meta property="article:modified_time" content="2020-10-06T18:52:12.883Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-07 02:50:58" itemprop="dateModified" datetime="2020-10-07T02:50:58+08:00">2020-10-07</time>
+                <time title="修改時間：2020-10-07 02:52:12" itemprop="dateModified" datetime="2020-10-07T02:52:12+08:00">2020-10-07</time>
               </span>
 
           
@@ -268,7 +268,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="設定或查詢寬度與高度"><a href="#設定或查詢寬度與高度" class="headerlink" title="設定或查詢寬度與高度"></a>設定或查詢寬度與高度</h2><p>有三種設置及查詢元素的寬度（width）、高度（height）的方式。</p>
+        <h2 id="寬度與高度"><a href="#寬度與高度" class="headerlink" title="寬度與高度"></a>寬度與高度</h2><p>有三種設置及查詢元素的寬度（width）、高度（height）的方式。</p>
 <h3 id="width-與-height"><a href="#width-與-height" class="headerlink" title="width() 與 height()"></a>width() 與 height()</h3><p>width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。</p>
 <a id="more"></a>
 
@@ -280,7 +280,7 @@
 <p>width(value) 與 height(value) 可以設定寬度與高度，value 可以設定 <code>數字</code>、<code>px</code>、<code>%</code>、<code>auto</code>，如果未設定任何單位，則預設為 px。如果傳入的是數字，會被視為以像素為單位的尺寸大小，如果傳入的是字串值，會被用作 CSS width 或 height 屬性的值，因此可以套用任何 CSS 單位，但不能設定 Window 或 Document 物件的寬度或高度。</p>
 <h3 id="innerWidth-與-innerHeight"><a href="#innerWidth-與-innerHeight" class="headerlink" title="innerWidth() 與 innerHeight()"></a>innerWidth() 與 innerHeight()</h3><p>innerWidth() 與 innerHeight() 回傳元素的寬度或高度加上它內距（padding），但不包括邊框，’inner’這個字代表這些方法回傳的尺寸是從邊框內部開始測量的）。</p>
 <h3 id="outerWidth-與-outerHeight"><a href="#outerWidth-與-outerHeight" class="headerlink" title="outerWidth() 與 outerHeight()"></a>outerWidth() 與 outerHeight()</h3><p>outerWidth() 與 outerHeight() 通常回傳元素的寬度或高度，加上其內距（padding）、邊框（border），但若傳入 true 值給上面任何一個方法，它們也會將該元素外距的大小計算在內。例如 outerWidth(true)，預設是 false。</p>
-<h2 id="設定或查詢捲軸的偏移量"><a href="#設定或查詢捲軸的偏移量" class="headerlink" title="設定或查詢捲軸的偏移量"></a>設定或查詢捲軸的偏移量</h2><h3 id="scrollTop-與-scrollLeft"><a href="#scrollTop-與-scrollLeft" class="headerlink" title="scrollTop() 與 scrollLeft()"></a>scrollTop() 與 scrollLeft()</h3><p>可查詢元素在捲動軸（scrollbar）的偏移量，或設定元素在捲動軸的偏移量（px）。可用於 Window 物件，也可用於文件元素，而在 document 上呼叫時，它會設定內含該文件的 window 的捲動軸位置。有別於其他 setters，不能傳入一個函式給 scrollTop()或 scrollLeft()。scrollTop()為垂直偏移量，scrollLeft()為水平偏移量。如果滾動條位於最頂部，或者元素不可滾動，則此數字為 0。</p>
+<h2 id="捲軸的偏移量"><a href="#捲軸的偏移量" class="headerlink" title="捲軸的偏移量"></a>捲軸的偏移量</h2><h3 id="scrollTop-與-scrollLeft"><a href="#scrollTop-與-scrollLeft" class="headerlink" title="scrollTop() 與 scrollLeft()"></a>scrollTop() 與 scrollLeft()</h3><p>可查詢元素在捲動軸（scrollbar）的偏移量，或設定元素在捲動軸的偏移量（px）。可用於 Window 物件，也可用於文件元素，而在 document 上呼叫時，它會設定內含該文件的 window 的捲動軸位置。有別於其他 setters，不能傳入一個函式給 scrollTop()或 scrollLeft()。scrollTop()為垂直偏移量，scrollLeft()為水平偏移量。如果滾動條位於最頂部，或者元素不可滾動，則此數字為 0。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).on(<span class="string">&#x27;scroll&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -362,7 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E6%88%96%E6%9F%A5%E8%A9%A2%E5%AF%AC%E5%BA%A6%E8%88%87%E9%AB%98%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">設定或查詢寬度與高度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#width-%E8%88%87-height"><span class="nav-number">1.1.</span> <span class="nav-text">width() 與 height()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innerWidth-%E8%88%87-innerHeight"><span class="nav-number">1.2.</span> <span class="nav-text">innerWidth() 與 innerHeight()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outerWidth-%E8%88%87-outerHeight"><span class="nav-number">1.3.</span> <span class="nav-text">outerWidth() 與 outerHeight()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E6%88%96%E6%9F%A5%E8%A9%A2%E6%8D%B2%E8%BB%B8%E7%9A%84%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">設定或查詢捲軸的偏移量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollTop-%E8%88%87-scrollLeft"><span class="nav-number">2.1.</span> <span class="nav-text">scrollTop() 與 scrollLeft()</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AC%E5%BA%A6%E8%88%87%E9%AB%98%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">寬度與高度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#width-%E8%88%87-height"><span class="nav-number">1.1.</span> <span class="nav-text">width() 與 height()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innerWidth-%E8%88%87-innerHeight"><span class="nav-number">1.2.</span> <span class="nav-text">innerWidth() 與 innerHeight()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outerWidth-%E8%88%87-outerHeight"><span class="nav-number">1.3.</span> <span class="nav-text">outerWidth() 與 outerHeight()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%B2%E8%BB%B8%E7%9A%84%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">捲軸的偏移量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollTop-%E8%88%87-scrollLeft"><span class="nav-number">2.1.</span> <span class="nav-text">scrollTop() 與 scrollLeft()</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
