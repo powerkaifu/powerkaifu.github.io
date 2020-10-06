@@ -42,17 +42,17 @@
   <meta name="description" content="插入與取代元素插入元素before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第三章 - 插入、取代、刪除元素">
-<meta property="og:url" content="https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/index.html">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/10/06/lesson-jq-03.insert-replace/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
 <meta property="og:description" content="插入與取代元素插入元素before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-10-02T15:34:45.035Z">
-<meta property="article:modified_time" content="2020-10-02T19:56:02.157Z">
+<meta property="article:published_time" content="2020-10-05T16:02:11.584Z">
+<meta property="article:modified_time" content="2020-10-05T13:19:32.508Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/10/06/lesson-jq-03.insert-replace/">
 
 
 <script id="page-configurations">
@@ -224,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/06/lesson-jq-03.insert-replace/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.png">
@@ -247,14 +247,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2020-10-02 23:34:45" itemprop="dateCreated datePublished" datetime="2020-10-02T23:34:45+08:00">2020-10-02</time>
+              <time title="創建時間：2020-10-06 00:02:11" itemprop="dateCreated datePublished" datetime="2020-10-06T00:02:11+08:00">2020-10-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-03 03:56:02" itemprop="dateModified" datetime="2020-10-03T03:56:02+08:00">2020-10-03</time>
+                <time title="修改時間：2020-10-05 21:19:32" itemprop="dateModified" datetime="2020-10-05T21:19:32+08:00">2020-10-05</time>
               </span>
 
           
@@ -311,7 +311,11 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以指定要移除的對象</span></span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).remove(<span class="string">&#x27;.hello&#x27;</span>)</span><br><span class="line"><span class="comment">// 這種做法相當於使用 filter</span></span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).filter(<span class="string">&#x27;.hello&#x27;</span>).remove()</span><br></pre></td></tr></table></figure>
 
 <h3 id="detach"><a href="#detach" class="headerlink" title="detach()"></a>detach()</h3><p>detach() 就像 remove()，但不會移除事件處理器與資料。仍會保留所有事件處理器，若只想暫時自文件中移除某些元素，之後還要放回去的話，detach()會比較適合。<br>會在記憶體中保留一份相同的複製資料。</p>
-<h3 id="unwrap-、wrap-、wrap"><a href="#unwrap-、wrap-、wrap" class="headerlink" title="unwrap()、wrap()、wrap"></a>unwrap()、wrap()、wrap</h3><p>.unwrap 是解包裹的概念，它會將選擇到的元素集合的父元素移除掉。<br>.wrap 是包裹的概念，它會將選擇到的元素集合，<strong>每一個</strong>都加上一個父元素。<br>.wrapAll 是全包裹的概念，它會將選擇到的元素集合，全部包裹在一個指定的父元素中。</p>
+<h3 id="unwrap-、wrap-、wrap"><a href="#unwrap-、wrap-、wrap" class="headerlink" title="unwrap()、wrap()、wrap"></a>unwrap()、wrap()、wrap</h3><ul>
+<li>.unwrap 是解包裹的概念，它會將選擇到的元素集合的父元素移除掉。</li>
+<li>.wrap 是包裹的概念，它會將選擇到的元素集合，<strong>每一個</strong>都加上一個父元素。</li>
+<li>.wrapAll 是全包裹的概念，它會將選擇到的元素集合，全部包裹在一個指定的父元素中。</li>
+</ul>
 <p>不同於 remove()、detach()，unwrap()並不接受一個額外的選擇器引數。</p>
 
     </div>
@@ -331,10 +335,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/10/02/lesson-jq-02.set-and-get/" rel="prev" title="第二章 - 變更及取得內容">
+    <a href="/2020/10/06/lesson-jq-02.set-and-get/" rel="prev" title="第二章 - 變更及取得內容">
       <i class="fa fa-chevron-left"></i> 第二章 - 變更及取得內容
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/06/lesson-jq-04-geometry/" rel="next" title="第四章 - 元素的位置與大小">
+      第四章 - 元素的位置與大小 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -408,7 +415,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
