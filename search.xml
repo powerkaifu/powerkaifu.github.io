@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>第五章 - 事件處理</title>
+    <url>/2020/10/07/lesson-jq-05-events/</url>
+    <content><![CDATA[<h1 id="事件旅程"><a href="#事件旅程" class="headerlink" title="事件旅程"></a>事件旅程</h1><p>事件觸發對於網站來說是很重要的行為，沒有事件的處理網站就缺乏與使用者乏互動，而當頁面一個事件發生時會產生傳遞行為，每個層次上的 DOM 元素都有機會處理這個事件，以下面模型為例:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;foo&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;bar&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.example.com&quot;</span>&gt;</span>我是範例<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>事件的旅程<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="事件捕獲（event-capturing）"><a href="#事件捕獲（event-capturing）" class="headerlink" title="事件捕獲（event capturing）"></a>事件捕獲（event capturing）</h2><p>舉例來說，如果點擊了頁面中的 a 錨點元素，那麼 div、span、a 全都應該得到回應這次點擊的機會。允許多個元素處理點擊事件的策略叫做 <code>事件捕獲（event capturing）</code>。<br>在事件捕獲的過程中，事件首先會交給最外層的元素，接著再交給更具體的元素。因此點擊事件首先會傳遞給 div、然後 span，最後是 a。</p>
+<p>div =&gt; span =&gt; a</p>
+<h2 id="事件冒泡（event-bubbling）"><a href="#事件冒泡（event-bubbling）" class="headerlink" title="事件冒泡（event bubbling）"></a>事件冒泡（event bubbling）</h2><p>另一種相反的策略叫做 <code>事件冒泡（event bubbling）</code>。即當事件發生時，首先會發送給最具體的元素，在這個元素獲得回應機會之後，<br>事件會向上冒泡到更一般的元素。a 會首先處理事件，然後是 span，最後是 div。會有這兩個事件旅遊模型是因為瀏覽器大戰 Netscape(捕獲) 與 微軟 IE(冒泡)搞出來的事。<br>因此最終底定 DOM 標準應該使用這兩種策略，首先，事件要從一般到具體進行捕獲，然後，再透過冒泡傳出 DOM 樹的頂層。而事件處理常式可以註冊到這個過程中的任何一部分。</p>
+<p>a =&gt; span =&gt; div</p>
+<h3 id="將事件設定成-事件捕獲-或-事件冒泡。"><a href="#將事件設定成-事件捕獲-或-事件冒泡。" class="headerlink" title="將事件設定成 事件捕獲 或 事件冒泡。"></a>將事件設定成 <code>事件捕獲</code> 或 <code>事件冒泡</code>。</h3><ul>
+<li>addEventListener 最後一個參數設為 true，事件捕獲，從外面開始。</li>
+<li>addEventListener 最後一個參數設為 false（預設），事件冒泡，從裡面開始。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第四章 - 元素的位置與大小</title>
-    <url>/2020/10/06/lesson-jq-04-geometry/</url>
+    <url>/2020/10/06/lesson-jq-04.geometry/</url>
     <content><![CDATA[<h2 id="寬度與高度"><a href="#寬度與高度" class="headerlink" title="寬度與高度"></a>寬度與高度</h2><p>有三種設置及查詢元素的寬度（width）、高度（height）的方式。</p>
 <h3 id="width-與-height"><a href="#width-與-height" class="headerlink" title="width() 與 height()"></a>width() 與 height()</h3><p>width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。</p>
 <a id="more"></a>
@@ -12,11 +31,25 @@
 <div class="admonition warning"><p>注意的是，css('width') 和 width() 兩者的差異在於，前者返回有單位的'200px'，後者只有無單位的整數 200。</p>
 </div>
 
-<p>width(value) 與 height(value) 可以設定寬度與高度，value 可以設定 <code>數字</code>、<code>px</code>、<code>%</code>、<code>auto</code>，如果未設定任何單位，則預設為 px。如果傳入的是數字，會被視為以像素為單位的尺寸大小，如果傳入的是字串值，會被用作 CSS width 或 height 屬性的值，因此可以套用任何 CSS 單位，但不能設定 Window 或 Document 物件的寬度或高度。</p>
+<p>width(value) 與 height(value) 可以設定寬度與高度，value 可以設定 <code>數字</code> 、 <code>px</code> 、 <code>%</code> 、 <code>auto</code> ，如果未設定任何單位，則預設為 px。如果傳入的是數字，會被視為以像素為單位的尺寸大小，如果傳入的是字串值，會被用作 CSS width 或 height 屬性的值，因此可以套用任何 CSS 單位，但不能設定 Window 或 Document 物件的寬度或高度。</p>
 <h3 id="innerWidth-與-innerHeight"><a href="#innerWidth-與-innerHeight" class="headerlink" title="innerWidth() 與 innerHeight()"></a>innerWidth() 與 innerHeight()</h3><p>innerWidth() 與 innerHeight() 回傳元素的寬度或高度加上它內距（padding），但不包括邊框，’inner’這個字代表這些方法回傳的尺寸是從邊框內部開始測量的）。</p>
 <h3 id="outerWidth-與-outerHeight"><a href="#outerWidth-與-outerHeight" class="headerlink" title="outerWidth() 與 outerHeight()"></a>outerWidth() 與 outerHeight()</h3><p>outerWidth() 與 outerHeight() 通常回傳元素的寬度或高度，加上其內距（padding）、邊框（border），但若傳入 true 值給上面任何一個方法，它們也會將該元素外距的大小計算在內。例如 outerWidth(true)，預設是 false。</p>
 <h2 id="捲軸的偏移量"><a href="#捲軸的偏移量" class="headerlink" title="捲軸的偏移量"></a>捲軸的偏移量</h2><h3 id="scrollTop-與-scrollLeft"><a href="#scrollTop-與-scrollLeft" class="headerlink" title="scrollTop() 與 scrollLeft()"></a>scrollTop() 與 scrollLeft()</h3><p>可查詢元素在捲動軸（scrollbar）的偏移量，或設定元素在捲動軸的偏移量（px）。可用於 Window 物件，也可用於文件元素，而在 document 上呼叫時，它會設定內含該文件的 window 的捲動軸位置。有別於其他 setters，不能傳入一個函式給 scrollTop()或 scrollLeft()。scrollTop()為垂直偏移量，scrollLeft()為水平偏移量。如果滾動條位於最頂部，或者元素不可滾動，則此數字為 0。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).on(<span class="string">&#x27;scroll&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="元素的座標"><a href="#元素的座標" class="headerlink" title="元素的座標"></a>元素的座標</h2><h3 id="offset"><a href="#offset" class="headerlink" title="offset()"></a>offset()</h3><p>返回元素相對於文件的座標位置，並以物件形式回傳這個物件的 left 與 top 屬性存有元素的 X 與 Y 座標（數字）。如果傳入一個具有 top、left 屬性的物件給此方法，它會設定所指定的位置。必要時它會設定 CSS position 屬性來讓元素的位置可被設定。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> pos = $(<span class="string">&#x27;#a&#x27;</span>).offset() <span class="comment">// 回傳一個 jQuery物件 並且具有 top、left 屬性</span></span><br><span class="line">pos.top = <span class="number">100</span> <span class="comment">// 更改這個物件 top 屬性</span></span><br><span class="line">pos.left = <span class="number">100</span> <span class="comment">// 更改這個物件 left 屬性</span></span><br><span class="line">$(<span class="string">&#x27;#a&#x27;</span>).offset(pos) <span class="comment">// 回傳此物件，重新設定元素位置</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用回呼函式</li>
+</ul>
+<blockquote>
+<p>$(selector).offset(function(index, oldOffset))</p>
+</blockquote>
+<h3 id="position"><a href="#position" class="headerlink" title="position()"></a>position()</h3><p>position()方法類似 offset()，它只能作為 getter，返回匹配元素相對於父元素的位置（偏移），該方法返回的對象包含兩個整型屬性：top 和 left，以像素計。此方法只對可見元素有效。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).position().left</span><br><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).position().top</span><br></pre></td></tr></table></figure>
+
+<h3 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent()"></a>offsetParent()</h3><p><strong>獲取被定位的最近祖先元素對象</strong>，每個元素都有個 offsetParent 屬性，用來指定元素的位置是相對於誰。已定位的元素永遠都是他們子裔元素的 offsetParent，jQuery 只會把已定位的元素當作 offsetParent，而 jQuery 物件的 offsetParent()方法則會把每個元素對應至最接近它的已定位祖（ancestor）元素，或最後是 body 元素。</p>
 ]]></content>
       <tags>
         <tag>jQuery</tag>

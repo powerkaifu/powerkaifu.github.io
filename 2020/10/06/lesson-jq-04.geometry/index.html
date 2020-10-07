@@ -39,18 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="前端設計講師">
-<meta property="og:type" content="website">
-<meta property="og:title" content="漫遊前端無盡海">
-<meta property="og:url" content="https://powerkaifu.github.io/archives/2020/page/3/index.html">
+  <meta name="description" content="寬度與高度有三種設置及查詢元素的寬度（width）、高度（height）的方式。 width() 與 height()width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第四章 - 元素的位置與大小">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/10/06/lesson-jq-04.geometry/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="前端設計講師">
+<meta property="og:description" content="寬度與高度有三種設置及查詢元素的寬度（width）、高度（height）的方式。 width() 與 height()width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-10-05T16:02:11.592Z">
+<meta property="article:modified_time" content="2020-10-07T06:31:59.895Z">
 <meta property="article:author" content="Kai-Fu Chang">
-<meta property="article:tag" content="泰山職訓局,泰山前端,前端網頁開發技術,前端設計,前端工程,網頁設計,html,css,javascript,jQuery,bootstrap,sass,scss,HotCode,HotCode Encore">
+<meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://powerkaifu.github.io/archives/2020/page/3/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/10/06/lesson-jq-04.geometry/">
 
 
 <script id="page-configurations">
@@ -58,12 +60,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>歸檔 | 漫遊前端無盡海</title>
+  <title>第四章 - 元素的位置與大小 | 漫遊前端無盡海</title>
   
     <script>
       function sendPageView() {
@@ -215,94 +217,117 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共有 23 篇文章。 繼續努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/06/lesson-jq-04.geometry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="漫遊前端無盡海">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第四章 - 元素的位置與大小
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-10-06 00:02:11" itemprop="dateCreated datePublished" datetime="2020-10-06T00:02:11+08:00">2020-10-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-07 14:31:59" itemprop="dateModified" datetime="2020-10-07T14:31:59+08:00">2020-10-07</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
+        <h2 id="寬度與高度"><a href="#寬度與高度" class="headerlink" title="寬度與高度"></a>寬度與高度</h2><p>有三種設置及查詢元素的寬度（width）、高度（height）的方式。</p>
+<h3 id="width-與-height"><a href="#width-與-height" class="headerlink" title="width() 與 height()"></a>width() 與 height()</h3><p>width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。</p>
+<a id="more"></a>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">&quot;box&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">&quot;width:200px;height:200px;border:1px solid#333;box-sizing:border-box;&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;.box&#x27;</span>).width() <span class="comment">// 返回 198，注意無單位</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-23T13:50:42+08:00"
-              content="2020-08-23">
-          08-23
-        </time>
-      </div>
+<div class="admonition warning"><p>注意的是，css('width') 和 width() 兩者的差異在於，前者返回有單位的'200px'，後者只有無單位的整數 200。</p>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/23/resource-css-useful-site/" itemprop="url">
-            <span itemprop="name">CSS資源</span>
-          </a>
-      </div>
+<p>width(value) 與 height(value) 可以設定寬度與高度，value 可以設定 <code>數字</code> 、 <code>px</code> 、 <code>%</code> 、 <code>auto</code> ，如果未設定任何單位，則預設為 px。如果傳入的是數字，會被視為以像素為單位的尺寸大小，如果傳入的是字串值，會被用作 CSS width 或 height 屬性的值，因此可以套用任何 CSS 單位，但不能設定 Window 或 Document 物件的寬度或高度。</p>
+<h3 id="innerWidth-與-innerHeight"><a href="#innerWidth-與-innerHeight" class="headerlink" title="innerWidth() 與 innerHeight()"></a>innerWidth() 與 innerHeight()</h3><p>innerWidth() 與 innerHeight() 回傳元素的寬度或高度加上它內距（padding），但不包括邊框，’inner’這個字代表這些方法回傳的尺寸是從邊框內部開始測量的）。</p>
+<h3 id="outerWidth-與-outerHeight"><a href="#outerWidth-與-outerHeight" class="headerlink" title="outerWidth() 與 outerHeight()"></a>outerWidth() 與 outerHeight()</h3><p>outerWidth() 與 outerHeight() 通常回傳元素的寬度或高度，加上其內距（padding）、邊框（border），但若傳入 true 值給上面任何一個方法，它們也會將該元素外距的大小計算在內。例如 outerWidth(true)，預設是 false。</p>
+<h2 id="捲軸的偏移量"><a href="#捲軸的偏移量" class="headerlink" title="捲軸的偏移量"></a>捲軸的偏移量</h2><h3 id="scrollTop-與-scrollLeft"><a href="#scrollTop-與-scrollLeft" class="headerlink" title="scrollTop() 與 scrollLeft()"></a>scrollTop() 與 scrollLeft()</h3><p>可查詢元素在捲動軸（scrollbar）的偏移量，或設定元素在捲動軸的偏移量（px）。可用於 Window 物件，也可用於文件元素，而在 document 上呼叫時，它會設定內含該文件的 window 的捲動軸位置。有別於其他 setters，不能傳入一個函式給 scrollTop()或 scrollLeft()。scrollTop()為垂直偏移量，scrollLeft()為水平偏移量。如果滾動條位於最頂部，或者元素不可滾動，則此數字為 0。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).on(<span class="string">&#x27;scroll&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<h2 id="元素的座標"><a href="#元素的座標" class="headerlink" title="元素的座標"></a>元素的座標</h2><h3 id="offset"><a href="#offset" class="headerlink" title="offset()"></a>offset()</h3><p>返回元素相對於文件的座標位置，並以物件形式回傳這個物件的 left 與 top 屬性存有元素的 X 與 Y 座標（數字）。如果傳入一個具有 top、left 屬性的物件給此方法，它會設定所指定的位置。必要時它會設定 CSS position 屬性來讓元素的位置可被設定。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> pos = $(<span class="string">&#x27;#a&#x27;</span>).offset() <span class="comment">// 回傳一個 jQuery物件 並且具有 top、left 屬性</span></span><br><span class="line">pos.top = <span class="number">100</span> <span class="comment">// 更改這個物件 top 屬性</span></span><br><span class="line">pos.left = <span class="number">100</span> <span class="comment">// 更改這個物件 left 屬性</span></span><br><span class="line">$(<span class="string">&#x27;#a&#x27;</span>).offset(pos) <span class="comment">// 回傳此物件，重新設定元素位置</span></span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<ul>
+<li>使用回呼函式</li>
+</ul>
+<blockquote>
+<p>$(selector).offset(function(index, oldOffset))</p>
+</blockquote>
+<h3 id="position"><a href="#position" class="headerlink" title="position()"></a>position()</h3><p>position()方法類似 offset()，它只能作為 getter，返回匹配元素相對於父元素的位置（偏移），該方法返回的對象包含兩個整型屬性：top 和 left，以像素計。此方法只對可見元素有效。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).position().left</span><br><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).position().top</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-23T13:50:42+08:00"
-              content="2020-08-23">
-          08-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/23/lesson-html/" itemprop="url">
-            <span itemprop="name">HTML</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-23T13:50:42+08:00"
-              content="2020-08-23">
-          08-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/23/lesson-css-01.base-selector/" itemprop="url">
-            <span itemprop="name">CSS - 選擇器 (一)</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+<h3 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent()"></a>offsetParent()</h3><p><strong>獲取被定位的最近祖先元素對象</strong>，每個元素都有個 offsetParent 屬性，用來指定元素的位置是相對於誰。已定位的元素永遠都是他們子裔元素的 offsetParent，jQuery 只會把已定位的元素當作 offsetParent，而 jQuery 物件的 offsetParent()方法則會把每個元素對應至最接近它的已定位祖（ancestor）元素，或最後是 body 元素。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/06/lesson-jq-03.insert-replace/" rel="prev" title="第三章 - 插入、取代、刪除元素">
+      <i class="fa fa-chevron-left"></i> 第三章 - 插入、取代、刪除元素
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/07/lesson-jq-05-events/" rel="next" title="第五章 - 事件處理">
+      第五章 - 事件處理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2020/page/2/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  
+  
 
 
 
@@ -354,6 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AC%E5%BA%A6%E8%88%87%E9%AB%98%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">寬度與高度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#width-%E8%88%87-height"><span class="nav-number">1.1.</span> <span class="nav-text">width() 與 height()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innerWidth-%E8%88%87-innerHeight"><span class="nav-number">1.2.</span> <span class="nav-text">innerWidth() 與 innerHeight()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outerWidth-%E8%88%87-outerHeight"><span class="nav-number">1.3.</span> <span class="nav-text">outerWidth() 與 outerHeight()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%B2%E8%BB%B8%E7%9A%84%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">捲軸的偏移量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollTop-%E8%88%87-scrollLeft"><span class="nav-number">2.1.</span> <span class="nav-text">scrollTop() 與 scrollLeft()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E7%9A%84%E5%BA%A7%E6%A8%99"><span class="nav-number">3.</span> <span class="nav-text">元素的座標</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#offset"><span class="nav-number">3.1.</span> <span class="nav-text">offset()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position"><span class="nav-number">3.2.</span> <span class="nav-text">position()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offsetParent"><span class="nav-number">3.3.</span> <span class="nav-text">offsetParent()</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
