@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #49cc73;
+  background: #ffffa1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2750,9 +2750,6 @@ a:hover {
 .site-nav .menu-item-active a {
   color: #333;
 }
-.menu a:hover {
-  color: #333;
-}
 .post-title,
 h1,
 h2,
@@ -2834,6 +2831,9 @@ h6 {
 .menu .menu-item span.exturl:hover {
   background: var(--menu-item-bg-color);
   color: #fff;
+}
+.menu .menu-item a:hover {
+  color: #333;
 }
 .pagination a {
   color: #fff !important;
