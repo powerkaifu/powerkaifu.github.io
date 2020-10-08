@@ -108,7 +108,7 @@
   </entry>
   <entry>
     <title>第四章 - 元素的位置與大小</title>
-    <url>/2020/10/06/lesson-jq-04.geometry/</url>
+    <url>/2020/10/07/lesson-jq-04.geometry/</url>
     <content><![CDATA[<h2 id="寬度與高度"><a href="#寬度與高度" class="headerlink" title="寬度與高度"></a>寬度與高度</h2><p>有三種設置及查詢元素的寬度（width）、高度（height）的方式。</p>
 <h3 id="width-與-height"><a href="#width-與-height" class="headerlink" title="width() 與 height()"></a>width() 與 height()</h3><p>width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。</p>
 <a id="more"></a>
@@ -144,7 +144,7 @@
   </entry>
   <entry>
     <title>第三章 - 插入、取代、刪除元素</title>
-    <url>/2020/10/06/lesson-jq-03.insert-replace/</url>
+    <url>/2020/10/02/lesson-jq-03.insert-replace/</url>
     <content><![CDATA[<h1 id="插入與取代元素"><a href="#插入與取代元素" class="headerlink" title="插入與取代元素"></a>插入與取代元素</h1><h2 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h2><p>before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。</p>
 <a id="more"></a>
 
@@ -201,7 +201,7 @@
   </entry>
   <entry>
     <title>第二章 - 變更及取得內容</title>
-    <url>/2020/10/06/lesson-jq-02.set-and-get/</url>
+    <url>/2020/10/02/lesson-jq-02.set-and-get/</url>
     <content><![CDATA[<h1 id="變更及取得內容"><a href="#變更及取得內容" class="headerlink" title="變更及取得內容"></a>變更及取得內容</h1><p>jQuery 變更與取得元素的內容非常容易：</p>
 <ul>
 <li>變更內容：$(選擇器).html(變更的內容)</li>

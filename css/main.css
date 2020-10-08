@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffffa1;
+  background: #4e1c5e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2727,6 +2727,18 @@ a:hover {
   border-bottom-color: #ff0 !important;
   color: #ff0 !important;
 }
+.site-nav #menu a {
+  color: #777;
+}
+.site-nav #menu .menu-item-active a {
+  color: #fff;
+}
+.site-nav #menu .menu-item a:hover {
+  color: #fff;
+}
+.links-of-blogroll-list a {
+  border: none;
+}
 .content-wrap {
   background: #222;
 }
@@ -2743,12 +2755,6 @@ a:hover {
 .footer {
   background: #000 !important;
   width: 100%;
-}
-.site-nav a {
-  color: #aaa;
-}
-.site-nav .menu-item-active a {
-  color: #333;
 }
 .post-title,
 h1,
@@ -2826,15 +2832,6 @@ h6 {
 .post-header a.post-title-link {
   color: #fff !important;
 }
-.menu-item-active a,
-.menu .menu-item a:hover,
-.menu .menu-item span.exturl:hover {
-  background: var(--menu-item-bg-color);
-  color: #fff;
-}
-.menu .menu-item a:hover {
-  color: #333;
-}
 .pagination a {
   color: #fff !important;
   transition: none !important;
@@ -2854,9 +2851,6 @@ h6 {
 .links-of-blogroll {
   font-size: 0.9em;
   margin-top: 20px;
-}
-.links-of-blogroll-list a {
-  border: none;
 }
 .links-of-blogroll-list a:hover {
   border-bottom: 1px solid #fff;

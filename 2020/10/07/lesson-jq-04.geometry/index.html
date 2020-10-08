@@ -39,20 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="插入與取代元素插入元素before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。">
+  <meta name="description" content="寬度與高度有三種設置及查詢元素的寬度（width）、高度（height）的方式。 width() 與 height()width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第三章 - 插入、取代、刪除元素">
-<meta property="og:url" content="https://powerkaifu.github.io/2020/10/06/lesson-jq-03.insert-replace/index.html">
+<meta property="og:title" content="第四章 - 元素的位置與大小">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/10/07/lesson-jq-04.geometry/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="插入與取代元素插入元素before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。">
+<meta property="og:description" content="寬度與高度有三種設置及查詢元素的寬度（width）、高度（height）的方式。 width() 與 height()width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-10-05T16:02:11.584Z">
-<meta property="article:modified_time" content="2020-10-05T13:19:32.508Z">
+<meta property="article:published_time" content="2020-10-07T10:37:24.716Z">
+<meta property="article:modified_time" content="2020-10-07T06:31:59.895Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://powerkaifu.github.io/2020/10/06/lesson-jq-03.insert-replace/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/10/07/lesson-jq-04.geometry/">
 
 
 <script id="page-configurations">
@@ -65,7 +65,7 @@
   };
 </script>
 
-  <title>第三章 - 插入、取代、刪除元素 | 漫遊前端無盡海</title>
+  <title>第四章 - 元素的位置與大小 | 漫遊前端無盡海</title>
   
     <script>
       function sendPageView() {
@@ -224,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/06/lesson-jq-03.insert-replace/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/07/lesson-jq-04.geometry/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.png">
@@ -237,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第三章 - 插入、取代、刪除元素
+          第四章 - 元素的位置與大小
         </h1>
 
         <div class="post-meta">
@@ -246,16 +246,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2020-10-06 00:02:11" itemprop="dateCreated datePublished" datetime="2020-10-06T00:02:11+08:00">2020-10-06</time>
+              <time title="創建時間：2020-10-07 18:37:24 / 修改時間：14:31:59" itemprop="dateCreated datePublished" datetime="2020-10-07T18:37:24+08:00">2020-10-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-05 21:19:32" itemprop="dateModified" datetime="2020-10-05T21:19:32+08:00">2020-10-05</time>
-              </span>
 
           
 
@@ -268,55 +262,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="插入與取代元素"><a href="#插入與取代元素" class="headerlink" title="插入與取代元素"></a>插入與取代元素</h1><h2 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h2><p>before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。</p>
+        <h2 id="寬度與高度"><a href="#寬度與高度" class="headerlink" title="寬度與高度"></a>寬度與高度</h2><p>有三種設置及查詢元素的寬度（width）、高度（height）的方式。</p>
+<h3 id="width-與-height"><a href="#width-與-height" class="headerlink" title="width() 與 height()"></a>width() 與 height()</h3><p>width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），css box-sizing 也可能會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。</p>
 <a id="more"></a>
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以選擇器為主，指定要插入的內容，此方式可以有函式引數</span></span><br><span class="line">$(selector).append(content)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">&quot;box&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">&quot;width:200px;height:200px;border:1px solid#333;box-sizing:border-box;&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;.box&#x27;</span>).width() <span class="comment">// 返回 198，注意無單位</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>插入的位置如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[before] &lt;p&gt; [prepend] 我是內容 [append] &lt;&#x2F;p&gt; [after]</span><br></pre></td></tr></table></figure>
+<div class="admonition warning"><p>注意的是，css('width') 和 width() 兩者的差異在於，前者返回有單位的'200px'，後者只有無單位的整數 200。</p>
+</div>
 
-<p>例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;p&#x27;</span>).append(<span class="string">&#x27;&lt;span&gt;P結束標籤前面&lt;/span&gt;&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;p&#x27;</span>).prepend(<span class="string">&#x27;&lt;span&gt;p開始標籤後面&lt;/span&gt;&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;p&#x27;</span>).before(<span class="string">&#x27;&lt;span&gt;p開始標籤前面&lt;/span&gt;&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;p&#x27;</span>).after(<span class="string">&#x27;&lt;span&gt;p開始標籤後面&lt;/span&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>width(value) 與 height(value) 可以設定寬度與高度，value 可以設定 <code>數字</code> 、 <code>px</code> 、 <code>%</code> 、 <code>auto</code> ，如果未設定任何單位，則預設為 px。如果傳入的是數字，會被視為以像素為單位的尺寸大小，如果傳入的是字串值，會被用作 CSS width 或 height 屬性的值，因此可以套用任何 CSS 單位，但不能設定 Window 或 Document 物件的寬度或高度。</p>
+<h3 id="innerWidth-與-innerHeight"><a href="#innerWidth-與-innerHeight" class="headerlink" title="innerWidth() 與 innerHeight()"></a>innerWidth() 與 innerHeight()</h3><p>innerWidth() 與 innerHeight() 回傳元素的寬度或高度加上它內距（padding），但不包括邊框，’inner’這個字代表這些方法回傳的尺寸是從邊框內部開始測量的）。</p>
+<h3 id="outerWidth-與-outerHeight"><a href="#outerWidth-與-outerHeight" class="headerlink" title="outerWidth() 與 outerHeight()"></a>outerWidth() 與 outerHeight()</h3><p>outerWidth() 與 outerHeight() 通常回傳元素的寬度或高度，加上其內距（padding）、邊框（border），但若傳入 true 值給上面任何一個方法，它們也會將該元素外距的大小計算在內。例如 outerWidth(true)，預設是 false。</p>
+<h2 id="捲軸的偏移量"><a href="#捲軸的偏移量" class="headerlink" title="捲軸的偏移量"></a>捲軸的偏移量</h2><h3 id="scrollTop-與-scrollLeft"><a href="#scrollTop-與-scrollLeft" class="headerlink" title="scrollTop() 與 scrollLeft()"></a>scrollTop() 與 scrollLeft()</h3><p>可查詢元素在捲動軸（scrollbar）的偏移量，或設定元素在捲動軸的偏移量（px）。可用於 Window 物件，也可用於文件元素，而在 document 上呼叫時，它會設定內含該文件的 window 的捲動軸位置。有別於其他 setters，不能傳入一個函式給 scrollTop()或 scrollLeft()。scrollTop()為垂直偏移量，scrollLeft()為水平偏移量。如果滾動條位於最頂部，或者元素不可滾動，則此數字為 0。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).on(<span class="string">&#x27;scroll&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>這四個更動文件結構的方法也都接受函式，<br>append()、prepend()，第二個引數是指當下選擇目標的 HTML 字串表示的<strong>原內容</strong>，<br>before()、after() 不會有第二引數。</p>
-<blockquote>
-<p>$(selector).append(function(index,oldContent))<br>$(selector).prepend(function(index,oldContent))<br>$(selector).before(function(index))<br>$(selector).after(function(index))</p>
-</blockquote>
-<hr>
-<h2 id="replaceWith-取代元素"><a href="#replaceWith-取代元素" class="headerlink" title="replaceWith() 取代元素"></a>replaceWith() 取代元素</h2><p>replaceWith() 方法用指定的 HTML 內容或元素替換被選元素。<br>replaceWith()與 replaceAll()作用相同。差異在於語法：內容和選擇器的位置，以及 replaceAll()無法使用函數進行替換。</p>
-<p>跟上面四個插入內容一樣可接受函式：</p>
-<blockquote>
-<p>$(selector).replaceWith(function(index,oldContent))</p>
-</blockquote>
-<p>例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;hr&#x27;</span>).replaceWith(<span class="string">&#x27;&lt;br&gt;&#x27;</span>) <span class="comment">// 用 &lt;br&gt; 取代 &lt;hr&gt; 元素，hr被取代後不會存在於文件中</span></span><br><span class="line">$(<span class="string">&#x27;h2&#x27;</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 用 h1 取代 h2，內容不變</span></span><br><span class="line">  <span class="keyword">var</span> h2 = $(<span class="built_in">this</span>)</span><br><span class="line">  h2.replaceWith(<span class="string">&#x27;&lt;h1&gt;&#x27;</span> + h2.html() + <span class="string">&#x27;&lt;/h1&gt;&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以用 map()，在每個 h1 開頭加上章節符號</span></span><br><span class="line">$(<span class="string">&#x27;h1&#x27;</span>)</span><br><span class="line">  .map(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.firstChild <span class="comment">//回傳 firstChild， 是 js 屬性</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .before(<span class="string">&#x27;§&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="元素的座標"><a href="#元素的座標" class="headerlink" title="元素的座標"></a>元素的座標</h2><h3 id="offset"><a href="#offset" class="headerlink" title="offset()"></a>offset()</h3><p>返回元素相對於文件的座標位置，並以物件形式回傳這個物件的 left 與 top 屬性存有元素的 X 與 Y 座標（數字）。如果傳入一個具有 top、left 屬性的物件給此方法，它會設定所指定的位置。必要時它會設定 CSS position 屬性來讓元素的位置可被設定。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> pos = $(<span class="string">&#x27;#a&#x27;</span>).offset() <span class="comment">// 回傳一個 jQuery物件 並且具有 top、left 屬性</span></span><br><span class="line">pos.top = <span class="number">100</span> <span class="comment">// 更改這個物件 top 屬性</span></span><br><span class="line">pos.left = <span class="number">100</span> <span class="comment">// 更改這個物件 left 屬性</span></span><br><span class="line">$(<span class="string">&#x27;#a&#x27;</span>).offset(pos) <span class="comment">// 回傳此物件，重新設定元素位置</span></span><br></pre></td></tr></table></figure>
 
-<p>例子：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner first&quot;</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner second&quot;</span>&gt;</span>And<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner third&quot;</span>&gt;</span>Goodbye<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// replaceWith()　以選擇器開始，指定要插入的內容</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;div.second&#x27;</span>).replaceWith(<span class="string">&#x27;&lt;h2&gt;New heading&lt;/h2&gt;&#x27;</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="comment">// replaceAll()　反過來以建立內容開始，並插入指定的位置</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;&lt;h2&gt;New heading&lt;/h2&gt;&#x27;</span>).replaceAll(<span class="string">&#x27;.inner&#x27;</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>以上五個方法都是在目標元素上呼叫，並傳入要插入的內容作為引數。<br>也可以反過來，用內容來呼叫，並傳入目標元素作為引數。<br>它們是 appendTo()、prependTo()、insertAfter、insertBefore()、replaceAll()，</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以內容為主，指定要被插入到哪個選擇器，選擇器可以是一個 jQuery 物件、Element、文字節點，這種方式沒有函式引數</span></span><br><span class="line">$(content).appendTo(selector)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="clone-複製元素"><a href="#clone-複製元素" class="headerlink" title="clone() 複製元素"></a>clone() 複製元素</h2><p>clone() 複製出一份選取集合的副本（包含所有的後代子孫以及文字），<br>如果想要將文件上的元素複製到新的位置，而非移動它們，必須先用 clone() 方法來複製它們的副本。<br>clone()會製作並回傳每個所選元素（連同這些元素的所有子元素）的副本。</p>
-<p>但是，回傳的 jQuery 物件中的元素尚未成為文件的一部分，要使用上面提到的的方法<strong>插入</strong>。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;clone&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://www.google.com&quot;</span>&gt;</span>Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 複製 a元素到 p</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> content = $(<span class="string">&#x27;a.clone&#x27;</span>).clone()</span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;p.box&#x27;</span>).append(content)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="刪除元素"><a href="#刪除元素" class="headerlink" title="刪除元素"></a>刪除元素</h2><h3 id="empty"><a href="#empty" class="headerlink" title="empty()"></a>empty()</h3><p>只有清空子元素，移除每個所選元素全部的子元素（包括文字節點），不會更動到所選元素本身。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// .hello 裡面的子元素及內容會被清空</span></span><br><span class="line">$(<span class="string">&#x27;.hello&#x27;</span>).empty()</span><br></pre></td></tr></table></figure>
-
-<h3 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h3><p>連同自己以及子孫元素都一併從 DOM 樹中移除，而且還會移除任何先前已繫結的事件處理器。<br>remove()通常不帶引數，並會移除 jQuery 物件中所有的元素。不過如果傳入一個引數，那個引數會被視為選擇器，當然，也可以使用 filter 來篩選。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以指定要移除的對象</span></span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).remove(<span class="string">&#x27;.hello&#x27;</span>)</span><br><span class="line"><span class="comment">// 這種做法相當於使用 filter</span></span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).filter(<span class="string">&#x27;.hello&#x27;</span>).remove()</span><br></pre></td></tr></table></figure>
-
-<h3 id="detach"><a href="#detach" class="headerlink" title="detach()"></a>detach()</h3><p>detach() 就像 remove()，但不會移除事件處理器與資料。仍會保留所有事件處理器，若只想暫時自文件中移除某些元素，之後還要放回去的話，detach()會比較適合。<br>會在記憶體中保留一份相同的複製資料。</p>
-<h3 id="unwrap-、wrap-、wrap"><a href="#unwrap-、wrap-、wrap" class="headerlink" title="unwrap()、wrap()、wrap"></a>unwrap()、wrap()、wrap</h3><ul>
-<li>.unwrap 是解包裹的概念，它會將選擇到的元素集合的父元素移除掉。</li>
-<li>.wrap 是包裹的概念，它會將選擇到的元素集合，<strong>每一個</strong>都加上一個父元素。</li>
-<li>.wrapAll 是全包裹的概念，它會將選擇到的元素集合，全部包裹在一個指定的父元素中。</li>
+<ul>
+<li>使用回呼函式</li>
 </ul>
-<p>不同於 remove()、detach()，unwrap()並不接受一個額外的選擇器引數。</p>
+<blockquote>
+<p>$(selector).offset(function(index, oldOffset))</p>
+</blockquote>
+<h3 id="position"><a href="#position" class="headerlink" title="position()"></a>position()</h3><p>position()方法類似 offset()，它只能作為 getter，返回匹配元素相對於父元素的位置（偏移），該方法返回的對象包含兩個整型屬性：top 和 left，以像素計。此方法只對可見元素有效。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).position().left</span><br><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).position().top</span><br></pre></td></tr></table></figure>
+
+<h3 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent()"></a>offsetParent()</h3><p><strong>獲取被定位的最近祖先元素對象</strong>，每個元素都有個 offsetParent 屬性，用來指定元素的位置是相對於誰。已定位的元素永遠都是他們子裔元素的 offsetParent，jQuery 只會把已定位的元素當作 offsetParent，而 jQuery 物件的 offsetParent()方法則會把每個元素對應至最接近它的已定位祖（ancestor）元素，或最後是 body 元素。</p>
 
     </div>
 
@@ -335,12 +308,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/10/06/lesson-jq-02.set-and-get/" rel="prev" title="第二章 - 變更及取得內容">
-      <i class="fa fa-chevron-left"></i> 第二章 - 變更及取得內容
+    <a href="/2020/10/02/lesson-jq-03.insert-replace/" rel="prev" title="第三章 - 插入、取代、刪除元素">
+      <i class="fa fa-chevron-left"></i> 第三章 - 插入、取代、刪除元素
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/10/06/lesson-jq-04.geometry/" rel="next" title="第四章 - 元素的位置與大小">
-      第四章 - 元素的位置與大小 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/10/07/lesson-jq-05-events/" rel="next" title="第五章 - 事件處理">
+      第五章 - 事件處理 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -400,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E8%88%87%E5%8F%96%E4%BB%A3%E5%85%83%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">插入與取代元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.</span> <span class="nav-text">插入元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#replaceWith-%E5%8F%96%E4%BB%A3%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.</span> <span class="nav-text">replaceWith() 取代元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone-%E8%A4%87%E8%A3%BD%E5%85%83%E7%B4%A0"><span class="nav-number">1.3.</span> <span class="nav-text">clone() 複製元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%AA%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">1.4.</span> <span class="nav-text">刪除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#empty"><span class="nav-number">1.4.1.</span> <span class="nav-text">empty()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove"><span class="nav-number">1.4.2.</span> <span class="nav-text">remove()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detach"><span class="nav-number">1.4.3.</span> <span class="nav-text">detach()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unwrap-%E3%80%81wrap-%E3%80%81wrap"><span class="nav-number">1.4.4.</span> <span class="nav-text">unwrap()、wrap()、wrap</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AC%E5%BA%A6%E8%88%87%E9%AB%98%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">寬度與高度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#width-%E8%88%87-height"><span class="nav-number">1.1.</span> <span class="nav-text">width() 與 height()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innerWidth-%E8%88%87-innerHeight"><span class="nav-number">1.2.</span> <span class="nav-text">innerWidth() 與 innerHeight()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outerWidth-%E8%88%87-outerHeight"><span class="nav-number">1.3.</span> <span class="nav-text">outerWidth() 與 outerHeight()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%B2%E8%BB%B8%E7%9A%84%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">捲軸的偏移量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollTop-%E8%88%87-scrollLeft"><span class="nav-number">2.1.</span> <span class="nav-text">scrollTop() 與 scrollLeft()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E7%9A%84%E5%BA%A7%E6%A8%99"><span class="nav-number">3.</span> <span class="nav-text">元素的座標</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#offset"><span class="nav-number">3.1.</span> <span class="nav-text">offset()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position"><span class="nav-number">3.2.</span> <span class="nav-text">position()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offsetParent"><span class="nav-number">3.3.</span> <span class="nav-text">offsetParent()</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
