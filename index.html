@@ -244,10 +244,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-10-07 13:27:58 / 修改時間：16:26:19" itemprop="dateCreated datePublished" datetime="2020-10-07T13:27:58+08:00">2020-10-07</time>
+              <time title="創建時間：2020-10-07 18:37:24" itemprop="dateCreated datePublished" datetime="2020-10-07T18:37:24+08:00">2020-10-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-09 01:03:45" itemprop="dateModified" datetime="2020-10-09T01:03:45+08:00">2020-10-09</time>
+              </span>
 
           
 
@@ -260,19 +266,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="事件旅程"><a href="#事件旅程" class="headerlink" title="事件旅程"></a>事件旅程</h1><p>事件觸發對於網站來說是很重要的行為，沒有事件的處理網站就缺乏與使用者乏互動，而當頁面一個事件發生時會產生傳遞行為，每個層次上的 DOM 元素都有機會處理這個事件，以下面模型為例:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;foo&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;bar&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.example.com&quot;</span>&gt;</span>我是範例<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>事件的旅程<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="事件捕獲（event-capturing）"><a href="#事件捕獲（event-capturing）" class="headerlink" title="事件捕獲（event capturing）"></a>事件捕獲（event capturing）</h2><p>舉例來說，如果點擊了頁面中的 a 錨點元素，那麼 div、span、a 全都應該得到回應這次點擊的機會。允許多個元素處理點擊事件的策略叫做 <code>事件捕獲（event capturing）</code>。<br>在事件捕獲的過程中，事件首先會交給最外層的元素，接著再交給更具體的元素。因此點擊事件首先會傳遞給 div、然後 span，最後是 a。</p>
-<p>div =&gt; span =&gt; a</p>
-<h2 id="事件冒泡（event-bubbling）"><a href="#事件冒泡（event-bubbling）" class="headerlink" title="事件冒泡（event bubbling）"></a>事件冒泡（event bubbling）</h2><p>另一種相反的策略叫做 <code>事件冒泡（event bubbling）</code>。即當事件發生時，首先會發送給最具體的元素，在這個元素獲得回應機會之後，<br>事件會向上冒泡到更一般的元素。a 會首先處理事件，然後是 span，最後是 div。會有這兩個事件旅遊模型是因為瀏覽器大戰 Netscape(捕獲) 與 微軟 IE(冒泡)搞出來的事。<br>因此最終底定 DOM 標準應該使用這兩種策略，首先，事件要從一般到具體進行捕獲，然後，再透過冒泡傳出 DOM 樹的頂層。而事件處理常式可以註冊到這個過程中的任何一部分。</p>
-<p>a =&gt; span =&gt; div</p>
-<h3 id="將事件設定成-事件捕獲-或-事件冒泡。"><a href="#將事件設定成-事件捕獲-或-事件冒泡。" class="headerlink" title="將事件設定成 事件捕獲 或 事件冒泡。"></a>將事件設定成 <code>事件捕獲</code> 或 <code>事件冒泡</code>。</h3><ul>
-<li>addEventListener 最後一個參數設為 true，事件捕獲，從外面開始。</li>
-<li>addEventListener 最後一個參數設為 false（預設），事件冒泡，從裡面開始。</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://mtr04-note.coderbridge.io/2020/07/17/about-DOM/">https://mtr04-note.coderbridge.io/2020/07/17/about-DOM/</a></p>
-
+          <h2 id="事件處理"><a href="#事件處理" class="headerlink" title="事件處理"></a>事件處理</h2><p>事件處理是網頁互動行為很重要的核心，通常當一個事件發生時，會去呼叫一個事件處理程序（event handler）的回呼函式，也就是事件發生時要做的事情。jQuery 對事件有許多特別的貼心設定。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/07/lesson-jq-05-events/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

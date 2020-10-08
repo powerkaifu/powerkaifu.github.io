@@ -3,18 +3,104 @@
   <entry>
     <title>第五章 - 事件處理</title>
     <url>/2020/10/07/lesson-jq-05-events/</url>
-    <content><![CDATA[<h1 id="事件旅程"><a href="#事件旅程" class="headerlink" title="事件旅程"></a>事件旅程</h1><p>事件觸發對於網站來說是很重要的行為，沒有事件的處理網站就缺乏與使用者乏互動，而當頁面一個事件發生時會產生傳遞行為，每個層次上的 DOM 元素都有機會處理這個事件，以下面模型為例:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;foo&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;bar&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.example.com&quot;</span>&gt;</span>我是範例<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>事件的旅程<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="事件處理"><a href="#事件處理" class="headerlink" title="事件處理"></a>事件處理</h2><p>事件處理是網頁互動行為很重要的核心，通常當一個事件發生時，會去呼叫一個事件處理程序（event handler）的回呼函式，也就是事件發生時要做的事情。jQuery 對事件有許多特別的貼心設定。</p>
+<a id="more"></a>
 
-<h2 id="事件捕獲（event-capturing）"><a href="#事件捕獲（event-capturing）" class="headerlink" title="事件捕獲（event capturing）"></a>事件捕獲（event capturing）</h2><p>舉例來說，如果點擊了頁面中的 a 錨點元素，那麼 div、span、a 全都應該得到回應這次點擊的機會。允許多個元素處理點擊事件的策略叫做 <code>事件捕獲（event capturing）</code>。<br>在事件捕獲的過程中，事件首先會交給最外層的元素，接著再交給更具體的元素。因此點擊事件首先會傳遞給 div、然後 span，最後是 a。</p>
-<p>div =&gt; span =&gt; a</p>
-<h2 id="事件冒泡（event-bubbling）"><a href="#事件冒泡（event-bubbling）" class="headerlink" title="事件冒泡（event bubbling）"></a>事件冒泡（event bubbling）</h2><p>另一種相反的策略叫做 <code>事件冒泡（event bubbling）</code>。即當事件發生時，首先會發送給最具體的元素，在這個元素獲得回應機會之後，<br>事件會向上冒泡到更一般的元素。a 會首先處理事件，然後是 span，最後是 div。會有這兩個事件旅遊模型是因為瀏覽器大戰 Netscape(捕獲) 與 微軟 IE(冒泡)搞出來的事。<br>因此最終底定 DOM 標準應該使用這兩種策略，首先，事件要從一般到具體進行捕獲，然後，再透過冒泡傳出 DOM 樹的頂層。而事件處理常式可以註冊到這個過程中的任何一部分。</p>
-<p>a =&gt; span =&gt; div</p>
-<h3 id="將事件設定成-事件捕獲-或-事件冒泡。"><a href="#將事件設定成-事件捕獲-或-事件冒泡。" class="headerlink" title="將事件設定成 事件捕獲 或 事件冒泡。"></a>將事件設定成 <code>事件捕獲</code> 或 <code>事件冒泡</code>。</h3><ul>
-<li>addEventListener 最後一個參數設為 true，事件捕獲，從外面開始。</li>
-<li>addEventListener 最後一個參數設為 false（預設），事件冒泡，從裡面開始。</li>
+<h2 id="事件觸發"><a href="#事件觸發" class="headerlink" title="事件觸發"></a>事件觸發</h2><p>要觸發一個事件要有三個步驟，第一個是<code>指定選取對象</code>、第二個是<code>指派事件</code>、第三個是<code>傳遞一個函式</code>，在語意上是<strong>誰、在甚麼時候、做了甚麼事情</strong>，事件觸發有下列兩種方式。</p>
+<h3 id="一、使用事件名稱直接觸發"><a href="#一、使用事件名稱直接觸發" class="headerlink" title="一、使用事件名稱直接觸發"></a>一、使用事件名稱直接觸發</h3><p>此方法為便捷方式，是方法二的捷徑，但只能夠用在 DOM 元素已經存在時有作用，在網頁讀取完畢時，若 DOM 元素還不存在，也就是後來產生的 DOM 元素，無法使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#myElement&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert($(<span class="built_in">this</span>).text())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、使用-on-方法觸發"><a href="#二、使用-on-方法觸發" class="headerlink" title="二、使用 on()方法觸發"></a>二、使用 on()方法觸發</h3><p>建議使用這種方式，on 方法提供了事件處理程序所有功能，而且語意上與 JavaScript 的 addEventListener() 相似，其實，on 是以 addEventListener 實作，且第三個參數是 false，也就是 jQuery 事件是以「事件冒泡」來實作，而不是「事件捕獲」，這很符合 JavaScript addEventListener 第三參數 useCapture 的預設 false。該方法又分為「直接綁定」與「委派綁定」。</p>
+<blockquote>
+<p>.on(events [, selector ] [, data ], handler)</p>
+</blockquote>
+<ul>
+<li>events 可以多個事件，空格分隔事件名稱。</li>
+<li>指定 css selector 為委派綁定，參考下方。</li>
+<li>指定 data（可以任何資料類型），當事件發生時將通過 event.data 傳遞。</li>
 </ul>
-<p><a href="https://mtr04-note.coderbridge.io/2020/07/17/about-DOM/">https://mtr04-note.coderbridge.io/2020/07/17/about-DOM/</a></p>
+<div class="admonition warning"><p>請忘記 bind() 與 live()，on() 都可以做到。</p>
+</div>
+
+<h4 id="直接綁定"><a href="#直接綁定" class="headerlink" title="直接綁定"></a>直接綁定</h4><p>當 selector 省略或是 null，事件處理程序稱為直接綁定，會發生在選定的元素上，也就是呼叫該事件的元素。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#myElement&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert($(<span class="built_in">this</span>).text())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="委派綁定"><a href="#委派綁定" class="headerlink" title="委派綁定"></a>委派綁定</h4><p>又稱為事件委派(delegation)，當提供 selector 參數時，事件處理程序稱為委派綁定。<strong>事件不被綁定元素所使用，而只對綁定元素的後代 selector 使用</strong>，委派事件綁定的優勢在於<strong>可以處理來自後代元素的事件，也就是程式後來產生的後代 DOM 元素</strong>。</p>
+<pre><code>委託事件處理程序不適用於SVG。</code></pre>
+<h4 id="多事件觸發"><a href="#多事件觸發" class="headerlink" title="多事件觸發"></a>多事件觸發</h4><p>on 可以使用多種事件觸發，以下 click，keypress 都會觸發不具名函式:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">&#x27;click keypress&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;#lightBox&#x27;</span>).hide()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="移除事件"><a href="#移除事件" class="headerlink" title="移除事件"></a>移除事件</h2><p>可以使用 off() 來移除事件，要移除元素的所有事件，不要傳任何參數給 off()函式，這是殺傷力很強的方式，大部分情況下不會移除元素所有的事件處理程序。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;input[type=&quot;submit&quot;]&#x27;</span>).off()</span><br></pre></td></tr></table></figure>
+
+<p>也可以指定移除的事件。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;h1&#x27;</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="built_in">this</span>).off(<span class="string">&#x27;click&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>named space 命名空間移除特定目標的事件，可以為事件命名一個名字，這樣移除時可以指定該名稱。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#box&#x27;</span>).on(<span class="string">&#x27;click.main&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">&#x27;click1&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">$(<span class="string">&#x27;#box&#x27;</span>).on(<span class="string">&#x27;click.sub&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">&#x27;click2&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除 sub</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&#x27;#box&#x27;</span>).off(<span class="string">&#x27;click.sub&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="事件類型一覽表"><a href="#事件類型一覽表" class="headerlink" title="事件類型一覽表"></a>事件類型一覽表</h2><table>
+<thead>
+<tr>
+<th>分類</th>
+<th>事件名稱</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>鍵　　　盤</td>
+<td>keydown,keyup,keypress</td>
+</tr>
+<tr>
+<td>滑　　　鼠</td>
+<td>click,dblclick,hover,mousedown,mouseenter,mouseleave,mouseup,,mousemove,mouseout,mouseover,toggle</td>
+</tr>
+<tr>
+<td>表　　　單</td>
+<td>blur,change,focus,focusin,focusout,select,submit,reset</td>
+</tr>
+<tr>
+<td>瀏　覽　器</td>
+<td>error,resize,scroll</td>
+</tr>
+<tr>
+<td>文　　　件</td>
+<td>load,unload,ready</td>
+</tr>
+</tbody></table>
+<h2 id="事件介紹"><a href="#事件介紹" class="headerlink" title="事件介紹"></a>事件介紹</h2><h3 id="hover-事件"><a href="#hover-事件" class="headerlink" title="hover 事件"></a>hover 事件</h3><p>hover 是常使用的滑鼠事件，它是由 mouseenter 與 mouseleave 來實作，可由 e.type 確認，它可以傳入兩個匿名函式分別給 mouseenter 與 mouseleave 使用。如果只傳入一個引數給 hover()，那個函式會同時被用作 mouseenter 與 mouseleave 事件的處理器。</p>
+<blockquote>
+<p>.hover(handlerIn, handlerOut)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;a&#x27;</span>).hover(</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.type)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.type)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>兩種滑鼠移入、移出的操作，<strong>第一種說明了 on 也可以物件實字來操作多種事件</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一種用 on 並傳入一個選項物件</span></span><br><span class="line">$(<span class="string">&#x27;img&#x27;</span>).on(&#123;</span><br><span class="line">  mouseover: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).stop().fadeTo(<span class="number">3000</span>, <span class="number">0.1</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  mouseout: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).stop().fadeTo(<span class="number">3000</span>, <span class="number">1</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二種用 hover()，使用兩個參數</span></span><br><span class="line">$(<span class="string">&#x27;img&#x27;</span>).hover(</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).stop().fadeTo(<span class="number">3000</span>, <span class="number">0.1</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).stop().fadeTo(<span class="number">3000</span>, <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="事件物件（event-object）"><a href="#事件物件（event-object）" class="headerlink" title="事件物件（event object）"></a>事件物件（event object）</h2><p>當一個或多集合 jQuery 物件觸發事件時，會記錄著該物件包含與該次事件有關的資訊屬性與方法，被稱為事件物件（<a href="https://api.jquery.com/category/events/event-object/">Event Object</a>），它會被帶入第一參數，通常以<code>e</code>作為參數名稱。事件物件主要基於 W3C 的標準，也結合了業界的事件標準，jQuery 從原生的 Event 物件中複製了常用屬性到每個 jQuery Event 物件中，<strong>但對某些特定事件類型來說，其中部分屬性的值會是 undefined</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e) <span class="comment">// 事件物件</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="e-target"><a href="#e-target" class="headerlink" title="e.target"></a>e.target</h3><p>event.target 屬性儲存著發生事件的目標元素，透過這個屬性可以確定 DOM 中首先接收到事件的元素，即實際被點擊的元素，可以記為最深處的目標。而且，this 引用的是處理事件的 DOM 元素，藉由 event.target 與 this 比對，可以做出以下的判斷。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#switcher&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (event.target == <span class="built_in">this</span>) &#123;</span><br><span class="line">    $(<span class="string">&#x27;#switcher&#x27;</span>.button).toggleClass(<span class="string">&#x27;hidden&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>或者是當 event.target 是 a 時忽略。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(event.target).is(<span class="string">&#x27;a&#x27;</span>)) <span class="keyword">return</span> <span class="comment">// 忽略發生於連結上的事件</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="e-currentTarget"><a href="#e-currentTarget" class="headerlink" title="e.currentTarget"></a>e.currentTarget</h3><p>currentTarget 屬性指出哪個元素註冊了事件，<code>永遠與 this 相同</code>。如果 target 與 currentTarget 不同，表示所處理的事件就是自其發生處產生氣泡上浮後的事件，可以透過 is()方法來測試 target 元素。</p>
+<h3 id="event-pageX、event-pageY"><a href="#event-pageX、event-pageY" class="headerlink" title="event.pageX、event.pageY"></a>event.pageX、event.pageY</h3><p>事件觸發時，滑鼠游標到 document 左上角的偏移量，滾動瀏覽器捲軸時，同樣位置座標不同，又稱作 layout viewport。<br>類似於 event.clientX、event.clientY，但它們使用的是文檔坐標而非窗口坐標。這 2 個屬性不是標準屬性，但得到了廣泛支持。IE 事件中沒有這 2 個屬性。<br>若是原生的事件物件沒有定義這些屬性，但有透過 clientX 與 clientY 來定義滑鼠指標的 viewport 座標，jQuery 會計算滑鼠游標的文件座標，將他們存在 pageX、pageY。</p>
+<h3 id="event-offsetX、event-offsetY"><a href="#event-offsetX、event-offsetY" class="headerlink" title="event.offsetX、event.offsetY"></a>event.offsetX、event.offsetY</h3><p>事件觸發時，滑鼠游標到”容器”左上角的偏移量，實作上各瀏覽器有些不同。</p>
+<h3 id="event-clientX、event-clientY"><a href="#event-clientX、event-clientY" class="headerlink" title="event.clientX、event.clientY"></a>event.clientX、event.clientY</h3><p>事件觸發時，滑鼠游標到 browser window 左上角的偏移量（不管 HTML document），滾動瀏覽器捲軸時，同樣位置座標相同。又稱 visual viewport。<br>滑鼠相對於瀏覽器窗口可視區域的 X，Y 坐標（窗口坐標），可視區域不包括工具欄和滾動條。IE 事件和標準事件都定義了這 2 個屬性</p>
+<p>例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//滑鼠點畫面位置，物件跟隨移動</span></span><br><span class="line">$(<span class="built_in">document</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  mouseX = e.pageX</span><br><span class="line">  mouseY = e.pageY</span><br><span class="line">  <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    elemntX = $(<span class="string">&#x27;#lin&#x27;</span>).offset().left</span><br><span class="line">    elemntY = $(<span class="string">&#x27;#lin&#x27;</span>).offset().top</span><br><span class="line">    posX = (mouseX - elemntX) / <span class="number">100</span></span><br><span class="line">    posY = (mouseY - elemntY) / <span class="number">100</span></span><br><span class="line">    $(<span class="string">&#x27;#lin&#x27;</span>).css(&#123;</span><br><span class="line">      position: <span class="string">&#x27;relative&#x27;</span>,</span><br><span class="line">      left: <span class="string">&#x27;+=&#x27;</span> + posX + <span class="string">&#x27;px&#x27;</span>,</span><br><span class="line">      top: <span class="string">&#x27;+=&#x27;</span> + posY + <span class="string">&#x27;px&#x27;</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, <span class="number">10</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="event-screenX、event-screenY"><a href="#event-screenX、event-screenY" class="headerlink" title="event.screenX、event.screenY"></a>event.screenX、event.screenY</h3><p>事件觸發時，滑鼠游標相對於螢幕顯示器螢幕左上角的 X,Y 坐標。</p>
+<h3 id="e-preventDefault"><a href="#e-preventDefault" class="headerlink" title="e.preventDefault()"></a>e.preventDefault()</h3><p>阻止瀏覽器事件預設回應的函式，此函式是事件物件的一部分，可以在事件處理函式內存取。若網頁有個連結，點擊連結時通常瀏覽器會連結到該網址，如果要阻止它的預設行為。當在事件的環境中完成了某些作用，例如頁面滾動到錨點 id 的位置，通常會用到 e.preventDefault()。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;a&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault() <span class="comment">// 連結無作用</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>也可以寫成以下這樣：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#menu&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span> <span class="comment">//事件不會發生</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="event-stopPropagation"><a href="#event-stopPropagation" class="headerlink" title="event.stopPropagation()"></a>event.stopPropagation()</h3><p>阻止事件冒泡，event.stopPropagation() 可以阻止 click 事件冒泡到父元素，透過呼叫 event.stopPropagation() 就可以避免其他所有 DOM 元素回應這個事件。點擊按鈕的事件會被按鈕處理，而且只會被按鈕處理。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#theLink&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.stopPropagation()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>jQuery</tag>
