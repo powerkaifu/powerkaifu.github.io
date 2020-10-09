@@ -39,15 +39,15 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="jQuery()函式jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 jQuery 物件。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。">
+  <meta name="description" content="jQuery 函式jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 jQuery 物件。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一章 - jQuery的核心介紹">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/09/30/lesson-jq-01.core/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="jQuery()函式jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 jQuery 物件。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。">
+<meta property="og:description" content="jQuery 函式jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 jQuery 物件。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-09-30T09:10:41.968Z">
-<meta property="article:modified_time" content="2020-10-02T15:38:35.233Z">
+<meta property="article:modified_time" content="2020-10-09T13:50:10.376Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-02 23:38:35" itemprop="dateModified" datetime="2020-10-02T23:38:35+08:00">2020-10-02</time>
+                <time title="修改時間：2020-10-09 21:50:10" itemprop="dateModified" datetime="2020-10-09T21:50:10+08:00">2020-10-09</time>
               </span>
 
           
@@ -268,7 +268,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="jQuery-函式"><a href="#jQuery-函式" class="headerlink" title="jQuery()函式"></a>jQuery()函式</h1><p>jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 <strong>jQuery 物件</strong>。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。</p>
+        <h1 id="jQuery-函式"><a href="#jQuery-函式" class="headerlink" title="jQuery 函式"></a>jQuery 函式</h1><p>jQuery()，也可以寫成$()，兩者相同，它是 jQuery 最重要的函式及核心，用來專門製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 <strong>jQuery 物件</strong>。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件。</p>
 <a id="more"></a>
 
 <p>當這個函式建立 jQuery 物件，表示將選取元件集合，它會<strong>儲存一個參考值指向 DOM 樹中對應的元件節點，但並不會複製這些節點</strong>，這些集合（封裝 1 個或多個 DOM 元素），一般稱為符合條件的元件集合（Method set），或稱為 jQuery 選取元件集合（jQuery selection），有了它們就可以使用 jQuery 提供的方法和屬性來操作元素。</p>
@@ -278,8 +278,8 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">jQuery()</span><br><span class="line"><span class="comment">// 縮寫</span></span><br><span class="line">$()</span><br></pre></td></tr></table></figure>
 
-<h2 id="jQuery-函式五種使用方式"><a href="#jQuery-函式五種使用方式" class="headerlink" title="jQuery()函式五種使用方式"></a>jQuery()函式五種使用方式</h2><p>jQuery()函式提供 JavaScript 封裝功能，這個封裝工廠可以為我們快速簡化 JavaScript 在網站設計的功能，有五種常使用的方式：</p>
-<h3 id="1-傳入-CSS-選擇器"><a href="#1-傳入-CSS-選擇器" class="headerlink" title="1. 傳入 CSS 選擇器"></a>1. 傳入 CSS 選擇器</h3><blockquote>
+<h1 id="jQuery-函式五種使用方式"><a href="#jQuery-函式五種使用方式" class="headerlink" title="jQuery 函式五種使用方式"></a>jQuery 函式五種使用方式</h1><p>jQuery()函式提供 JavaScript 封裝功能，這個封裝工廠可以為我們快速簡化 JavaScript 在網站設計的功能，有五種常使用的方式：</p>
+<h2 id="1-傳入-CSS-選擇器"><a href="#1-傳入-CSS-選擇器" class="headerlink" title="1. 傳入 CSS 選擇器"></a>1. 傳入 CSS 選擇器</h2><blockquote>
 <p>jQuery( selector [, context ] )</p>
 </blockquote>
 <p>這是最常使用的方式，傳入 CSS selector 作為選擇的對象，回傳 jQuery 物件來操作。</p>
@@ -288,31 +288,31 @@
 <p>第二參數很少使用，它必須存在於上下文關係中，例如下方 this，span 被指定在 div.foo 才能有作用，或是選擇一個集合後，第二參數會回傳指定符合的子元素。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;div.foo&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;span&#x27;</span>, <span class="built_in">this</span>).addClass(<span class="string">&#x27;bar&#x27;</span>) <span class="comment">// $(&#x27;span&#x27;, this) 等同於 $(this).find(&#x27;span&#x27;)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-選擇元素操作"><a href="#2-選擇元素操作" class="headerlink" title="2. 選擇元素操作"></a>2. 選擇元素操作</h3><blockquote>
+<h2 id="2-選擇元素操作"><a href="#2-選擇元素操作" class="headerlink" title="2. 選擇元素操作"></a>2. 選擇元素操作</h2><blockquote>
 <p>jQuery( element )</p>
 </blockquote>
 <p>除了 CSS 選擇器，也可以直接抓取 DOM 元素標籤的名稱。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;body&#x27;</span>).css(&#123;</span><br><span class="line">  backgroundColor: <span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-建立一個元素"><a href="#3-建立一個元素" class="headerlink" title="3. 建立一個元素"></a>3. 建立一個元素</h3><blockquote>
+<h2 id="3-建立一個元素"><a href="#3-建立一個元素" class="headerlink" title="3. 建立一個元素"></a>3. 建立一個元素</h2><blockquote>
 <p>jQuery( html [, optionObject ] )</p>
 </blockquote>
 <p>可直接傳入 html 標籤建立一個 html 元素， optionObject 是一個可選的物件，可直接設定 html 的屬性。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一個引數必須為 HTML 元素</span></span><br><span class="line"><span class="comment">// 第二個引數為可選物件，可以設定該元素的屬性 name/value。</span></span><br><span class="line">$(<span class="string">&#x27;&lt;input&gt;&#x27;</span>, &#123;</span><br><span class="line">  type: <span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">  val: <span class="string">&#x27;Test&#x27;</span>,</span><br><span class="line">  focusin: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).addClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  focusout: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).removeClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;).appendTo(<span class="string">&#x27;form&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-傳入一個函式"><a href="#4-傳入一個函式" class="headerlink" title="4. 傳入一個函式"></a>4. 傳入一個函式</h3><p>傳入一個函式給它，函式會在文件已經載入，DOM 準備就緒可供操作時被呼叫。這是 jQuery 版的 onload()函式。</p>
+<h2 id="4-傳入一個函式"><a href="#4-傳入一個函式" class="headerlink" title="4. 傳入一個函式"></a>4. 傳入一個函式</h2><p>傳入一個函式給它，函式會在文件已經載入，DOM 準備就緒可供操作時被呼叫。這是 jQuery 版的 onload()函式。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [縮寫]</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do，與上方相同</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.50 支援 ES6</span></span><br><span class="line">$(() =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-複製陣列、物件"><a href="#5-複製陣列、物件" class="headerlink" title="5. 複製陣列、物件"></a>5. 複製陣列、物件</h3><p>jQuery 函式可以複製陣列、物件，可以注意資料類型，尤其是 JSON 物件，它是被指向同一個記憶體位置，也就是說改變了一個，另一個也會更改。</p>
+<h2 id="5-複製陣列、物件"><a href="#5-複製陣列、物件" class="headerlink" title="5. 複製陣列、物件"></a>5. 複製陣列、物件</h2><p>jQuery 函式可以複製陣列、物件，可以注意資料類型，尤其是 JSON 物件，它是被指向同一個記憶體位置，也就是說改變了一個，另一個也會更改。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> ary2 = $(ary1)</span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = $(obj1)</span><br><span class="line">obj1.a = <span class="number">100</span> <span class="comment">// obj2[0].a 也會更改為 200</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="ready-和-load-的區別"><a href="#ready-和-load-的區別" class="headerlink" title="ready 和 load 的區別"></a>ready 和 load 的區別</h2><ul>
+<h1 id="ready-和-load-的區別"><a href="#ready-和-load-的區別" class="headerlink" title="ready 和 load 的區別"></a>ready 和 load 的區別</h1><ul>
 <li><p>$(document).ready<br>會在 HTML 結構載入後，並且 DOM 就緒後呼叫，不包含圖片，觸發時間較早，使用了 JavaScript 的 DOMContentLoaded 事件。</p>
 </li>
 <li><p>$(window).load<br>會在 HTML 結構載入後，DOM 就緒後，頁面渲染結束（iframe、img 圖片加載完成）後呼叫，也就是網頁讀取完成，使用了 JavaScript 的 load 事件。</p>
 </li>
 </ul>
-<h2 id="document-readyState"><a href="#document-readyState" class="headerlink" title="document.readyState"></a>document.readyState</h2><p>另外還有一個是 document.readyState，它是描述文件讀取狀態，分為以下：</p>
+<h1 id="document-readyState"><a href="#document-readyState" class="headerlink" title="document.readyState"></a>document.readyState</h1><p>另外還有一個是 document.readyState，它是描述文件讀取狀態，分為以下：</p>
 <ul>
 <li>loading：document 正在讀取中</li>
 <li>interactive：文件已經完成讀取和解析，但是其他的子資源，如「圖片樣式層次表」，仍然在讀取。這個狀態表示 DOMContentLoaded 事件已經被觸發。</li>
@@ -321,8 +321,8 @@
 <p>readystatechange 事件在 document 上觸發時可以判斷 readyState 數值的改變，例如以下：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// readystatechange 替代 DOMContentLoaded</span></span><br><span class="line"><span class="built_in">document</span>.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">document</span>.readyState == <span class="string">&#x27;interactive&#x27;</span>) &#123;</span><br><span class="line">    initApplication()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// readystatechange 替代 load</span></span><br><span class="line"><span class="built_in">document</span>.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">document</span>.readyState == <span class="string">&#x27;complete&#x27;</span>) &#123;</span><br><span class="line">    initApplication()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="jQuery-隱式迴圈"><a href="#jQuery-隱式迴圈" class="headerlink" title="jQuery 隱式迴圈"></a>jQuery 隱式迴圈</h2><p>JavaScript 選擇 DOM 元素時，可使用 querySelectorAll 取得符合選取，在 jQuery 中，它有一種包裝式的隱性反覆迴圈系統（隱式迴圈），若沒特別指定，一次選擇全部，稱作隱式反覆運算（implicit iteration）的技術，省去大量的迴圈結構，而大幅減少程式碼。</p>
-<h2 id="與-querySelectorAll"><a href="#與-querySelectorAll" class="headerlink" title="$() 與 querySelectorAll()"></a>$() 與 querySelectorAll()</h2><p>兩者皆取一個 CSS 選擇器作為它們的引數，並回傳一個類陣列物件。jQuery 的實作會在有支援的瀏覽器中使用 querySelectorAll()，<br>如果使用 $() 來取代 querySelectorAll()有個好處，$() 回傳的類陣列物件是一個 jQuery 物件，它比 querySelectorAll() 所回傳的類陣列物件（一個 NodeList）有用多了，因為 jQuery 物件還可以使用 jQuery 的方法。</p>
+<h1 id="jQuery-隱式迴圈"><a href="#jQuery-隱式迴圈" class="headerlink" title="jQuery 隱式迴圈"></a>jQuery 隱式迴圈</h1><p>JavaScript 選擇 DOM 元素時，可使用 querySelectorAll 取得符合選取，在 jQuery 中，它有一種包裝式的隱性反覆迴圈系統（隱式迴圈），若沒特別指定，一次選擇全部，稱作隱式反覆運算（implicit iteration）的技術，省去大量的迴圈結構，而大幅減少程式碼。</p>
+<h1 id="與-querySelectorAll"><a href="#與-querySelectorAll" class="headerlink" title="$() 與 querySelectorAll()"></a>$() 與 querySelectorAll()</h1><p>兩者皆取一個 CSS 選擇器作為它們的引數，並回傳一個類陣列物件。jQuery 的實作會在有支援的瀏覽器中使用 querySelectorAll()，<br>如果使用 $() 來取代 querySelectorAll()有個好處，$() 回傳的類陣列物件是一個 jQuery 物件，它比 querySelectorAll() 所回傳的類陣列物件（一個 NodeList）有用多了，因為 jQuery 物件還可以使用 jQuery 的方法。</p>
 <table>
 <thead>
 <tr>
@@ -368,7 +368,7 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// jQuery</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;jQuery&#x27;</span>, a === b) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelectorAll</span></span><br><span class="line"><span class="keyword">let</span> c = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> d = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelectorAll&#x27;</span>, c === d) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelector</span></span><br><span class="line"><span class="keyword">let</span> e = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> f = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelector&#x27;</span>, e === f) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByTagName</span></span><br><span class="line"><span class="keyword">let</span> g = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> h = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByTagName&#x27;</span>, g === h) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByClassName</span></span><br><span class="line"><span class="keyword">let</span> i = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> j = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByClassName&#x27;</span>, i === j) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementById</span></span><br><span class="line"><span class="keyword">let</span> k = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> l = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementById&#x27;</span>, k === l) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="jQuery-Chaining-鍊式串接"><a href="#jQuery-Chaining-鍊式串接" class="headerlink" title="jQuery Chaining 鍊式串接"></a>jQuery Chaining 鍊式串接</h2><p>鍊式串接，又稱為方法鍊，是方法間以句點連續串接，可針對單一選擇器執行多個處理。jQuery 大部分的方法其回傳值都是回傳處理後的 jQuery 物件，也就是 return 該物件，並且會記錄在一個叫 prevObject 的物件（指上一層），它是紀錄鍊式上一層的 jQuery 物件，可以在選擇到 jQuery 物件時可以看到它。其中，end() 方法就是指向 prevObject，可以一直 end() 到虛無沒東西 <code>S.fn.init &#123;&#125;</code> 。但也有回傳非 jQuery 物件的方法，如果在方法鍊中使用 next()、end()方法，可能會因此改變處理目標的選擇器，回到原本狀態。</p>
+<h1 id="Chaining-鍊式串接"><a href="#Chaining-鍊式串接" class="headerlink" title="Chaining 鍊式串接"></a>Chaining 鍊式串接</h1><p>鍊式串接，又稱為方法鍊，是方法間以句點連續串接，可針對單一選擇器執行多個處理。jQuery 大部分的方法其回傳值都是回傳處理後的 jQuery 物件，也就是 return 該物件，並且會記錄在一個叫 prevObject 的物件（指上一層），它是紀錄鍊式上一層的 jQuery 物件，可以在選擇到 jQuery 物件時可以看到它。其中，end() 方法就是指向 prevObject，可以一直 end() 到虛無沒東西 <code>S.fn.init &#123;&#125;</code> 。但也有回傳非 jQuery 物件的方法，如果在方法鍊中使用 next()、end()方法，可能會因此改變處理目標的選擇器，回到原本狀態。</p>
 <ul>
 <li>可以幫助遍歷遨遊 DOM 結構樹，爬樹方便。</li>
 <li>可以讓動畫更豐富。</li>
@@ -458,7 +458,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-%E5%87%BD%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">jQuery()函式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-%E5%87%BD%E5%BC%8F%E4%BA%94%E7%A8%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">jQuery()函式五種使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%82%B3%E5%85%A5-CSS-%E9%81%B8%E6%93%87%E5%99%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 傳入 CSS 選擇器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%81%B8%E6%93%87%E5%85%83%E7%B4%A0%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 選擇元素操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 建立一個元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%82%B3%E5%85%A5%E4%B8%80%E5%80%8B%E5%87%BD%E5%BC%8F"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 傳入一個函式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E8%A4%87%E8%A3%BD%E9%99%A3%E5%88%97%E3%80%81%E7%89%A9%E4%BB%B6"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 複製陣列、物件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ready-%E5%92%8C-load-%E7%9A%84%E5%8D%80%E5%88%A5"><span class="nav-number">1.2.</span> <span class="nav-text">ready 和 load 的區別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#document-readyState"><span class="nav-number">1.3.</span> <span class="nav-text">document.readyState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-%E9%9A%B1%E5%BC%8F%E8%BF%B4%E5%9C%88"><span class="nav-number">1.4.</span> <span class="nav-text">jQuery 隱式迴圈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%88%87-querySelectorAll"><span class="nav-number">1.5.</span> <span class="nav-text">$() 與 querySelectorAll()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-Chaining-%E9%8D%8A%E5%BC%8F%E4%B8%B2%E6%8E%A5"><span class="nav-number">1.6.</span> <span class="nav-text">jQuery Chaining 鍊式串接</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-%E5%87%BD%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">jQuery 函式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-%E5%87%BD%E5%BC%8F%E4%BA%94%E7%A8%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">jQuery 函式五種使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%82%B3%E5%85%A5-CSS-%E9%81%B8%E6%93%87%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">1. 傳入 CSS 選擇器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%81%B8%E6%93%87%E5%85%83%E7%B4%A0%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">2. 選擇元素操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%85%83%E7%B4%A0"><span class="nav-number">2.3.</span> <span class="nav-text">3. 建立一個元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%82%B3%E5%85%A5%E4%B8%80%E5%80%8B%E5%87%BD%E5%BC%8F"><span class="nav-number">2.4.</span> <span class="nav-text">4. 傳入一個函式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%A4%87%E8%A3%BD%E9%99%A3%E5%88%97%E3%80%81%E7%89%A9%E4%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">5. 複製陣列、物件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ready-%E5%92%8C-load-%E7%9A%84%E5%8D%80%E5%88%A5"><span class="nav-number">3.</span> <span class="nav-text">ready 和 load 的區別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#document-readyState"><span class="nav-number">4.</span> <span class="nav-text">document.readyState</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-%E9%9A%B1%E5%BC%8F%E8%BF%B4%E5%9C%88"><span class="nav-number">5.</span> <span class="nav-text">jQuery 隱式迴圈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%88%87-querySelectorAll"><span class="nav-number">6.</span> <span class="nav-text">$() 與 querySelectorAll()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chaining-%E9%8D%8A%E5%BC%8F%E4%B8%B2%E6%8E%A5"><span class="nav-number">7.</span> <span class="nav-text">Chaining 鍊式串接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -473,7 +473,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>

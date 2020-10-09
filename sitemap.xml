@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://powerkaifu.github.io/2020/10/07/lesson-jq-05-events/</loc>
+    <loc>https://powerkaifu.github.io/2020/09/24/lesson-tailwind-css/</loc>
     
     <lastmod>2020-10-09</lastmod>
     
@@ -11,35 +11,49 @@
   <url>
     <loc>https://powerkaifu.github.io/2020/10/07/lesson-jq-04.geometry/</loc>
     
-    <lastmod>2020-10-07</lastmod>
+    <lastmod>2020-10-09</lastmod>
     
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/2020/10/02/lesson-jq-02.set-and-get/</loc>
+    <loc>https://powerkaifu.github.io/2020/10/09/lesson-jq-06-animate/</loc>
     
-    <lastmod>2020-10-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/</loc>
-    
-    <lastmod>2020-10-05</lastmod>
+    <lastmod>2020-10-09</lastmod>
     
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/2020/09/30/lesson-jq-00.intro/</loc>
+    <loc>https://powerkaifu.github.io/2020/10/07/lesson-jq-05-events/</loc>
     
-    <lastmod>2020-10-05</lastmod>
+    <lastmod>2020-10-09</lastmod>
     
   </url>
   
   <url>
     <loc>https://powerkaifu.github.io/2020/09/30/lesson-jq-01.core/</loc>
     
-    <lastmod>2020-10-02</lastmod>
+    <lastmod>2020-10-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/</loc>
+    
+    <lastmod>2020-10-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/2020/10/02/lesson-jq-02.set-and-get/</loc>
+    
+    <lastmod>2020-10-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/2020/09/30/lesson-jq-00.intro/</loc>
+    
+    <lastmod>2020-10-09</lastmod>
     
   </url>
   
@@ -94,13 +108,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/2020/08/29/resource-coding/</loc>
-    
-    <lastmod>2020-09-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/09/24/lesson-tailwind-css/</loc>
     
     <lastmod>2020-09-30</lastmod>
     
