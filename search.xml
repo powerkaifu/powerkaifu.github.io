@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>第六章 - 遍歷 DOM</title>
-    <url>/2020/10/11/lesson-jq-06.traversing/</url>
-    <content><![CDATA[<h1 id="撰寫中…"><a href="#撰寫中…" class="headerlink" title="撰寫中…"></a>撰寫中…</h1>]]></content>
-      <tags>
-        <tag>jQuery</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第七章 - 動畫</title>
-    <url>/2020/10/09/lesson-jq-07.animate/</url>
+    <url>/2020/10/11/lesson-jq-06.traversing/</url>
     <content><![CDATA[<h1 id="動畫設定"><a href="#動畫設定" class="headerlink" title="動畫設定"></a>動畫設定</h1><p>jQuery 的 animate 只支援任何「數字+單位」的屬性，且均為單個數值，例如 width、height、left，它們都可以是數字+單位（100px），background-color 就不行，除非使用 <a href="https://github.com/jquery/jquery-color">jQuery.Color</a> 或 <a href="https://jqueryui.com/">jQuery UI</a>來擴充設定，jQuery UI 還能擴充 easing 動畫速率使用種類（jQuery 只提供 swing 與 linear）。</p>
 <a id="more"></a>
 
@@ -229,6 +221,14 @@
 <p>使用 mouseover 與 mouseout 事件來變動圖像的不透明（opacity），在動畫前加入一段短暫的時間延遲來改善，滑鼠快速地移過一個圖像而不停下來，不會有令人分心的動畫出現。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;img&#x27;</span>).bind(&#123;</span><br><span class="line">  mouseover: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).stop(<span class="literal">true</span>).delay(<span class="number">100</span>).fadeTo(<span class="number">300</span>, <span class="number">0.1</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  mouseout: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).stop(<span class="literal">true</span>).fadeTo(<span class="number">300</span>, <span class="number">1</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <tags>
+        <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第六章 - 遍歷 DOM</title>
+    <url>/2020/10/09/lesson-jq-07.animate/</url>
+    <content><![CDATA[<h1 id="撰寫中…"><a href="#撰寫中…" class="headerlink" title="撰寫中…"></a>撰寫中…</h1>]]></content>
       <tags>
         <tag>jQuery</tag>
       </tags>
