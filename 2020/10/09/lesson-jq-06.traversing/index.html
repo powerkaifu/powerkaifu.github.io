@@ -47,7 +47,7 @@
 <meta property="og:description" content="選擇器（Selectors）jQuery 的選擇器以 CSS 為規範，以最快速、便捷的方式選擇到元素，是 jQuery 的強項之一，並且自訂了許多屬於自己的偽類過濾器來擴展選擇，不過，這些偽類並不是 CSS 的規範，不能被 querySelectorAll 所獲取，因此在 3.4 不推薦使用，改由相對應的方法進行篩選。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-09T13:56:46.056Z">
-<meta property="article:modified_time" content="2020-10-11T22:29:55.383Z">
+<meta property="article:modified_time" content="2020-10-11T22:31:00.753Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-12 06:29:55" itemprop="dateModified" datetime="2020-10-12T06:29:55+08:00">2020-10-12</time>
+                <time title="修改時間：2020-10-12 06:31:00" itemprop="dateModified" datetime="2020-10-12T06:31:00+08:00">2020-10-12</time>
               </span>
 
           
@@ -320,53 +320,43 @@
 <thead>
 <tr>
 <th>與屬性有關的選擇器</th>
-<th>常用</th>
 <th>說明</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>元素[name]</td>
-<td></td>
 <td>有 name 屬性的元素</td>
 </tr>
 <tr>
 <td>元素[name = “value”]</td>
-<td></td>
 <td>name 屬性值為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name ~= “value”]</td>
-<td></td>
 <td>有多個 name 屬性，且其中一個的值為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name ^= “value”]</td>
-<td></td>
 <td>name 屬性值開頭為 value 的元素</td>
 </tr>
 <tr>
-<td>`元素[name</td>
-<td>= “value”]`</td>
+<td><code>元素[name = &quot;value&quot;]</code></td>
 <td>name 屬性值為 value 的元素，或屬性值開頭為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name *= “value”]</td>
-<td></td>
 <td>name 屬性值包含 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name $= “value”]</td>
-<td></td>
 <td>name 屬性值結尾為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name != “value”]</td>
-<td></td>
 <td>name 屬性值不為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name=”value”][name2=”value2”]</td>
-<td></td>
 <td>屬性值符合多項指定條件的元素</td>
 </tr>
 </tbody></table>

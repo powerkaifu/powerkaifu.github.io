@@ -280,53 +280,43 @@
 <thead>
 <tr>
 <th>與屬性有關的選擇器</th>
-<th>常用</th>
 <th>說明</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>元素[name]</td>
-<td></td>
 <td>有 name 屬性的元素</td>
 </tr>
 <tr>
 <td>元素[name = “value”]</td>
-<td></td>
 <td>name 屬性值為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name ~= “value”]</td>
-<td></td>
 <td>有多個 name 屬性，且其中一個的值為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name ^= “value”]</td>
-<td></td>
 <td>name 屬性值開頭為 value 的元素</td>
 </tr>
 <tr>
-<td>`元素[name</td>
-<td>= “value”]`</td>
+<td><code>元素[name = &quot;value&quot;]</code></td>
 <td>name 屬性值為 value 的元素，或屬性值開頭為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name *= “value”]</td>
-<td></td>
 <td>name 屬性值包含 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name $= “value”]</td>
-<td></td>
 <td>name 屬性值結尾為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name != “value”]</td>
-<td></td>
 <td>name 屬性值不為 value 的元素</td>
 </tr>
 <tr>
 <td>元素[name=”value”][name2=”value2”]</td>
-<td></td>
 <td>屬性值符合多項指定條件的元素</td>
 </tr>
 </tbody></table>
