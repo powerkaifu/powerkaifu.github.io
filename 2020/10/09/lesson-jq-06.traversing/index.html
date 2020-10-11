@@ -47,7 +47,7 @@
 <meta property="og:description" content="選擇器（Selectors）jQuery 的選擇器以 CSS 為規範，以最快速、便捷的方式選擇到元素，是 jQuery 的強項之一，並且自訂了許多屬於自己的偽類過濾器來擴展選擇，不過，這些偽類並不是 CSS 的規範，不能被 querySelectorAll 所獲取，因此在 3.4 不推薦使用，改由相對應的方法進行篩選。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-09T13:56:46.056Z">
-<meta property="article:modified_time" content="2020-10-11T22:31:21.559Z">
+<meta property="article:modified_time" content="2020-10-11T22:32:24.549Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-12 06:31:21" itemprop="dateModified" datetime="2020-10-12T06:31:21+08:00">2020-10-12</time>
+                <time title="修改時間：2020-10-12 06:32:24" itemprop="dateModified" datetime="2020-10-12T06:32:24+08:00">2020-10-12</time>
               </span>
 
           
@@ -535,7 +535,7 @@
 <td>顯示的元素</td>
 </tr>
 </tbody></table>
-<h1 id="遍歷（Traversing）"><a href="#遍歷（Traversing）" class="headerlink" title="遍歷（Traversing）"></a>遍歷（Traversing）</h1><p>jQuery 的優點，除了能快速抓取 DOM 元素，結合遍歷 DOM 去走訪 HTML 中的節點，讓 jQuery 在 DOM 控制上成為網站設計者的首選。我們可以先知道一份文件的最外層的結界是 document，而不是 html，document 再往外找就沒有東西了，就如同離開了世界，進入渾沌一片虛無。</p>
+<h1 id="遍歷（Traversing）"><a href="#遍歷（Traversing）" class="headerlink" title="遍歷（Traversing）"></a>遍歷（Traversing）</h1><p>jQuery 的優點，除了能快速抓取 DOM 元素，結合遍歷 DOM 去走訪 HTML 中的節點，讓 jQuery 在 DOM 控制上成為網站設計者的首選。一份文件的最外層的結界是 document，而不是 html，document 再往外找就沒有東西了，就如同離開了世界，進入渾沌一片虛無。</p>
 <h2 id="Filtering-過濾方法"><a href="#Filtering-過濾方法" class="headerlink" title="Filtering 過濾方法"></a>Filtering 過濾方法</h2><p>過濾方法是用來替代 jQuery 自訂義的偽類，因此會在 jQuery 文件裡面被這些很相似的玩意兒干擾，這些自訂義的偽類不是 CSS 標準規範，因此無法被原生 JavaScript 的 querySelectorAll()方法獲取，因此在 jQuery 3.4 已經不推薦使用，如果要選擇到它們，必須使用 .filter()，例如：.filter(‘:eq’)來獲取 :eq 偽類。不過，既然有相對應的過濾方法，我們可以直接使用這些方法。</p>
 <h3 id="eq-index"><a href="#eq-index" class="headerlink" title=".eq(index)"></a>.eq(index)</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，可以使用 .eq(index) 選擇該對象的索引編號的元素，index 從 0 開始。<strong>index 是負數時為從最後面開始選擇</strong>。</p>
 <ol>
