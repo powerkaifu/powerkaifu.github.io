@@ -47,7 +47,7 @@
 <meta property="og:description" content="事件處理事件處理是網頁互動行為很重要的核心，通常當一個事件發生時，會去呼叫一個事件處理程序（event handler）的回呼函式，也就是事件發生時要做的事情。jQuery 對事件有許多特別的貼心設定。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-07T10:37:24.740Z">
-<meta property="article:modified_time" content="2020-10-10T18:25:43.328Z">
+<meta property="article:modified_time" content="2020-10-11T21:02:14.818Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-11 02:25:43" itemprop="dateModified" datetime="2020-10-11T02:25:43+08:00">2020-10-11</time>
+                <time title="修改時間：2020-10-12 05:02:14" itemprop="dateModified" datetime="2020-10-12T05:02:14+08:00">2020-10-12</time>
               </span>
 
           
@@ -330,6 +330,177 @@
 <tr>
 <td>文　　　件</td>
 <td>load,unload,ready</td>
+</tr>
+</tbody></table>
+<h2 id="載入事件"><a href="#載入事件" class="headerlink" title="載入事件"></a>載入事件</h2><table>
+<thead>
+<tr>
+<th>名稱</th>
+<th>常用</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.ready()</td>
+<td></td>
+<td>DOM 載入完成後（不等待其他資源載入），ready 就觸發</td>
+</tr>
+</tbody></table>
+<h2 id="瀏覽器事件（Browser-Events）"><a href="#瀏覽器事件（Browser-Events）" class="headerlink" title="瀏覽器事件（Browser Events）"></a>瀏覽器事件（Browser Events）</h2><table>
+<thead>
+<tr>
+<th>與瀏覽器事件有關的設定</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.resize()</td>
+<td>設定瀏覽器視窗大小改變時執行的處理</td>
+</tr>
+<tr>
+<td>.scroll()</td>
+<td>設定瀏覽器視窗被捲動時執行的處理</td>
+</tr>
+</tbody></table>
+<h2 id="滑鼠事件（Mouse-Events）"><a href="#滑鼠事件（Mouse-Events）" class="headerlink" title="滑鼠事件（Mouse Events）"></a>滑鼠事件（Mouse Events）</h2><table>
+<thead>
+<tr>
+<th>與滑鼠動作有關的設定</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.click()</td>
+<td>設定元素被點擊時執行的處理</td>
+</tr>
+<tr>
+<td>.dblclick()</td>
+<td>設定元素被滑鼠雙擊時執行的處理</td>
+</tr>
+<tr>
+<td>.hover()</td>
+<td>設定元素移入、移出時執行的處理</td>
+</tr>
+<tr>
+<td>.mouseover()</td>
+<td>設定滑鼠停在元素上時執行的處理</td>
+</tr>
+<tr>
+<td>.mouseout()</td>
+<td>設定滑鼠移出元素上時執行的處理</td>
+</tr>
+<tr>
+<td>.mouseenter()</td>
+<td>設定滑鼠停在元素上時執行的處理 (包含範圍內的子元素)</td>
+</tr>
+<tr>
+<td>.mouseleave()</td>
+<td>設定滑鼠移出元素上時執行的處理 (包含範圍內的子元素)</td>
+</tr>
+<tr>
+<td>.mousedown()</td>
+<td>設定元素被按下時執行的處理</td>
+</tr>
+<tr>
+<td>.mousemove()</td>
+<td>設定滑鼠在元素上方移動時執行的處理</td>
+</tr>
+<tr>
+<td>.mouseup()</td>
+<td>設定滑鼠離開元素上方時執行的處理</td>
+</tr>
+</tbody></table>
+<p>##　表單事件（Form Events）</p>
+<table>
+<thead>
+<tr>
+<th>與表單事件有關的設定。</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.change()</td>
+<td>當表單元素內容改變時執行的處理</td>
+</tr>
+<tr>
+<td>.focus()</td>
+<td>當表單元素取得焦點時執行的處理</td>
+</tr>
+<tr>
+<td>.focusin()</td>
+<td>當表單元素取得焦點時執行的處理 (包含子元素)</td>
+</tr>
+<tr>
+<td>.blur()</td>
+<td>當焦點離開表單元素時執行的處理</td>
+</tr>
+<tr>
+<td>.focusout()</td>
+<td>當焦點離開表單元素時執行的處理 (包含子元素)</td>
+</tr>
+<tr>
+<td>.select()</td>
+<td>表單元素的值被選取時執行的處理</td>
+</tr>
+<tr>
+<td>.submit()</td>
+<td>送出表單資料時執行的處理</td>
+</tr>
+</tbody></table>
+<h2 id="鍵盤事件（Keyboard-Events）"><a href="#鍵盤事件（Keyboard-Events）" class="headerlink" title="鍵盤事件（Keyboard Events）"></a>鍵盤事件（Keyboard Events）</h2><table>
+<thead>
+<tr>
+<th>與鍵盤輸入有關的設定</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.keydown()</td>
+<td>按下鍵盤按鈕時執行的處理</td>
+</tr>
+<tr>
+<td>.keypress()</td>
+<td>鍵盤輸入時執行的處理</td>
+</tr>
+<tr>
+<td>.keyup()</td>
+<td>放開鍵盤按鈕時執行的處理</td>
+</tr>
+</tbody></table>
+<h2 id="事件處理程序附件（Events-Handler-Attachment）"><a href="#事件處理程序附件（Events-Handler-Attachment）" class="headerlink" title="事件處理程序附件（Events Handler Attachment）"></a>事件處理程序附件（Events Handler Attachment）</h2><table>
+<thead>
+<tr>
+<th>與事件控制器有關的設定</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.bind()</td>
+<td>棄用，與事件控制器綁在事件上</td>
+</tr>
+<tr>
+<td>.unbind()</td>
+<td>移除所選元素上的事件控制器</td>
+</tr>
+<tr>
+<td>.on()</td>
+<td>好用， 登入事件控制器</td>
+</tr>
+<tr>
+<td>.off()</td>
+<td>好用，移除事件控制器</td>
+</tr>
+<tr>
+<td>.one()</td>
+<td>登入只執行 1 次的事件控制器</td>
+</tr>
+<tr>
+<td>.trigger()</td>
+<td>觸發所選元素的事件控制器</td>
+</tr>
+<tr>
+<td>.triggerHandler()</td>
+<td>觸發所選元素的事件控制器 (將瀏覽器原有功能設為無效)</td>
 </tr>
 </tbody></table>
 <h1 id="事件應用"><a href="#事件應用" class="headerlink" title="事件應用"></a>事件應用</h1><h2 id="hover-事件"><a href="#hover-事件" class="headerlink" title="hover 事件"></a>hover 事件</h2><p>hover 是常使用的滑鼠事件，它是由 mouseenter 與 mouseleave 來實作，可由 e.type 確認，它可以傳入兩個匿名函式分別給 mouseenter 與 mouseleave 使用。如果只傳入一個引數給 hover()，那個函式會同時被用作 mouseenter 與 mouseleave 事件的處理器。</p>
@@ -469,8 +640,8 @@
       <i class="fa fa-chevron-left"></i> 第四章 - 元素的位置與大小
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/10/09/lesson-jq-06.traversing/" rel="next" title="第六章 - 遍歷 DOM">
-      第六章 - 遍歷 DOM <i class="fa fa-chevron-right"></i>
+    <a href="/2020/10/09/lesson-jq-06.traversing/" rel="next" title="第六章 - 選擇器與遍歷">
+      第六章 - 選擇器與遍歷 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -530,7 +701,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E8%99%95%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">事件處理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E8%A7%B8%E7%99%BC"><span class="nav-number">2.</span> <span class="nav-text">事件觸發</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BD%BF%E7%94%A8%E4%BA%8B%E4%BB%B6%E5%90%8D%E7%A8%B1%E7%9B%B4%E6%8E%A5%E8%A7%B8%E7%99%BC"><span class="nav-number">2.1.</span> <span class="nav-text">一、使用事件名稱直接觸發</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8-on-%E6%96%B9%E6%B3%95%E8%A7%B8%E7%99%BC"><span class="nav-number">2.2.</span> <span class="nav-text">二、使用 on()方法觸發</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E7%B6%81%E5%AE%9A"><span class="nav-number">2.2.1.</span> <span class="nav-text">直接綁定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A7%94%E6%B4%BE%E7%B6%81%E5%AE%9A"><span class="nav-number">2.2.2.</span> <span class="nav-text">委派綁定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%BA%8B%E4%BB%B6%E8%A7%B8%E7%99%BC"><span class="nav-number">2.2.3.</span> <span class="nav-text">多事件觸發</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E4%BA%8B%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">移除事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E9%A1%9E%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">事件類型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%87%89%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">事件應用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hover-%E4%BA%8B%E4%BB%B6"><span class="nav-number">5.1.</span> <span class="nav-text">hover 事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%89%A9%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">事件物件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#e-target"><span class="nav-number">6.1.</span> <span class="nav-text">e.target</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-currentTarget"><span class="nav-number">6.2.</span> <span class="nav-text">e.currentTarget</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-clientX%E3%80%81e-clientY"><span class="nav-number">6.3.</span> <span class="nav-text">e.clientX、e.clientY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-pageX%E3%80%81e-pageY"><span class="nav-number">6.4.</span> <span class="nav-text">e.pageX、e.pageY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-offsetX%E3%80%81e-offsetY"><span class="nav-number">6.5.</span> <span class="nav-text">e.offsetX、e.offsetY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-screenX%E3%80%81e-screenY"><span class="nav-number">6.6.</span> <span class="nav-text">e.screenX、e.screenY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-preventDefault"><span class="nav-number">6.7.</span> <span class="nav-text">e.preventDefault()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#event-stopPropagation"><span class="nav-number">6.8.</span> <span class="nav-text">event.stopPropagation()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%8D%B5%E7%9B%A4%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7"><span class="nav-number">6.9.</span> <span class="nav-text">鍵盤事件的事件物件屬性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E4%BA%8B%E4%BB%B6%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7"><span class="nav-number">6.10.</span> <span class="nav-text">其他事件物件屬性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%97%85%E8%A1%8C"><span class="nav-number">7.</span> <span class="nav-text">事件旅行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%8D%95%E7%8D%B2%EF%BC%88event-capturing%EF%BC%89"><span class="nav-number">7.1.</span> <span class="nav-text">事件捕獲（event capturing）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%EF%BC%88event-bubbling%EF%BC%89"><span class="nav-number">7.2.</span> <span class="nav-text">事件冒泡（event bubbling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E7%AF%84%E4%BE%8B"><span class="nav-number">7.3.</span> <span class="nav-text">事件冒泡範例</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E8%99%95%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">事件處理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E8%A7%B8%E7%99%BC"><span class="nav-number">2.</span> <span class="nav-text">事件觸發</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BD%BF%E7%94%A8%E4%BA%8B%E4%BB%B6%E5%90%8D%E7%A8%B1%E7%9B%B4%E6%8E%A5%E8%A7%B8%E7%99%BC"><span class="nav-number">2.1.</span> <span class="nav-text">一、使用事件名稱直接觸發</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8-on-%E6%96%B9%E6%B3%95%E8%A7%B8%E7%99%BC"><span class="nav-number">2.2.</span> <span class="nav-text">二、使用 on()方法觸發</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E7%B6%81%E5%AE%9A"><span class="nav-number">2.2.1.</span> <span class="nav-text">直接綁定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A7%94%E6%B4%BE%E7%B6%81%E5%AE%9A"><span class="nav-number">2.2.2.</span> <span class="nav-text">委派綁定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%BA%8B%E4%BB%B6%E8%A7%B8%E7%99%BC"><span class="nav-number">2.2.3.</span> <span class="nav-text">多事件觸發</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E4%BA%8B%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">移除事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E9%A1%9E%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">事件類型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BC%89%E5%85%A5%E4%BA%8B%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">載入事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E4%BA%8B%E4%BB%B6%EF%BC%88Browser-Events%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">瀏覽器事件（Browser Events）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%91%E9%BC%A0%E4%BA%8B%E4%BB%B6%EF%BC%88Mouse-Events%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">滑鼠事件（Mouse Events）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%8D%B5%E7%9B%A4%E4%BA%8B%E4%BB%B6%EF%BC%88Keyboard-Events%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">鍵盤事件（Keyboard Events）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E8%99%95%E7%90%86%E7%A8%8B%E5%BA%8F%E9%99%84%E4%BB%B6%EF%BC%88Events-Handler-Attachment%EF%BC%89"><span class="nav-number">4.5.</span> <span class="nav-text">事件處理程序附件（Events Handler Attachment）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%87%89%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">事件應用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hover-%E4%BA%8B%E4%BB%B6"><span class="nav-number">5.1.</span> <span class="nav-text">hover 事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%89%A9%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">事件物件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#e-target"><span class="nav-number">6.1.</span> <span class="nav-text">e.target</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-currentTarget"><span class="nav-number">6.2.</span> <span class="nav-text">e.currentTarget</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-clientX%E3%80%81e-clientY"><span class="nav-number">6.3.</span> <span class="nav-text">e.clientX、e.clientY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-pageX%E3%80%81e-pageY"><span class="nav-number">6.4.</span> <span class="nav-text">e.pageX、e.pageY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-offsetX%E3%80%81e-offsetY"><span class="nav-number">6.5.</span> <span class="nav-text">e.offsetX、e.offsetY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-screenX%E3%80%81e-screenY"><span class="nav-number">6.6.</span> <span class="nav-text">e.screenX、e.screenY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-preventDefault"><span class="nav-number">6.7.</span> <span class="nav-text">e.preventDefault()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#event-stopPropagation"><span class="nav-number">6.8.</span> <span class="nav-text">event.stopPropagation()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%8D%B5%E7%9B%A4%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7"><span class="nav-number">6.9.</span> <span class="nav-text">鍵盤事件的事件物件屬性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E4%BA%8B%E4%BB%B6%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7"><span class="nav-number">6.10.</span> <span class="nav-text">其他事件物件屬性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%97%85%E8%A1%8C"><span class="nav-number">7.</span> <span class="nav-text">事件旅行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%8D%95%E7%8D%B2%EF%BC%88event-capturing%EF%BC%89"><span class="nav-number">7.1.</span> <span class="nav-text">事件捕獲（event capturing）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%EF%BC%88event-bubbling%EF%BC%89"><span class="nav-number">7.2.</span> <span class="nav-text">事件冒泡（event bubbling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E7%AF%84%E4%BE%8B"><span class="nav-number">7.3.</span> <span class="nav-text">事件冒泡範例</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
