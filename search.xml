@@ -228,7 +228,7 @@
   <entry>
     <title>第六章 - 選擇器與遍歷</title>
     <url>/2020/10/09/lesson-jq-06.traversing/</url>
-    <content><![CDATA[<h1 id="選擇器（Selectors）"><a href="#選擇器（Selectors）" class="headerlink" title="選擇器（Selectors）"></a>選擇器（Selectors）</h1><p>jQuery 的選擇器以 CSS 為規範，以最快速、便捷的方式選擇到元素，這是 jQuery 的強項之一，並且自訂了許多屬於自己的偽類過濾器來擴展選擇，不過，這些偽類並不是 CSS 的規範，不能被 querySelectorAll 所獲取，因此在 3.4 不推薦使用，改由相對應的方法進行篩選。</p>
+    <content><![CDATA[<h1 id="選擇器（Selectors）"><a href="#選擇器（Selectors）" class="headerlink" title="選擇器（Selectors）"></a>選擇器（Selectors）</h1><p>jQuery 的選擇器以 CSS 為規範，以最快速、便捷的方式選擇到元素，是 jQuery 的強項之一，並且自訂了許多屬於自己的偽類過濾器來擴展選擇，不過，這些偽類並不是 CSS 的規範，不能被 querySelectorAll 所獲取，因此在 3.4 不推薦使用，改由相對應的方法進行篩選。</p>
 <a id="more"></a>
 
 <h2 id="基本選擇器"><a href="#基本選擇器" class="headerlink" title="基本選擇器"></a>基本選擇器</h2><p>CSS 基本選擇器：</p>
