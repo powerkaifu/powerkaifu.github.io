@@ -612,7 +612,29 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 選擇所有兒子</span></span><br><span class="line">$(<span class="string">&#x27;#menu&#x27;</span>).children().css(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"><span class="comment">// 選擇有 .c 兒子</span></span><br><span class="line">$(<span class="string">&#x27;#menu&#x27;</span>).children(<span class="string">&#x27;.c&#x27;</span>).css(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="雜項遍歷"><a href="#雜項遍歷" class="headerlink" title="雜項遍歷"></a>雜項遍歷</h2><h3 id="add"><a href="#add" class="headerlink" title=".add()"></a>.add()</h3><h3 id="addBack"><a href="#addBack" class="headerlink" title=".addBack()"></a>.addBack()</h3><h3 id="andSelf"><a href="#andSelf" class="headerlink" title=".andSelf()"></a>.andSelf()</h3><h3 id="contents"><a href="#contents" class="headerlink" title=".contents()"></a>.contents()</h3><h3 id="end"><a href="#end" class="headerlink" title=".end()"></a>.end()</h3>]]></content>
+<h2 id="雜項遍歷"><a href="#雜項遍歷" class="headerlink" title="雜項遍歷"></a>雜項遍歷</h2><h3 id="add"><a href="#add" class="headerlink" title=".add()"></a>.add()</h3><p>指定該對象 jQuery 物件集合後，可再增加新的選擇對象，一起設定接下來的動作。</p>
+<blockquote>
+<p>$(selector).add(selector)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;li&#x27;</span>).add(<span class="string">&#x27;p&#x27;</span>).css(<span class="string">&#x27;background-color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>$(selector).add(html)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;li&#x27;</span>).add(<span class="string">&quot;&lt;p id=&#x27;new&#x27;&gt;new paragraph&lt;/p&gt;&quot;</span>).css(<span class="string">&#x27;background-color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>$(selector).add(selection)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;li&#x27;</span>).add(<span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;p&#x27;</span>)).css(<span class="string">&#x27;background-color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;li&#x27;</span>).add($(<span class="string">&#x27;p&#x27;</span>)).css(<span class="string">&#x27;background-color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="addBack"><a href="#addBack" class="headerlink" title=".addBack()"></a>.addBack()</h3><p>指定該對象 jQuery 物件集合後，若遇到排除該選擇對象的方法，例如 nexAll()，它不會選擇到自己，該方法會選擇到自己之後的目標，此時可以使用 addBack() 再把自己加回去，一起建立一個 jQuery 物件。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#week li.selected&#x27;</span>).nextAll().addBack()</span><br></pre></td></tr></table></figure>
+
+<h3 id="contents"><a href="#contents" class="headerlink" title=".contents()"></a>.contents()</h3><p>指定該對象 jQuery 物件集合後，<strong>獲取裡面所有的子元素</strong>並存入 jQuery 物件陣列，包含 text 與 comment nodes。</p>
+<h3 id="andSelf"><a href="#andSelf" class="headerlink" title=".andSelf()"></a>.andSelf()</h3><p>此 API 已在 jQuery 3.0 中刪除；使用.addBack()代替。</p>
+<h3 id="end"><a href="#end" class="headerlink" title=".end()"></a>.end()</h3><p>當 jQuery 對象物件因為操作而被改變目標後，可利用 end()結束目前處理並回傳上一次所選的 jQuery 物件。</p>
+]]></content>
       <tags>
         <tag>jQuery</tag>
       </tags>
