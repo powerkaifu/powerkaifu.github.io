@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://powerkaifu.github.io/2020/10/12/lesson-jq-08-ajax/</loc>
+    
+    <lastmod>2020-10-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/2020/10/12/lesson-jq-09-utilities/</loc>
+    
+    <lastmod>2020-10-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/2020/10/09/lesson-jq-06.traversing/</loc>
     
     <lastmod>2020-10-12</lastmod>
