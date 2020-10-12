@@ -11,9 +11,10 @@
   <entry>
     <title>第八章 - AJAX</title>
     <url>/2020/10/12/lesson-jq-08-ajax/</url>
-    <content><![CDATA[<h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><p>在了解 AJAX 之前，先了解甚麼是同步，甚麼是非同步。</p>
-<h2 id="同步（Synchronous）"><a href="#同步（Synchronous）" class="headerlink" title="同步（Synchronous）"></a>同步（Synchronous）</h2><p>在瀏覽器處理 script 標籤時，傳統上會先停止頁面其他內容的處理，直到程式碼均載入且處理完成為止。這樣的模式稱為「同步處理模型」（synchronous processing model）。換句話說，也就是等我做完，你才能進行。因此，當頁面正進行載入時，若程式需要自伺服器要求資料，瀏覽器不只需要等待程式的載入和執行，還需要等待伺服器回傳程式需呈現資料的時間。</p>
+    <content><![CDATA[<h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><h2 id="同步（Synchronous）"><a href="#同步（Synchronous）" class="headerlink" title="同步（Synchronous）"></a>同步（Synchronous）</h2><p>在瀏覽器處理 script 標籤時，傳統上會先停止頁面其他內容的處理，直到程式碼均載入且處理完成為止。這樣的模式稱為「同步處理模型」（synchronous processing model）。換句話說，也就是等我做完，你才能進行。因此，當頁面正進行載入時，若程式需要自伺服器要求資料，瀏覽器不只需要等待程式的載入和執行，還需要等待伺服器回傳程式需呈現資料的時間。</p>
 <h2 id="非同步（Asynchronous）"><a href="#非同步（Asynchronous）" class="headerlink" title="非同步（Asynchronous）"></a>非同步（Asynchronous）</h2><p>瀏覽器能夠自伺服器要求資料，一旦送出資料請求，也同時可以載入頁面裡的其他內容，並同時處理使用者於頁面的互動操作。這樣同時進行的模式稱為非同步處理模型（Asynchronous processing model）。<br>AJAX 的 A 指的就是非同步（Asynchronous）。</p>
+<a id="more"></a>
+
 <h2 id="所以甚麼是-AJAX？"><a href="#所以甚麼是-AJAX？" class="headerlink" title="所以甚麼是 AJAX？"></a>所以甚麼是 AJAX？</h2><p>AJAX，Asynchronous Javascript and XML (非同步的 Javasccript 與 XML 技術)，在這些技術結合下，<strong>它是一個可載入資料至部份頁面區段中，而不需要重新整理整個頁面的技術</strong>。使用 AJAX 技術，換句話說，可以節省等待資料的時間，各做各的。</p>
 <p>在傳統上，頁面載入完成，若想要更新瀏覽器視窗內的資訊讓使用者瀏覽，會需要重新整理整個頁面，這代表使用者必須等待新的頁面內容下載，並等待瀏覽器繪製完成。若使用 AJAX 技術，如果只需要更新一部分的頁面內容（因為使用者操作的只是部分），就可以只變更包含該部分內容的元素即可。也就是資料正進行載入時，使用者仍然可以繼續與頁面其他內容進行互動。接著，當伺服器回應後，一個特殊的 AJAX 事件將會觸發接收伺服器回應資料的程式，並僅更新頁面的部份資訊。因為不需要重新載入整個頁面，資料載入便會更快速，且使用這在等待資料下載的同時仍可與頁面互動。</p>
 <p>藉由 AJAX 技術，頁面與 API 只會向伺服器要求它們真正需要的東西，也就是<strong>頁面上需要改變的部分，以及伺服器必須提供資料的部分</strong>。這表示較少的傳輸量，較少的更新以及較少的頁面重整的等待時間。傳輸資料目前以 JSON 結構格式為主流，在伺服器與瀏覽器之間進行資料的傳遞，而且不會干擾到使用者的操作，使用者可以在瀏覽器等待資料載入時，仍可以繼續進行其他操作，讓操作更為順暢。</p>

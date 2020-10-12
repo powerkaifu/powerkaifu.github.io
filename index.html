@@ -310,7 +310,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-13 05:34:13" itemprop="dateModified" datetime="2020-10-13T05:34:13+08:00">2020-10-13</time>
+                <time title="修改時間：2020-10-13 05:48:52" itemprop="dateModified" datetime="2020-10-13T05:48:52+08:00">2020-10-13</time>
               </span>
 
           
@@ -324,170 +324,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><p>在了解 AJAX 之前，先了解甚麼是同步，甚麼是非同步。</p>
-<h2 id="同步（Synchronous）"><a href="#同步（Synchronous）" class="headerlink" title="同步（Synchronous）"></a>同步（Synchronous）</h2><p>在瀏覽器處理 script 標籤時，傳統上會先停止頁面其他內容的處理，直到程式碼均載入且處理完成為止。這樣的模式稱為「同步處理模型」（synchronous processing model）。換句話說，也就是等我做完，你才能進行。因此，當頁面正進行載入時，若程式需要自伺服器要求資料，瀏覽器不只需要等待程式的載入和執行，還需要等待伺服器回傳程式需呈現資料的時間。</p>
+          <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><h2 id="同步（Synchronous）"><a href="#同步（Synchronous）" class="headerlink" title="同步（Synchronous）"></a>同步（Synchronous）</h2><p>在瀏覽器處理 script 標籤時，傳統上會先停止頁面其他內容的處理，直到程式碼均載入且處理完成為止。這樣的模式稱為「同步處理模型」（synchronous processing model）。換句話說，也就是等我做完，你才能進行。因此，當頁面正進行載入時，若程式需要自伺服器要求資料，瀏覽器不只需要等待程式的載入和執行，還需要等待伺服器回傳程式需呈現資料的時間。</p>
 <h2 id="非同步（Asynchronous）"><a href="#非同步（Asynchronous）" class="headerlink" title="非同步（Asynchronous）"></a>非同步（Asynchronous）</h2><p>瀏覽器能夠自伺服器要求資料，一旦送出資料請求，也同時可以載入頁面裡的其他內容，並同時處理使用者於頁面的互動操作。這樣同時進行的模式稱為非同步處理模型（Asynchronous processing model）。<br>AJAX 的 A 指的就是非同步（Asynchronous）。</p>
-<h2 id="所以甚麼是-AJAX？"><a href="#所以甚麼是-AJAX？" class="headerlink" title="所以甚麼是 AJAX？"></a>所以甚麼是 AJAX？</h2><p>AJAX，Asynchronous Javascript and XML (非同步的 Javasccript 與 XML 技術)，在這些技術結合下，<strong>它是一個可載入資料至部份頁面區段中，而不需要重新整理整個頁面的技術</strong>。使用 AJAX 技術，換句話說，可以節省等待資料的時間，各做各的。</p>
-<p>在傳統上，頁面載入完成，若想要更新瀏覽器視窗內的資訊讓使用者瀏覽，會需要重新整理整個頁面，這代表使用者必須等待新的頁面內容下載，並等待瀏覽器繪製完成。若使用 AJAX 技術，如果只需要更新一部分的頁面內容（因為使用者操作的只是部分），就可以只變更包含該部分內容的元素即可。也就是資料正進行載入時，使用者仍然可以繼續與頁面其他內容進行互動。接著，當伺服器回應後，一個特殊的 AJAX 事件將會觸發接收伺服器回應資料的程式，並僅更新頁面的部份資訊。因為不需要重新載入整個頁面，資料載入便會更快速，且使用這在等待資料下載的同時仍可與頁面互動。</p>
-<p>藉由 AJAX 技術，頁面與 API 只會向伺服器要求它們真正需要的東西，也就是<strong>頁面上需要改變的部分，以及伺服器必須提供資料的部分</strong>。這表示較少的傳輸量，較少的更新以及較少的頁面重整的等待時間。傳輸資料目前以 JSON 結構格式為主流，在伺服器與瀏覽器之間進行資料的傳遞，而且不會干擾到使用者的操作，使用者可以在瀏覽器等待資料載入時，仍可以繼續進行其他操作，讓操作更為順暢。</p>
-<h1 id="AJAX-名詞解釋"><a href="#AJAX-名詞解釋" class="headerlink" title="AJAX 名詞解釋"></a>AJAX 名詞解釋</h1><ul>
-<li><p>A</p>
-<p>AJAX 的 A 是 Asynchronous（非同步），指的是 Javascript 對伺服器提供請求，使用者仍然可透過輸入網頁表單、點擊按鈕與頁面互動，這互動所有一切都發在 Web 伺服器仍在執行。當伺服器完成工作時，程式碼可以只更新頁面上有發生改變的部分。使用者做自己的事情，資料也做自己的事情，不需要等待資料回傳的時間而在哪邊空等，這就是非同步請求。</p>
-</li>
-<li><p>J</p>
-<p>AJAX 的 J 是「Javascript」，用來建立可以被嵌入或包含在 HTML 文件裡以及與 DOM 互動的函式。將新的內容載入至頁面部分區段中的能力，可改善使用者的操作經驗，因為若頁面只有少部分資訊需要更新，使用者就不需要再等待整個頁面的重新載入。（一頁式頁面因此崛起）。</p>
-</li>
-<li><p>A</p>
-<p>AJAX 的 J 與 X 中間的 a 是「And」，BJ4。</p>
-</li>
-<li><p>X</p>
-<p>AJAX 的 X 是「XML」（eXtensible Markup Language）擴充標記語言，一種儲存資訊的規格（在 JSON 出現前），也是一種描述資訊結構的規格。雖然 XML 是標記語言（就像 HTML），可說是兩兄弟，但是 XML 沒有自己的標籤，但它允許撰寫 XML 的人建立自己需要的標籤。XML 被用來格式化資料以利傳輸。而 HTML 被用來標記結構與內容。</p>
-</li>
-</ul>
-<h1 id="jQuery-的-ajax-方法"><a href="#jQuery-的-ajax-方法" class="headerlink" title="jQuery 的 $.ajax() 方法"></a>jQuery 的 $.ajax() 方法</h1><p>$.ajax()方法是 jQuery 最完整的 AJAX 方法，所有 jQuery 的 AJAX 快捷方法，都可以使用它做到，它允許在發送 AJAX 請求時，有更多精細的控制及調整。並搭配不同的控制設定以達成目的。它提供<strong>非常多，超級多</strong>的設定允許我們控制 AJAX，也是整個程式庫中最為複雜的函式。但使用它很簡單，一般比較直覺是傳入一個選項物件，此物件屬性可以設定 AJAX 所有細節。</p>
-<blockquote>
-<p>$.ajax( PlainObject_settings )</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">jQuery.ajax(&#123;</span><br><span class="line">  url: url, <span class="comment">// API位置，要擷取資料的 URL</span></span><br><span class="line">  type: <span class="string">&#x27;get&#x27;</span>, <span class="comment">// HTTP 請求方法</span></span><br><span class="line">  dataType: <span class="string">&#x27;json&#x27;</span>, <span class="comment">// 預期從伺服器回傳的資料型別</span></span><br><span class="line">  data: &#123;<span class="attr">a</span>: <span class="number">123</span>&#125;, <span class="comment">// 傳甚麼資料過去 Object、String、Array</span></span><br><span class="line">  cache: <span class="literal">false</span>, <span class="comment">//暫存(cache)在本地，以減少對伺服器的呼叫。</span></span><br><span class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 完成時呼叫這個函式</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="選項物件的屬性設定"><a href="#選項物件的屬性設定" class="headerlink" title="選項物件的屬性設定"></a>選項物件的屬性設定</h1><h2 id="url"><a href="#url" class="headerlink" title="url"></a>url</h2><p>類型：String<br>預設：目前頁面<br>API 位置，要擷取資料的 URL，對 GET 請求而言，data 屬性傳送資料會被附加到這個 URL。</p>
-<h2 id="type"><a href="#type" class="headerlink" title="type"></a>type</h2><p>類型：String<br>預設：’get’<br>http 請求方法，預設為’get’，其他常用請求方法為 post，請求方法有非常多種，請參考<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Methods">MDN</a>。</p>
-<h2 id="dataType"><a href="#dataType" class="headerlink" title="dataType"></a>dataType</h2><p>類型：String<br>預設：Intelligent Guess（自動判斷）</p>
-<p>預期伺服器回傳的資料型別。如果不指定，jQuery 將自動根據 HTTP 包 MIME 資訊返回 responseXML 或 responseText，比如 XML MIME 類型就被識別為 XML，並作為回呼函式引數傳遞。</p>
-<table>
-<thead>
-<tr>
-<th>資料類型</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>“text”</td>
-<td>回傳純文本字串，不做處理。</td>
-</tr>
-<tr>
-<td>“html”</td>
-<td>此類型就像 text 回應為純文字。load()方法使用這個類型，並將回傳的文字插入到文件本身。</td>
-</tr>
-<tr>
-<td>“xml”</td>
-<td>回傳 XML 文檔，可用 jQuery 的選擇器來遍歷處理。</td>
-</tr>
-<tr>
-<td>“script”</td>
-<td>把響應的結果當作 JavaScript 執行。並將其當作純文本回傳。</td>
-</tr>
-<tr>
-<td>“json”</td>
-<td>回傳 JSON 格式的資料。傳入 callback 的值是使用 jQuery.parseJSON()解析 URL 內容後所獲得物件。</td>
-</tr>
-<tr>
-<td>“jsonp”</td>
-<td>以 JSONP 的方式載入 JSON。</td>
-</tr>
-</tbody></table>
-<h2 id="data"><a href="#data" class="headerlink" title="data"></a>data</h2><p>類型：PlainObject or String or Array</p>
-<p>傳送到伺服器端的資料，將自動轉換為請求字串格式。GET 請求會附加在 URL 後。檢視 processData 屬性說明以禁止此自動轉換。 data 必須為 Key/Value 格式。如果為陣列，jQuery 將自動為不同值對應同一個名稱，如 {foo:[“bar1”, “bar2”]} 轉換為’&amp;foo=bar1&amp;foo=bar2’。要附加到 URL 中（GET 請求）或是要放在請求主體中送出（POST 請求）的資料，這可以是個字串或一個物件。<strong>物件通常會被轉為字串</strong>。</p>
-<h1 id="選項物件的回呼函式"><a href="#選項物件的回呼函式" class="headerlink" title="選項物件的回呼函式"></a>選項物件的回呼函式</h1><p>$.ajax() 提供了幾個時機使用的回呼函式。</p>
-<h2 id="success"><a href="#success" class="headerlink" title="success"></a>success</h2><p>類型：function(Object data,String textStatus,jqXHR)</p>
-<p>當 AJAX 請求成功去取得回應後，須執行的回呼函式。<br>第一個引數是由伺服器送出的資料，類型取決於 dataType 選項或伺服器回應的 Content-Type 選項。如果類型為”xml”，第一個引數就會是個 Document 物件。<br>第二個引數是 jQuery 狀態碼。<br>第三個引數是用以發出請求的 XMLHttpRequest 物件。</p>
-<p>如果類型是 “json”或”jsonp”，第一個就是解析自伺服器的 JSON 格式回應的物件。<br>如果類型為”script”，回應就是已載入的指令碼的文字（不過屆時該指令搞已經被執行過了，在這個情況中回應通常可被忽略）。<br>對其他類型而言，回應單純就是所請求資源的文字。第二個引數狀態碼通常是字串”success”，如果已設定 ifModified 選項，這個引數可能會是”notmodified”。在這個情況下，伺服器不會送出回應，而第一個引數會是 undefined。”script”與”jsonp”類型的跨網域請求是透過 script 元素是非 XMLHttpRequest 來進行，因此對這些請求而言，第三個引數會是 undefined。</p>
-<h2 id="error"><a href="#error" class="headerlink" title="error"></a>error</h2><p>類型：function(jqXHR, String textStatus, String errorThrown)</p>
-<p>當 AJAX 請求發生錯誤後，須執行的回函式，可能 HTTP 錯誤或其他因素。要找到更多資訊，可檢查 XMLHttpRequest 物件中的 HTTP 狀態碼，它可以傳入三個參數。</p>
-<p>第一個引數是該請求的 XMLHttpRequest 物件（若是它有使用的話）。<br>第二個引數是 jQuery 狀態碼。對 HTTP 錯誤來說會是”error”，逾時則是”timeout”，而解析伺服器回應時發生的錯誤則是”parsererror”。<br>舉例來說，如果一份 XML 文件或是一個 JSON 物件的格式不正確，狀態碼就會是”parsererror”。在這種情況下，error callback 的第三個引數會是擲出的 error 物件。</p>
-<div class="admonition warning"><p>注意 dataType 為 &quot;script&quot; 的請求傳回不正確的 JavaScript 程式碼時並不會導致錯誤。指令碼中任何的錯誤都會被無聲地忽略掉。而被呼叫的會是 success callback 而非 error callback。</p>
-</div>
-
-<h2 id="complete"><a href="#complete" class="headerlink" title="complete"></a>complete</h2><p>類型：function(jqXHR,textStatus)</p>
-<p>不管成功或錯誤，只要請求完成就執行的回呼函式，請求 success 和 error 之後都會呼叫。此函式有 2 個參數，「jqXHR 物件」以及「包含成功或錯誤代碼的字串」。</p>
-<h1 id="jqXHR-物件"><a href="#jqXHR-物件" class="headerlink" title="jqXHR 物件"></a>jqXHR 物件</h1><p>在 jQuery 1.5 版後，所有 jQuery 的 AJAX 方法 ($.get, $.post, $.ajax, …) 都會回傳一個 jqXHR 物件，jqXHR 是 XMLHTTPRequest 的超集合 (superset)，紀錄了需要指定資料後續處理的方式，以較簡單的方式處理遠端伺服器所回傳的資料。</p>
-<table>
-<thead>
-<tr>
-<th>jqXHR 特性</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>responseText</td>
-<td>回傳以文字為基礎的資料</td>
-</tr>
-<tr>
-<td>responseXML</td>
-<td>回傳 XML 資料</td>
-</tr>
-<tr>
-<td>status</td>
-<td>狀態碼</td>
-</tr>
-<tr>
-<td>statusText</td>
-<td>狀態碼說明（通常用於發生錯誤時，顯示錯誤相關資訊以利偵錯）</td>
-</tr>
-<tr>
-<td>readyState</td>
-<td></td>
-</tr>
-<tr>
-<td>setRequestHeader(name, value)</td>
-<td>通過替換舊的值為新的值，而不是替換的新值到舊值</td>
-</tr>
-<tr>
-<td>getAllResponseHeaders()</td>
-<td></td>
-</tr>
-<tr>
-<td>getResponseHeader()</td>
-<td></td>
-</tr>
-<tr>
-<td>abort()</td>
-<td></td>
-</tr>
-</tbody></table>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> jqXHR = $.get(<span class="string">&#x27;https://kktix.com/events.json&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(jqXHR)</span><br></pre></td></tr></table></figure>
-
-<p>jqXHR 同時實作了 Promise 的介面 (interface)，讓我們可以更方便操作非同步的 AJAX 請求。它擁有了 Promise 的所有屬性、方法和行為，就可以利用 .done()、.fail()、.always()、.then()這些方法，更方便進行串接 (chaining)：</p>
-<table>
-<thead>
-<tr>
-<th>jqXHR 方法</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>.done()</td>
-<td>當資料請求成功時，須執行的程式區段，替代了過去的.success()</td>
-</tr>
-<tr>
-<td>.fail()</td>
-<td>當資料請求失敗時，須執行的程式區段，替代了過去的.error()</td>
-</tr>
-<tr>
-<td>.always()</td>
-<td>不管資料請求成功或失敗時，都會執行的程式區段，替代了過去的.complet()</td>
-</tr>
-<tr>
-<td>.then()</td>
-<td>兩個 Callback Functoin 參數，請求成功執行第一個 CB，請求失敗執行第二個 CB</td>
-</tr>
-</tbody></table>
-<div class="admonition warning"><p>jqXHR.success()、jqXHR.error()和 jqXHR.complete()從 jQuery 3.0 移除。請使用 jqXHR.done(), jqXHR.fail(),和 jqXHR.always()代替。</p>
-</div>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// jqXHR 可以串接多個處理函式</span></span><br><span class="line"><span class="comment">// 並把函式返回的 jqXHR 存回 jqxhr 變數</span></span><br><span class="line"><span class="keyword">let</span> jqxhr = $.ajax(<span class="string">&#x27;example.php&#x27;</span>)</span><br><span class="line">  .done(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;成功&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .fail(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;失敗&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;結束&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// .done() .fail() .always() .then() 都可以重複 call 很多次</span></span><br><span class="line"><span class="comment">// 所有 callback 都會依序的執行</span></span><br><span class="line">jqxhr.always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">&#x27;結束 part 2&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="Deferred-物件"><a href="#Deferred-物件" class="headerlink" title="Deferred 物件"></a>Deferred 物件</h1><p>Deferred 物件是 jQuery 的 Promise。<a target="_blank" rel="noopener" href="https://api.jquery.com/category/deferred-object/">參考官網</a>。</p>
-<h2 id="使用-callback-達到同步"><a href="#使用-callback-達到同步" class="headerlink" title="使用 callback 達到同步"></a>使用 callback 達到同步</h2><p>難以閱讀，且很容易進入回呼地獄。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// callback</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    callback()</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">third</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">first()</span><br><span class="line">second(third)</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-Deferred-promise"><a href="#使用-Deferred-promise" class="headerlink" title="使用 Deferred (promise)"></a>使用 Deferred (promise)</h2><p>jQuery 的 $.Deferred()物件，其實就是在處理 promise，將非同步變成同步。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 使用 $.Deferred() 物件</span></span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  <span class="comment">// resolve 或 reject</span></span><br><span class="line">  def.resolve(<span class="string">&#x27;第一個完成&#x27;</span>)</span><br><span class="line">  <span class="comment">// def.reject(&#x27;第一個失敗&#x27;)</span></span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 接收第一個函式的參數</span></span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    <span class="comment">// resolve 或 reject</span></span><br><span class="line">    def.resolve(<span class="string">&#x27;第二個完成&#x27;</span>)</span><br><span class="line">    <span class="comment">// 可以傳出錯誤的訊息，不一定是字串，可以為任何資料型態</span></span><br><span class="line">    <span class="comment">// def.reject(&#x27;第二個錯誤&#x27;)</span></span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">third</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">  <span class="comment">// resolve 或 reject</span></span><br><span class="line">  def.resolve(<span class="string">&#x27;最後一個步驟完成&#x27;</span>)</span><br><span class="line">  <span class="comment">// def.reject(&#x27;最後一個步驟失敗&#x27;)</span></span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 呼叫</span></span><br><span class="line">first()</span><br><span class="line">  .then(second)</span><br><span class="line">  .then(third)</span><br><span class="line">  .then(</span><br><span class="line">    <span class="comment">// 成功</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">ok</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(ok)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 失敗</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
-
-<h1 id="AJAX-與-Deferred"><a href="#AJAX-與-Deferred" class="headerlink" title="AJAX 與 Deferred"></a>AJAX 與 Deferred</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// jQuery 的 Deferred() 就是在處理 promise</span></span><br><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">first</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 使用 $.Deferred() 物件</span></span><br><span class="line">    <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    <span class="comment">// resolve 或 reject</span></span><br><span class="line">    def.resolve(<span class="string">&#x27;第一個完成&#x27;</span>)</span><br><span class="line">    <span class="comment">// def.reject(&#x27;第一個失敗&#x27;)</span></span><br><span class="line">    <span class="keyword">return</span> def.promise()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="comment">// ajax(&#123;url,type,dataType,data,successCallback&#125;)</span></span><br><span class="line">    <span class="comment">// API位置，呼叫方式，回傳資料類型，傳過去的資料</span></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      url: <span class="string">&#x27;./data.json&#x27;</span>,</span><br><span class="line">      type: <span class="string">&#x27;get&#x27;</span>, <span class="comment">// method： get,post,put,path,delete</span></span><br><span class="line">      dataType: <span class="string">&#x27;json&#x27;</span>, <span class="comment">// 資料格式：json,html,xml,text,jsonp（alex不怎麼愛）</span></span><br><span class="line">      data: &#123;<span class="attr">a</span>: <span class="string">&#x27;123&#x27;</span>&#125;, <span class="comment">// 傳甚麼東西過去，Object、String、Array</span></span><br><span class="line">    &#125;).then(</span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// response 回應 &lt;-&gt; request 要求</span></span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">        <span class="keyword">return</span> def.resolve(res)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">        <span class="keyword">return</span> def.reject(err)</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> def.promise()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">third</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">    <span class="comment">// resolve 或 reject</span></span><br><span class="line">    def.resolve(<span class="string">&#x27;最後一個步驟完成&#x27;</span>)</span><br><span class="line">    <span class="comment">// def.reject(&#x27;最後一個步驟失敗&#x27;)</span></span><br><span class="line">    <span class="keyword">return</span> def.promise()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 呼叫</span></span><br><span class="line">  first()</span><br><span class="line">    .then(second)</span><br><span class="line">    .then(third)</span><br><span class="line">    .then(</span><br><span class="line">      <span class="comment">// 成功</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">ok</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(ok)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 失敗</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-
-<h1 id="狀態碼"><a href="#狀態碼" class="headerlink" title="狀態碼"></a>狀態碼</h1><p><a target="_blank" rel="noopener" href="https://blog.poychang.net/http-status-code/">狀態碼參考</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/12/lesson-jq-08-ajax/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
