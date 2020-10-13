@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>第九章 - 通用工具</title>
-    <url>/2020/10/12/lesson-jq-09-utilities/</url>
-    <content><![CDATA[<h1 id="建置中"><a href="#建置中" class="headerlink" title="建置中"></a>建置中</h1>]]></content>
+    <title>CSS - 彈性盒</title>
+    <url>/2020/10/14/lesson-css-11.flexbox/</url>
+    <content><![CDATA[]]></content>
       <tags>
-        <tag>jQuery</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -88,7 +88,12 @@
 
 <h2 id="complete"><a href="#complete" class="headerlink" title="complete"></a>complete</h2><p>類型：function(jqXHR,textStatus)</p>
 <p>不管成功或錯誤，只要請求完成就執行的回呼函式，請求 success 和 error 之後都會呼叫。此函式有 2 個參數，「jqXHR 物件」以及「包含成功或錯誤代碼的字串」。</p>
-<h1 id="jqXHR-物件"><a href="#jqXHR-物件" class="headerlink" title="jqXHR 物件"></a>jqXHR 物件</h1><p>在 jQuery 1.5 版後，所有 jQuery 的 AJAX 方法 ($.get, $.post, $.ajax, …) 都會回傳一個 jqXHR 物件，jqXHR 是 XMLHTTPRequest 的超集合 (superset)，紀錄了需要指定資料後續處理的方式，以較簡單的方式處理遠端伺服器所回傳的資料。</p>
+<h1 id="jqXHR-物件"><a href="#jqXHR-物件" class="headerlink" title="jqXHR 物件"></a>jqXHR 物件</h1><p>甚麼是 jqXHR 物件？直接用開發者工具瀏覽。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> jqXHR = $.get(<span class="string">&#x27;https://kktix.com/events.json&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(jqXHR)</span><br></pre></td></tr></table></figure>
+
+<img data-src="/images/jquery/jq-08-jqXHR.jpg" width="700">
+
+<p>在 jQuery 1.5 版後，所有 jQuery 的 AJAX 方法 ($.get, $.post, $.ajax, …) 都會回傳一個 jqXHR 物件，jqXHR 是 XMLHTTPRequest 的超集合 (superset)，紀錄了需要指定資料後續處理的方式，以較簡單的方式處理遠端伺服器所回傳的資料。</p>
 <table>
 <thead>
 <tr>
@@ -97,16 +102,20 @@
 </tr>
 </thead>
 <tbody><tr>
+<td>responseJSON</td>
+<td></td>
+</tr>
+<tr>
 <td>responseText</td>
 <td>回傳以文字為基礎的資料</td>
 </tr>
 <tr>
-<td>responseXML</td>
-<td>回傳 XML 資料</td>
-</tr>
-<tr>
 <td>status</td>
 <td>狀態碼</td>
+</tr>
+<tr>
+<td>statusCode</td>
+<td></td>
 </tr>
 <tr>
 <td>statusText</td>
@@ -133,9 +142,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> jqXHR = $.get(<span class="string">&#x27;https://kktix.com/events.json&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(jqXHR)</span><br></pre></td></tr></table></figure>
-
-<p>jqXHR 同時實作了 Promise 的介面 (interface)，讓我們可以更方便操作非同步的 AJAX 請求。它擁有了 Promise 的所有屬性、方法和行為，就可以利用 .done()、.fail()、.always()、.then()這些方法，更方便進行串接 (chaining)：</p>
+<p>另外，從上圖可以知道，jqXHR 同時實作了 Promise 的介面 (interface)，讓我們可以更方便操作非同步的 AJAX 請求。它擁有了 deferred 物件的方法，因此可以使用 .done()、.fail()、.always()、.then()這些方法，更方便進行串接 (chaining)：</p>
 <table>
 <thead>
 <tr>
@@ -152,12 +159,16 @@
 <td>當資料請求失敗時，須執行的程式區段，替代了過去的.error()</td>
 </tr>
 <tr>
-<td>.always()</td>
-<td>不管資料請求成功或失敗時，都會執行的程式區段，替代了過去的.complet()</td>
-</tr>
-<tr>
 <td>.then()</td>
 <td>兩個 Callback Functoin 參數，請求成功執行第一個 CB，請求失敗執行第二個 CB</td>
+</tr>
+<tr>
+<td>.catch()</td>
+<td></td>
+</tr>
+<tr>
+<td>.always()</td>
+<td>不管資料請求成功或失敗時，都會執行的程式區段，替代了過去的.complet()</td>
 </tr>
 </tbody></table>
 <div class="admonition warning"><p>jqXHR.success()、jqXHR.error()和 jqXHR.complete()從 jQuery 3.0 移除。請使用 jqXHR.done(), jqXHR.fail(),和 jqXHR.always()代替。</p>
@@ -165,12 +176,170 @@
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// jqXHR 可以串接多個處理函式</span></span><br><span class="line"><span class="comment">// 並把函式返回的 jqXHR 存回 jqxhr 變數</span></span><br><span class="line"><span class="keyword">let</span> jqxhr = $.ajax(<span class="string">&#x27;example.php&#x27;</span>)</span><br><span class="line">  .done(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;成功&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .fail(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;失敗&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;結束&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// .done() .fail() .always() .then() 都可以重複 call 很多次</span></span><br><span class="line"><span class="comment">// 所有 callback 都會依序的執行</span></span><br><span class="line">jqxhr.always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">&#x27;結束 part 2&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h1 id="Deferred-物件"><a href="#Deferred-物件" class="headerlink" title="Deferred 物件"></a>Deferred 物件</h1><p>Deferred 物件是 jQuery 的 Promise。<a href="https://api.jquery.com/category/deferred-object/">參考官網</a>。</p>
-<h2 id="使用-callback-達到同步"><a href="#使用-callback-達到同步" class="headerlink" title="使用 callback 達到同步"></a>使用 callback 達到同步</h2><p>難以閱讀，且很容易進入回呼地獄。</p>
+<h1 id="Deferred-物件"><a href="#Deferred-物件" class="headerlink" title="Deferred 物件"></a>Deferred 物件</h1><p>jQuery 的 Promise 是 Deferred 物件，Deferred 物件遵循 CommonJS Promises/A 設計規範，可以將非同步轉變為同步的操作。<a href="https://api.jquery.com/category/deferred-object/">參考官網</a>。</p>
+<h2 id="創建-Deferred-物件"><a href="#創建-Deferred-物件" class="headerlink" title="創建 Deferred 物件"></a>創建 Deferred 物件</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$.Deferred（）</td>
+<td>建立一個新的 Deferred 物件</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> def = $.Deferred() <span class="comment">// 建立一個 Deferred 物件</span></span><br><span class="line"><span class="built_in">console</span>.log(def) <span class="comment">// 打印出來看看</span></span><br></pre></td></tr></table></figure>
+
+<p>打印出來可以一覽 deferred 物件的全貌，它提供了操作 Promise 時熟悉的方法 done()、fail()、then()等，以及資料處理狀態成功 resolve()或失敗 reject()。</p>
+<img data-src="/images/jquery/jq-08-deferred.jpg" width="700">
+
+<h2 id="Deferred-的狀態"><a href="#Deferred-的狀態" class="headerlink" title="Deferred 的狀態"></a>Deferred 的狀態</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deferred.resolve(arg)</td>
+<td>狀態成功要傳遞的資料</td>
+</tr>
+<tr>
+<td>deferred.reject(arg)</td>
+<td>狀態失敗要傳遞的資料</td>
+</tr>
+<tr>
+<td>deferred.promise()</td>
+<td>回傳狀態資料</td>
+</tr>
+</tbody></table>
+<p>jQuery 的 deferred 物件本身有 resolve()、reject() 方法，可以直接呼叫使用，規範中的 promise 則必須要傳入 resolve、reject 參數，這是它們的不同點，另外，遵循 promise 規範，resolve 與 reject 只能活一個，就像告白一樣，要不就解決，要不就被拒絕。並且提供了 promise()方法，此方法會確實回傳 resolve() 或 reject() 狀態的資料，避免被其他方法修改，這是一種隔離保護的封裝作用，它只能接受用 done()、fail()、then()、always()這些方法來處理它。以下為骰子骰出偶數為「解決」，骰出奇數為「拒絕」。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> def = $.Deferred()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">one</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> rnd = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">6</span>) + <span class="number">1</span></span><br><span class="line">    <span class="built_in">console</span>.log(rnd)</span><br><span class="line">    rnd % <span class="number">2</span> === <span class="number">0</span> ? def.resolve(<span class="string">&#x27;骰出偶數，解決&#x27;</span>) : def.reject(<span class="string">&#x27;骰出奇數，拒絕&#x27;</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">return</span> def.promise() <span class="comment">// 確實回傳狀態資料</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">one()</span><br><span class="line">  .done(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(def.state())</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br><span class="line">  .fail(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(def.state())</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<div class="admonition info"><p>沒有在 resolve()、reject()中稱為第三狀態 pending，表示仍在進行中的狀態。</p>
+</div>
+
+<h2 id="Deferred-進行中的狀態"><a href="#Deferred-進行中的狀態" class="headerlink" title="Deferred 進行中的狀態"></a>Deferred 進行中的狀態</h2><p>當 Deferred 物件尚未設定為 resolved 或 rejected 狀態時，表示仍在進行中，則可使用 notify() 處理進行中的資料，使用方式與 resolve()與 reject()一樣。progress()方法使用與 done()一樣，可以用來追蹤進行中資料狀態的結果。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deferred.notify()</td>
+<td>狀態進行中的資料</td>
+</tr>
+<tr>
+<td>deferred.progress()</td>
+<td>進行中狀態資料的結果</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replyProgress</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      def.notify(i)</span><br><span class="line">    &#125;, <span class="number">1000</span> * i)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> promise = replyProgress()</span><br><span class="line">promise.progress(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Deferred-狀態檢測"><a href="#Deferred-狀態檢測" class="headerlink" title="Deferred 狀態檢測"></a>Deferred 狀態檢測</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deferred.state()</td>
+<td>回傳字串 “resolved”、”rejected” 或 “pending”</td>
+</tr>
+</tbody></table>
+<h2 id="Deferred-狀態結果方法"><a href="#Deferred-狀態結果方法" class="headerlink" title="Deferred 狀態結果方法"></a>Deferred 狀態結果方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deferred.done()</td>
+<td>完成時要處理的動作</td>
+</tr>
+<tr>
+<td>deferred.fail()</td>
+<td>失敗時要處理的動作</td>
+</tr>
+<tr>
+<td>deferred.then()</td>
+<td>具有完成時、失敗時、進行時三種狀態的動作</td>
+</tr>
+<tr>
+<td>deferred.always()</td>
+<td>不館完成或失敗都要處理的動作，類似 ajax 中的 complete</td>
+</tr>
+<tr>
+<td>deferred.catch()</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>done() 與 fail()分別要做的事情。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">one()</span><br><span class="line">  .done(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(def.state())</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br><span class="line">  .fail(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(def.state())</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>處理動作的方法也可以加入多個進行串鍊。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;f1&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;f2&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;f3&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">one()</span><br><span class="line">  .done(f1, f2)</span><br><span class="line">  .done(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(def.state())</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br><span class="line">  .done(f3)</span><br><span class="line">  .fail(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(def.state())</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在 Promise 規範中，then() 方法接受兩個參數，分別是執行完成和執行失敗的回調，而 jquery 中 deferred 進行了增強，接受第三個參數，在進行中狀態時的函式處理。</p>
+<blockquote>
+<p>deferred.then( [doneFilter ] [, failFilter ] [, progressFilter ] )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 與 .done().fail() 一模一樣的功能</span></span><br><span class="line">one().then(</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(def.state())</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(def.state())</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<div class="admonition warning"><p>從jQuery 1.8 開始，deferred.pipe() 列入不推薦使用，應該使用 deferred.then() 代替它。</p>
+</div>
+
+<h2 id="when"><a href="#when" class="headerlink" title="$.when()"></a>$.when()</h2><p>jquery 中，還有一個 $.when 方法來實現 Promise，與 ES6 中的 all 方法功能一樣，它可以合併多個 Deferred 物件，處理多個非同步任務，但任何一個回傳 rejected 就會進入 fail。必須在所有的非同步操作執行完後才執行回呼函式。然而，jQuery 中沒有像 ES6 中的 race 方法嗎？也就是以跑最快為準的方法。是的，答案是沒有。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$.when()</td>
+<td>合併多個 Deferred 物件</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 成功接受三個 deferred 物件，才會執行後方 then 的回呼函式</span></span><br><span class="line">$.when(def1(), def2(), def3()).then(<span class="function"><span class="keyword">function</span> (<span class="params">data1, data2, data3</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;全部執行完成&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(data1, data2, data3)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<div class="admonition warning"><p>$.when 並沒有定義在 $.Deferred 中，請看他們的名字，都是jQuery金錢工廠設計出的方法，$.when 是一個單獨的方法。與 ES6 的 all 的參數稍有區別，它接受的並不是陣列，而是多個 Deferred 物件象。</p>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="使用-callback-達到同步"><a href="#使用-callback-達到同步" class="headerlink" title="使用 callback 達到同步"></a>使用 callback 達到同步</h2><p>在使用 callback 操作同步時，它將難以閱讀，而且很容易進入回呼地獄。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// callback</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    callback()</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">third</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">first()</span><br><span class="line">second(third)</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用-Deferred-promise"><a href="#使用-Deferred-promise" class="headerlink" title="使用 Deferred (promise)"></a>使用 Deferred (promise)</h2><p>jQuery 的 $.Deferred()物件，其實就是在處理 promise，將非同步變成同步。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 使用 $.Deferred() 物件</span></span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  <span class="comment">// resolve 或 reject</span></span><br><span class="line">  def.resolve(<span class="string">&#x27;第一個完成&#x27;</span>)</span><br><span class="line">  <span class="comment">// def.reject(&#x27;第一個失敗&#x27;)</span></span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 接收第一個函式的參數</span></span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    <span class="comment">// resolve 或 reject</span></span><br><span class="line">    def.resolve(<span class="string">&#x27;第二個完成&#x27;</span>)</span><br><span class="line">    <span class="comment">// 可以傳出錯誤的訊息，不一定是字串，可以為任何資料型態</span></span><br><span class="line">    <span class="comment">// def.reject(&#x27;第二個錯誤&#x27;)</span></span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">third</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">  <span class="comment">// resolve 或 reject</span></span><br><span class="line">  def.resolve(<span class="string">&#x27;最後一個步驟完成&#x27;</span>)</span><br><span class="line">  <span class="comment">// def.reject(&#x27;最後一個步驟失敗&#x27;)</span></span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 呼叫</span></span><br><span class="line">first()</span><br><span class="line">  .then(second)</span><br><span class="line">  .then(third)</span><br><span class="line">  .then(</span><br><span class="line">    <span class="comment">// 成功</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">ok</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(ok)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 失敗</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<h2 id="使用-Deferred-promise"><a href="#使用-Deferred-promise" class="headerlink" title="使用 Deferred (promise)"></a>使用 Deferred (promise)</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 使用 $.Deferred() 物件</span></span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  <span class="comment">// resolve 或 reject</span></span><br><span class="line">  def.resolve(<span class="string">&#x27;第一個完成&#x27;</span>)</span><br><span class="line">  <span class="comment">// def.reject(&#x27;第一個失敗&#x27;)</span></span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 接收第一個函式的參數</span></span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    <span class="comment">// resolve 或 reject</span></span><br><span class="line">    def.resolve(<span class="string">&#x27;第二個完成&#x27;</span>)</span><br><span class="line">    <span class="comment">// 可以傳出錯誤的訊息，不一定是字串，可以為任何資料型態</span></span><br><span class="line">    <span class="comment">// def.reject(&#x27;第二個錯誤&#x27;)</span></span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">third</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">  <span class="comment">// resolve 或 reject</span></span><br><span class="line">  def.resolve(<span class="string">&#x27;最後一個步驟完成&#x27;</span>)</span><br><span class="line">  <span class="comment">// def.reject(&#x27;最後一個步驟失敗&#x27;)</span></span><br><span class="line">  <span class="keyword">return</span> def.promise()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 呼叫</span></span><br><span class="line">first()</span><br><span class="line">  .then(second)</span><br><span class="line">  .then(third)</span><br><span class="line">  .then(</span><br><span class="line">    <span class="comment">// 成功</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">ok</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(ok)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 失敗</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
 
 <h1 id="AJAX-與-Deferred"><a href="#AJAX-與-Deferred" class="headerlink" title="AJAX 與 Deferred"></a>AJAX 與 Deferred</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// jQuery 的 Deferred() 就是在處理 promise</span></span><br><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">first</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 使用 $.Deferred() 物件</span></span><br><span class="line">    <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    <span class="comment">// resolve 或 reject</span></span><br><span class="line">    def.resolve(<span class="string">&#x27;第一個完成&#x27;</span>)</span><br><span class="line">    <span class="comment">// def.reject(&#x27;第一個失敗&#x27;)</span></span><br><span class="line">    <span class="keyword">return</span> def.promise()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="comment">// ajax(&#123;url,type,dataType,data,successCallback&#125;)</span></span><br><span class="line">    <span class="comment">// API位置，呼叫方式，回傳資料類型，傳過去的資料</span></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">      url: <span class="string">&#x27;./data.json&#x27;</span>,</span><br><span class="line">      type: <span class="string">&#x27;get&#x27;</span>, <span class="comment">// method： get,post,put,path,delete</span></span><br><span class="line">      dataType: <span class="string">&#x27;json&#x27;</span>, <span class="comment">// 資料格式：json,html,xml,text,jsonp（alex不怎麼愛）</span></span><br><span class="line">      data: &#123;<span class="attr">a</span>: <span class="string">&#x27;123&#x27;</span>&#125;, <span class="comment">// 傳甚麼東西過去，Object、String、Array</span></span><br><span class="line">    &#125;).then(</span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// response 回應 &lt;-&gt; request 要求</span></span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">        <span class="keyword">return</span> def.resolve(res)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">        <span class="keyword">return</span> def.reject(err)</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> def.promise()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">third</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> def = $.Deferred()</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">    <span class="comment">// resolve 或 reject</span></span><br><span class="line">    def.resolve(<span class="string">&#x27;最後一個步驟完成&#x27;</span>)</span><br><span class="line">    <span class="comment">// def.reject(&#x27;最後一個步驟失敗&#x27;)</span></span><br><span class="line">    <span class="keyword">return</span> def.promise()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 呼叫</span></span><br><span class="line">  first()</span><br><span class="line">    .then(second)</span><br><span class="line">    .then(third)</span><br><span class="line">    .then(</span><br><span class="line">      <span class="comment">// 成功</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">ok</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(ok)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 失敗</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
 
