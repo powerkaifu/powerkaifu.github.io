@@ -39,18 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="前端設計講師">
+  <meta name="description" content="彈性盒（FlexBox）「彈性盒」是 CSS 裡很重要的觀念，如同名稱，它是一種靈活佈局的盒子，是至今 2020 主流的排版方式，幾乎著名 CSS FrameWork 都以它為佈局基礎。彈性盒的使用方式是當宣告一個元素容器為彈性盒 flex 或 inlne-flex 時，該容器就成為彈性容器（flex container），而此彈性容器裡面的子元素全部都會變成彈性項目（flex item），無論它">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS - 彈性盒">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/10/14/lesson-css-11.flexbox/index.html">
 <meta property="og:site_name" content="漫遊前端無盡海">
-<meta property="og:description" content="前端設計講師">
+<meta property="og:description" content="彈性盒（FlexBox）「彈性盒」是 CSS 裡很重要的觀念，如同名稱，它是一種靈活佈局的盒子，是至今 2020 主流的排版方式，幾乎著名 CSS FrameWork 都以它為佈局基礎。彈性盒的使用方式是當宣告一個元素容器為彈性盒 flex 或 inlne-flex 時，該容器就成為彈性容器（flex container），而此彈性容器裡面的子元素全部都會變成彈性項目（flex item），無論它">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-flexbox-01.png">
 <meta property="article:published_time" content="2020-10-13T16:27:23.540Z">
-<meta property="article:modified_time" content="2020-10-13T16:27:48.072Z">
+<meta property="article:modified_time" content="2020-10-14T21:00:01.466Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://powerkaifu.github.io/images/css/css-flexbox-01.png">
 
 <link rel="canonical" href="https://powerkaifu.github.io/2020/10/14/lesson-css-11.flexbox/">
 
@@ -246,10 +248,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-10-14 00:27:23 / 修改時間：00:27:48" itemprop="dateCreated datePublished" datetime="2020-10-14T00:27:23+08:00">2020-10-14</time>
+              <time title="創建時間：2020-10-14 00:27:23" itemprop="dateCreated datePublished" datetime="2020-10-14T00:27:23+08:00">2020-10-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-15 05:00:01" itemprop="dateModified" datetime="2020-10-15T05:00:01+08:00">2020-10-15</time>
+              </span>
 
           
 
@@ -262,7 +270,99 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="彈性盒（FlexBox）"><a href="#彈性盒（FlexBox）" class="headerlink" title="彈性盒（FlexBox）"></a>彈性盒（FlexBox）</h1><p>「彈性盒」是 CSS 裡很重要的觀念，如同名稱，它是一種靈活佈局的盒子，是至今 2020 主流的排版方式，幾乎著名 CSS FrameWork 都以它為佈局基礎。彈性盒的使用方式是當宣告一個元素容器為彈性盒 flex 或 inlne-flex 時，該容器就成為彈性容器（flex container），而此彈性容器裡面的子元素全部都會變成彈性項目（flex item），無論它們是區塊（block）或是行內（inline）類型，當然，一些區塊元素預設的外距還是會造成佈局些許差異（移除外距大家就一樣了），但不影響其成為彈性項目的事實。在彈性盒裡面的世界，有著屬於它自己佈局的方式，我自稱為彈性盒領域。</p>
+<h1 id="主軸與次軸"><a href="#主軸與次軸" class="headerlink" title="主軸與次軸"></a>主軸與次軸</h1><p>彈性盒與一般盒模型不同的地方，在於彈性盒本身具有「兩條看不見的軸」，主軸（main axis）和次軸（交叉軸 cross axis），兩條軸分別都有著起點與終點兩個軸點，主軸是 main start 與 main end，次軸是 cross start 與 cross end，如下圖所示。<strong>這些軸點是彈性盒對齊彈性項目的依據</strong>。另外，需要記住一點，下圖可能會令人認為主軸是負責水平流向，次軸則是垂直流向，其實不是的，<strong>主軸與次軸的位置會根據彈性盒的 flex-direction 流向來決定</strong>。當 flex-direction:column 時，主軸會變成垂直流向，次軸會變成水平流向。</p>
+<img data-src="/images/css/css-flexbox-01.png" width="700">
+
+<h1 id="彈性盒預設值"><a href="#彈性盒預設值" class="headerlink" title="彈性盒預設值"></a>彈性盒預設值</h1><p>學習彈性盒需熟記最初建立彈性盒所產生的預設值，也就是宣告元素 display:flex 成為彈性容器時，其實已經構築好預設的彈性盒領域，一開始的預設佈局方式。以下預設屬性不會顯示出來，但它們確實已經存在。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="comment">/* 當元素宣告為彈性容器時，其實已經產生以下的預設值 */</span></span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 預設值們 */</span></span><br><span class="line">  <span class="comment">/* 主軸對齊方式預設以 main start 開始  */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start;</span><br><span class="line">  <span class="comment">/* 次軸對齊方式預設為伸展拉長 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: stretch;</span><br><span class="line">  <span class="comment">/* 以列為水平方向的排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="comment">/* 彈性項目不換行 */</span></span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="彈性盒屬性"><a href="#彈性盒屬性" class="headerlink" title="彈性盒屬性"></a>彈性盒屬性</h1><p>設定在彈性盒的屬性，當元素宣告 display:flex 或 inline-flex 成為彈性容器時，才能使用它們。</p>
+<table>
+<thead>
+<tr>
+<th>屬性</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>justify-content</td>
+<td>宣告在彈性容器，水平對齊的位置</td>
+</tr>
+<tr>
+<td>align-items</td>
+<td>宣告在彈性容器，垂直對齊的位置</td>
+</tr>
+<tr>
+<td>flex-direction</td>
+<td>宣告在彈性容器，彈性項目的方向</td>
+</tr>
+<tr>
+<td>flex-wrap</td>
+<td>宣告在彈性容器，單行（不換行）、多行（換行）</td>
+</tr>
+<tr>
+<td>flex-flow</td>
+<td>宣告 flex-direction、flex-wrap</td>
+</tr>
+<tr>
+<td>align-content</td>
+<td>宣告在彈性容器，條件必須是多行元素（flex-wrap:wrap）才能使用</td>
+</tr>
+</tbody></table>
+<h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2><p>定義了彈性項目在彈性容器主軸（橫軸）上的對齊行為，宣告在彈性容器，不是在彈性項目。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 預設 彈性項目對齊主軸 main start 開始端點 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start;</span><br><span class="line">  <span class="comment">/* 彈性項目對齊主軸　main end　結束端點 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: flex-end;</span><br><span class="line">  <span class="comment">/* 彈性項目對齊主軸中央 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="comment">/* 彈性項目會以主軸開始、結束兩端點先做為基準，並讓彈性項目之間平均分配空間 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">  <span class="comment">/* 彈性項目平均分配空間，但開始、結束端點會留下空白 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2><p>定義了彈性容器在次軸上的對齊行為，宣告在彈性容器裡，不是在彈性項目，彈性項目會垂直排列。預設值 stretch 可以拉長到 100% 的 cross-size（垂直尺寸），但要是設定了 min-height、min-width、max-height、width 或 height，這些屬性有較高的優先權。也就是說，要是彈性項目在次軸方向明確定義了尺寸，就無法拉長，stretch 不會影響它的大小。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 預設 彈性項目會拉長可延伸   */</span></span><br><span class="line">  <span class="attribute">align-item</span>: stretch;</span><br><span class="line">  <span class="comment">/* 彈性項目會對齊 cross start 開始端點 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: flex-start;</span><br><span class="line">  <span class="comment">/* 彈性項目會對齊 cross end 結束端點 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: flex-end;</span><br><span class="line">  <span class="comment">/* 彈性項目會對齊中央 */</span></span><br><span class="line">  <span class="attribute">align-item</span>: center;</span><br><span class="line">  <span class="comment">/* 彈性項目會對準基準線，很少使用 */</span></span><br><span class="line">  <span class="attribute">align-item</span>: baseline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2><p>彈性項目的排列方式，水平（row）或垂直（column）排列，宣告在彈性容器裡，不在彈性項目。<strong>主軸流向的決定是依據 flex-direction 的屬性值</strong>。</p>
+<p>當屬性值為 row：主軸為水平流向，次軸為垂直流向，彈性項目依據主軸水平排列，<br>當屬性值為 column：主軸為垂直流向，次軸為水平流向，彈性項目依據主軸垂直排列。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 預設 水平排列*/</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="comment">/* 垂直排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 水平反向排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: row-reverse;</span><br><span class="line">  <span class="comment">/* 垂直反向排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><p>彈性項目是否要換行，預設為不換行（nowrap）。</p>
+<p>設定 flex:nowrap，無論彈性容器多窄，彈向項目都會排在同一列，即便超過彈性容器的寬度，也不會換行。<br>設定 flex:wrap，彈性項目有設定寬度時，當彈性項目的寬大於彈性容器，彈性項目就會換行。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 預設　不換行 */</span></span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap;</span><br><span class="line">  <span class="comment">/* 換行 */</span></span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">  <span class="comment">/* 反向換行 */</span></span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h2><p>flex-flow 可以同時設定 flex-direction 與 flex-wrap 的縮寫，定義彈性容器的排列與換行。宣告 display:flex 時，預設是 flex-flow:row nowrap。</p>
+<h2 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h2><h1 id="彈性項目的屬性"><a href="#彈性項目的屬性" class="headerlink" title="彈性項目的屬性"></a>彈性項目的屬性</h1><table>
+<thead>
+<tr>
+<th>屬性</th>
+<th>解說</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>align-self</td>
+<td>覆寫 align-items 屬性</td>
+</tr>
+<tr>
+<td>flex-grow</td>
+<td>彈性伸展係數，控制彈性項目的伸展比例</td>
+</tr>
+<tr>
+<td>flex-shrink</td>
+<td>彈性收縮係數，控制彈性項目的收縮比例</td>
+</tr>
+<tr>
+<td>flex-basis</td>
+<td>彈性基礎係數，控制彈性項目的長度設定</td>
+</tr>
+<tr>
+<td>flex</td>
+<td>三合一屬性，分別是彈性伸展係數、彈性收縮係數、彈性基礎係數</td>
+</tr>
+<tr>
+<td>order</td>
+<td>彈性項目的排序</td>
+</tr>
+</tbody></table>
+<h2 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h2><p>align-self 可以個別調整彈性項目次軸的對齊方式，因此此屬性是宣告在彈性項目，屬性值與 align-items 一樣。</p>
+<h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><p>彈性伸展係數，數字且無單位，<strong>預設值為 0</strong>，不會進行彈性伸展變化，不可為負值。當彈性項目的 flex-basis 長度「小」於它自己在彈性容器分配的長度，按照數字做相對應的「伸展」比例分配。</p>
+<h2 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h2><p>彈性收縮係數，數字且無單位，<strong>預設值為 1</strong>，設為 0 的話不會進行彈性變化，不可為負值。當彈性項目的 flex-basis 長度「大」於它自己在彈性容器分配的長度，按照數字做相對應的「壓縮」比例分配。每個彈性項目預設收縮係數 1，可表示一件事，彈性項目全部加起來的總長度超過彈性容器時，不會出現爆版。</p>
+<h2 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h2><p>彈性基礎係數，可為單位 px、rem、百分比等，或是 auto、none，<strong>預設值為 auto</strong>。控制彈性項目主軸的長度（寬度或高度），預設 auto 指長度設定交由彈性項目的寬度或高度為優先，如果 flex-basis 有設定單位，例如：100px、20%等等，優先權則交由 flex-basis。也就是說，彈性項目本身設定的<strong>寬度或高度會變成無效</strong>。另外，為甚麼 flex-basis 要用「長度」來說明？這是因為它也是根據主軸流向 flex-direction 來決定，當 flex-direction:row，主軸為水平流向，flex-basis 則是控制寬度；當 flex-direction:column，主軸為垂直流向，flex-basis 則是控制高度。</p>
+<h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><p>flex 是三合一屬性，可以分別設定伸展係數、收縮係數、基礎係數，預設值為 0 1 auto，也就是說<strong>當彈性盒形成，每個彈性項目均為 flex:0 1 auto</strong>。</p>
+
     </div>
 
     
@@ -342,6 +442,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%88%E6%80%A7%E7%9B%92%EF%BC%88FlexBox%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">彈性盒（FlexBox）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E8%BB%B8%E8%88%87%E6%AC%A1%E8%BB%B8"><span class="nav-number">2.</span> <span class="nav-text">主軸與次軸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%88%E6%80%A7%E7%9B%92%E9%A0%90%E8%A8%AD%E5%80%BC"><span class="nav-number">3.</span> <span class="nav-text">彈性盒預設值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%88%E6%80%A7%E7%9B%92%E5%B1%AC%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">彈性盒屬性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#justify-content"><span class="nav-number">4.1.</span> <span class="nav-text">justify-content</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#align-items"><span class="nav-number">4.2.</span> <span class="nav-text">align-items</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-direction"><span class="nav-number">4.3.</span> <span class="nav-text">flex-direction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-wrap"><span class="nav-number">4.4.</span> <span class="nav-text">flex-wrap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-flow"><span class="nav-number">4.5.</span> <span class="nav-text">flex-flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#align-content"><span class="nav-number">4.6.</span> <span class="nav-text">align-content</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%88%E6%80%A7%E9%A0%85%E7%9B%AE%E7%9A%84%E5%B1%AC%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">彈性項目的屬性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#align-self"><span class="nav-number">5.1.</span> <span class="nav-text">align-self</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-grow"><span class="nav-number">5.2.</span> <span class="nav-text">flex-grow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-shrink"><span class="nav-number">5.3.</span> <span class="nav-text">flex-shrink</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-basis"><span class="nav-number">5.4.</span> <span class="nav-text">flex-basis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex"><span class="nav-number">5.5.</span> <span class="nav-text">flex</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
