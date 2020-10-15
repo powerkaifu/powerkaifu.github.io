@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff5370;
+  background: #1f2ddf;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2918,8 +2918,8 @@ h6 {
   }
 }
 .admonition {
-  background-color: rgba(0,0,0,0.8);
-  border-left: 0.5rem solid #42b983;
+  background-color: rgba(0,0,0,0.5);
+  border-left: 0.3rem solid #42b983;
   border-radius: 0.3rem;
   box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,0.05), 0 0 0.05rem rgba(0,0,0,0.1);
   font-size: 1.1rem;
@@ -2965,7 +2965,7 @@ p.admonition-title {
 }
 .admonition.note {
   border: none;
-  border-left: 0.5rem solid #42b983;
+  border-left: 0.3rem solid #42b983;
   padding: 0.5rem;
 }
 .admonition.info,
@@ -3003,4 +3003,7 @@ p.admonition-title {
 }
 .admonition>:last-child {
   margin-bottom: 0 !important;
+}
+.post-body .note {
+  border-radius: 0;
 }
