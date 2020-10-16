@@ -1319,7 +1319,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1f2ddf;
+  background: #dfff94;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2731,9 +2731,13 @@ a:hover {
   color: #777;
 }
 .site-nav #menu .menu-item-active a {
-  color: #fff;
+  background: rgba(255,255,255,0.8);
+  color: #333;
+  font-size: 1.2rem;
+  transition: 0.3s;
 }
 .site-nav #menu .menu-item a:hover {
+  background: rgba(255,255,255,0.8);
   color: #333;
 }
 .links-of-blogroll-list a {
@@ -2778,7 +2782,7 @@ h6 {
   border-bottom: 1px solid #eee;
 }
 .post-body h1 {
-  background: rgba(0,0,0,0.5);
+  border: 1px solid #fff;
   display: inline-block;
   padding: 0 1rem;
 }
