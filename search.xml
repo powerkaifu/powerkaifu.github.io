@@ -2722,40 +2722,42 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS - 選擇器 (一)</title>
-    <url>/2020/08/23/lesson-css-01.base-selector/</url>
+    <title>CSS - 選擇器</title>
+    <url>/2020/08/23/lesson-css-01.selectors/</url>
     <content><![CDATA[<h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責頁面的版型、文字、顏色、尺寸、響應式等等。</p>
 <h1 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h1><p>一個「選擇器」決定選擇的元素目標，連結著大括號「{}」，大括號裡面是屬性、屬性值，以冒號「:」分隔屬性與屬性值，屬性值後面以分號「;」結尾。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">選擇器 &#123;</span><br><span class="line">  屬性: 屬性值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
-<h1 id="元素選擇器"><a href="#元素選擇器" class="headerlink" title="元素選擇器"></a>元素選擇器</h1><p>以元素名稱作為選擇器，又稱為標籤選擇器。</p>
+<h1 id="基礎選擇器"><a href="#基礎選擇器" class="headerlink" title="基礎選擇器"></a>基礎選擇器</h1><h2 id="元素選擇器"><a href="#元素選擇器" class="headerlink" title="元素選擇器"></a>元素選擇器</h2><p>以元素名稱作為選擇器，又稱為標籤選擇器。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ff0</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="群組選擇器"><a href="#群組選擇器" class="headerlink" title="群組選擇器"></a>群組選擇器</h1><p>選擇器之間以「,」分隔，可以一次選擇指定的選擇對象。</p>
+<h2 id="群組選擇器"><a href="#群組選擇器" class="headerlink" title="群組選擇器"></a>群組選擇器</h2><p>選擇器之間以「,」分隔，可以一次選擇指定的選擇對象。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="類別選擇器"><a href="#類別選擇器" class="headerlink" title="類別選擇器"></a>類別選擇器</h1><p>替選擇器取名稱，前面加「.」。此選擇器具有「重覆使用」或「同中求異」的特性，也是使用率最高的選擇器。</p>
+<h2 id="類別選擇器"><a href="#類別選擇器" class="headerlink" title="類別選擇器"></a>類別選擇器</h2><p>替選擇器取名稱，前面加「.」。此選擇器具有「重覆使用」或「同中求異」的特性，也是使用率最高的選擇器。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.txt</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="ID-選擇器"><a href="#ID-選擇器" class="headerlink" title="ID 選擇器"></a>ID 選擇器</h1><p>替選擇器取名稱，前面加「#」。此選擇器具有「唯一」的特性，通常被當作區塊的名稱或是 JavaScript 快速獲取 DOM 目標的方式。</p>
+<h2 id="ID-選擇器"><a href="#ID-選擇器" class="headerlink" title="ID 選擇器"></a>ID 選擇器</h2><p>替選擇器取名稱，前面加「#」。此選擇器具有「唯一」的特性，通常被當作區塊的名稱或是 JavaScript 快速獲取 DOM 目標的方式。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="子代選擇器"><a href="#子代選擇器" class="headerlink" title="子代選擇器"></a>子代選擇器</h1><p>選擇器之間以「&gt;」分隔，選擇到兒子，也就是只選擇到下一層，第三層不會被選擇，常與後代選擇器搞混。</p>
+<h2 id="子代選擇器"><a href="#子代選擇器" class="headerlink" title="子代選擇器"></a>子代選擇器</h2><p>選擇器之間以「&gt;」分隔，選擇到兒子，也就是只選擇到下一層，第三層不會被選擇，常與後代選擇器搞混。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="後代選擇器"><a href="#後代選擇器" class="headerlink" title="後代選擇器"></a>後代選擇器</h1><p>選擇器之間以「空白」分隔，可選擇到子孫們，也就是起始選擇目標之後的後代都會被選擇到，使用率很高的選擇器。</p>
+<h2 id="後代選擇器"><a href="#後代選擇器" class="headerlink" title="後代選擇器"></a>後代選擇器</h2><p>選擇器之間以「空白」分隔，可選擇到子孫們，也就是起始選擇目標之後的後代都會被選擇到，使用率很高的選擇器。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="同層相鄰選擇器"><a href="#同層相鄰選擇器" class="headerlink" title="同層相鄰選擇器"></a>同層相鄰選擇器</h1><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
+<h1 id="進階選擇器"><a href="#進階選擇器" class="headerlink" title="進階選擇器"></a>進階選擇器</h1><h2 id="同層相鄰選擇器"><a href="#同層相鄰選擇器" class="headerlink" title="同層相鄰選擇器"></a>同層相鄰選擇器</h2><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="同層全體選擇器"><a href="#同層全體選擇器" class="headerlink" title="同層全體選擇器"></a>同層全體選擇器</h1><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的弟元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
+<h2 id="同層全體選擇器"><a href="#同層全體選擇器" class="headerlink" title="同層全體選擇器"></a>同層全體選擇器</h2><p>選擇器之間以「+」分隔，又被稱為兄弟選擇器，指選擇到與自己同一層隔壁的弟元素，所謂的隔壁是指 HTML 文件下方的意思。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> ~ <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="屬性選擇器"><a href="#屬性選擇器" class="headerlink" title="屬性選擇器"></a>屬性選擇器</h1><p>指以 HTML 元素屬性作為選擇器，有許多種選擇方式，如下：</p>
+<h2 id="屬性選擇器"><a href="#屬性選擇器" class="headerlink" title="屬性選擇器"></a>屬性選擇器</h2><p>指以 HTML 元素屬性作為選擇器，有許多種選擇方式，如下：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 以 屬性 + 屬性值 去選擇 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href=<span class="string">&quot;http://google.com.tw/&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 img 元素屬性為 title 的目標 */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[title]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性 type=&#x27;text&#x27; 的目標 */</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;text&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇屬性有 kaifu 單字，根據屬性值中眾多詞中某個詞進行選擇（以空白分隔決定該詞） */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[class~=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 href 的屬性值起始字串為 http:// 的目標  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href^=<span class="string">&quot;http://&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 href 的屬性值結尾字串為 .pdf 的對象  */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href$=<span class="string">&#x27;.pdf&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取 img 所有 src 屬性值裡面包含單字 kaifu 的對象; */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src*=<span class="string">&#x27;kaifu&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選取所有圖片裡面有 figure- 的圖片，例如:figure-01.jpg、figure-02.jpg */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[src|=<span class="string">&#x27;figure&#x27;</span>]</span> &#123;</span><br><span class="line">  <span class="comment">/* css */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="偽類選擇器"><a href="#偽類選擇器" class="headerlink" title="偽類選擇器"></a>偽類選擇器</h2><p>待補完</p>
 ]]></content>
       <tags>
         <tag>css</tag>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://powerkaifu.github.io/2020/08/23/lesson-css-01.selectors/</loc>
+    
+    <lastmod>2020-10-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/2020/09/22/lesson-css-10.before-after/</loc>
     
     <lastmod>2020-10-16</lastmod>
@@ -59,13 +66,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/2020/08/25/lesson-css-02.text/</loc>
-    
-    <lastmod>2020-10-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/08/23/lesson-css-01.base-selector/</loc>
     
     <lastmod>2020-10-16</lastmod>
     
