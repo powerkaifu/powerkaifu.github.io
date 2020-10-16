@@ -47,7 +47,7 @@
 <meta property="og:description" content="事件處理事件處理是網頁互動行為很重要的核心，通常當一個事件發生時，會去呼叫一個事件處理程序（event handler）的回呼函式，也就是事件發生時要做的事情。jQuery 對事件有許多特別的貼心設定。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-07T10:37:24.740Z">
-<meta property="article:modified_time" content="2020-10-11T22:41:55.579Z">
+<meta property="article:modified_time" content="2020-10-15T23:24:16.666Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-12 06:41:55" itemprop="dateModified" datetime="2020-10-12T06:41:55+08:00">2020-10-12</time>
+                <time title="修改時間：2020-10-16 07:24:16" itemprop="dateModified" datetime="2020-10-16T07:24:16+08:00">2020-10-16</time>
               </span>
 
           
@@ -274,6 +274,9 @@
 <h1 id="事件觸發"><a href="#事件觸發" class="headerlink" title="事件觸發"></a>事件觸發</h1><p>要觸發一個事件要有三個步驟，第一個是<code>指定選取對象</code>、第二個是<code>指派事件</code>、第三個是<code>傳遞一個函式</code>，在語意上是<strong>誰、在甚麼時候、做了甚麼事情</strong>，事件觸發有下列兩種方式。</p>
 <h2 id="一、使用事件名稱直接觸發"><a href="#一、使用事件名稱直接觸發" class="headerlink" title="一、使用事件名稱直接觸發"></a>一、使用事件名稱直接觸發</h2><p>此方法為便捷方式，是方法二的捷徑，但只能夠用在 DOM 元素已經存在時有作用，在網頁讀取完畢時，若 DOM 元素還不存在，也就是後來產生的 DOM 元素，無法使用。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#myElement&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert($(<span class="built_in">this</span>).text())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>不帶參數直接呼叫事件。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;button&#x27;</span>).click()</span><br></pre></td></tr></table></figure>
 
 <h2 id="二、使用-on-方法觸發"><a href="#二、使用-on-方法觸發" class="headerlink" title="二、使用 on()方法觸發"></a>二、使用 on()方法觸發</h2><p>建議使用這種方式，on 方法提供了事件處理程序所有功能，而且語意上與 JavaScript 的 addEventListener() 相似，其實，on 是以 addEventListener 實作，且第三個參數是 false，也就是 jQuery 事件是以「事件冒泡」來實作，而不是「事件捕獲」，這很符合 JavaScript addEventListener 第三參數 useCapture 的預設 false。該方法又分為「直接綁定」與「委派綁定」。</p>
 <blockquote>
@@ -680,7 +683,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
