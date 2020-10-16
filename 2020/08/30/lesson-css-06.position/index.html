@@ -53,7 +53,7 @@
 <meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-05.png">
 <meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-06.png">
 <meta property="article:published_time" content="2020-08-30T13:03:11.333Z">
-<meta property="article:modified_time" content="2020-09-30T19:02:15.156Z">
+<meta property="article:modified_time" content="2020-10-16T02:26:39.328Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
@@ -261,7 +261,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-01 03:02:15" itemprop="dateModified" datetime="2020-10-01T03:02:15+08:00">2020-10-01</time>
+                <time title="修改時間：2020-10-16 10:26:39" itemprop="dateModified" datetime="2020-10-16T10:26:39+08:00">2020-10-16</time>
               </span>
 
           
@@ -275,16 +275,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h3><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層級（z-index）。</p>
+        <h1 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h1><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層級（z-index）。</p>
 <a id="more"></a>
 
-<h3 id="西天取經"><a href="#西天取經" class="headerlink" title="西天取經"></a>西天取經</h3><p>以西遊記舉例，唐僧帶領了師徒三人及白龍馬前往西天取經，遭逢九九八十一難關…，我們現在假設父元素是唐僧，子元素分別是會七十二變的悟空、好色諂媚愛搞分化的八戒、無聲努力辛勤的沙僧以及偶爾串場的白龍馬，我們將它們全部轉型為 inline-block 橫向流動排列，目前取經團子成員都乖乖在唐僧管理下正常流向排列著。</p>
+<h1 id="西天取經"><a href="#西天取經" class="headerlink" title="西天取經"></a>西天取經</h1><p>以西遊記舉例，唐僧帶領了師徒三人及白龍馬前往西天取經，遭逢九九八十一難關…，我們現在假設父元素是唐僧，子元素分別是會七十二變的悟空、好色諂媚愛搞分化的八戒、無聲努力辛勤的沙僧以及偶爾串場的白龍馬，我們將它們全部轉型為 inline-block 橫向流動排列，目前取經團子成員都乖乖在唐僧管理下正常流向排列著。</p>
 <img data-src="/images/css/css-position-01.png" width="700">
 
-<h3 id="相對定位-relative"><a href="#相對定位-relative" class="headerlink" title="相對定位 - relative"></a>相對定位 - relative</h3><p>此時，諂媚愛分化團隊的八戒使用了相對定位 position:relative，在瀏覽器的視覺上並未有任何改變，但其實八戒已經進入定位層，八戒還使用了偏移（top、bottom、left、right）會在團隊之間遊說不利團隊的話語，在西遊記裡，唐僧對八戒非常容忍，說容忍還是唐僧也愛聽諂媚的話？不會將其趕出團隊，我們發現八戒<strong>原本的位置會被保留空下</strong>，後方的沙僧、白馬並不會遞補上去，沒人敢挑戰二師兄的位置。這也讓我們知道相對定位並不會讓元素原本的位置脫離正常流向，就像八戒空出的位置一樣。</p>
+<h1 id="相對定位-relative"><a href="#相對定位-relative" class="headerlink" title="相對定位 - relative"></a>相對定位 - relative</h1><p>此時，諂媚愛分化團隊的八戒使用了相對定位 position:relative，在瀏覽器的視覺上並未有任何改變，但其實八戒已經進入定位層，八戒還使用了偏移（top、bottom、left、right）會在團隊之間遊說不利團隊的話語，在西遊記裡，唐僧對八戒非常容忍，說容忍還是唐僧也愛聽諂媚的話？不會將其趕出團隊，我們發現八戒<strong>原本的位置會被保留空下</strong>，後方的沙僧、白馬並不會遞補上去，沒人敢挑戰二師兄的位置。這也讓我們知道相對定位並不會讓元素原本的位置脫離正常流向，就像八戒空出的位置一樣。</p>
 <img data-src="/images/css/css-position-02.png" width="700">
 
-<h3 id="絕對定位-absolute"><a href="#絕對定位-absolute" class="headerlink" title="絕對定位 - absolute"></a>絕對定位 - absolute</h3><p>大師兄孫悟空，師承菩提老祖習成七十二變，偷吃王母娘娘蟠桃、喝壽酒身體變成刀槍不入，又在太上老君煉金爐練成能看穿妖魔的「火眼金睛」，在團隊裡面衝鋒陷陣戰力堪稱第一。八戒的挑撥是非，讓唐僧與悟空的關係好幾次讓團隊陷入危機，悟空氣到使用了絕對定位 position:absolute，下圖可以看到悟空也進入的定位層（腳踏觔斗雲原地起飛），我們也可以看到八戒一心想取代大師兄的位置，此時八戒在悟空的底下，也就是悟空原本的位置，悟空後方的師弟們都向前遞補了，這也讓我們知道了絕對定位的元素會脫離正常流向，後方元素會往前遞補。</p>
+<h1 id="絕對定位-absolute"><a href="#絕對定位-absolute" class="headerlink" title="絕對定位 - absolute"></a>絕對定位 - absolute</h1><p>大師兄孫悟空，師承菩提老祖習成七十二變，偷吃王母娘娘蟠桃、喝壽酒身體變成刀槍不入，又在太上老君煉金爐練成能看穿妖魔的「火眼金睛」，在團隊裡面衝鋒陷陣戰力堪稱第一。八戒的挑撥是非，讓唐僧與悟空的關係好幾次讓團隊陷入危機，悟空氣到使用了絕對定位 position:absolute，下圖可以看到悟空也進入的定位層（腳踏觔斗雲原地起飛），我們也可以看到八戒一心想取代大師兄的位置，此時八戒在悟空的底下，也就是悟空原本的位置，悟空後方的師弟們都向前遞補了，這也讓我們知道了絕對定位的元素會脫離正常流向，後方元素會往前遞補。</p>
 <img data-src="/images/css/css-position-03.png" width="700">
 
 <p>若是八戒也如同上方設定了 position:relative，我們會更清楚看見八戒想取代悟空的野心，這是因為八戒是後方元素的關係，當悟空、八戒兩者都進入定位層，八戒會覆蓋悟空。</p>
@@ -293,10 +293,10 @@
 <p>劇情往下走，被師父誤會的悟空，內心百感交集，心想：「遇到妖怪我來打，Boss 太強師傅被抓找救兵也是靠我的關係，現在師傅盡聽信老豬的廢話，沒把我放在心上」，一氣之下使用了偏移 top:0、left:0，搭上觔斗雲一個跟斗翻了十萬八千里回到了花果山（瀏覽器左上角位置），悟空徹底離開了團隊（唐僧範圍），尋找到最後的位置－花果山。</p>
 <img data-src="/images/css/css-position-05.png" width="700">
 
-<h3 id="唐僧的緊箍咒"><a href="#唐僧的緊箍咒" class="headerlink" title="唐僧的緊箍咒"></a>唐僧的緊箍咒</h3><p>這種結果不是我們想看到的結局，那有甚麼辦法讓大師兄悟空繼續留在西天取經團隊呢？有的！那就是觀音姐姐給唐僧的「緊箍咒」，即是唐僧使用了 position:relative，那麼悟空又會回到團隊裡面，即使悟空使用了 top、bottom、left、right 位移，也會以唐僧為基準點偏移。最後我們得到了一個結論，<strong>相對定位常會讓父元素變成子元素的一個定位點，子元素可以依據這個定位點進行絕對定位的偏移，若父元素沒有任何定位點（relative、absolute），則會繼續往外尋找直到瀏覽器為定位點</strong>。</p>
+<h1 id="唐僧的緊箍咒"><a href="#唐僧的緊箍咒" class="headerlink" title="唐僧的緊箍咒"></a>唐僧的緊箍咒</h1><p>這種結果不是我們想看到的結局，那有甚麼辦法讓大師兄悟空繼續留在西天取經團隊呢？有的！那就是觀音姐姐給唐僧的「緊箍咒」，即是唐僧使用了 position:relative，那麼悟空又會回到團隊裡面，即使悟空使用了 top、bottom、left、right 位移，也會以唐僧為基準點偏移。最後我們得到了一個結論，<strong>相對定位常會讓父元素變成子元素的一個定位點，子元素可以依據這個定位點進行絕對定位的偏移，若父元素沒有任何定位點（relative、absolute），則會繼續往外尋找直到瀏覽器為定位點</strong>。</p>
 <img data-src="/images/css/css-position-06.png" width="700">
 
-<h3 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 - fixed"></a>固定定位 - fixed</h3><p>position:fixed，固定定位可以說定位裡面最愛刷存在感的傢伙，它就像穿著寬鬆背心愛秀肌肉的猛男，希望成為大眾目光焦點，所以捲軸上下移動是無法脫離這位自戀狂，它就會像醒目的廣告看板固定在一個位置。通常，固定定位只有一個基準點位置，那就是以瀏覽器視窗為偏移基準點，但…若遇到了父元素有 transform 屬性結果就不同了。結論：<strong>絕對定位、固定定位它們都會讓元素脫離正常流向</strong>。</p>
+<h1 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 - fixed"></a>固定定位 - fixed</h1><p>position:fixed，固定定位可以說定位裡面最愛刷存在感的傢伙，它就像穿著寬鬆背心愛秀肌肉的猛男，希望成為大眾目光焦點，所以捲軸上下移動是無法脫離這位自戀狂，它就會像醒目的廣告看板固定在一個位置。通常，固定定位只有一個基準點位置，那就是以瀏覽器視窗為偏移基準點，但…若遇到了父元素有 transform 屬性結果就不同了。結論：<strong>絕對定位、固定定位它們都會讓元素脫離正常流向</strong>。</p>
 
     </div>
 
@@ -380,7 +380,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D-position"><span class="nav-number">1.</span> <span class="nav-text">定位 - position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A5%BF%E5%A4%A9%E5%8F%96%E7%B6%93"><span class="nav-number">2.</span> <span class="nav-text">西天取經</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%B0%8D%E5%AE%9A%E4%BD%8D-relative"><span class="nav-number">3.</span> <span class="nav-text">相對定位 - relative</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%95%E5%B0%8D%E5%AE%9A%E4%BD%8D-absolute"><span class="nav-number">4.</span> <span class="nav-text">絕對定位 - absolute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%94%90%E5%83%A7%E7%9A%84%E7%B7%8A%E7%AE%8D%E5%92%92"><span class="nav-number">5.</span> <span class="nav-text">唐僧的緊箍咒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D-fixed"><span class="nav-number">6.</span> <span class="nav-text">固定定位 - fixed</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D-position"><span class="nav-number">1.</span> <span class="nav-text">定位 - position</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A5%BF%E5%A4%A9%E5%8F%96%E7%B6%93"><span class="nav-number">2.</span> <span class="nav-text">西天取經</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%B0%8D%E5%AE%9A%E4%BD%8D-relative"><span class="nav-number">3.</span> <span class="nav-text">相對定位 - relative</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B5%95%E5%B0%8D%E5%AE%9A%E4%BD%8D-absolute"><span class="nav-number">4.</span> <span class="nav-text">絕對定位 - absolute</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%94%90%E5%83%A7%E7%9A%84%E7%B7%8A%E7%AE%8D%E5%92%92"><span class="nav-number">5.</span> <span class="nav-text">唐僧的緊箍咒</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D-fixed"><span class="nav-number">6.</span> <span class="nav-text">固定定位 - fixed</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
