@@ -1058,19 +1058,21 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line">  .filter(<span class="function"><span class="keyword">function</span> (<span class="params">index, element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $(<span class="string">&#x27;strong&#x27;</span>, <span class="built_in">this</span>).length == <span class="number">1</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .css(<span class="string">&#x27;background-color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="find-selector"><a href="#find-selector" class="headerlink" title=".find(selector)"></a>.find(selector)</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，對該對象裡面搜尋指定對象的所有節點，包括子、孫、曾孫節點，selector 為符合 CSS 選擇器規範的字串，不能省略參數。<br>selector 可以一次找多個用逗號分開。</p>
-<h3 id="has-selector"><a href="#has-selector" class="headerlink" title=".has(selector)"></a>.has(selector)</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，並選取其<strong>後代子孫元素</strong>有包含 selector 的元素，selector 為符合 CSS 選擇器規範的字串。</p>
+<h3 id="has-selector"><a href="#has-selector" class="headerlink" title=".has(selector)"></a>.has(selector)</h3><p>選擇一個 jQuery 物件集合（一個或多個）後，在這個集合中擁有<strong>後代子孫元素</strong>符合 selector 的元素的才是要被選取到的元素。</p>
 <blockquote>
 <p>:has(selector) 相同功能，不推薦使用</p>
 </blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#box&#x27;</span>).has(<span class="string">&#x27;.active&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 <h3 id="is"><a href="#is" class="headerlink" title=".is()"></a>.is()</h3><p>與其它方法不同，.is()不會創建新的 jQuery 物件，.is()取一個<strong>CSS 選擇器字串或 jQuery 物件</strong>作為它的引數，測試選擇的 jQuery 物件的內容，並且回傳一個 Boolean，若是所選元素至少有一個元素符合指定選擇，它就會回傳 true。</p>
 <blockquote>
-<p>$(selector).is(selector)<br>$(selector).is(function(index,element){})</p>
+<p>$(selector).is(selector or elements or jQuery Object)<br>$(selector).is(function(index,element){})</p>
 </blockquote>
 <ul>
 <li>selector: 它是必需的參數，用於指定 CSS 選擇器，元素或 jQuery 物件以匹配當前的元素集。如果給定參數至少有一個匹配項，則返回 true；否則返回 false。</li>
 <li>function(index, element): 它是一個可選參數，用於指定要為所選元素組運行的函數。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;div&#x27;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> ($(<span class="built_in">this</span>).is(<span class="string">&#x27;:hidden&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;div&#x27;</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ($(<span class="built_in">this</span>).is(<span class="string">&#x27;:hidden&#x27;</span>)) <span class="keyword">return</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h3 id="slice"><a href="#slice" class="headerlink" title=".slice()"></a>.slice()</h3><ul>
 <li><p>.slice(start,end)<br>選擇一個 jQuery 物件集合（一個或多個）時，選擇 start 至 end 之前的節點（不包含 end）。</p>
@@ -1137,11 +1139,10 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;li&#x27;</span>).add(<span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;p&#x27;</span>)).css(<span class="string">&#x27;background-color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;li&#x27;</span>).add($(<span class="string">&#x27;p&#x27;</span>)).css(<span class="string">&#x27;background-color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="addBack"><a href="#addBack" class="headerlink" title=".addBack()"></a>.addBack()</h3><p>指定該對象 jQuery 物件集合後，若遇到排除該選擇對象的方法，例如 nexAll()，它不會選擇到自己，該方法會選擇到自己之後的目標，此時可以使用 addBack() 再把自己加回去，一起建立一個 jQuery 物件。</p>
+<h3 id="addBack"><a href="#addBack" class="headerlink" title=".addBack()"></a>.addBack()</h3><p>指定該對象 jQuery 物件集合後，若遇到排除該選擇對象的方法，例如 nexAll()，它不會選擇到自己，該方法會選擇到自己之後的目標，此時可以使用 addBack() 再把自己加回去，一起建立一個 jQuery 物件。<br>.addBack() 是用來代替 .andSelf()，.andSelf() 在 3.0 後已經移除。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#week li.selected&#x27;</span>).nextAll().addBack()</span><br></pre></td></tr></table></figure>
 
 <h3 id="contents"><a href="#contents" class="headerlink" title=".contents()"></a>.contents()</h3><p>指定該對象 jQuery 物件集合後，<strong>獲取裡面所有的子元素</strong>並存入 jQuery 物件陣列，包含 text 與 comment nodes。</p>
-<h3 id="andSelf"><a href="#andSelf" class="headerlink" title=".andSelf()"></a>.andSelf()</h3><p>此 API 已在 jQuery 3.0 中刪除；使用.addBack()代替。</p>
 <h3 id="end"><a href="#end" class="headerlink" title=".end()"></a>.end()</h3><p>當 jQuery 對象物件因為操作而被改變目標後，可利用 end()結束目前處理並回傳上一次所選的 jQuery 物件。</p>
 ]]></content>
       <tags>
@@ -1477,44 +1478,59 @@
     <title>第四章 - 元素的位置與大小</title>
     <url>/2020/10/07/lesson-jq-04.geometry/</url>
     <content><![CDATA[<h1 id="寬度與高度"><a href="#寬度與高度" class="headerlink" title="寬度與高度"></a>寬度與高度</h1><p>有三種設置及查詢元素的寬度（width）、高度（height）的方式。</p>
-<h2 id="width-與-height"><a href="#width-與-height" class="headerlink" title="width() 與 height()"></a>width() 與 height()</h2><p>width()與 height()方法回傳基本寬度與高度，不包括內距（padding）、邊框（border）、外距（margin），若設定 css box-sizing 會影響到 width()的計算，也就是說 padding、border 會被包含在 width 裡面。</p>
+<img data-src="/images/jquery/jq-04-dimensions.gif">
+
+<h2 id="width-與-height"><a href="#width-與-height" class="headerlink" title="width() 與 height()"></a>width() 與 height()</h2><p>width()與 height()方法回傳元素的寬度與高度，在 jQuery 指的是內容區域的寬度與高度，因此不包括內距（padding）、邊框（border）。若設定 box-sizing:border-box，width()、height()取值會被影響，但依舊指的是內容區域，此時 CSS 設定的 width 值扣掉 padding、border 才是 width()、height()真正的值。</p>
+<p>width(value) 與 height(value) value 可以設定 <code>數字</code>、<code>px</code>、<code>%</code>、<code>auto</code>。如果傳入的是數字（未設定任何單位），視為預設以像素為單位的尺寸大小，如果傳入的是字串值，會被用作 CSS width 或 height 屬性的值，因此可以套用任何 CSS 單位，但不能設定 Window 或 Document 物件的寬度或高度。</p>
 <a id="more"></a>
 
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:200px;height:200px;border:1px solid#333;box-sizing:border-box;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;.box&#x27;</span>).width() <span class="comment">// 返回 198，注意無單位</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<div class="admonition warning"><p>注意的是，css('width') 和 width() 兩者的差異在於，前者返回有單位的'200px'，後者只有無單位的整數 200。</p>
+<div class="admonition warning"><p>css('width') 與 width() 在 box-sizing:content-box，兩者取的值一樣，差別在於css('width')是有數字的字串'px'，width()只有數字。不過，在設定 box-sizing:border-box 時，css('width')依舊是直接取得css設定的 width 值，而 width() 則必須要扣除掉 padding、border，jQuery 的 width() 指的是取得內容區域的寬高。</p>
 </div>
 
-<p>width(value) 與 height(value) 可以設定寬度與高度，value 可以設定 <code>數字</code> 、 <code>px</code> 、 <code>%</code> 、 <code>auto</code> ，如果未設定任何單位，則預設為 px。如果傳入的是數字，會被視為以像素為單位的尺寸大小，如果傳入的是字串值，會被用作 CSS width 或 height 屬性的值，因此可以套用任何 CSS 單位，但不能設定 Window 或 Document 物件的寬度或高度。</p>
-<h2 id="innerWidth-與-innerHeight"><a href="#innerWidth-與-innerHeight" class="headerlink" title="innerWidth() 與 innerHeight()"></a>innerWidth() 與 innerHeight()</h2><p>innerWidth() 與 innerHeight() 回傳元素的寬度或高度加上它內距（padding），但不包括邊框（border）。</p>
-<blockquote>
-<p>可參考 JavaScript 的 clientWidth、clientHeight 屬性</p>
-</blockquote>
-<h2 id="outerWidth-與-outerHeight"><a href="#outerWidth-與-outerHeight" class="headerlink" title="outerWidth() 與 outerHeight()"></a>outerWidth() 與 outerHeight()</h2><p>outerWidth() 與 outerHeight() 通常回傳元素的寬度或高度，加上其內距（padding）、邊框（border），但若傳入 true 值給上面任何一個方法，它們也會將該元素外距的大小計算在內。例如 outerWidth(true)，預設是 false。</p>
-<blockquote>
-<p>可參考 JavaScript 的 offsetWidth、offsetHeight 屬性</p>
-</blockquote>
+<h2 id="innerWidth-與-innerHeight"><a href="#innerWidth-與-innerHeight" class="headerlink" title="innerWidth() 與 innerHeight()"></a>innerWidth() 與 innerHeight()</h2><p>innerWidth() 與 innerHeight() 回傳元素的寬度或高度（內容區域的寬高）加上它內距（padding），但不包括邊框（border）。</p>
+<div class="admonition info"><p>與 JavaScript 的 clientWidth、clientHeight 屬性一樣。</p>
+</div>
+
+<h2 id="outerWidth-與-outerHeight"><a href="#outerWidth-與-outerHeight" class="headerlink" title="outerWidth() 與 outerHeight()"></a>outerWidth() 與 outerHeight()</h2><p>outerWidth() 與 outerHeight() 通常回傳元素的寬度或高度，加上其內距（padding）、邊框（border），但若傳入 true 值給上面任何一個方法，它們也會將該元素外距（margin）的大小計算在內。例如 outerWidth(true)，預設是 false。</p>
+<div class="admonition info"><p>與 JavaScript 的 offsetWidth、offsetHeight 屬性一樣。</p>
+</div>
+
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;innerWidth&#x27;</span>, $(<span class="built_in">this</span>).innerWidth(), <span class="string">&#x27;clientWidth&#x27;</span>, <span class="built_in">this</span>.clientWidth)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;outerWidth&#x27;</span>, $(<span class="built_in">this</span>).outerWidth(), <span class="string">&#x27;offsetWidth&#x27;</span>, <span class="built_in">this</span>.offsetWidth)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h1 id="捲軸的偏移量"><a href="#捲軸的偏移量" class="headerlink" title="捲軸的偏移量"></a>捲軸的偏移量</h1><h2 id="scrollTop-與-scrollLeft"><a href="#scrollTop-與-scrollLeft" class="headerlink" title="scrollTop() 與 scrollLeft()"></a>scrollTop() 與 scrollLeft()</h2><p>可查詢元素在捲動軸（scrollbar）的偏移量，或設定元素在捲動軸的偏移量（px）。可用於 Window 物件，也可用於文件元素，而在 document 上呼叫時，它會設定內含該文件的 window 的捲動軸位置。有別於其他 setters，不能傳入一個函式給 scrollTop()或 scrollLeft()。scrollTop()為垂直偏移量，scrollLeft()為水平偏移量。如果滾動條位於最頂部，或者元素不可滾動，則此數字為 0。</p>
+<h1 id="捲軸的偏移量"><a href="#捲軸的偏移量" class="headerlink" title="捲軸的偏移量"></a>捲軸的偏移量</h1><h2 id="scrollTop-與-scrollLeft"><a href="#scrollTop-與-scrollLeft" class="headerlink" title="scrollTop() 與 scrollLeft()"></a>scrollTop() 與 scrollLeft()</h2><p>可查詢元素在捲動軸（scrollbar）的偏移量，或設定元素在捲動軸的偏移量（px）。可用於 Window 物件，也可用於文件元素，而在 document 上呼叫時，它會設定內含該文件的 window 的捲動軸位置，與 window 相同，兩者都可以取得整個文件的捲動值。如果用在$(‘div’)等區塊元素，則可取得內嵌捲動框的捲動值。有別於其他 setters，不能傳入一個函式給 scrollTop()或 scrollLeft()。scrollTop()為垂直偏移量，scrollLeft()為水平偏移量。如果滾動條位於最頂部，或者元素不可滾動，則此數字為 0。</p>
+<blockquote>
+<p>.scrollTop()<br>.scrollTop(value)</p>
+</blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).on(<span class="string">&#x27;scroll&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<div class="admonition info"><p>scrollTop() 與 scrollLeft() 是用 JavaScript 的 pageXOffset、pageYOffset 實作。</p>
+</div>
 
 <h3 id="捲軸捲到某位置出現"><a href="#捲軸捲到某位置出現" class="headerlink" title="捲軸捲到某位置出現"></a>捲軸捲到某位置出現</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 移動到頁尾卷軸需要的距離 = 頁尾到頂部的距離 - 視窗的高度(一開始的高度卷軸不需要移動)</span></span><br><span class="line"><span class="keyword">let</span> endZone = $(<span class="string">&#x27;#footer&#x27;</span>).offset().top - $window.height()</span><br><span class="line">$(<span class="built_in">window</span>).on(<span class="string">&#x27;scroll&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 移動到頁尾卷軸需要的距離 小於 當前捲軸移動的距離</span></span><br><span class="line">  <span class="keyword">if</span> (endZone &lt; $window.scrollTop()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`endZone:<span class="subst">$&#123;endZone&#125;</span>`</span>)</span><br><span class="line">    $(<span class="string">&#x27;#ad&#x27;</span>).animate(&#123;<span class="attr">right</span>: <span class="string">&#x27;0&#x27;</span>&#125;, <span class="number">250</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $(<span class="string">&#x27;#ad&#x27;</span>).stop(<span class="literal">true</span>).animate(&#123;<span class="attr">right</span>: <span class="string">&#x27;-360px&#x27;</span>&#125;, <span class="number">250</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h1 id="元素的座標"><a href="#元素的座標" class="headerlink" title="元素的座標"></a>元素的座標</h1><h2 id="offset"><a href="#offset" class="headerlink" title="offset()"></a>offset()</h2><p>返回元素相對於文件的座標位置，並以物件形式回傳這個物件的 left 與 top 屬性存有元素的 X 與 Y 座標（數字）。如果傳入一個具有 top、left 屬性的物件給此方法，它會設定所指定的位置。必要時它會設定 CSS position 屬性來讓元素的位置可被設定。一般在傳統 JavaScript 會用 offsetLeft 及 offsetTop 來取得元素在頁面上的座標。</p>
+<h1 id="元素的座標"><a href="#元素的座標" class="headerlink" title="元素的座標"></a>元素的座標</h1><h2 id="offset"><a href="#offset" class="headerlink" title="offset()"></a>offset()</h2><p>只返回元素從視窗左上角至該元素邊框的座標偏移距離，沒錯，它只以視窗計算至元素邊框的座標偏移距離，但如果有 margin 會與 top、bottom、left、right 一起加入計算，內部的子元素如果用此方法，計算方式也是從視窗開始計算。offset() 可以加入物件參數回傳這個物件的 left 與 top 屬性（存有元素 X 與 Y 的座標數字）。如果使用 top、left 屬性，它會設定所指定的位置。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> pos = $(<span class="string">&#x27;#a&#x27;</span>).offset() <span class="comment">// 回傳一個 jQuery物件 並且具有 top、left 屬性</span></span><br><span class="line">pos.top = <span class="number">100</span> <span class="comment">// 更改這個物件 top 屬性</span></span><br><span class="line">pos.left = <span class="number">100</span> <span class="comment">// 更改這個物件 left 屬性</span></span><br><span class="line">$(<span class="string">&#x27;#a&#x27;</span>).offset(pos) <span class="comment">// 回傳此物件，重新設定元素位置</span></span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>.offset()<br>.offset({top:value,left:value})<br>.offset().top、.offset().left</p>
+</blockquote>
 <ul>
 <li>使用回呼函式</li>
 </ul>
 <blockquote>
 <p>$(selector).offset(function(index, oldOffset))</p>
 </blockquote>
+<div class="admonition warning"><p>注意，與 JavaScript 的 offsetTop、offsetLeft 屬性不同，即便它們名字很像。</p>
+</div>
+
+<h2 id="position"><a href="#position" class="headerlink" title="position()"></a>position()</h2><p>position() 用法類似 offset()，<strong>但它只能作為 getter</strong>，並且從指定元素開始往上尋找，找到第一個 position 為 relative 或 absolute 為定位點來做計算，如果都沒有找到，則該方法就與 offset()一樣，會以視窗左上角為偏移量。返回的對象包含兩個整型屬性：top 和 left，此方法只對可見元素有效。</p>
 <blockquote>
-<p>可參考 JavaScript 的 offsetTop、offsetLeft 屬性</p>
+<p>.position()</p>
 </blockquote>
-<h2 id="position"><a href="#position" class="headerlink" title="position()"></a>position()</h2><p>position()方法類似 offset()，它只能作為 getter，返回匹配元素相對於父元素的位置（偏移），該方法返回的對象包含兩個整型屬性：top 和 left，以像素計。此方法只對可見元素有效。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).position().left</span><br><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).position().top</span><br></pre></td></tr></table></figure>
+
+<div class="admonition warning"><p>注意，它與 JavaScript 的 offsetTop、offsetLeft 屬性相同。</p>
+</div>
 
 <h2 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent()"></a>offsetParent()</h2><p><strong>獲取被定位的最近祖先元素對象</strong>，每個元素都有個 offsetParent 屬性，用來指定元素的位置是相對於誰。已定位的元素永遠都是他們子裔元素的 offsetParent，jQuery 只會把已定位的元素當作 offsetParent，而 jQuery 物件的 offsetParent()方法則會把每個元素對應至最接近它的已定位祖（ancestor）元素，或最後是 body 元素。</p>
 ]]></content>
@@ -1547,7 +1563,7 @@
 <p>$(selector).replaceWith(function(index,oldContent))</p>
 </blockquote>
 <p>例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;hr&#x27;</span>).replaceWith(<span class="string">&#x27;&lt;br&gt;&#x27;</span>) <span class="comment">// 用 &lt;br&gt; 取代 &lt;hr&gt; 元素，hr被取代後不會存在於文件中</span></span><br><span class="line">$(<span class="string">&#x27;h2&#x27;</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 用 h1 取代 h2，內容不變</span></span><br><span class="line">  <span class="keyword">var</span> h2 = $(<span class="built_in">this</span>)</span><br><span class="line">  h2.replaceWith(<span class="string">&#x27;&lt;h1&gt;&#x27;</span> + h2.html() + <span class="string">&#x27;&lt;/h1&gt;&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以用 map()，在每個 h1 開頭加上章節符號</span></span><br><span class="line">$(<span class="string">&#x27;h1&#x27;</span>)</span><br><span class="line">  .map(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.firstChild <span class="comment">//回傳 firstChild， 是 js 屬性</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .before(<span class="string">&#x27;§&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;hr&#x27;</span>).replaceWith(<span class="string">&#x27;&lt;br&gt;&#x27;</span>) <span class="comment">// 用 &lt;br&gt; 取代 &lt;hr&gt; 元素，hr被取代後不會存在於文件中</span></span><br><span class="line">$(<span class="string">&#x27;h2&#x27;</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 用 h1 取代 h2，內容不變</span></span><br><span class="line">  <span class="keyword">var</span> h2 = $(<span class="built_in">this</span>)</span><br><span class="line">  h2.replaceWith(<span class="string">&#x27;&lt;h1&gt;&#x27;</span> + h2.html() + <span class="string">&#x27;&lt;/h1&gt;&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以用 map()，遍歷每一個元素，並在每個 h1 開頭加上章節符號</span></span><br><span class="line">$(<span class="string">&#x27;h1&#x27;</span>)</span><br><span class="line">  .map(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.firstChild <span class="comment">//注意使用 this，去抓 JavaScript 的 firstChild</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .before(<span class="string">&#x27;§&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>例子：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner first&quot;</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner second&quot;</span>&gt;</span>And<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner third&quot;</span>&gt;</span>Goodbye<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// replaceWith()　以選擇器開始，指定要插入的內容</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;div.second&#x27;</span>).replaceWith(<span class="string">&#x27;&lt;h2&gt;New heading&lt;/h2&gt;&#x27;</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="comment">// replaceAll()　反過來以建立內容開始，並插入指定的位置</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;&lt;h2&gt;New heading&lt;/h2&gt;&#x27;</span>).replaceAll(<span class="string">&#x27;.inner&#x27;</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1726,7 +1742,7 @@
 <p>可直接傳入 html 標籤建立一個 html 元素， optionObject 是一個可選的物件，可直接設定 html 的屬性，而從 jQuery1.8 開始，所有$.fn.方法都可以指定。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一個引數必須為 HTML 元素</span></span><br><span class="line"><span class="comment">// 第二個引數為可選物件，可以設定該元素的屬性 name/value。</span></span><br><span class="line">$(<span class="string">&#x27;&lt;input&gt;&#x27;</span>, &#123;</span><br><span class="line">  type: <span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">  val: <span class="string">&#x27;Test&#x27;</span>,</span><br><span class="line">  click: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).toggleClass(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  focusin: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).addClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  focusout: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).removeClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;).appendTo(<span class="string">&#x27;form&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-傳入一個函式（DOM-加載完成）"><a href="#4-傳入一個函式（DOM-加載完成）" class="headerlink" title="4. 傳入一個函式（DOM 加載完成）"></a>4. 傳入一個函式（DOM 加載完成）</h2><p>傳入一個函式給它，函式會在文件已經載入，DOM 準備就緒可供操作時被呼叫。這是 jQuery 版的 onload()函式。</p>
+<h2 id="4-傳入一個函式（DOM-加載完成）"><a href="#4-傳入一個函式（DOM-加載完成）" class="headerlink" title="4. 傳入一個函式（DOM 加載完成）"></a>4. 傳入一個函式（DOM 加載完成）</h2><p>傳入一個函式給它，函式會在文件已經載入，DOM 準備就緒可供操作時被呼叫。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [縮寫]</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do，與上方相同</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.50 支援 ES6</span></span><br><span class="line">$(() =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
 
 <h2 id="5-複製陣列、物件"><a href="#5-複製陣列、物件" class="headerlink" title="5. 複製陣列、物件"></a>5. 複製陣列、物件</h2><p>jQuery 函式可以複製陣列、物件，注意資料類型，尤其是 JSON 物件，它是被指向同一個記憶體位置，也就是說改變了一個，另一個也會更改。</p>
@@ -1738,7 +1754,7 @@
 <li><p>$(window).load<br>會在 HTML 結構載入後，DOM 就緒後，頁面渲染結束（iframe、img 圖片加載完成）後呼叫，也就是整份網頁讀取完成，使用了 JavaScript 的 load 事件。</p>
 </li>
 </ul>
-<h1 id="document-readyState"><a href="#document-readyState" class="headerlink" title="document.readyState"></a>document.readyState</h1><p>另外還有一個是 document.readyState，它是描述文件讀取狀態，分為以下：</p>
+<h1 id="document-readyState"><a href="#document-readyState" class="headerlink" title="document.readyState"></a>document.readyState</h1><p>另外還有一個是 readystatechange 事件，可以藉由 document.readyState 描述文件讀取狀態，分為以下：</p>
 <ul>
 <li>loading：document 正在讀取中</li>
 <li>interactive：文件已經完成讀取和解析，但是其他的子資源，如「圖片樣式層次表」，仍然在讀取。這個狀態表示 DOMContentLoaded 事件已經被觸發。</li>
@@ -1751,7 +1767,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 多載設計，使用參數判斷資料型態</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">overload</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!a) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;nothing&#x27;</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> a === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;a is a string&#x27;</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> a === <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;a is a number&#x27;</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> a === <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;a is a function&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="jQuery-隱式迴圈"><a href="#jQuery-隱式迴圈" class="headerlink" title="jQuery 隱式迴圈"></a>jQuery 隱式迴圈</h1><p>JavaScript 選擇 DOM 元素時，可使用 querySelectorAll 取得符合選取，在 jQuery 中，它有一種包裝式的隱性反覆迴圈系統（隱式迴圈），若沒特別指定，一次選擇全部，稱作隱式反覆運算（implicit iteration）的技術，省去大量的迴圈結構，而大幅減少程式碼。</p>
-<h1 id="與-querySelectorAll"><a href="#與-querySelectorAll" class="headerlink" title="$() 與 querySelectorAll()"></a>$() 與 querySelectorAll()</h1><p>兩者皆取一個 CSS 選擇器作為它們的引數，並回傳一個類陣列物件。jQuery 的實作會在有支援的瀏覽器中使用 querySelectorAll()，<br>如果使用 $() 來取代 querySelectorAll()有個好處，$() 回傳的類陣列物件是一個 jQuery 物件，它比 querySelectorAll() 所回傳的類陣列物件（一個 NodeList）有用多了，因為 jQuery 物件還可以使用 jQuery 的方法。</p>
+<h1 id="與-querySelectorAll"><a href="#與-querySelectorAll" class="headerlink" title="$() 與 querySelectorAll()"></a>$() 與 querySelectorAll()</h1><p>兩者皆取一個 CSS 選擇器作為它們的引數，並回傳一個「類陣列物件」。jQuery 的實作會在有支援的瀏覽器中使用 querySelectorAll()，如果使用 $() 來取代 querySelectorAll()有個好處，$() 回傳的類陣列物件是一個 jQuery 物件，它比 querySelectorAll() 所回傳的類陣列物件（一個 NodeList）有用多了，因為 jQuery 物件還可以使用 jQuery 的方法。</p>
 <table>
 <thead>
 <tr>
@@ -1782,12 +1798,12 @@
 </tr>
 <tr>
 <td>querySelector()</td>
-<td></td>
+<td>元素本身</td>
 <td>否</td>
 </tr>
 <tr>
 <td>getElementById()</td>
-<td></td>
+<td>元素本身</td>
 <td>否</td>
 </tr>
 </tbody></table>
@@ -1797,13 +1813,13 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// jQuery</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;jQuery&#x27;</span>, a === b) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelectorAll</span></span><br><span class="line"><span class="keyword">let</span> c = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> d = $(<span class="string">&#x27;.col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelectorAll&#x27;</span>, c === d) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript querySelector</span></span><br><span class="line"><span class="keyword">let</span> e = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> f = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;querySelector&#x27;</span>, e === f) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByTagName</span></span><br><span class="line"><span class="keyword">let</span> g = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> h = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByTagName&#x27;</span>, g === h) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementsByClassName</span></span><br><span class="line"><span class="keyword">let</span> i = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;col&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> j = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&#x27;col&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementsByClassName&#x27;</span>, i === j) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript getElementById</span></span><br><span class="line"><span class="keyword">let</span> k = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> l = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;getElementById&#x27;</span>, k === l) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="Chaining-鍊式串接"><a href="#Chaining-鍊式串接" class="headerlink" title="Chaining 鍊式串接"></a>Chaining 鍊式串接</h1><p>鍊式串接，又稱為方法鍊，是方法間以句點連續串接，可針對單一選擇器執行多個處理。jQuery 大部分的方法其回傳值都是回傳處理後的 jQuery 物件，也就是 return 該物件，並且會記錄在一個叫 prevObject 的物件（指上一層），它是紀錄鍊式上一層的 jQuery 物件，可以在選擇到 jQuery 物件時可以看到它。其中，end() 方法就是指向 prevObject，可以一直 end() 到虛無沒東西 <code>S.fn.init &#123;&#125;</code> 。但也有回傳非 jQuery 物件的方法，如果在方法鍊中使用 next()、end()方法，可能會因此改變處理目標的選擇器，回到原本狀態。</p>
+<h1 id="鍊式串接（Chaining）"><a href="#鍊式串接（Chaining）" class="headerlink" title="鍊式串接（Chaining）"></a>鍊式串接（Chaining）</h1><p>鍊式串接，又稱為方法鍊，是方法間以句點（.）連續串接，可針對單一選擇器執行多個處理。jQuery 大部分的方法其回傳值都是回傳處理後的 jQuery 物件，也就是 return 該物件，<strong>並且會記錄在一個叫 prevObject 的物件（指上一層），它是紀錄鍊式上一層的 jQuery 物件，可以在選擇到 jQuery 物件時可以看到它</strong>。其中，end() 方法就是指向 prevObject，可以一直 end() 到虛無沒東西 <code>S.fn.init &#123;&#125;</code> 。但也有回傳非 jQuery 物件的方法，如果在方法鍊中使用 next()、end()方法，可能會因此改變處理目標的選擇器，回到原本狀態。</p>
 <ul>
 <li>可以幫助遍歷遨遊 DOM 結構樹，爬樹方便。</li>
 <li>可以讓動畫更豐富。</li>
 <li>鍊式中一個方法無法正確執行時，後續的方法也不會被執行。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// != 這種選擇是 jQ 獨創的用法，CSS沒有</span></span><br><span class="line">$(<span class="string">&#x27;li[id!=&quot;one&quot;]&#x27;</span>).hide().delay(<span class="number">500</span>).fadeIn(<span class="number">1400</span>).css(&#123;</span><br><span class="line">  <span class="string">&#x27;background-color&#x27;</span>: <span class="string">&#x27;#F00&#x27;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// != 這種選擇是 jQ 獨創的用法，CSS沒有，最好符合CSS規範做選擇</span></span><br><span class="line">$(<span class="string">&#x27;li[id!=&quot;one&quot;]&#x27;</span>).hide().delay(<span class="number">500</span>).fadeIn(<span class="number">1400</span>).css(&#123;</span><br><span class="line">  <span class="string">&#x27;background-color&#x27;</span>: <span class="string">&#x27;#F00&#x27;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>jQuery</tag>
