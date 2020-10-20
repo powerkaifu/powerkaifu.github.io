@@ -1999,7 +1999,7 @@
 <li>:first-child（結構）</li>
 <li>:nth-child（結構）</li>
 </ul>
-<p>而偽元素則是以 before、after 這兩兄弟為主要被探討的對象，可以說是偽元素的代名詞！截至目前為止，偽元素家族比起偽類家族，算是少數。追朔早期，偽元素與偽類一樣，都是以單冒號 : 為主，至今依舊可以使用單冒號來選擇偽元素，但自 CSS3 開始，偽類與偽元素開始分家，偽元素被定義成雙冒號 :: 作為選擇器，隨著前端思維的浪潮的前進，<strong>你應該使用雙冒號來表示偽元素，不要使用單冒號</strong>。</p>
+<p>而偽元素則是以 before、after 這兩兄弟為主要被探討的對象，可以說是偽元素的代名詞！截至目前為止，偽元素家族比起偽類家族，算是少數。追朔早期，偽元素與偽類一樣，都是以單冒號<code>:</code>為主，至今依舊可以使用單冒號來選擇偽元素，但從 CSS3 開始，偽類與偽元素開始分家，偽元素被定義成雙冒號<code>::</code>作為選擇器，隨著前端技術我們必須修正前進，<strong>應該使用雙冒號來表示偽元素，不要使用單冒號</strong>。</p>
 <ul>
 <li>::before</li>
 <li>::after</li>
@@ -2029,6 +2029,8 @@
 <ul>
 <li><a href="https://powerkaifu.github.io/CSS_Naruto_Before_After/">鳴人的影分身</a></li>
 </ul>
+<h1 id="偽元素的層級"><a href="#偽元素的層級" class="headerlink" title="偽元素的層級"></a>偽元素的層級</h1><p>可以從 html 結構看出在一般流向裡面，::before 之後接著是主體的內容區域，再接著::after。因此若對::before 與::after 進行絕對定位，兩者都會被拉升至定位層蓋住主體的內容區域。當然，若對主體內容區域使用絕對定位，則三者都進入定位層，又會依照排列順序後者蓋過前者（::before &lt; 內容 &lt; ::after）。可以使用 z-index:-1 將一個調至最下層。</p>
+<h1 id="實用文章"><a href="#實用文章" class="headerlink" title="實用文章"></a>實用文章</h1><p><a href="https://reurl.cc/Y6kDMX">JS 控制偽元素的方法彙總</a></p>
 ]]></content>
       <tags>
         <tag>css</tag>
