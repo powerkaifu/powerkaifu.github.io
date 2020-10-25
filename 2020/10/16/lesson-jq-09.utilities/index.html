@@ -39,20 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content=".each()如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。 jQuery 的 each(">
+  <meta name="description" content=".each()如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第九章 - 通用工具">
-<meta property="og:url" content="https://powerkaifu.github.io/2020/10/16/lesson-jq-09-utilities/index.html">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/10/16/lesson-jq-09.utilities/index.html">
 <meta property="og:site_name" content="樂遊前端趣">
-<meta property="og:description" content=".each()如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。 jQuery 的 each(">
+<meta property="og:description" content=".each()如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-15T23:58:30.403Z">
-<meta property="article:modified_time" content="2020-10-16T01:48:14.360Z">
+<meta property="article:modified_time" content="2020-10-25T20:11:14.630Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://powerkaifu.github.io/2020/10/16/lesson-jq-09-utilities/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/10/16/lesson-jq-09.utilities/">
 
 
 <script id="page-configurations">
@@ -224,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/16/lesson-jq-09-utilities/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/16/lesson-jq-09.utilities/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.png">
@@ -246,10 +246,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-10-16 07:58:30 / 修改時間：09:48:14" itemprop="dateCreated datePublished" datetime="2020-10-16T07:58:30+08:00">2020-10-16</time>
+              <time title="創建時間：2020-10-16 07:58:30" itemprop="dateCreated datePublished" datetime="2020-10-16T07:58:30+08:00">2020-10-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-26 04:11:14" itemprop="dateModified" datetime="2020-10-26T04:11:14+08:00">2020-10-26</time>
+              </span>
 
           
 
@@ -263,6 +269,8 @@
 
       
         <h1 id="each"><a href="#each" class="headerlink" title=".each()"></a>.each()</h1><p>如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。</p>
+<a id="more"></a>
+
 <p>jQuery 的 each()方法有個特色與 JavaScript 的 forEach()相當不同：只要 callback 對任何一個元素回傳 false，迭代動作就會止於那個元素（這就像是在正常的迴圈中使用 break 關鍵字）。</p>
 <p>each() 會依選擇對象，逐一去執行程式，以迴圈繞行符合選擇器的每一個元素，就像組裝線上的機器一個接著一個的處理元素，當函式放在 each() 裡頭時，程式碼增添強大的威力，該函式隨著 each() 處理每個元素的同時對該元素做某事，在 function(index)的第一參數索引值，追蹤紀錄該函式正在處理那個元素編號，第二參數為 html 元素，而不是 jQuery 物件。另外，請注意函式裡面 this 的使用。</p>
 <blockquote>
@@ -340,7 +348,10 @@
     <a href="/2020/10/14/lesson-css-11.flexbox/" rel="prev" title="CSS - 彈性盒">
       <i class="fa fa-chevron-left"></i> CSS - 彈性盒
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/20/lesson-jq-10.useful/" rel="next" title="第十章 - 常用方法">
+      第十章 - 常用方法 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -414,7 +425,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>

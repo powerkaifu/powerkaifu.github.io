@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>第十章 - 常用方法</title>
+    <url>/2020/10/20/lesson-jq-10.useful/</url>
+    <content><![CDATA[<h1 id="切換-active-類別"><a href="#切換-active-類別" class="headerlink" title="切換 active 類別"></a>切換 active 類別</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul&gt;li&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="built_in">this</span>).addClass(<span class="string">&#x27;active&#x27;</span>).siblings().removeClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="全選-checkbox"><a href="#全選-checkbox" class="headerlink" title="全選 checkbox"></a>全選 checkbox</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法一</span></span><br><span class="line"><span class="keyword">let</span> tog = <span class="literal">false</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  $(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>, (tog = !tog))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  <span class="keyword">if</span> ($(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>)) &#123;</span><br><span class="line">    $(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="偵測元素內有無東西"><a href="#偵測元素內有無東西" class="headerlink" title="偵測元素內有無東西"></a>偵測元素內有無東西</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (!$(<span class="string">&#x27;#box&#x27;</span>).html()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;empty&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;somthing&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 三元運算子</span></span><br><span class="line">!$(<span class="string">&#x27;#box&#x27;</span>).html() ? <span class="built_in">console</span>.log(<span class="string">&#x27;empty&#x27;</span>) : <span class="built_in">console</span>.log(<span class="string">&#x27;somthing&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 另一種寫法</span></span><br><span class="line"><span class="keyword">if</span> ($(<span class="string">&#x27;#box&#x27;</span>).is(<span class="string">&#x27;:empty&#x27;</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;沒有東西&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;有東西&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 三元運算子</span></span><br><span class="line">$(<span class="string">&#x27;#box&#x27;</span>).is(<span class="string">&#x27;:empty&#x27;</span>) ? <span class="built_in">console</span>.log(<span class="string">&#x27;沒有東西&#x27;</span>) : <span class="built_in">console</span>.log(<span class="string">&#x27;有東西&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="偵測某個元素是否存在"><a href="#偵測某個元素是否存在" class="headerlink" title="偵測某個元素是否存在"></a>偵測某個元素是否存在</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(<span class="string">&#x27;a&#x27;</span>).length) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;存在&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;不存在&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="偵測某個元素是否可見"><a href="#偵測某個元素是否可見" class="headerlink" title="偵測某個元素是否可見"></a>偵測某個元素是否可見</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(<span class="string">&#x27;#box&#x27;</span>).is(<span class="string">&#x27;:visible&#x27;</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;可見&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;不可見&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第九章 - 通用工具</title>
-    <url>/2020/10/16/lesson-jq-09-utilities/</url>
+    <url>/2020/10/16/lesson-jq-09.utilities/</url>
     <content><![CDATA[<h1 id="each"><a href="#each" class="headerlink" title=".each()"></a>.each()</h1><p>如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。</p>
+<a id="more"></a>
+
 <p>jQuery 的 each()方法有個特色與 JavaScript 的 forEach()相當不同：只要 callback 對任何一個元素回傳 false，迭代動作就會止於那個元素（這就像是在正常的迴圈中使用 break 關鍵字）。</p>
 <p>each() 會依選擇對象，逐一去執行程式，以迴圈繞行符合選擇器的每一個元素，就像組裝線上的機器一個接著一個的處理元素，當函式放在 each() 裡頭時，程式碼增添強大的威力，該函式隨著 each() 處理每個元素的同時對該元素做某事，在 function(index)的第一參數索引值，追蹤紀錄該函式正在處理那個元素編號，第二參數為 html 元素，而不是 jQuery 物件。另外，請注意函式裡面 this 的使用。</p>
 <blockquote>
@@ -1498,12 +1517,13 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;.box&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;innerWidth&#x27;</span>, $(<span class="built_in">this</span>).innerWidth(), <span class="string">&#x27;clientWidth&#x27;</span>, <span class="built_in">this</span>.clientWidth)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;outerWidth&#x27;</span>, $(<span class="built_in">this</span>).outerWidth(), <span class="string">&#x27;offsetWidth&#x27;</span>, <span class="built_in">this</span>.offsetWidth)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h1 id="捲軸的偏移量"><a href="#捲軸的偏移量" class="headerlink" title="捲軸的偏移量"></a>捲軸的偏移量</h1><h2 id="scrollTop-與-scrollLeft"><a href="#scrollTop-與-scrollLeft" class="headerlink" title="scrollTop() 與 scrollLeft()"></a>scrollTop() 與 scrollLeft()</h2><p>可查詢元素在捲動軸（scrollbar）的偏移量，或設定元素在捲動軸的偏移量（px）。可用於 Window 物件，也可用於文件元素，而在 document 上呼叫時，它會設定內含該文件的 window 的捲動軸位置，與 window 相同，兩者都可以取得整個文件的捲動值。如果用在$(‘div’)等區塊元素，則可取得內嵌捲動框的捲動值。有別於其他 setters，不能傳入一個函式給 scrollTop()或 scrollLeft()。scrollTop()為垂直偏移量，scrollLeft()為水平偏移量。如果滾動條位於最頂部，或者元素不可滾動，則此數字為 0。</p>
+<p>scrollTop()是以 viewport 最頂端為一條基準線，捲軸往下拉動 100px，則表示內容往上移動 100px。相同的概念可以應用到 JavaScript 的 pageYOffset（scrollY）。</p>
 <blockquote>
 <p>.scrollTop()<br>.scrollTop(value)</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).on(<span class="string">&#x27;scroll&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<div class="admonition info"><p>scrollTop() 與 scrollLeft() 是用 JavaScript 的 pageXOffset、pageYOffset 實作。</p>
+<div class="admonition info"><p>scrollTop() 與 scrollLeft() 是用 JavaScript 的 pageXOffset、pageYOffset 實作，pageXOffset、pageYOffst是 scrollX、scrollY 的別名，在跨瀏覽器兼容，應該使用pageXOffset、pageYOffst。</p>
 </div>
 
 <h3 id="捲軸捲到某位置出現"><a href="#捲軸捲到某位置出現" class="headerlink" title="捲軸捲到某位置出現"></a>捲軸捲到某位置出現</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 移動到頁尾卷軸需要的距離 = 頁尾到頂部的距離 - 視窗的高度(一開始的高度卷軸不需要移動)</span></span><br><span class="line"><span class="keyword">let</span> endZone = $(<span class="string">&#x27;#footer&#x27;</span>).offset().top - $window.height()</span><br><span class="line">$(<span class="built_in">window</span>).on(<span class="string">&#x27;scroll&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 移動到頁尾卷軸需要的距離 小於 當前捲軸移動的距離</span></span><br><span class="line">  <span class="keyword">if</span> (endZone &lt; $window.scrollTop()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`endZone:<span class="subst">$&#123;endZone&#125;</span>`</span>)</span><br><span class="line">    $(<span class="string">&#x27;#ad&#x27;</span>).animate(&#123;<span class="attr">right</span>: <span class="string">&#x27;0&#x27;</span>&#125;, <span class="number">250</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $(<span class="string">&#x27;#ad&#x27;</span>).stop(<span class="literal">true</span>).animate(&#123;<span class="attr">right</span>: <span class="string">&#x27;-360px&#x27;</span>&#125;, <span class="number">250</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -1520,7 +1540,7 @@
 <blockquote>
 <p>$(selector).offset(function(index, oldOffset))</p>
 </blockquote>
-<div class="admonition warning"><p>注意，與 JavaScript 的 offsetTop、offsetLeft 屬性不同，即便它們名字很像。</p>
+<div class="admonition warning"><p>注意，與 JavaScript 的 offsetTop、offsetLeft 屬性不同，即便它們名字很像，JavaScript 的 offsetTop、offsetLeft 與 position() 一樣。</p>
 </div>
 
 <h2 id="position"><a href="#position" class="headerlink" title="position()"></a>position()</h2><p>position() 用法類似 offset()，<strong>但它只能作為 getter</strong>，並且從指定元素開始往上尋找，找到第一個 position 為 relative 或 absolute 為定位點來做計算，如果都沒有找到，則該方法就與 offset()一樣，會以視窗左上角為偏移量。返回的對象包含兩個整型屬性：top 和 left，此方法只對可見元素有效。</p>
@@ -2090,7 +2110,7 @@
 
 <h1 id="動畫速率"><a href="#動畫速率" class="headerlink" title="動畫速率"></a>動畫速率</h1><p>「動畫速率」與「轉場速率」是一樣的設定，請參考<a href="https://powerkaifu.github.io/2020/09/07/lesson-css-08.transition/">轉場</a></p>
 <h1 id="動畫延遲"><a href="#動畫延遲" class="headerlink" title="動畫延遲"></a>動畫延遲</h1><p>「動畫延遲」與「轉場延遲」是一樣的設定，可以注意的是當延遲時間為負值時，例如 -1s、-2s，得到的結果就「不會延遲，而是快轉」，假設一段動畫 animation-duration 要 5 秒，animation-delay 設定為 -2s，那麼動畫將會直接從第 2 秒的位置開始播放，播放 3 秒後停止 ( 5-2=3 的概念 )。</p>
-<h1 id="動畫權重"><a href="#動畫權重" class="headerlink" title="動畫權重"></a>動畫權重</h1><p>正在執行元素的動畫（@keyframes），權重會提高至行內樣式權重（比 ID 權重高），此外，不要在動畫宣告區塊的屬性後方加上 !important，沒有這種用法，會被忽略。</p>
+<h1 id="動畫權重"><a href="#動畫權重" class="headerlink" title="動畫權重"></a>動畫權重</h1><p>關鍵影格中的 CSS 屬性在「動畫執行期間」會擁有最大絕對的優先權，但是一旦脫離了動畫執行期間，就會恢復到下一階的優先權。<br>正在執行元素的動畫（@keyframes），權重會提高至行內樣式權重（比 ID 權重高），此外，不要在動畫宣告區塊的屬性後方加上 !important，沒有這種用法，會被忽略。</p>
 <h1 id="多組動畫"><a href="#多組動畫" class="headerlink" title="多組動畫"></a>多組動畫</h1><p>與轉場一樣可以套用多組效果。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 可以套用一個以上的動畫到同個元素，屬性值需對應，fadeIn 1s、blink 3s */</span></span><br><span class="line"><span class="selector-class">.fade</span> &#123;</span><br><span class="line">  <span class="attribute">animation-name</span>: fadeIn, blink;</span><br><span class="line">  <span class="attribute">animation-duration</span>: <span class="number">1s</span>, <span class="number">3s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -2742,7 +2762,7 @@
   <entry>
     <title>CSS - 選擇器</title>
     <url>/2020/08/23/lesson-css-01.selectors/</url>
-    <content><![CDATA[<h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責文件的版型，例如文字、顏色、尺寸、位置、響應式等等。首先登場的即是主角「選擇器」，我們必須要選擇到目標，才能對元素進行樣式的設計，認識各種選擇器及使用方法才能夠靈活設計樣式。另外，只要符合 CSS 規範的選擇器，在 jQuery 裡，也能成為$()加工廠的原料產生出 jQuery 物件，選擇到匹配的元素集合，同時也能被 JavaScript 的 querySelector()與 querySelectorAll()方法選擇（與 jQuery 在選擇元素一樣的功能）。</p>
+    <content><![CDATA[<h1 id="愛你所擇，擇你所愛"><a href="#愛你所擇，擇你所愛" class="headerlink" title="愛你所擇，擇你所愛"></a>愛你所擇，擇你所愛</h1><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責文件的版型，例如文字、顏色、尺寸、位置、響應式等等。首先登場的即是主角「選擇器」，它是 CSS 世界裡的支柱，如同人類的脊椎支撐了整個身體，我們必須要選擇到目標，才能對元素進行樣式的設計，然而，CSS 選擇器非常多樣貌，認識各種選擇器及使用特性才能夠靈活設計樣式。此外，只要符合 CSS 規範的選擇器，在 jQuery 裡，也能成為$()加工廠的原料產生出 jQuery 物件，選擇到匹配的元素集合，同時也能被 JavaScript 的 querySelector()與 querySelectorAll()方法選擇（與 jQuery 在選擇元素一樣的功能）。</p>
 <h1 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h1><p>一個「選擇器」決定選擇的元素目標，連結著大括號「{}」，大括號裡面是屬性、屬性值，以冒號「:」分隔屬性與屬性值，屬性值後面以分號「;」結尾。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">選擇器 &#123;</span><br><span class="line">  屬性: 屬性值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -2885,7 +2905,7 @@
 <li>::selection（選取文字反白）</li>
 <li>::placeholder（選取有屬性 placeholder 的元素）</li>
 </ul>
-]]></content>
+<h1 id="選擇器權重"><a href="#選擇器權重" class="headerlink" title="選擇器權重"></a>選擇器權重</h1>]]></content>
       <tags>
         <tag>css</tag>
       </tags>

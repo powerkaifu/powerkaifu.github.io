@@ -47,7 +47,7 @@
 <meta property="og:description" content="動畫 - Animation「轉場」與「動畫」可說是兄弟，兩人分工負責了 CSS 世界的動態效果。轉場可以在觸發狀態時，讓起始、結束狀態兩組樣式產生一組簡單的補間動畫，它是容易且強大的效果，但若要製作較為複雜的效果時，這就不是轉場的工作囉，因為它屬於一次性的動畫，例如黑色與白色的補間動畫。若是要黑色變成黃色，再變成白色，再變其他顏色，這時候就是動畫（animation）登場的時候。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-09-07T16:52:46.959Z">
-<meta property="article:modified_time" content="2020-10-16T02:27:17.852Z">
+<meta property="article:modified_time" content="2020-10-22T14:09:09.491Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-16 10:27:17" itemprop="dateModified" datetime="2020-10-16T10:27:17+08:00">2020-10-16</time>
+                <time title="修改時間：2020-10-22 22:09:09" itemprop="dateModified" datetime="2020-10-22T22:09:09+08:00">2020-10-22</time>
               </span>
 
           
@@ -319,7 +319,7 @@
 
 <h1 id="動畫速率"><a href="#動畫速率" class="headerlink" title="動畫速率"></a>動畫速率</h1><p>「動畫速率」與「轉場速率」是一樣的設定，請參考<a href="https://powerkaifu.github.io/2020/09/07/lesson-css-08.transition/">轉場</a></p>
 <h1 id="動畫延遲"><a href="#動畫延遲" class="headerlink" title="動畫延遲"></a>動畫延遲</h1><p>「動畫延遲」與「轉場延遲」是一樣的設定，可以注意的是當延遲時間為負值時，例如 -1s、-2s，得到的結果就「不會延遲，而是快轉」，假設一段動畫 animation-duration 要 5 秒，animation-delay 設定為 -2s，那麼動畫將會直接從第 2 秒的位置開始播放，播放 3 秒後停止 ( 5-2=3 的概念 )。</p>
-<h1 id="動畫權重"><a href="#動畫權重" class="headerlink" title="動畫權重"></a>動畫權重</h1><p>正在執行元素的動畫（@keyframes），權重會提高至行內樣式權重（比 ID 權重高），此外，不要在動畫宣告區塊的屬性後方加上 !important，沒有這種用法，會被忽略。</p>
+<h1 id="動畫權重"><a href="#動畫權重" class="headerlink" title="動畫權重"></a>動畫權重</h1><p>關鍵影格中的 CSS 屬性在「動畫執行期間」會擁有最大絕對的優先權，但是一旦脫離了動畫執行期間，就會恢復到下一階的優先權。<br>正在執行元素的動畫（@keyframes），權重會提高至行內樣式權重（比 ID 權重高），此外，不要在動畫宣告區塊的屬性後方加上 !important，沒有這種用法，會被忽略。</p>
 <h1 id="多組動畫"><a href="#多組動畫" class="headerlink" title="多組動畫"></a>多組動畫</h1><p>與轉場一樣可以套用多組效果。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 可以套用一個以上的動畫到同個元素，屬性值需對應，fadeIn 1s、blink 3s */</span></span><br><span class="line"><span class="selector-class">.fade</span> &#123;</span><br><span class="line">  <span class="attribute">animation-name</span>: fadeIn, blink;</span><br><span class="line">  <span class="attribute">animation-duration</span>: <span class="number">1s</span>, <span class="number">3s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -432,7 +432,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
