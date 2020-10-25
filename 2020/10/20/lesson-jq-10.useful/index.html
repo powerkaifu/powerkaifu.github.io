@@ -39,15 +39,15 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="切換 active 類別$(&amp;#x27;ul&gt;li&amp;#x27;).click(function () &amp;#123;  $(this).addClass(&amp;#x27;active&amp;#x27;).siblings().removeClass(&amp;#x27;active&amp;#x27;)&amp;#125;)  全選 checkbox&#x2F;&#x2F; 方法一let tog &#x3D; false$(&amp;#x27;a&amp;#x27;).o">
+  <meta name="description" content="切換 active 類別$(&amp;#x27;ul&gt;li&amp;#x27;).click(function () &amp;#123;  $(this).addClass(&amp;#x27;active&amp;#x27;).siblings().removeClass(&amp;#x27;active&amp;#x27;)&amp;#125;)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第十章 - 常用方法">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/10/20/lesson-jq-10.useful/index.html">
 <meta property="og:site_name" content="樂遊前端趣">
-<meta property="og:description" content="切換 active 類別$(&amp;#x27;ul&gt;li&amp;#x27;).click(function () &amp;#123;  $(this).addClass(&amp;#x27;active&amp;#x27;).siblings().removeClass(&amp;#x27;active&amp;#x27;)&amp;#125;)  全選 checkbox&#x2F;&#x2F; 方法一let tog &#x3D; false$(&amp;#x27;a&amp;#x27;).o">
+<meta property="og:description" content="切換 active 類別$(&amp;#x27;ul&gt;li&amp;#x27;).click(function () &amp;#123;  $(this).addClass(&amp;#x27;active&amp;#x27;).siblings().removeClass(&amp;#x27;active&amp;#x27;)&amp;#125;)">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-20T09:33:57.164Z">
-<meta property="article:modified_time" content="2020-10-20T11:30:34.469Z">
+<meta property="article:modified_time" content="2020-10-25T20:15:52.085Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -246,10 +246,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-10-20 17:33:57 / 修改時間：19:30:34" itemprop="dateCreated datePublished" datetime="2020-10-20T17:33:57+08:00">2020-10-20</time>
+              <time title="創建時間：2020-10-20 17:33:57" itemprop="dateCreated datePublished" datetime="2020-10-20T17:33:57+08:00">2020-10-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-26 04:15:52" itemprop="dateModified" datetime="2020-10-26T04:15:52+08:00">2020-10-26</time>
+              </span>
 
           
 
@@ -263,6 +269,8 @@
 
       
         <h1 id="切換-active-類別"><a href="#切換-active-類別" class="headerlink" title="切換 active 類別"></a>切換 active 類別</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul&gt;li&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="built_in">this</span>).addClass(<span class="string">&#x27;active&#x27;</span>).siblings().removeClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <h1 id="全選-checkbox"><a href="#全選-checkbox" class="headerlink" title="全選 checkbox"></a>全選 checkbox</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法一</span></span><br><span class="line"><span class="keyword">let</span> tog = <span class="literal">false</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  $(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>, (tog = !tog))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  <span class="keyword">if</span> ($(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>)) &#123;</span><br><span class="line">    $(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 

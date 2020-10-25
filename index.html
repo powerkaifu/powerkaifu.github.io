@@ -244,10 +244,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-10-20 17:33:57 / 修改時間：19:30:34" itemprop="dateCreated datePublished" datetime="2020-10-20T17:33:57+08:00">2020-10-20</time>
+              <time title="創建時間：2020-10-20 17:33:57" itemprop="dateCreated datePublished" datetime="2020-10-20T17:33:57+08:00">2020-10-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-26 04:15:52" itemprop="dateModified" datetime="2020-10-26T04:15:52+08:00">2020-10-26</time>
+              </span>
 
           
 
@@ -261,15 +267,14 @@
 
       
           <h1 id="切換-active-類別"><a href="#切換-active-類別" class="headerlink" title="切換 active 類別"></a>切換 active 類別</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul&gt;li&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="built_in">this</span>).addClass(<span class="string">&#x27;active&#x27;</span>).siblings().removeClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="全選-checkbox"><a href="#全選-checkbox" class="headerlink" title="全選 checkbox"></a>全選 checkbox</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法一</span></span><br><span class="line"><span class="keyword">let</span> tog = <span class="literal">false</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  $(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>, (tog = !tog))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  <span class="keyword">if</span> ($(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>)) &#123;</span><br><span class="line">    $(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $(<span class="string">&#x27;input[type=checkbox]&#x27;</span>).attr(<span class="string">&#x27;checked&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="偵測元素內有無東西"><a href="#偵測元素內有無東西" class="headerlink" title="偵測元素內有無東西"></a>偵測元素內有無東西</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (!$(<span class="string">&#x27;#box&#x27;</span>).html()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;empty&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;somthing&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 三元運算子</span></span><br><span class="line">!$(<span class="string">&#x27;#box&#x27;</span>).html() ? <span class="built_in">console</span>.log(<span class="string">&#x27;empty&#x27;</span>) : <span class="built_in">console</span>.log(<span class="string">&#x27;somthing&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 另一種寫法</span></span><br><span class="line"><span class="keyword">if</span> ($(<span class="string">&#x27;#box&#x27;</span>).is(<span class="string">&#x27;:empty&#x27;</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;沒有東西&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;有東西&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 三元運算子</span></span><br><span class="line">$(<span class="string">&#x27;#box&#x27;</span>).is(<span class="string">&#x27;:empty&#x27;</span>) ? <span class="built_in">console</span>.log(<span class="string">&#x27;沒有東西&#x27;</span>) : <span class="built_in">console</span>.log(<span class="string">&#x27;有東西&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="偵測某個元素是否存在"><a href="#偵測某個元素是否存在" class="headerlink" title="偵測某個元素是否存在"></a>偵測某個元素是否存在</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(<span class="string">&#x27;a&#x27;</span>).length) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;存在&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;不存在&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="偵測某個元素是否可見"><a href="#偵測某個元素是否可見" class="headerlink" title="偵測某個元素是否可見"></a>偵測某個元素是否可見</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(<span class="string">&#x27;#box&#x27;</span>).is(<span class="string">&#x27;:visible&#x27;</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;可見&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;不可見&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/20/lesson-jq-10.useful/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

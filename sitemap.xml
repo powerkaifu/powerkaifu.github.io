@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://powerkaifu.github.io/2020/10/20/lesson-jq-10.useful/</loc>
+    
+    <lastmod>2020-10-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/2020/10/16/lesson-jq-09.utilities/</loc>
     
     <lastmod>2020-10-25</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://powerkaifu.github.io/2020/09/08/lesson-css-09.animation/</loc>
     
     <lastmod>2020-10-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/10/20/lesson-jq-10.useful/</loc>
-    
-    <lastmod>2020-10-20</lastmod>
     
   </url>
   
