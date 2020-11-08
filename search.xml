@@ -1,6 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Velocity.js 動畫</title>
+    <url>/2020/11/07/lesson-velocity.js/</url>
+    <content><![CDATA[<h1 id="特點"><a href="#特點" class="headerlink" title="特點"></a>特點</h1><p>Velocity 與 jQuery 的 animate 使用方式一樣，但多了顏色、變形、轉場的動畫效果。這裡的版本為 1.5.2 版本，可參考官方網站文件，2.0.0 版本以上以 Github 版本文件為主，兩者文件本版不同，使用上也有些差異。Velocity 受 jQuery 影響，支援 Chain 串鏈方法。</p>
+<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><p>Velocity 可以配合 jQuery 或 JavaScript 這兩種寫法，一旦使用了 jQuery，另一種方式<strong>可能會失敗</strong>。</p>
+<h2 id="jQuery-Velocity"><a href="#jQuery-Velocity" class="headerlink" title="jQuery + Velocity"></a>jQuery + Velocity</h2><p>velocity 配合 jQuery 時兩個參數都是物件，與 jQuery animate 參數使用方式一樣，一個是<strong>樣式物件</strong>，另一個是<strong>動畫參數物件</strong>。</p>
+<blockquote>
+<p>$(selector).velocity(STYLES,OPTIONS)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(selector).velocity(</span><br><span class="line">  &#123;</span><br><span class="line">    width: <span class="string">&#x27;500px&#x27;</span>,</span><br><span class="line">    property2: value2</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">/* Velocity&#x27;s default options */</span></span><br><span class="line">    duration: <span class="number">400</span>,</span><br><span class="line">    delay: <span class="literal">false</span>,</span><br><span class="line">    easing: <span class="string">&#x27;swing&#x27;</span>,</span><br><span class="line">    loop: <span class="literal">false</span>,</span><br><span class="line">    begin: <span class="literal">undefined</span>,</span><br><span class="line">    complete: <span class="literal">undefined</span>,</span><br><span class="line">    progress: <span class="literal">undefined</span>,</span><br><span class="line">    display: <span class="literal">undefined</span>,</span><br><span class="line">    visibility: <span class="literal">undefined</span>,</span><br><span class="line">    queue: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    mobileHA: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="JavaScript-Velocity"><a href="#JavaScript-Velocity" class="headerlink" title="JavaScript + Velocity"></a>JavaScript + Velocity</h2><p>使用函式方式，有三個參數，依序是 <strong>DOM 元素</strong>，<strong>樣式物件</strong>，<strong>動畫參數物件</strong>。DOM 元素為 getElement 系列或 querySelector 所選擇到的元素。</p>
+<blockquote>
+<p>Velocity(DOM, STYLES, OPTIONS)</p>
+</blockquote>
+<h1 id="數值"><a href="#數值" class="headerlink" title="數值"></a>數值</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$element.velocity(&#123;</span><br><span class="line">  top: <span class="number">50</span>, <span class="comment">// Defaults to the px unit type</span></span><br><span class="line">  left: <span class="string">&#x27;50%&#x27;</span>,</span><br><span class="line">  width: <span class="string">&#x27;+=5rem&#x27;</span>, <span class="comment">// Add 5rem to the current rem value</span></span><br><span class="line">  height: <span class="string">&#x27;*=2&#x27;</span> <span class="comment">// Double the current height</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="示範結構"><a href="#示範結構" class="headerlink" title="示範結構"></a>示範結構</h1><p>Velocity 1.5.2 版本，注意的是，使用 jQuery 時，大寫 Velocity() 函式參數呼叫為 JavaScript 方式，您不能使用這種方法，而要改用$(selector).velocity()。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  div &#123;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    width: 10%;</span><br><span class="line">    height: 100vh;</span><br><span class="line">    position: relative;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(1)</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background</span>: <span class="selector-id">#ff0000</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background</span>: <span class="selector-id">#00ff00</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background</span>: <span class="selector-id">#0000ff</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(4)</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background</span>: <span class="selector-id">#ffff00</span>;</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;c&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;d&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;e&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="動畫參數物件設定（OPTIONS）"><a href="#動畫參數物件設定（OPTIONS）" class="headerlink" title="動畫參數物件設定（OPTIONS）"></a>動畫參數物件設定（OPTIONS）</h1><h2 id="duration"><a href="#duration" class="headerlink" title="duration"></a>duration</h2><p>與 jQuery 一樣支援 “slow”, “normal”, and “fast”。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$element.velocity(&#123;<span class="attr">opacity</span>: <span class="number">1</span>&#125;, &#123;<span class="attr">duration</span>: <span class="number">1000</span>&#125;)</span><br><span class="line">$element.velocity(&#123;<span class="attr">opacity</span>: <span class="number">1</span>&#125;, &#123;<span class="attr">duration</span>: <span class="string">&#x27;slow&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="delay"><a href="#delay" class="headerlink" title="delay"></a>delay</h2><p>動畫延遲，以毫秒為單位。</p>
+<ul>
+<li>JavaScript</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Velocity(</span><br><span class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>),</span><br><span class="line">  &#123;</span><br><span class="line">    opacity: <span class="number">0</span>,</span><br><span class="line">    tween: <span class="number">100</span> <span class="comment">// Optional</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    duration: <span class="number">1000</span>,</span><br><span class="line">    delay: <span class="number">3000</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="easing"><a href="#easing" class="headerlink" title="easing"></a>easing</h2><p>似乎不能使用 jQueryUI 或其他套件搭配字串的寫法，建議使用 bezier curve 的寫法，可參考 <a href="https://easings.net/%E3%80%82">https://easings.net/。</a><br>第三個設定以<code>[張力，摩擦]</code>的形式傳遞兩個項目的陣列。較高的張力（默認值：500）會增加總速度和彈跳度。較低的摩擦力（默認值：20）會提高最終振動速度。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 似乎不能與 jQueryUI 配合 */</span></span><br><span class="line">$element.velocity(&#123;<span class="attr">width</span>: <span class="number">50</span>&#125;, <span class="string">&#x27;easeInSine&#x27;</span>)</span><br><span class="line"><span class="comment">/* 使用貝茲曲線 */</span></span><br><span class="line">$element.velocity(&#123;<span class="attr">width</span>: <span class="number">50</span>&#125;, [<span class="number">0.17</span>, <span class="number">0.67</span>, <span class="number">0.83</span>, <span class="number">0.67</span>])</span><br><span class="line"><span class="comment">/* [張力,摩擦] */</span></span><br><span class="line">$element.velocity(&#123;<span class="attr">width</span>: <span class="number">50</span>&#125;, [<span class="number">500</span>, <span class="number">20</span>])</span><br><span class="line"><span class="comment">/* 產生步進動畫 */</span></span><br><span class="line">$element.velocity(&#123;<span class="attr">width</span>: <span class="number">50</span>&#125;, [<span class="number">8</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h2><p>設定動畫重複播放，值若為整數表示播放的交替次數（來回算一次），若為 true 表示無限循環，無限循環永遠不會返回 promise，確保在同一元素上只有一個無限循環（如果要使用另一個，必須停止前一個無限循環），可以使用 Velocity 參數 ‘stop’ 來停止。如果與 begin、complete 一起使用，begin、complete 分別在循環動畫的開始和循環動畫的結尾。不會為每個循環交替重新觸發它們。</p>
+<h2 id="begin-與-complete"><a href="#begin-與-complete" class="headerlink" title="begin 與 complete"></a>begin 與 complete</h2><p>beging 為當動畫「開始」時要執行的回呼函式。<br>complete 為當動畫「結束」時要執行的回呼函式。</p>
+<p>兩者對多個元素進行了動畫處理時，只會回調執行一次。此外，如果循環調用，則回調僅觸發一次，也就是<strong>在第一個循環交替開始時</strong>，或<strong>在最後一個循環交替結束時</strong>。回調將整個原始 DOM（不是 jQuery 物件）元素<strong>作為其上下文和第一個參數傳遞</strong>。要單獨訪問這些元素，必須使用 jQuery 的$ .each（）或 JavaScript 的.forEach（）遍歷陣列。</p>
+<ul>
+<li>jQuery 的 begin 寫法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;div&#x27;</span>).velocity(</span><br><span class="line">  &#123;</span><br><span class="line">    opacity: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    duration: <span class="number">2000</span>,</span><br><span class="line">    begin: <span class="function"><span class="keyword">function</span> (<span class="params">elements</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;動畫開始了&#x27;</span>, elements)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JavaScript 的 complete 寫法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Velocity(</span><br><span class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>),</span><br><span class="line">  &#123;</span><br><span class="line">    opacity: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    duration: <span class="number">2000</span>,</span><br><span class="line">    complete: <span class="function"><span class="keyword">function</span> (<span class="params">elements</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;動畫開始了&#x27;</span>, elements)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="progress"><a href="#progress" class="headerlink" title="progress"></a>progress</h2><p>將進度選項傳遞給回調函數，以便在整個動畫過程中重複觸發該回調函數。回調函數將傳遞有關呼叫狀態的數據。此數據可用於自定義補間等。</p>
+<p>elements： 回傳一個原始 JavaScript DOM 陣列元素。要單獨訪問這些元素，必須使用 jQuery 的$ .each（）或 JavaScript 的.forEach（）遍歷。<br>complete： 呼叫完成百分比（十進位顯示，乘以 100 可以表示 0~100%）。<br>remaining：剩餘多少時間直到呼叫完成（以毫秒為單位）。<br>start：呼叫開始的絕對時間（以 Unix 時間為準）。<br>tweenValue：補間動畫屬性的當前值，可以選擇將其傳遞到 Velocity 調用中。傳遞補間動畫屬性允許您隨後通過進度回調捕獲補間進度的確切值。<strong>與所有其他 Velocity 動畫屬性一樣，該屬性也受調用的 easing 行為影響</strong>。<strong>tween 可以在樣式物件裡面自定義</strong>，以便為任意 DOM 屬性的變化設置動畫。</p>
+<ul>
+<li>JavaScript 範例</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Velocity(</span><br><span class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>),</span><br><span class="line">  &#123;</span><br><span class="line">    opacity: <span class="number">0</span></span><br><span class="line">    tween: <span class="number">1000</span> <span class="comment">// Optional</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    progress: <span class="function"><span class="keyword">function</span> (<span class="params">elements, complete, remaining, start, tweenValue</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(complete * <span class="number">100</span> + <span class="string">&#x27;%&#x27;</span>)</span><br><span class="line">      <span class="built_in">console</span>.log(remaining + <span class="string">&#x27;ms remaining!&#x27;</span>)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;The current tween value is &#x27;</span> + tweenValue)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="display-與-visibility"><a href="#display-與-visibility" class="headerlink" title="display 與 visibility"></a>display 與 visibility</h2><p>可以在動畫執行結束後 動態設定元素的 css 屬性 display 或 visibility。display 設定值以 CSS 為主。當使用 reverse 方向動畫指令時，display 和 visibility 選項都將被忽略。</p>
+<ul>
+<li>JavaScript</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 動畫結束後 元素 display 屬性設為 &quot;none&quot; */</span></span><br><span class="line">Velocity(</span><br><span class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>),</span><br><span class="line">  &#123;</span><br><span class="line">    opacity: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    duration: <span class="number">1000</span>,</span><br><span class="line">    delay: <span class="number">3000</span>,</span><br><span class="line">    display: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 動畫結束後 元素的 visibility 屬性設為 hidden */</span></span><br><span class="line">$element.velocity(&#123;<span class="attr">opacity</span>: <span class="number">0</span>&#125;, &#123;&#125;)</span><br><span class="line">Velocity(</span><br><span class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>),</span><br><span class="line">  &#123;</span><br><span class="line">    opacity: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    duration: <span class="number">1000</span>,</span><br><span class="line">    delay: <span class="number">3000</span>,</span><br><span class="line">    visibility: <span class="string">&#x27;hidden&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="deqeue"><a href="#deqeue" class="headerlink" title="deqeue"></a>deqeue</h2><p>設定動畫的佇列。注意，loop 迴圈選項 和 reverse 反向動畫指令，不能和佇列一起使用。</p>
+<ul>
+<li>jQuery</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;div&#x27;</span>).eq(<span class="number">0</span>).velocity(&#123;<span class="attr">translateX</span>: <span class="string">&#x27;50%&#x27;</span>&#125;, &#123;<span class="attr">queue</span>: <span class="string">&#x27;a&#x27;</span>&#125;)</span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).eq(<span class="number">1</span>).velocity(&#123;<span class="attr">translateX</span>: <span class="string">&#x27;50%&#x27;</span>&#125;, &#123;<span class="attr">queue</span>: <span class="string">&#x27;b&#x27;</span>&#125;)</span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).eq(<span class="number">2</span>).velocity(&#123;<span class="attr">translateX</span>: <span class="string">&#x27;50%&#x27;</span>&#125;, &#123;<span class="attr">queue</span>: <span class="string">&#x27;c&#x27;</span>&#125;)</span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).eq(<span class="number">3</span>).velocity(&#123;<span class="attr">translateX</span>: <span class="string">&#x27;50%&#x27;</span>&#125;, &#123;<span class="attr">queue</span>: <span class="string">&#x27;d&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;div&#x27;</span>).eq(<span class="number">0</span>).dequeue(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;div&#x27;</span>).eq(<span class="number">1</span>).dequeue(<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">2000</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;div&#x27;</span>).eq(<span class="number">2</span>).dequeue(<span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">3000</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;div&#x27;</span>).eq(<span class="number">3</span>).dequeue(<span class="string">&#x27;d&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">4000</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JavaScript</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  Velocity(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#a&#x27;</span>), &#123;<span class="attr">left</span>: <span class="string">&#x27;90%&#x27;</span>&#125;, &#123;<span class="attr">duration</span>: <span class="number">1000</span>&#125;)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  Velocity(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#b&#x27;</span>), &#123;<span class="attr">left</span>: <span class="string">&#x27;90%&#x27;</span>&#125;, &#123;<span class="attr">duration</span>: <span class="number">1000</span>&#125;)</span><br><span class="line">&#125;, <span class="number">2000</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  Velocity(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#c&#x27;</span>), &#123;<span class="attr">left</span>: <span class="string">&#x27;90%&#x27;</span>&#125;, &#123;<span class="attr">duration</span>: <span class="number">1000</span>&#125;)</span><br><span class="line">&#125;, <span class="number">3000</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  Velocity(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#d&#x27;</span>), &#123;<span class="attr">left</span>: <span class="string">&#x27;90%&#x27;</span>&#125;, &#123;<span class="attr">duration</span>: <span class="number">1000</span>&#125;)</span><br><span class="line">&#125;, <span class="number">4000</span>)</span><br><span class="line"></span><br><span class="line">Velocity.Utilities.dequeue(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>)[<span class="number">0</span>], <span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">Velocity.Utilities.dequeue(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>)[<span class="number">1</span>], <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">Velocity.Utilities.dequeue(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>)[<span class="number">2</span>], <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">Velocity.Utilities.dequeue(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>)[<span class="number">3</span>], <span class="string">&#x27;d&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="動畫指令"><a href="#動畫指令" class="headerlink" title="動畫指令"></a>動畫指令</h1><h2 id="fade-與-slide"><a href="#fade-與-slide" class="headerlink" title="fade 與 slide"></a>fade 與 slide</h2><p>Velocity 的 fade、slide 動畫指令與 jQuery 相似，可以製作 淡入/淡出、滑入/滑出的動畫效果。</p>
+<ul>
+<li>jQuery</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// &#x27;fadeIn&#x27;、&#x27;fadeOut&#x27;、&#x27;slideUp&#x27;、&#x27;slideDown&#x27;</span></span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).velocity(<span class="string">&#x27;fadeOut&#x27;</span>, &#123;<span class="attr">duration</span>: <span class="number">2000</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JavaScript</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Velocity(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>), <span class="string">&#x27;fadeOut&#x27;</span>, &#123;</span><br><span class="line">  duration: <span class="number">2000</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="scroll"><a href="#scroll" class="headerlink" title="scroll"></a>scroll</h2><ol>
+<li>scroll 指令是非常棒的效果，可以滾動瀏覽器內容到目標元素的位置。</li>
+</ol>
+<ul>
+<li>jQuery</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;div&#x27;</span>).eq(<span class="number">2</span>).velocity(<span class="string">&#x27;scroll&#x27;</span>, &#123;<span class="attr">duration</span>: <span class="number">1500</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JavaScript</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Velocity(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>)[<span class="number">3</span>], <span class="string">&#x27;scroll&#x27;</span>, &#123;<span class="attr">duration</span>: <span class="number">2000</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>滾動到具有 overflow 元素的內容位置</li>
+</ol>
+<p>當一個元素的內容部分溢位（overflow）產生滾動條，可以使用 “scroll” 將內容滾動到指定的位置，container 選項對應為該元素（父容器）的選擇器。容器元素的 CSS 位置屬性必須設置為 relative，absolute 或 fixed，若沒有設定似乎會捲動比較快？</p>
+<ul>
+<li>jQuery</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#element4&#x27;</span>).velocity(<span class="string">&#x27;scroll&#x27;</span>, &#123;<span class="attr">container</span>: $(<span class="string">&#x27;#box&#x27;</span>), <span class="attr">duration</span>: <span class="number">3000</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JavaScript</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Velocity(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#element4&#x27;</span>), <span class="string">&#x27;scroll&#x27;</span>, &#123;<span class="attr">container</span>: <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#box&#x27;</span>), <span class="attr">duration</span>: <span class="number">3000</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>結構</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height:100px;width:200px;overflow:auto&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;element1&quot;</span>&gt;</span></span><br><span class="line">    1 element. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span><br><span class="line">    veniam, quis nostrud.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;element2&quot;</span>&gt;</span></span><br><span class="line">    2 element. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span><br><span class="line">    veniam, quis nostrud</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;element3&quot;</span>&gt;</span></span><br><span class="line">    3 element. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span><br><span class="line">    veniam, quis nostrud.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;element4&quot;</span>&gt;</span></span><br><span class="line">    4 element. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span><br><span class="line">    veniam, quis nostrud.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;element5&quot;</span>&gt;</span></span><br><span class="line">    5 element. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span><br><span class="line">    veniam, quis nostrud.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;element6&quot;</span>&gt;</span></span><br><span class="line">    6 element. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span><br><span class="line">    veniam, quis nostrud</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>設定水平或垂直捲軸滾動方向</li>
+</ol>
+<p>在兩種情況下（無論滾動是相對於瀏覽器窗口還是相對於包含元素），可以設定水平或垂直捲軸滾動的方向。預設情況下，滾動發生在 Y 軸上。傳遞軸：’x’ 選項，而不是水平滾動。如果要設定 x 軸，必須將子元素橫向排列，並且產生水平捲軸。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Velocity(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#element4&#x27;</span>), <span class="string">&#x27;scroll&#x27;</span>, &#123;<span class="attr">axis</span>: <span class="string">&#x27;x&#x27;</span>, <span class="attr">container</span>: <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#box&#x27;</span>), <span class="attr">duration</span>: <span class="number">3000</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>設定滾動相對偏移量（以像素為單位）</li>
+</ol>
+<p>除了設定滾動到指定元素的位置，還可以設定滾動至元素 offset 的偏移量。另外傳遞 mobileHA：false 可以避免在 iOS 上出現潛在的閃爍問題。</p>
+<ul>
+<li>jQuery</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#b&#x27;</span>).velocity(<span class="string">&#x27;scroll&#x27;</span>, &#123;<span class="attr">offset</span>: <span class="number">250</span>, <span class="attr">duration</span>: <span class="number">3000</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JavaScript</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Velocity(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#b&#x27;</span>), <span class="string">&#x27;scroll&#x27;</span>, &#123;<span class="attr">offset</span>: <span class="number">250</span>, <span class="attr">duration</span>: <span class="number">3000</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="stop"><a href="#stop" class="headerlink" title="stop"></a>stop</h2><p>要立即停止元素上所有當前的 Velocity 調用（包括通過 queue：false 調用的並行動畫），請將’stop’作為 Velocity 的第一個參數傳遞。元素的動畫隊列中的下一個 Velocity 調用立即開始。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$element.velocity(<span class="string">&#x27;stop&#x27;</span>) <span class="comment">// 停止正在執行的 $element 元素的動畫</span></span><br><span class="line">$element.velocity(<span class="string">&#x27;stop&#x27;</span>, <span class="string">&#x27;myQueue&#x27;</span>) <span class="comment">// 停止某自定義佇列</span></span><br></pre></td></tr></table></figure>
+
+<p>第二參數如果設定 true，停止動畫並且清除動畫隊列，在下方，最初的 {width：100} 調用將立即停止，隨後的 {height：200} 將被清除並完全跳過（它將永遠不會運行）。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 動畫佇列 */</span></span><br><span class="line">$element.velocity(&#123;<span class="attr">width</span>: <span class="number">100</span>&#125;, <span class="number">1000</span>).velocity(&#123;<span class="attr">height</span>: <span class="number">200</span>&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">/* Called immediately after. */</span></span><br><span class="line">$element.velocity(<span class="string">&#x27;stop&#x27;</span>, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="finish"><a href="#finish" class="headerlink" title="finish"></a>finish</h2><p>“finish” 指令會停止當前正在執行的動畫，並直接跳轉到動畫結束的狀態（無過渡）</p>
+<h2 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h2><p>“reverse” 指令使動畫反向執行，就像讓一部電影倒著播放。Reverse 預設會繼承之前動畫的配置選項（比如 duration,easing 等），但也可以重新設定。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$element.velocity(&#123;<span class="attr">left</span>: <span class="number">200</span>&#125;, &#123;<span class="attr">duration</span>: <span class="number">500</span>&#125;).velocity(<span class="string">&#x27;reverse&#x27;</span>, &#123;<span class="attr">duration</span>: <span class="number">2000</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="特色動畫"><a href="#特色動畫" class="headerlink" title="特色動畫"></a>特色動畫</h1><h2 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$element.velocity(&#123;</span><br><span class="line">  translateX: <span class="string">&#x27;200px&#x27;</span>,</span><br><span class="line">  rotateZ: <span class="string">&#x27;45deg&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以下列舉了所有常用的 transform 相關可用屬性：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* translate */</span></span><br><span class="line">    translateX: <span class="number">20</span>,     <span class="comment">// 等同於&quot;20px&quot;</span></span><br><span class="line">    translateY: <span class="string">&quot;1.5em&quot;</span>,</span><br><span class="line">    translateZ: <span class="string">&quot;20px&quot;</span>, <span class="comment">// IE10+</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* scale */</span></span><br><span class="line">    scale: <span class="number">0.5</span>,</span><br><span class="line">    scaleX: <span class="number">0.5</span>,</span><br><span class="line">    scaleY: <span class="number">0.5</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* rotate */</span></span><br><span class="line">    rotate: <span class="number">45</span>,       <span class="comment">// 等同於&quot;45deg&quot;</span></span><br><span class="line">    rotateX: <span class="string">&quot;45deg&quot;</span>, <span class="comment">// IE10+</span></span><br><span class="line">    rotateY: <span class="string">&quot;45deg&quot;</span>, <span class="comment">// IE10+</span></span><br><span class="line">    rotateZ: <span class="string">&quot;45deg&quot;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* skew */</span></span><br><span class="line">    skewX: <span class="string">&quot;30deg&quot;</span>,</span><br><span class="line">    skewY: <span class="string">&quot;30deg&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="colors"><a href="#colors" class="headerlink" title="colors"></a>colors</h2><p>Velocity 顏色動畫支援的顏色屬性有:color, backgroundColor, borderColor, outlineColor。屬性值支援:rgb, hsla, 十六進位制顏色碼，但不支援顏色名稱，例如:”green”。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$element.velocity(&#123;</span><br><span class="line">  backgroundColor: <span class="string">&#x27;#ff0000&#x27;</span>,</span><br><span class="line">  <span class="comment">/* 背景色 RGBA 中的 A 透明度到50%  */</span></span><br><span class="line">  backgroundColorAlpha: <span class="number">0.5</span>,</span><br><span class="line">  <span class="comment">/* 字型顏色 RGB 中的 Red 到 50% (0.5 * 255) */</span></span><br><span class="line">  colorRed: <span class="string">&#x27;50%&#x27;</span>,</span><br><span class="line">  <span class="comment">/* 字型顏色 RGB 中的 Blue 值疊加50 */</span></span><br><span class="line">  colorBlue: <span class="string">&#x27;+=50&#x27;</span>,</span><br><span class="line">  <span class="comment">/* 字型顏色 RGBA 中的 A 透明度到85% */</span></span><br><span class="line">  colorAlpha: <span class="number">0.85</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Hook"><a href="#Hook" class="headerlink" title="Hook"></a>Hook</h2><p>Hook 可以設定多個 CSS 屬性中的單獨一個值，比如 “boxShadow”, “clip”等，作用與 jQuery 的$.css()方法相似。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.Velocity.hook($element, <span class="string">&#x27;translateX&#x27;</span>, <span class="string">&#x27;500px&#x27;</span>) <span class="comment">// 值必須寫上單位</span></span><br><span class="line">$.Velocity.hook(elementNode, <span class="string">&#x27;textShadowBlur&#x27;</span>, <span class="string">&#x27;10px&#x27;</span>) <span class="comment">// 值必須寫上單位</span></span><br></pre></td></tr></table></figure>
+
+<p>還可以獲取單個 CSS 屬性的值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.Velocity.hook($element, <span class="string">&#x27;translateX&#x27;</span>) <span class="comment">// 獲取元素的translateX值</span></span><br><span class="line">$.Velocity.hook(elementNode, <span class="string">&#x27;textShadowBlur&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="promises"><a href="#promises" class="headerlink" title="promises"></a>promises</h2><p>Velocity 可以使用 ES6 的 Promises 物件的語法方式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 使用 Velocity 的公有方法，$element 為 dom 選擇器 可以用 jQuery 的 或 原生js */</span></span><br><span class="line">$.Velocity.animate($element, &#123;<span class="attr">opacity</span>: <span class="number">0.5</span>&#125;)</span><br><span class="line">  <span class="comment">/* 一旦動畫執行完成 執行下面.then()中的回撥函式（可以寫多個.then()）*/</span></span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">elements</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Resolved.&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">/* 捕獲錯誤後的回撥函式 */</span></span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Rejected.&#x27;</span>)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Velocity.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第十章 - 常用方法</title>
     <url>/2020/10/20/lesson-jq-10.useful/</url>
     <content><![CDATA[<h1 id="切換-active-類別"><a href="#切換-active-類別" class="headerlink" title="切換 active 類別"></a>切換 active 類別</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul&gt;li&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="built_in">this</span>).addClass(<span class="string">&#x27;active&#x27;</span>).siblings().removeClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -89,14 +254,14 @@
   <entry>
     <title>CSS - 彈性盒</title>
     <url>/2020/10/14/lesson-css-11.flexbox/</url>
-    <content><![CDATA[<h1 id="彈性盒（FlexBox）"><a href="#彈性盒（FlexBox）" class="headerlink" title="彈性盒（FlexBox）"></a>彈性盒（FlexBox）</h1><p>「彈性盒」是 CSS 裡很重要的觀念，如同名稱，它是一種靈活佈局的盒子，是至今 2020 主流的排版方式，幾乎著名 CSS FrameWork 都以它為佈局基礎。彈性盒的使用方式是當宣告一個元素容器為彈性盒 flex 或 inlne-flex 時，該容器就成為彈性容器（flex container），而此彈性容器裡面的子元素，無論它們是區塊（block）或是行內（inline）類型，全部都會變成彈性項目（flex item）。當然，一些區塊元素預設的外距還是會造成些許差異（移除外距大家就一樣了），但不影響其成為彈性項目的事實。在彈性盒裡面的世界，有著屬於它自己佈局的方式，自成彈性盒領域。</p>
+    <content><![CDATA[<h1 id="彈性盒（FlexBox）"><a href="#彈性盒（FlexBox）" class="headerlink" title="彈性盒（FlexBox）"></a>彈性盒（FlexBox）</h1><p>「彈性盒」是 CSS 裡很重要的觀念，如同名稱，是一種靈活佈局的盒子，至今 2020 主流的排版方式，許多著名 CSS FrameWork 都以它為佈局基礎。彈性盒的使用方式是在宣告一個元素容器為彈性盒 flex 或 inlne-flex 時，該容器就成為彈性容器（flex container）。而此彈性容器裡面的子元素，無論它們是區塊（block）或是行內（inline）類型，全部都會變成彈性項目（flex item）。當然，一些區塊元素預設的外距還是會造成些許差異（移除外距大家就一樣了），但不影響其成為彈性項目。在彈性盒裡面，有屬於它自己佈局的方式，自成領域。</p>
 <a id="more"></a>
 
-<h1 id="主軸與次軸"><a href="#主軸與次軸" class="headerlink" title="主軸與次軸"></a>主軸與次軸</h1><p>彈性盒與一般盒模型不同的地方，在於彈性盒本身具有「兩條看不見的軸」，主軸（main axis）和次軸（交叉軸 cross axis），兩條軸分別都有著起點與終點兩個軸點，主軸是 main start 與 main end，次軸是 cross start 與 cross end，如下圖所示。<strong>這些軸點是彈性盒對齊彈性項目的依據</strong>。另外，需要記住一點，下圖可能會令人認為主軸是負責水平流向，次軸則是垂直流向，其實不是的，<strong>主軸與次軸的位置會根據彈性盒的 flex-direction 流向來決定</strong>。當 flex-direction:column 時，主軸會變成垂直流向，次軸會變成水平流向。</p>
+<h1 id="主軸與次軸"><a href="#主軸與次軸" class="headerlink" title="主軸與次軸"></a>主軸與次軸</h1><p>彈性盒與一般盒模型不同的地方，本身具有「兩條看不見的軸」，主軸（main axis）和次軸（交叉軸 cross axis），兩條軸分別都有著起點與終點兩個軸點，主軸是 main start 與 main end，次軸是 cross start 與 cross end，如下圖所示。<strong>這些軸點是彈性盒對齊彈性項目的依據</strong>。另外，下圖可能會令人認為主軸是負責水平流向，次軸則是垂直流向，其實不是的，<strong>主軸與次軸的位置會根據彈性盒的 flex-direction 流向來決定</strong>。當 flex-direction:column 時，主軸會變成垂直流向，次軸會變成水平流向。最後，負責主軸對齊屬性是 justify-content，次軸則是 align-items。</p>
 <img data-src="/images/css/css-flexbox-01.png" width="700">
 
-<h1 id="彈性盒預設值"><a href="#彈性盒預設值" class="headerlink" title="彈性盒預設值"></a>彈性盒預設值</h1><p>學習彈性盒需熟記最初建立彈性盒所產生的預設值，也就是宣告元素 display:flex 成為彈性容器時，其實已經構築好預設的彈性盒領域，一開始的預設佈局方式。以下預設屬性不會顯示出來，但它們確實已經存在。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="comment">/* 當元素宣告為彈性容器時，其實已經產生以下的預設值 */</span></span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 預設值們 */</span></span><br><span class="line">  <span class="comment">/* 主軸對齊方式預設以 main start 開始  */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start;</span><br><span class="line">  <span class="comment">/* 次軸對齊方式預設為伸展拉長 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: stretch;</span><br><span class="line">  <span class="comment">/* 以列為水平方向的排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="comment">/* 彈性項目不換行 */</span></span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="彈性盒預設值"><a href="#彈性盒預設值" class="headerlink" title="彈性盒預設值"></a>彈性盒預設值</h1><p>在學習彈性盒時，熟記最初建立彈性盒所產生的預設值是有幫助的，也就是宣告元素 display:flex 成為彈性容器時，彈性容器、彈性項目已經構築好預設屬性，一開始的預設佈局方式。以下預設屬性不會顯示出來，但它們確實已經存在。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="comment">/* 當元素宣告為彈性容器時，其實已經產生以下的預設值 */</span></span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 主軸對齊方式預設以 main start 開始  */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start;</span><br><span class="line">  <span class="comment">/* 次軸對齊方式預設為伸展拉長 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: stretch;</span><br><span class="line">  <span class="comment">/* 以列為水平方向的排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="comment">/* 彈性項目不換行 */</span></span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="彈性盒屬性"><a href="#彈性盒屬性" class="headerlink" title="彈性盒屬性"></a>彈性盒屬性</h1><p>設定在彈性盒的屬性，當元素宣告 display:flex 或 inline-flex 成為彈性容器時，才能使用它們。</p>
 <table>
@@ -138,7 +303,7 @@
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 預設 彈性項目會拉長可延伸   */</span></span><br><span class="line">  <span class="attribute">align-item</span>: stretch;</span><br><span class="line">  <span class="comment">/* 彈性項目會對齊 cross start 開始端點 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: flex-start;</span><br><span class="line">  <span class="comment">/* 彈性項目會對齊 cross end 結束端點 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: flex-end;</span><br><span class="line">  <span class="comment">/* 彈性項目會對齊中央 */</span></span><br><span class="line">  <span class="attribute">align-item</span>: center;</span><br><span class="line">  <span class="comment">/* 彈性項目會對準基準線，很少使用 */</span></span><br><span class="line">  <span class="attribute">align-item</span>: baseline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2><p>彈性項目的排列方式，水平（row）或垂直（column）排列，宣告在彈性容器裡，不在彈性項目。<strong>主軸流向的決定是依據 flex-direction 的屬性值</strong>。</p>
-<p>當屬性值為 row：主軸為水平流向，次軸為垂直流向，彈性項目依據主軸水平排列，<br>當屬性值為 column：主軸為垂直流向，次軸為水平流向，彈性項目依據主軸垂直排列。</p>
+<p>當屬性值為 row：主軸為水平流向，次軸為垂直流向，彈性項目依據主軸水平排列。在預設情況下，寬度可以設定，高度若沒設定會因為 stretch 被拉至最高。<br>當屬性值為 column：主軸為垂直流向，次軸為水平流向，彈性項目依據主軸垂直排列。在預設情況下，高度可以設定，寬度若沒設定會因為 stretch 被拉至最寬。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="comment">/* 預設 水平排列*/</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="comment">/* 垂直排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="comment">/* 水平反向排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: row-reverse;</span><br><span class="line">  <span class="comment">/* 垂直反向排列 */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><p>彈性項目是否要換行，預設為不換行（nowrap）。</p>
@@ -183,7 +348,69 @@
 <h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><p>彈性伸展係數，數字且無單位，<strong>預設值為 0</strong>，不會進行彈性伸展變化，不可為負值。當彈性項目的 flex-basis 長度「小」於它自己在彈性容器分配的長度，按照數字做相對應的「伸展」比例分配。</p>
 <h2 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h2><p>彈性收縮係數，數字且無單位，<strong>預設值為 1</strong>，設為 0 的話不會進行彈性變化，不可為負值。當彈性項目的 flex-basis 長度「大」於它自己在彈性容器分配的長度，按照數字做相對應的「壓縮」比例分配。每個彈性項目預設收縮係數 1，可表示一件事，彈性項目全部加起來的總長度超過彈性容器時，不會出現爆版。</p>
 <h2 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h2><p>彈性基礎係數，可為單位 px、rem、百分比等，或是 auto、none，<strong>預設值為 auto</strong>。控制彈性項目主軸的長度（寬度或高度），預設 auto 指長度設定交由彈性項目的寬度或高度為優先，如果 flex-basis 有設定單位，例如：100px、20%等等，優先權則交由 flex-basis。也就是說，彈性項目本身設定的<strong>寬度或高度會變成無效</strong>。另外，為甚麼 flex-basis 要用「長度」來說明？這是因為它也是根據主軸流向 flex-direction 來決定，當 flex-direction:row，主軸為水平流向，flex-basis 則是控制寬度；當 flex-direction:column，主軸為垂直流向，flex-basis 則是控制高度。</p>
-<h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><p>flex 是三合一屬性，可以分別設定伸展係數、收縮係數、基礎係數，預設值為 0 1 auto，也就是說<strong>當彈性盒形成，每個彈性項目均為 flex:0 1 auto</strong>。</p>
+<h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><p>flex 是三合一屬性，可以分別設定伸展係數、收縮係數、基礎係數，預設值為 0 1 auto，也就是說<strong>當彈性盒形成，每個彈性項目均為 flex:0 1 auto</strong>。縮寫分為數字、文字表示方式。</p>
+<h3 id="數字表示"><a href="#數字表示" class="headerlink" title="數字表示"></a>數字表示</h3><p>以數字表示，數字代表 flex-grow，彈性基準係數為 0%。</p>
+<table>
+<thead>
+<tr>
+<th>縮寫</th>
+<th>全部</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex: 0</td>
+<td>flex: 0 1 0%</td>
+</tr>
+<tr>
+<td>flex: 1</td>
+<td>flex: 1 1 0%</td>
+</tr>
+<tr>
+<td>flex: 2</td>
+<td>flex: 2 1 0%</td>
+</tr>
+</tbody></table>
+<h3 id="文字表示"><a href="#文字表示" class="headerlink" title="文字表示"></a>文字表示</h3><p>以文字表示，彈性基準係數為 auto。</p>
+<table>
+<thead>
+<tr>
+<th>縮寫</th>
+<th>全部</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex: initial</td>
+<td>flex: 0 1 auto</td>
+</tr>
+<tr>
+<td>flex: auto</td>
+<td>flex: 1 1 auto</td>
+</tr>
+<tr>
+<td>flex: none</td>
+<td>flex: 0 0 auto</td>
+</tr>
+</tbody></table>
+<h3 id="flex-grow-表示"><a href="#flex-grow-表示" class="headerlink" title="flex-grow 表示"></a>flex-grow 表示</h3><p>以 flex-grow 表示，與文字 initial、auto 相同。</p>
+<table>
+<thead>
+<tr>
+<th>縮寫</th>
+<th>全部</th>
+<th>相同</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex-grow: 0</td>
+<td>flex: 0 1 auto</td>
+<td>等同 flex: initial</td>
+</tr>
+<tr>
+<td>flex-grow: 1</td>
+<td>flex: 1 1 auto</td>
+<td>等同 flex: auto</td>
+</tr>
+</tbody></table>
 ]]></content>
       <tags>
         <tag>css</tag>
