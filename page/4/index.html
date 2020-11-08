@@ -42,7 +42,7 @@
   <meta name="description" content="前端設計講師">
 <meta property="og:type" content="website">
 <meta property="og:title" content="樂遊前端趣">
-<meta property="og:url" content="https://powerkaifu.github.io/archives/page/2/index.html">
+<meta property="og:url" content="https://powerkaifu.github.io/page/4/index.html">
 <meta property="og:site_name" content="樂遊前端趣">
 <meta property="og:description" content="前端設計講師">
 <meta property="og:locale" content="zh_TW">
@@ -50,20 +50,20 @@
 <meta property="article:tag" content="泰山職訓局,泰山前端,前端網頁開發技術,前端設計,前端工程,網頁設計,html,css,javascript,jQuery,bootstrap,sass,scss,HotCode,HotCode Encore">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://powerkaifu.github.io/archives/page/2/">
+<link rel="canonical" href="https://powerkaifu.github.io/page/4/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>歸檔 | 樂遊前端趣</title>
+  <title>樂遊前端趣</title>
   
     <script>
       function sendPageView() {
@@ -215,254 +215,86 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/23/lesson-css-01.selectors/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">還行! 目前共有 31 篇文章。 繼續努力。</span>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/23/lesson-css-01.selectors/" class="post-title-link" itemprop="url">CSS - 選擇器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-08-23 13:50:42" itemprop="dateCreated datePublished" datetime="2020-08-23T13:50:42+08:00">2020-08-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-24 03:32:21" itemprop="dateModified" datetime="2020-10-24T03:32:21+08:00">2020-10-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+          <h1 id="愛你所擇，擇你所愛"><a href="#愛你所擇，擇你所愛" class="headerlink" title="愛你所擇，擇你所愛"></a>愛你所擇，擇你所愛</h1><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責文件的版型，例如文字、顏色、尺寸、位置、響應式等等。首先登場的即是主角「選擇器」，它是 CSS 世界裡的支柱，如同人類的脊椎支撐了整個身體，我們必須要選擇到目標，才能對元素進行樣式的設計，然而，CSS 選擇器非常多樣貌，認識各種選擇器及使用特性才能夠靈活設計樣式。此外，只要符合 CSS 規範的選擇器，在 jQuery 裡，也能成為$()加工廠的原料產生出 jQuery 物件，選擇到匹配的元素集合，同時也能被 JavaScript 的 querySelector()與 querySelectorAll()方法選擇（與 jQuery 在選擇元素一樣的功能）。</p>
+<h1 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h1><p>一個「選擇器」決定選擇的元素目標，連結著大括號「{}」，大括號裡面是屬性、屬性值，以冒號「:」分隔屬性與屬性值，屬性值後面以分號「;」結尾。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">選擇器 &#123;</span><br><span class="line">  屬性: 屬性值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/23/lesson-css-01.selectors/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T23:15:05+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/lesson-css-05.float/" itemprop="url">
-            <span itemprop="name">CSS - 浮動</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T21:07:51+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/lesson-css-04.box-model/" itemprop="url">
-            <span itemprop="name">CSS - 盒模型</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T16:57:58+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/resource-learn/" itemprop="url">
-            <span itemprop="name">學習資源</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T14:28:37+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/resource-normal-tools/" itemprop="url">
-            <span itemprop="name">設計常用工具及網站</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T14:04:43+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/resource-web-license/" itemprop="url">
-            <span itemprop="name">網頁設計證照資源</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-29T13:53:53+08:00"
-              content="2020-08-29">
-          08-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/29/resource-coding/" itemprop="url">
-            <span itemprop="name">Coding 資源</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-25T15:37:00+08:00"
-              content="2020-08-25">
-          08-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/25/lesson-css-03.background/" itemprop="url">
-            <span itemprop="name">CSS - 背景</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-25T14:26:31+08:00"
-              content="2020-08-25">
-          08-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/25/lesson-css-02.text/" itemprop="url">
-            <span itemprop="name">CSS - 文字</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-23T13:50:42+08:00"
-              content="2020-08-23">
-          08-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/23/resource-css-useful-site/" itemprop="url">
-            <span itemprop="name">CSS資源</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-23T13:50:42+08:00"
-              content="2020-08-23">
-          08-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/23/lesson-html/" itemprop="url">
-            <span itemprop="name">HTML</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-23T13:50:42+08:00"
-              content="2020-08-23">
-          08-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/23/lesson-css-01.selectors/" itemprop="url">
-            <span itemprop="name">CSS - 選擇器</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
   
   
   
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
 
 
