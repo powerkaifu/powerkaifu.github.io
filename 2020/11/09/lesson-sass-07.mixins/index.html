@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans TC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"slideDownIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+<style>
+    .headband{
+      height:0;
+    }
+    .pace .pace-progress {
+      background: rgba(255,255,255,1); /*進度條顏色*/
+      height: 1px;
+    }
+    .pace .pace-progress-inner {
+      box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*陰影顏色*/
+    }
+    .pace .pace-activity {
+      border-top-color: #ff009e; /*上邊框顏色*/
+      border-left-color: #ff009e; /*左邊框顏色*/
+    }
+</style>
+  <meta name="description" content="混用（Mixins）Mixins 的作用很像函式（function），主要用於重複使用的樣式區塊以及同樣的效果，但需要不同的數值，可以透過傳遞參數接受訊息，掌控 mixin 產出的結果。 使用時機由於混合器太好用了，一不小心你可能會過度使用。大量的重用可能會導緻生成的樣式表過大，導緻加載緩慢。  當不停地重複一段樣式，就可以使用 Mixins。  使用 Mixins 使用 @mixin @mixi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第七章 - 混合">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/11/09/lesson-sass-07.mixins/index.html">
+<meta property="og:site_name" content="樂遊前端趣">
+<meta property="og:description" content="混用（Mixins）Mixins 的作用很像函式（function），主要用於重複使用的樣式區塊以及同樣的效果，但需要不同的數值，可以透過傳遞參數接受訊息，掌控 mixin 產出的結果。 使用時機由於混合器太好用了，一不小心你可能會過度使用。大量的重用可能會導緻生成的樣式表過大，導緻加載緩慢。  當不停地重複一段樣式，就可以使用 Mixins。  使用 Mixins 使用 @mixin @mixi">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-11-09T12:18:17.204Z">
+<meta property="article:modified_time" content="2020-11-09T12:24:20.984Z">
+<meta property="article:author" content="Kai-Fu Chang">
+<meta property="article:tag" content="SASS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://powerkaifu.github.io/2020/11/09/lesson-sass-07.mixins/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>第七章 - 混合 | 樂遊前端趣</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-175260737-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">樂遊前端趣</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端技術筆記本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>技術筆記<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>文章分類<span class="badge">5</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/powerkaifu" class="github-corner" title="KaiFu&#39;s GitHub" aria-label="KaiFu&#39;s GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/11/09/lesson-sass-07.mixins/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第七章 - 混合
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-11-09 20:18:17 / 修改時間：20:24:20" itemprop="dateCreated datePublished" datetime="2020-11-09T20:18:17+08:00">2020-11-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="混用（Mixins）"><a href="#混用（Mixins）" class="headerlink" title="混用（Mixins）"></a>混用（Mixins）</h1><p>Mixins 的作用很像函式（function），主要用於重複使用的樣式區塊以及同樣的效果，但需要不同的數值，可以透過傳遞參數接受訊息，掌控 mixin 產出的結果。</p>
+<h2 id="使用時機"><a href="#使用時機" class="headerlink" title="使用時機"></a>使用時機</h2><p>由於混合器太好用了，一不小心你可能會過度使用。大量的重用可能會導緻生成的樣式表過大，導緻加載緩慢。</p>
+<ul>
+<li>當不停地重複一段樣式，就可以使用 Mixins。</li>
+</ul>
+<h2 id="使用-Mixins"><a href="#使用-Mixins" class="headerlink" title="使用 Mixins"></a>使用 Mixins</h2><ul>
+<li>使用 @mixin @mixin name() { css 樣式 } ，定義一個「 混合 」。</li>
+<li>使用 @include name，引用一個「 混合 」。</li>
+<li>@include 可以存在於選擇器內、外，只要寫法允許。</li>
+<li>@mixin 沒有參數時可以不用 ()，引用 @include 也可以不用()。</li>
+<li>可同時引用多個「混合」。</li>
+</ul>
+<h2 id="mixin-與-extend-的差異"><a href="#mixin-與-extend-的差異" class="headerlink" title="@mixin 與 @extend 的差異"></a>@mixin 與 @extend 的差異</h2><p>@mixin 與 @extend 皆可達到減少撰寫重複程式碼的目的，那怎麼選擇呢？</p>
+<ul>
+<li>@mixin: 將樣式碼寫入 class 內，可用變數</li>
+<li>@extend: 將樣式獨立出來，不可用變數</li>
+</ul>
+<p>基本上 @extend 是將 CSS 集中，所以程式碼較少，相反的，@mixin 則是寫一次就多產生一次 CSS，所以程式碼較多，較簡單的分辨方式是，如需使用變數就使用 @mixin，不需要則使用 @extend</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> color() &#123;</span><br><span class="line">  <span class="attribute">background</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> color();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@mixin</span> link() &#123;</span><br><span class="line">  <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@include</span> link();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>傳遞參數（Arguments）</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> bgcolor(<span class="variable">$bgcolor</span>) &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="variable">$bgcolor</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> bgcolor(<span class="number">#ffa</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="傳遞參數的單位處理，使用插植語法-變數名稱-單位"><a href="#傳遞參數的單位處理，使用插植語法-變數名稱-單位" class="headerlink" title="傳遞參數的單位處理，使用插植語法 #{\$變數名稱}單位"></a>傳遞參數的單位處理，使用插植語法 <code>#&#123;\$變數名稱&#125;單位</code></h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> rotate(<span class="variable">$deg</span>) &#123;</span><br><span class="line">  <span class="attribute">transform</span>: rotate(#&#123;<span class="variable">$deg</span>&#125;deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> rotate(<span class="number">45</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="多參數"><a href="#多參數" class="headerlink" title="多參數"></a>多參數</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> text(<span class="variable">$size</span>, <span class="variable">$lin-height</span>, <span class="variable">$weight</span>, <span class="variable">$color</span>) &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$size</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line-height</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="variable">$weight</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="參數若不需要不能省略！Sass-編譯會錯誤！非必要的參數要用-null，告訴-Sass-數值可為-null。"><a href="#參數若不需要不能省略！Sass-編譯會錯誤！非必要的參數要用-null，告訴-Sass-數值可為-null。" class="headerlink" title="參數若不需要不能省略！Sass 編譯會錯誤！非必要的參數要用 null，告訴 Sass 數值可為 null。"></a>參數若不需要不能省略！Sass 編譯會錯誤！非必要的參數要用 null，告訴 Sass 數值可為 null。</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> text(<span class="variable">$size</span>, <span class="variable">$lin-height</span>: null, <span class="variable">$weight</span>: null, <span class="variable">$color</span>: null) &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$size</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line-height</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="variable">$weight</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> text(<span class="number">2em</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> text(<span class="number">1.25em</span>, <span class="number">1.2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> text(<span class="number">1em</span>, <span class="number">1.2</span>, normal);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="參數可以使用預設數值"><a href="#參數可以使用預設數值" class="headerlink" title="參數可以使用預設數值"></a>參數可以使用預設數值</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> text(<span class="variable">$size</span>, <span class="variable">$lin-height</span>: <span class="number">1.2</span>, <span class="variable">$weight</span>: normal, <span class="variable">$color</span>: null) &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$size</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line-height</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="variable">$weight</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="可以明確告訴-Sass-甚麼數值要指定給哪一個屬性"><a href="#可以明確告訴-Sass-甚麼數值要指定給哪一個屬性" class="headerlink" title="可以明確告訴 Sass 甚麼數值要指定給哪一個屬性"></a>可以明確告訴 Sass 甚麼數值要指定給哪一個屬性</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h2</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> text(<span class="number">2em</span>, <span class="variable">$color</span>: red);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="不確定多少個參數寫法，可以使用"><a href="#不確定多少個參數寫法，可以使用" class="headerlink" title="不確定多少個參數寫法，可以使用 ..."></a>不確定多少個參數寫法，可以使用 <code>...</code></h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@mixin</span> box-shadow(<span class="variable">$shadows</span>...) &#123;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="variable">$shadows</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.shadows</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> box-shadow(<span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.shadows</span> &#123;</span><br><span class="line">  -webkit-<span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用一串變數值，也可以使用"><a href="#使用一串變數值，也可以使用" class="headerlink" title="使用一串變數值，也可以使用..."></a>使用一串變數值，也可以使用<code>...</code></h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@mixin</span> colors(<span class="variable">$text</span>, <span class="variable">$background</span>, <span class="variable">$border</span>) &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$text</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="variable">$background</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="variable">$border</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 一串變數值 ...</span></span><br><span class="line"><span class="variable">$values</span>: <span class="number">#ff0000</span>, <span class="number">#00ff00</span>, <span class="number">#0000ff</span>;</span><br><span class="line"><span class="selector-class">.primary</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> colors(<span class="variable">$values</span>...);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.primary</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ff0000</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#00ff00</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="number">#0000ff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="content"><a href="#content" class="headerlink" title="@content"></a>@content</h2><p>在使用 @mixin 時搭配 @content 可以把 @include 中的內容載入，這很適合用在 RWD 的 media-query 使用：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@mixin</span> apply-to-ipad &#123;</span><br><span class="line">  <span class="keyword">@media</span> screen <span class="keyword">and</span> (max-width: <span class="number">768px</span>) &#123;</span><br><span class="line">    <span class="keyword">@content</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@include</span> apply-to-ipad &#123;</span><br><span class="line">  <span class="selector-id">#logo</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: url(/logo2x.gif);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (max-width: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-id">#logo</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: url(/logo2x.gif);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SASS/" rel="tag"># SASS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/09/lesson-sass-04.extends/" rel="prev" title="第四章 - 繼承">
+      <i class="fa fa-chevron-left"></i> 第四章 - 繼承
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/09/lesson-sass-06.functions/" rel="next" title="第六章 - 函式">
+      第六章 - 函式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B7%E7%94%A8%EF%BC%88Mixins%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">混用（Mixins）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%99%82%E6%A9%9F"><span class="nav-number">1.1.</span> <span class="nav-text">使用時機</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Mixins"><span class="nav-number">1.2.</span> <span class="nav-text">使用 Mixins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mixin-%E8%88%87-extend-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">@mixin 與 @extend 的差異</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%82%B3%E9%81%9E%E5%8F%83%E6%95%B8%E7%9A%84%E5%96%AE%E4%BD%8D%E8%99%95%E7%90%86%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%8F%92%E6%A4%8D%E8%AA%9E%E6%B3%95-%E8%AE%8A%E6%95%B8%E5%90%8D%E7%A8%B1-%E5%96%AE%E4%BD%8D"><span class="nav-number">1.3.1.</span> <span class="nav-text">傳遞參數的單位處理，使用插植語法 #&amp;#123;\$變數名稱&amp;#125;單位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%8F%83%E6%95%B8"><span class="nav-number">1.3.2.</span> <span class="nav-text">多參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E6%95%B8%E8%8B%A5%E4%B8%8D%E9%9C%80%E8%A6%81%E4%B8%8D%E8%83%BD%E7%9C%81%E7%95%A5%EF%BC%81Sass-%E7%B7%A8%E8%AD%AF%E6%9C%83%E9%8C%AF%E8%AA%A4%EF%BC%81%E9%9D%9E%E5%BF%85%E8%A6%81%E7%9A%84%E5%8F%83%E6%95%B8%E8%A6%81%E7%94%A8-null%EF%BC%8C%E5%91%8A%E8%A8%B4-Sass-%E6%95%B8%E5%80%BC%E5%8F%AF%E7%82%BA-null%E3%80%82"><span class="nav-number">1.3.3.</span> <span class="nav-text">參數若不需要不能省略！Sass 編譯會錯誤！非必要的參數要用 null，告訴 Sass 數值可為 null。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E6%95%B8%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E9%A0%90%E8%A8%AD%E6%95%B8%E5%80%BC"><span class="nav-number">1.3.4.</span> <span class="nav-text">參數可以使用預設數值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E6%98%8E%E7%A2%BA%E5%91%8A%E8%A8%B4-Sass-%E7%94%9A%E9%BA%BC%E6%95%B8%E5%80%BC%E8%A6%81%E6%8C%87%E5%AE%9A%E7%B5%A6%E5%93%AA%E4%B8%80%E5%80%8B%E5%B1%AC%E6%80%A7"><span class="nav-number">1.3.5.</span> <span class="nav-text">可以明確告訴 Sass 甚麼數值要指定給哪一個屬性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E7%A2%BA%E5%AE%9A%E5%A4%9A%E5%B0%91%E5%80%8B%E5%8F%83%E6%95%B8%E5%AF%AB%E6%B3%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8"><span class="nav-number">1.3.6.</span> <span class="nav-text">不確定多少個參數寫法，可以使用 ...</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%B2%E8%AE%8A%E6%95%B8%E5%80%BC%EF%BC%8C%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8"><span class="nav-number">1.3.7.</span> <span class="nav-text">使用一串變數值，也可以使用...</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#content"><span class="nav-number">1.4.</span> <span class="nav-text">@content</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kai-Fu Chang"
+      src="/images/kaifu.png">
+  <p class="site-author-name" itemprop="name">Kai-Fu Chang</p>
+  <div class="site-description" itemprop="description">前端設計講師</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      相關資源
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wdaweb.github.io/" title="https:&#x2F;&#x2F;wdaweb.github.io&#x2F;" rel="noopener" target="_blank">泰山網頁設計官網</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://rogeraabbccdd.github.io/F2E-book/" title="https:&#x2F;&#x2F;rogeraabbccdd.github.io&#x2F;F2E-book&#x2F;" rel="noopener" target="_blank">泰山職訓前端班課程講義</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://summer10920.github.io/" title="https:&#x2F;&#x2F;summer10920.github.io&#x2F;" rel="noopener" target="_blank">洛奇的邪惡組織手札</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Created by KaiFu Chang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+
+</body>
+</html>

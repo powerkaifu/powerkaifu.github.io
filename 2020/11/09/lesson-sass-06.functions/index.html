@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans TC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"slideDownIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+<style>
+    .headband{
+      height:0;
+    }
+    .pace .pace-progress {
+      background: rgba(255,255,255,1); /*進度條顏色*/
+      height: 1px;
+    }
+    .pace .pace-progress-inner {
+      box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*陰影顏色*/
+    }
+    .pace .pace-activity {
+      border-top-color: #ff009e; /*上邊框顏色*/
+      border-left-color: #ff009e; /*左邊框顏色*/
+    }
+</style>
+  <meta name="description" content="Function自訂函式@function 與 @mixin 是有點像的，都是在做運算處理，兩者的差異在於 @function 必須使用 @return 來返回結果， 且輸出的是一個值，並非一段 CSS 樣式，@mixin 則可以使用 @include 產生一段 CSS 樣式。 $grid-width: 40px;$gutter-width: 10px;@function grid-width($">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第六章 - 函式">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/11/09/lesson-sass-06.functions/index.html">
+<meta property="og:site_name" content="樂遊前端趣">
+<meta property="og:description" content="Function自訂函式@function 與 @mixin 是有點像的，都是在做運算處理，兩者的差異在於 @function 必須使用 @return 來返回結果， 且輸出的是一個值，並非一段 CSS 樣式，@mixin 則可以使用 @include 產生一段 CSS 樣式。 $grid-width: 40px;$gutter-width: 10px;@function grid-width($">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-11-09T12:19:45.925Z">
+<meta property="article:modified_time" content="2020-11-09T12:21:26.098Z">
+<meta property="article:author" content="Kai-Fu Chang">
+<meta property="article:tag" content="SASS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://powerkaifu.github.io/2020/11/09/lesson-sass-06.functions/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>第六章 - 函式 | 樂遊前端趣</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-175260737-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">樂遊前端趣</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端技術筆記本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>技術筆記<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>文章分類<span class="badge">5</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/powerkaifu" class="github-corner" title="KaiFu&#39;s GitHub" aria-label="KaiFu&#39;s GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/11/09/lesson-sass-06.functions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第六章 - 函式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-11-09 20:19:45 / 修改時間：20:21:26" itemprop="dateCreated datePublished" datetime="2020-11-09T20:19:45+08:00">2020-11-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h2 id="自訂函式"><a href="#自訂函式" class="headerlink" title="自訂函式"></a>自訂函式</h2><p>@function 與 @mixin 是有點像的，都是在做運算處理，兩者的差異在於 @function 必須使用 @return 來返回結果，</p>
+<p>且輸出的是一個值，並非一段 CSS 樣式，@mixin 則可以使用 @include 產生一段 CSS 樣式。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$grid-width</span>: <span class="number">40px</span>;</span><br><span class="line"><span class="variable">$gutter-width</span>: <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@function</span> grid-width(<span class="variable">$n</span>) &#123;</span><br><span class="line">  <span class="keyword">@return</span> <span class="variable">$n</span> * <span class="variable">$grid-width</span> + (<span class="variable">$n</span> - <span class="number">1</span>) * <span class="variable">$gutter-width</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: grid-width(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="function-結合-mixin"><a href="#function-結合-mixin" class="headerlink" title="@function 結合 @mixin"></a>@function 結合 @mixin</h3><p>@function 有時也會拿來與 @mixin 做結合，並應用在一些字級或是單位的換算，以下做了一個產生對應字級，並且換算 rem 的範例</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$base-font-size</span>: <span class="number">16px</span>;</span><br><span class="line"><span class="variable">$space</span>: <span class="number">4px</span>;</span><br><span class="line"><span class="keyword">@function</span> font(<span class="variable">$lv</span>) &#123;</span><br><span class="line">  <span class="keyword">@return</span> (<span class="variable">$base-font-size</span> + <span class="variable">$space</span> * <span class="variable">$lv</span>) / <span class="variable">$base-font-size</span> * <span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@function</span> line(<span class="variable">$fontSize</span>) &#123;</span><br><span class="line">  <span class="keyword">@return</span> <span class="variable">$fontSize</span> * <span class="number">1.5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@mixin</span> baseFont(<span class="variable">$lv</span>: <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: font(<span class="variable">$lv</span>);</span><br><span class="line">  <span class="attribute">line-height</span>: line(font(<span class="variable">$lv</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.h6</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> baseFont();</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.h5</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> baseFont(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.h4</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> baseFont(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="內建函數"><a href="#內建函數" class="headerlink" title="內建函數"></a>內建函數</h1><p>內建函式參考：<a target="_blank" rel="noopener" href="http://jimyuan.github.io/blog/2017/06/07/sass-preset-functions-learning.html">http://jimyuan.github.io/blog/2017/06/07/sass-preset-functions-learning.html</a></p>
+<h2 id="（一）數字"><a href="#（一）數字" class="headerlink" title="（一）數字"></a>（一）數字</h2><p>在 Sass 中，數字類型包括了長度、持續時間、頻率、角度以及無單位數值等。Sass 允許在運行中計算這些度量值。</p>
+<ul>
+<li><p>abs($number)</p>
+<p>返回一個數值的絕對值，類似 Math.abs()。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.abs</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: abs(<span class="number">10px</span>);</span><br><span class="line">  <span class="attribute">height</span>: abs(-<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.abs</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ceil($number)</p>
+<p>無條件進位，類似 Math.ceil()。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.ceil</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: ceil(<span class="number">10.4px</span>);</span><br><span class="line">  <span class="attribute">margin</span>: ceil(-<span class="number">10.4px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.ceil</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">11px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: -<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>floor($number)</p>
+<p>無條件捨去，類似 Math.floor()。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.floor</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: floor(<span class="number">10.4px</span>);</span><br><span class="line">  <span class="attribute">margin</span>: floor(<span class="number">10.6px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.floor</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>round($number)</p>
+<p>四捨五入，類似 Math.floor()。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.round</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: round(<span class="number">10.4px</span>);</span><br><span class="line">  <span class="attribute">margin</span>: round(<span class="number">10.6px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.round</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">11px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>comparable($number1, $number2)</p>
+<p>返回一個布林值，判斷傳入的兩個數值是否是可以進行比較或計算。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.round</span> &#123;</span><br><span class="line">  <span class="keyword">@if</span> (comparable(<span class="number">1000px</span>, <span class="number">500px</span>)) &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">  &#125; <span class="keyword">@else</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.round</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>max($number1)</p>
+<p>取最大值，類似 Math.max()。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.max</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: max(<span class="number">100px</span>, <span class="number">300px</span>);</span><br><span class="line">  <span class="attribute">height</span>: max(<span class="number">30em</span>, <span class="number">50em</span>, <span class="number">40em</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.max</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>min($number1)</p>
+<p>取最小值，類似 Math.min()。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.min</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: min(<span class="number">100px</span>, <span class="number">300px</span>);</span><br><span class="line">  <span class="attribute">height</span>: min(<span class="number">30em</span>, <span class="number">50em</span>, <span class="number">40em</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.min</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>percentage($number1)</p>
+<p>將數字乘以 100% 化為百分比的表達形式。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.percentage</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: percentage(<span class="number">0.2</span>);</span><br><span class="line">  <span class="attribute">height</span>: percentage(<span class="number">100px</span> / <span class="number">50px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.percentage</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>random($limit)</p>
+<p>無參數傳入，則隨機返回 0-1 區間內的小數（不包括 1）</p>
+<p>如傳入一個整數參數，則隨機返回 1 至 $limit之間的整數，包括1和$limit。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.random</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: random();</span><br><span class="line">  <span class="attribute">width</span>: #&#123;random(<span class="number">300px</span>)&#125;px;</span><br><span class="line">  <span class="attribute">height</span>: #&#123;random(<span class="number">300px</span>)&#125;px;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.random</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">0.53469</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">211px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">43px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="（二）字串"><a href="#（二）字串" class="headerlink" title="（二）字串"></a>（二）字串</h2><p>CSS 中不要求字符串必須用引號包裹，甚至是字符串中包含空格的。</p>
+<ul>
+<li><p>quote($string)</p>
+<p>為傳入的字符串添加雙引號，如已有雙引號，則不做操作，直接返回該字符串。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quote(&quot;foo&quot;) &#x3D;&gt; &quot;foo&quot;</span><br><span class="line">quote(foo) &#x3D;&gt; &quot;foo&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>str-index($string, $substring)</p>
+<p>返回一個下標，標示 $substring 在 $string 中的起始位置。沒有找到的話，則返回 null 值。</p>
+<p>同樣的，這裡的下標都是從 1 開始。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">str-index(abcd, a)  &#x3D;&gt; 1</span><br><span class="line">str-index(abcd, ab) &#x3D;&gt; 1</span><br><span class="line">str-index(abcd, X)  &#x3D;&gt; null</span><br><span class="line">str-index(abcd, c)  &#x3D;&gt; 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>str-insert($string, $insert, $index)</p>
+<p>在字符串的$index位置插入內容為$insert 的子字符串。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">str-insert(&quot;abcd&quot;, &quot;X&quot;, 1) &#x3D;&gt; &quot;Xabcd&quot;</span><br><span class="line">str-insert(&quot;abcd&quot;, &quot;X&quot;, 4) &#x3D;&gt; &quot;abcXd&quot;</span><br><span class="line">str-insert(&quot;abcd&quot;, &quot;X&quot;, 5) &#x3D;&gt; &quot;abcdX&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>str-length($string)</p>
+<p>返回字符串的長度。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">str-length(&quot;foo&quot;) &#x3D;&gt; 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>str-slice($string, $start-at, $end-at:-1)</p>
+<p>從 $string 中截取子字符串，通過 $start-at 和 $end-at 設置始末位置，未指定結束索引值則默認截取到字符串末尾</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">str-slice(&quot;abcd&quot;, 2, 3)   &#x3D;&gt; &quot;bc&quot;</span><br><span class="line">str-slice(&quot;abcd&quot;, 2)      &#x3D;&gt; &quot;bcd&quot;</span><br><span class="line">str-slice(&quot;abcd&quot;, -3, -2) &#x3D;&gt; &quot;bc&quot;</span><br><span class="line">str-slice(&quot;abcd&quot;, 2, -2)  &#x3D;&gt; &quot;bc&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>to-lower-case($string)</p>
+<p>將傳入字符串轉成小寫。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">to-lower-case(ABCD) &#x3D;&gt; abcd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>to-upper-case($string)</p>
+<p>將傳入字符串轉成大寫。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">to-upper-case(abcd) &#x3D;&gt; ABCD</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>unique-id()</p>
+<p>返回一個無引號的隨機字符串作為 id。不過也只能保證在單次的 Sass 編譯中確保這個 id 的唯一性。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unique-id() &#x3D;&gt; uad053b1c</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>unquote($string)</p>
+<p>剝離字符串的引號，如該字符串本身就不帶引號，則原樣返回。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unquote(&quot;foo&quot;) &#x3D;&gt; foo</span><br><span class="line">unquote(foo) &#x3D;&gt; foo</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="（三）顏色"><a href="#（三）顏色" class="headerlink" title="（三）顏色"></a>（三）顏色</h2><p>顏色在 CSS 中佔有重要地位，在 Sass 中接受 HSL、RGB、HEX 以及預命名色等不同的顏色表達方式。</p>
+<ul>
+<li><p>adjust_color($color, [$red], [$green], [$blue], [$hue], [$saturation], [$lightness], [$alpha])</p>
+<p>這個函數能夠調整給定色彩的一個或多個屬性值，包括 RGB 和 HSL 色彩的各項色值參數，另外還有 alpha 通道的取值。這些屬性值的調整依賴傳入的關鍵值參數，通過這些參數再與給定顏色相應的色彩值做加減運算。</p>
+<p>所有屬性調整參數都為可選值。但是你不能同時調整 RGB （$red, $blue, $green）和HSL （$hue, $saturation, $lightness）兩套不同顏色體系的參數。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.adjust-color</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: adjust-color(<span class="number">#102030</span>, <span class="variable">$blue</span>: <span class="number">5</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: adjust-color(<span class="number">#102030</span>, <span class="variable">$red</span>: -<span class="number">5</span>, <span class="variable">$blue</span>: <span class="number">5</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: adjust-color(hsl(<span class="number">25</span>, <span class="number">100%</span>, <span class="number">80%</span>), <span class="variable">$lightness</span>: -<span class="number">30%</span>, <span class="variable">$alpha</span>: -<span class="number">0.4</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.adjust-color</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#102035</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#0b2035</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: rgba(<span class="number">255</span>, <span class="number">106</span>, <span class="number">0</span>, <span class="number">0.6</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>adjust-hue($color, $degrees)</p>
+<p>對給定色彩的 hue 值做調整。給出一個角度值參數，與給定色彩的 hue 角度值相加，返回一個新的色值。可以看做是對 adjust-color($color, $hue)的二度封裝。</p>
+<p>當然，在實際 Sass 編譯中，在不同的編譯引擎下，得到的色彩格式可能不一定跟原始格式相同，有可能經過了 convert，當然這並不影響新顏色的表達：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.adjust-hue</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: adjust-hue(<span class="number">#811</span>, <span class="number">45deg</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: adjust-hue(rgb(<span class="number">120</span>, <span class="number">30</span>, <span class="number">20</span>), <span class="number">60deg</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: adjust-hue(hsl(<span class="number">120</span>, <span class="number">30%</span>, <span class="number">90%</span>), -<span class="number">60deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.adjust-hue</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#886a11</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#6e7814</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ededde</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>scale-color ($color, [$red], [$green], [$blue], [$saturation], [$lightness], [$alpha])</p>
+<p>另一種實用的顏色調節函數。adjust-color 通過傳入的參數簡單的與本身的色值參數做加減，有時候可能會導致累加值溢出，當然，函數會把結果控制在有效的閾值內。而 scale-color 函數則避免了這種情況，可以不必擔心溢出，讓參數在閾值範圍內進行有效的調節。</p>
+<p>舉個例子，一個顏色的亮度 lightness 取值在 0% ~ 100%之間，假如執行 scale-color($color, $lightness: 40%)，表明該顏色的亮度將有(100 -原始值) × 40%的增幅。</p>
+<p>另一個例子，執行 scale-color($color, $lightness: -40%)，表明這個顏色的亮度將減少(原始值- 0) × 40%這麼多的值。</p>
+<p>所有傳參的取值範圍都在 0% ~ 100% 之間，並且 RGB 同 HSL 的傳參不能衝突。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.scale-color</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: scale-color(rgb(<span class="number">200</span>, <span class="number">150</span>, <span class="number">170</span>), <span class="variable">$green</span>: -<span class="number">40%</span>, <span class="variable">$blue</span>: <span class="number">70%</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: scale-color(hsl(<span class="number">120</span>, <span class="number">70%</span>, <span class="number">80%</span>), <span class="variable">$lightness</span>: <span class="number">50%</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: scale-color(hsl(<span class="number">200</span>, <span class="number">70%</span>, <span class="number">80%</span>), <span class="variable">$saturation</span>: -<span class="number">90%</span>, <span class="variable">$alpha</span>: -<span class="number">30%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.scale-color</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#c85ae6</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d4f7d4</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: rgba(<span class="number">200</span>, <span class="number">205</span>, <span class="number">208</span>, <span class="number">0.7</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>alpha($color), aka: opacity ($color)</p>
+<p>返回給定顏色的 alpha 通道值。返回值必定在 0-1 之間。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.alpha</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: alpha(rgba(<span class="number">120</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.6</span>));</span><br><span class="line">  <span class="attribute">opacity</span>: alpha(<span class="number">#ccc</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.alpha</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.6</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>red($color)</p>
+<p>返回一個顏色的 red 色值（0-255）。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.red</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: red(<span class="number">#333</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: red(rgb(<span class="number">100</span>, <span class="number">200</span>, <span class="number">70</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.red</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">51</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>green($color)</p>
+<p>獲取給定顏色的綠色部分色值，取值範圍（0-255）。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.green</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: green(<span class="number">#333</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: green(rgb(<span class="number">100</span>, <span class="number">200</span>, <span class="number">70</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.green</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">51</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">200</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>blue($color)</p>
+<p>給定一個顏色，取藍色部分的 10 進制色值（0-255）。HSL 顏色會根據相應算法 convert 成 RGB 表達式後進行取值。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.blue</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: blue(<span class="number">#333</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: blue(rgb(<span class="number">100</span>, <span class="number">200</span>, <span class="number">70</span>));</span><br><span class="line">  <span class="attribute">background-color</span>: blue(hsl(<span class="number">240</span>, <span class="number">100%</span>, <span class="number">50%</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.blue</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">51</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">70</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">255</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>change-color($color, [$red], [$green], [$blue], [$hue], [$saturation], [$lightness], [$alpha])</p>
+<p>跟上面 adjust-color 類似，只是在該函數中傳入的參數將直接替換原來的值，而不做任何的運算。</p>
+<p>原則上，所有的參數都是選傳的，同樣，不允許同時傳遞 RGB 和 HSL 兩套顏色命令體系所屬的參數。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.change-color</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: change-color(<span class="number">#102030</span>, <span class="variable">$blue</span>: <span class="number">5</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: change-color(<span class="number">#102030</span>, <span class="variable">$red</span>: <span class="number">120</span>, <span class="variable">$blue</span>: <span class="number">5</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: change-color(hsl(<span class="number">25</span>, <span class="number">100%</span>, <span class="number">80%</span>), <span class="variable">$lightness</span>: <span class="number">40%</span>, <span class="variable">$alpha</span>: <span class="number">0.8</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.change-color</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#102005</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#782005</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: rgba(<span class="number">204</span>, <span class="number">85</span>, <span class="number">0</span>, <span class="number">0.8</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>invert($color)</p>
+<p>去一個顏色的反色。具體來講，就是取 RGB 色的紅、綠、藍色值與 255 的差值，重新合成一個新的顏色。當然，如果是 HEX 色值，那就是與 FF 的差值，一樣。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.invert</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: invert(hsl(<span class="number">25</span>, <span class="number">100%</span>, <span class="number">80%</span>), <span class="number">100%</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: invert(<span class="number">#ffff00</span>, <span class="number">100%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.invert</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#003c66</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>complement($color)</p>
+<p>返回一個顏色的補色，其實就是對 adjust-color($color, $hue: 180deg)的再次封裝。</p>
+</li>
+<li><p>darken($color, $amount)</p>
+<p>加深一個給定的顏色，將給定色的亮度值減去傳入的 $amount 值，得到一個新的色值。亮度值的取值區間在 0% ~ 100%。</p>
+<p>等價於 adjust-color($color, $lightness: -$amount)</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.darken</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: darken(hsl(<span class="number">25</span>, <span class="number">100%</span>, <span class="number">80%</span>), <span class="number">30%</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: darken(<span class="number">#800</span>, <span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.darken</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ff6a00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#220000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lighten($color, $amount)</p>
+<p>提升一個色值的亮度。當然，其取值範圍必定在 0% ~ 100% 內。等同於 adjust-color($color, $lightness: $amount)</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.lighten</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lighten(hsl(<span class="number">0</span>, <span class="number">0%</span>, <span class="number">0%</span>), <span class="number">30%</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: lighten(<span class="number">#800</span>, <span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.lighten</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#4d4d4d</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ee0000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lightness($color)</p>
+<p>獲取顏色的亮度值。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.lighten</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightness(hsl(<span class="number">0</span>, <span class="number">100%</span>, <span class="number">70%</span>));</span><br><span class="line">  <span class="attribute">background-color</span>: lightness(<span class="number">#ccc</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.lighten</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">70%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">80%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>desaturate($color, $amount)</p>
+<p>調低一個顏色的飽和度後產生一個新的色值。同樣，飽和度的取值區間在 0% ~ 100%。等同於 adjust-color($color, $saturation: -$amount)</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.desaturate</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: desaturate(rgb(<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">20%</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: desaturate(<span class="number">#855</span>, <span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.desaturate</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#e6e61a</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#726b6b</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>fade-in($color, $amount) 或 opacify($color, $amount)</p>
+<p>藉由數值 0 至 1 作爲 增加透明度 的表示方式。</p>
+<p>降低顏色的透明度，取值在 0-1 之。等價於 adjust-color($color, $alpha: $amount)</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.desaturate</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: opacify(rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>), <span class="number">0.1</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: opacify(rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">17</span>, <span class="number">0.8</span>), <span class="number">0.2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.desaturate</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.6</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#000011</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>fade-out($color, $amount) 或 transparentize($color, $amount)：</p>
+<p>藉由數值 0 至 1 作爲 減少透明度 的表示方式。</p>
+<p>提升顏色的透明度，取值在 0-1 之間。等價於 adjust-color($color, $alpha: -$amount)</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.transparentize</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: transparentize(rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>), <span class="number">0.1</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: transparentize(rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.8</span>), <span class="number">0.2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.transparentize</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.4</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.6</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>grayscale($color)</p>
+<p>將給定顏色的飽和度降到 0，可以看做是對 desaturate($color, 100%) 的再次封裝，也可以這麼理解：change-color($color, $saturation: 0%)。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.grayscale</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: grayscale(<span class="number">#ff3300</span>);</span><br><span class="line">  <span class="attribute">background-color</span>: grayscale(rgb(<span class="number">23</span>, <span class="number">100</span>, <span class="number">200</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.grayscale</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: gray;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#707070</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>hue($color)</p>
+<p>返回顏色在 HSL 色值中的角度值。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="comment">// 60deg</span></span><br><span class="line">  <span class="attribute">background-color</span>: hue(<span class="number">#ffa</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mix($color1, $color2, $weight:50%)</p>
+<p>混色操作。將兩個顏色的紅、綠、藍色值按比例重新計算後，返回一個新的顏色。</p>
+<p>默認$weight為50%，表明新顏色各取50% $color1 和$color2的色值相加。如果$weight 為 25%，那表明新顏色為 25% $color1和75% $color2 的色值相加。</p>
+<p>當然，該函數也支持 alpha 通道的混合，不過這個混合算法貌似同上面不太一樣，我再研究一下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mix(#f00, #00f) &#x3D;&gt; #7f007f</span><br><span class="line">mix(#f00, #00f, 25%) &#x3D;&gt; #3f00bf</span><br><span class="line">mix(rgba(255, 0, 0, 0.5), #00f) &#x3D;&gt; rgba(64, 0, 191, 0.75)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>saturate($color, $amount)</p>
+<p>提高傳入顏色的色彩飽和度。等同於 adjust-color($color, $saturation: $amount)</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="comment">// #bf1e1e</span></span><br><span class="line">  <span class="attribute">background-color</span>: saturate(<span class="number">#855</span>, <span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>saturation($color)</p>
+<p>獲取一個顏色的飽和度值。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="comment">// 100%</span></span><br><span class="line">  <span class="attribute">background-color</span>: saturation(<span class="number">#ffa</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="（四）清單"><a href="#（四）清單" class="headerlink" title="（四）清單"></a>（四）清單</h2><p>列表就是 Sass 的陣列。列表是一個一維的數據結構，用於保存任意類型的數值（包括列表，從而產生嵌套列表）</p>
+<p>所有對列表對像做的增刪改操作，都不會影響原隊列，只會返回一個新的列表對像作為結果。</p>
+<ul>
+<li><p>append($list, $val, $separator:auto)</p>
+<p>將值加入到一個列表的尾部，類似 JS 的 Array.prototype.push。$separator 分隔符參數默認會自動偵測隊列中的分隔符，除非你強行指定一個（取值：comma| space）。</p>
+<p>另外，列表中的只有一個元素時，如果沒有傳入$separator 參數，此時分隔符的取值在內部會指定為 space。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$space</span>: append((blue, red), green, space);</span><br><span class="line"><span class="variable">$comma</span>: append(<span class="number">10px</span>, <span class="number">20px</span>, comma);</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="variable">$space</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="variable">$comma</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: blue red green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="number">10px</span>, <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>index($list, $value)</p>
+<p>返回給定值在列表中的位置，如果值未找到，則返回 null。</p>
+<p>在我大 CSS 領域，下標都從 1 開始，切記！</p>
+<p>這個函數也能作用於 map 類型的變量。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$list</span>: blue, red, green, yellow;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: index(<span class="variable">$list</span>, yellow);</span><br><span class="line">  <span class="attribute">content</span>: index(<span class="number">1px</span> solid red, solid);</span><br><span class="line">  <span class="attribute">content</span>: index(</span><br><span class="line">    (</span><br><span class="line">      width: <span class="number">10px</span>,</span><br><span class="line">      height: <span class="number">20px</span></span><br><span class="line">    ),</span><br><span class="line">    (</span><br><span class="line">      height: <span class="number">20px</span></span><br><span class="line">    )</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="number">4</span>;</span><br><span class="line">  <span class="attribute">content</span>: <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">content</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>join($list1, $list2, $separator:auto)</p>
+<p>合併兩列表，類似 JS 的 Array.prototype.concat 操作。</p>
+<p>如不指定$separator， 則以第一列表的分隔符為準。如果兩列表中的 item 數都小於 2 個，則用空格作為分隔符。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$list1</span>: blue, red, green, yellow;</span><br><span class="line"><span class="variable">$list2</span>: <span class="number">1px</span>, <span class="number">2px</span>, <span class="number">3px</span>;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: join(<span class="variable">$list1</span>, <span class="variable">$list2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: blue, red, green, yellow, <span class="number">1px</span>, <span class="number">2px</span>, <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>length($list)</p>
+<p>返回一列表的長度。</p>
+<p>這個函數同樣適合於 map 類型的變量。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$list</span>: blue, red, green, yellow;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: length(<span class="variable">$list</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>list-separator($list)</p>
+<p>返回一列表的分隔符類型（commaor space）。如隊列內少於 2 個成員而無法呈現分隔符時，則總是返回 space。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$list</span>: blue, red, green, yellow;</span><br><span class="line"><span class="variable">$list2</span>: <span class="number">1px</span> <span class="number">2px</span> <span class="number">3px</span>;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: list-separator(<span class="variable">$list</span>);</span><br><span class="line">  <span class="attribute">content</span>: list-separator(<span class="variable">$list2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: comma;</span><br><span class="line">  <span class="attribute">content</span>: space;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nth($list, $n)</p>
+<p>獲取列表中第$n 項的值。</p>
+<p>這個函數同樣也可以用在 map 數據類型中。</p>
+<p>如傳入負數索引值，則從列表的尾部開始計數獲取相應的元素。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$list</span>: blue, red, green, yellow;</span><br><span class="line"><span class="variable">$map</span>: (</span><br><span class="line">  width: <span class="number">10px</span>,</span><br><span class="line">  height: <span class="number">20px</span></span><br><span class="line">);</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: nth(<span class="variable">$list</span>, <span class="number">2</span>);</span><br><span class="line">  <span class="attribute">content</span>: nth(<span class="variable">$map</span>, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: red;</span><br><span class="line">  <span class="attribute">content</span>: height <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>zip($lists…)</p>
+<p>將多個列表按照以相同索引值為一組，重新組成一個新的多維度列表。</p>
+<p>生成的列表長度以最短的那個傳入列表為準。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zip(1px 1px 3px, solid dashed solid, red green blue) &#x3D;&gt;  1px solid red, 1px dashed green, 3px solid blue</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="（五）Map-對象"><a href="#（五）Map-對象" class="headerlink" title="（五）Map 對象"></a>（五）Map 對象</h2><p>在 Sass 中，樣式開發者可以使用 map 這種數據結構映射關聯數組、哈希表甚至是 Javascript 對象。</p>
+<p>所有對 Map 對像做的增刪改操作，都不會影響原隊列，只會返回一個新的 Map 對像作為結果。</p>
+<ul>
+<li><p>map-get($map, $key)</p>
+<p>查找 map 對像中 key 所對應的 value 值。如沒有對應的 key，則返回 null 值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">map-get((&quot;foo&quot;: 1, &quot;bar&quot;: 2), &quot;foo&quot;) &#x3D;&gt; 1</span><br><span class="line">map-get((&quot;foo&quot;: 1, &quot;bar&quot;: 2), &quot;bar&quot;) &#x3D;&gt; 2</span><br><span class="line">map-get((&quot;foo&quot;: 1, &quot;bar&quot;: 2), &quot;baz&quot;) &#x3D;&gt; null</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map-has-key($map, $key)</p>
+<p>檢測 map 中是否含有所需查詢的 key</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">map-has-key((&quot;foo&quot;: 1, &quot;bar&quot;: 2), &quot;foo&quot;) &#x3D;&gt; true</span><br><span class="line">map-has-key((&quot;foo&quot;: 1, &quot;bar&quot;: 2), &quot;baz&quot;) &#x3D;&gt; false</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map-keys($map)</p>
+<p>提取 map 中的 key 值，並返回由這些 key 組成的隊列。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">map-keys((&quot;foo&quot;: 1, &quot;bar&quot;: 2)) &#x3D;&gt; &quot;foo&quot;, &quot;bar&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map-merge($map1, $map2)</p>
+<p>合併兩個 map 形成一個新的 map 類型，如果兩個 map 中出現相同 key 值，$map2 將會覆蓋 $map1 中的鍵值。</p>
+<p>這個一個給現有 map 添加鍵值對的最合理方法。</p>
+<p>新 map 中鍵值對的排列順序遵循$map1 的排列順序，新的鍵值對添加在原有鍵值對後。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">map-merge((&quot;foo&quot;: 1), (&quot;bar&quot;: 2)) &#x3D;&gt; (&quot;foo&quot;: 1, &quot;bar&quot;: 2)</span><br><span class="line">map-merge((&quot;foo&quot;: 1, &quot;bar&quot;: 2), (&quot;bar&quot;: 3)) &#x3D;&gt; (&quot;foo&quot;: 1, &quot;bar&quot;: 3)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map-values($map)</p>
+<p>類似於 map-keys($map)，提取 map 中所有的 value 值，形成一個隊列。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">map-values((&quot;foo&quot;: 1, &quot;bar&quot;: 2)) &#x3D;&gt; 1, 2</span><br><span class="line">map-values((&quot;foo&quot;: 1, &quot;bar&quot;: 2, &quot;baz&quot;: 1)) &#x3D;&gt; 1, 2, 1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="（六）選擇器"><a href="#（六）選擇器" class="headerlink" title="（六）選擇器"></a>（六）選擇器</h2><p>CSS 中的選擇符具有一定的特殊性，與一般的字符串對像有一些區別，針對選擇符的一些必要操作，Sass 提供瞭如下一些函數工具：</p>
+<ul>
+<li><p>selector-append($selectors…)</p>
+<p>連接多個傳入的 CSS 選擇符，達到類似 $selector1 { &amp;$selector2 { … } } 這樣的效果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">selector-append(&quot;.foo&quot;, &quot;.bar&quot;, &quot;.baz&quot;) &#x3D;&gt; .foo.bar.baz</span><br><span class="line">selector-append(&quot;.a .foo&quot;, &quot;.b .bar&quot;) &#x3D;&gt; &quot;a .foo.b .bar&quot;</span><br><span class="line">selector-append(&quot;.foo&quot;, &quot;-suffix&quot;) &#x3D;&gt; &quot;.foo-suffix&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>selector-extend($selector, $extendee, $extender)</p>
+<p>還沒有完全理解這個函數的作用： Returns a new version of $selectorwith $extendeeextended with $extender.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">selector-extend(&quot;.a .b&quot;, &quot;.b&quot;, &quot;.foo .bar&quot;) &#x3D;&gt; .a .b, .a .foo .bar, .foo .a .bar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>selector-nest($selectors…)</p>
+<p>層疊傳入的 CSS 選擇符，形成類似$selector1 { $selector2 { … } }的新選擇符。</p>
+<p>傳入的選擇符，還允許附帶 Sass 的父選擇器&amp;，當然，它肯定不能出現在第一個傳參內。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">selector-nest(&quot;.foo&quot;, &quot;.bar&quot;, &quot;.baz&quot;) &#x3D;&gt; .foo .bar .baz</span><br><span class="line">selector-nest(&quot;.a .foo&quot;, &quot;.b .bar&quot;) &#x3D;&gt; .a .foo .b .bar</span><br><span class="line">selector-nest(&quot;.foo&quot;, &quot;&amp;.bar&quot;) &#x3D;&gt; .foo.bar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>selector-parse($selector)</p>
+<p>將字符串的選擇符轉換成實際可用的一個選擇符隊列。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">selector-parse(&quot;.foo .bar, .baz .bang&quot;) &#x3D;&gt; (&#39;.foo&#39; &#39;.bar&#39;, &#39;.baz&#39; &#39;.bang&#39;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>selector-replace($selector, $original, $replacement)</p>
+<p>給定一個選擇符，用$replacement替換$original 後返回一個新的選擇符隊列。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">selector-replace(&quot;.foo .bar&quot;, &quot;.bar&quot;, &quot;.baz&quot;) &#x3D;&gt; &quot;.foo .baz&quot;</span><br><span class="line">selector-replace(&quot;.foo.bar.baz&quot;, &quot;.foo.baz&quot;, &quot;.qux&quot;) &#x3D;&gt; &quot;.bar.qux&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>selector-unify</p>
+<p>將兩組選擇符合成一個複合選擇符。如兩個選擇符無法複合，則返回 null 值。</p>
+<p>從測試的結果來看，如果遇到組合選擇符之間的複合，這個函數不會把所有的複合可能性都返回出來，以免造成結果呈指數級增長。它只會返回兩組選擇符最後一項進行複合，而之前部分只做簡單的交換組合。（看不懂這段描述的可以看 demo，反正我也沒看懂原文的那一大段晦澀描述）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">selector-unify(&quot;.a&quot;, &quot;.b&quot;) &#x3D;&gt; .a.b</span><br><span class="line">selector-unify(&quot;.a .b&quot;, &quot;.x .y&quot;) &#x3D;&gt; .a .x .b.y, .x .a .b.y</span><br><span class="line">selector-unify(&quot;.a.b&quot;, &quot;.b.c&quot;) &#x3D;&gt; .a.b.c</span><br><span class="line">selector-unify(&quot;#a&quot;, &quot;#b&quot;) &#x3D;&gt; null</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>simple-selectors($selector)</p>
+<p>將復合選擇符拆為單個選擇符。</p>
+<p>注意，這裡的傳參$selector 僅指複合選擇符(compound selector)，所以傳入的選擇符內不應包含逗號或者空格。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">simple-selectors(&quot;.foo.bar&quot;) &#x3D;&gt; &quot;.foo&quot;, &quot;.bar&quot;</span><br><span class="line">simple-selectors(&quot;.foo.bar.baz&quot;) &#x3D;&gt; &quot;.foo&quot;, &quot;.bar&quot;, &quot;.baz&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="（七）一般工具"><a href="#（七）一般工具" class="headerlink" title="（七）一般工具"></a>（七）一般工具</h2><ul>
+<li>call($name, $args…)</li>
+</ul>
+<p>函數的動態調用。支持 CSS 內建函數，Sass 內建函數和自定義函數。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">call(rgb, 10, 100, 255) &#x3D;&gt; #0a64ff</span><br><span class="line">call(scale-color, #0a64ff, $lightness: -10%) &#x3D;&gt; #0058ef</span><br><span class="line"></span><br><span class="line">$fn: nth;</span><br><span class="line">call($fn, (a b c), 2) &#x3D;&gt; b</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>feature-exists($feature)</li>
+</ul>
+<p>這是什麼鬼，咋用啊？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">feature-exists(some-feature-that-exists) &#x3D;&gt; true</span><br><span class="line">feature-exists(what-is-this-i-dont-know) &#x3D;&gt; false</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>function-exists($name)</li>
+</ul>
+<p>檢測某個函數是否存在，內建、自建的都行。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function-exists(lighten) &#x3D;&gt; true</span><br><span class="line"></span><br><span class="line">@function myfunc &#123; @return &quot;something&quot;; &#125;</span><br><span class="line">function-exists(myfunc) &#x3D;&gt; true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>global-variable-exists($name)</li>
+</ul>
+<p>檢測某個全局變量是否定義。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$a-false-value</span>: false;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.foo</span> &#123;</span><br><span class="line">  <span class="variable">$some-var</span>: false;</span><br><span class="line">  <span class="keyword">@if</span> global-variable-exists(some-var) &#123;</span><br><span class="line">    <span class="comment">/* false, doesn&#x27;t run */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>if ($condition, $if-true, $if-false)</li>
+</ul>
+<p>根據傳入的條件來返回對應的值，有點像 JS 里三元運算符的作用。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(true, 1px, 2px) &#x3D;&gt; 1px</span><br><span class="line">if(false, 1px, 2px) &#x3D;&gt; 2px</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>inspect ($value)</li>
+</ul>
+<p>Return a string containing the value as its Sass representation.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$breakpoints: (</span><br><span class="line">  &#39;tiny&#39;:   ( max-width:  767px ),</span><br><span class="line">  &#39;small&#39;:  ( min-width:  768px ),</span><br><span class="line">  &#39;medium&#39;: ( min-width:  992px ),</span><br><span class="line">  &#39;large&#39;:  ( min-width: 1200px ),</span><br><span class="line">  &#39;custom&#39;: ( min-height:  40em )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">@mixin breakpoint($name) &#123;</span><br><span class="line">  @if map-has-key($breakpoints, $name) &#123;</span><br><span class="line">    @media #&#123;inspect(map-get($breakpoints, $name))&#125; &#123;</span><br><span class="line">      @content;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  @else &#123;</span><br><span class="line">    @warn &quot;Couldn&#39;t find a breakpoint named &#96;#&#123;$name&#125;&#96;.&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>is-superselector($super, $sub)</li>
+</ul>
+<p>比較兩組選擇符，看看傳入的選擇符哪組 match 的範圍大（可以通過選擇符優先級比較法比較，優先級底的選擇範圍大）。也可以從簡單選擇符通常比複雜選擇符 match 範圍大這一特性加以判斷。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is-superselector(&quot;.foo&quot;, &quot;.foo.bar&quot;) &#x3D;&gt; true</span><br><span class="line">is-superselector(&quot;.foo.bar&quot;, &quot;.foo&quot;) &#x3D;&gt; false</span><br><span class="line">is-superselector(&quot;.bar&quot;, &quot;.foo .bar&quot;) &#x3D;&gt; true</span><br><span class="line">is-superselector(&quot;.foo .bar&quot;, &quot;.bar&quot;) &#x3D;&gt; false</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>keywords($args)</li>
+</ul>
+<p>將傳入@function 或@mixin 的參數列表轉換成 map 格式的變量。轉換後的 key 變成一個字符串，並且沒有了$符號。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@mixin foo($args...) &#123;</span><br><span class="line">  @debug keywords($args); &#x2F;&#x2F;&#x3D;&gt; (arg1: val, arg2: val)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@include foo($arg1: val, $arg2: val);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>mixin-exists($name)</li>
+</ul>
+<p>檢測指定 mixin 是否存在。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mixin-exists(nonexistent) &#x3D;&gt; false</span><br><span class="line"></span><br><span class="line">@mixin red-text &#123; color: red; &#125;</span><br><span class="line">mixin-exists(red-text) &#x3D;&gt; true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>type-of($value)</li>
+</ul>
+<p>返回值類型。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type-of(100px)  &#x3D;&gt; number</span><br><span class="line">type-of(asdf)   &#x3D;&gt; string</span><br><span class="line">type-of(&quot;asdf&quot;) &#x3D;&gt; string</span><br><span class="line">type-of(true)   &#x3D;&gt; bool</span><br><span class="line">type-of(#fff)   &#x3D;&gt; color</span><br><span class="line">type-of(blue)   &#x3D;&gt; color</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>unit($number)</li>
+</ul>
+<p>返回傳入數字的單位（或複合單位）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unit(100) &#x3D;&gt; &quot;&quot;</span><br><span class="line">unit(100px) &#x3D;&gt; &quot;px&quot;</span><br><span class="line">unit(3em) &#x3D;&gt; &quot;em&quot;</span><br><span class="line">unit(10px * 5em) &#x3D;&gt; &quot;em*px&quot;</span><br><span class="line">unit(10px * 5em &#x2F; 30cm &#x2F; 1rem) &#x3D;&gt; &quot;em*px&#x2F;cm*rem&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>unitless($number)</li>
+</ul>
+<p>返回一個布爾值，判斷傳入的數字是否帶有單位。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unitless(100) &#x3D;&gt; true</span><br><span class="line">unitless(100px) &#x3D;&gt; false</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>variable-exists ($name)</li>
+</ul>
+<p>判斷一個變量是否在當前上下文或者全局中存在。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$a-false-value: false;</span><br><span class="line">variable-exists(a-false-value) &#x3D;&gt; true</span><br><span class="line"></span><br><span class="line">variable-exists(nonexistent) &#x3D;&gt; false</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SASS/" rel="tag"># SASS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/09/lesson-sass-07.mixins/" rel="prev" title="第七章 - 混合">
+      <i class="fa fa-chevron-left"></i> 第七章 - 混合
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/09/lesson-sass-05.flow-control/" rel="next" title="第五章 - 流程控制">
+      第五章 - 流程控制 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">1.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E5%87%BD%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">自訂函式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#function-%E7%B5%90%E5%90%88-mixin"><span class="nav-number">1.1.1.</span> <span class="nav-text">@function 結合 @mixin</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A7%E5%BB%BA%E5%87%BD%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">內建函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%95%B8%E5%AD%97"><span class="nav-number">2.1.</span> <span class="nav-text">（一）數字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%AD%97%E4%B8%B2"><span class="nav-number">2.2.</span> <span class="nav-text">（二）字串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E9%A1%8F%E8%89%B2"><span class="nav-number">2.3.</span> <span class="nav-text">（三）顏色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E6%B8%85%E5%96%AE"><span class="nav-number">2.4.</span> <span class="nav-text">（四）清單</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%BA%94%EF%BC%89Map-%E5%B0%8D%E8%B1%A1"><span class="nav-number">2.5.</span> <span class="nav-text">（五）Map 對象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%85%AD%EF%BC%89%E9%81%B8%E6%93%87%E5%99%A8"><span class="nav-number">2.6.</span> <span class="nav-text">（六）選擇器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%B8%83%EF%BC%89%E4%B8%80%E8%88%AC%E5%B7%A5%E5%85%B7"><span class="nav-number">2.7.</span> <span class="nav-text">（七）一般工具</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kai-Fu Chang"
+      src="/images/kaifu.png">
+  <p class="site-author-name" itemprop="name">Kai-Fu Chang</p>
+  <div class="site-description" itemprop="description">前端設計講師</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      相關資源
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wdaweb.github.io/" title="https:&#x2F;&#x2F;wdaweb.github.io&#x2F;" rel="noopener" target="_blank">泰山網頁設計官網</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://rogeraabbccdd.github.io/F2E-book/" title="https:&#x2F;&#x2F;rogeraabbccdd.github.io&#x2F;F2E-book&#x2F;" rel="noopener" target="_blank">泰山職訓前端班課程講義</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://summer10920.github.io/" title="https:&#x2F;&#x2F;summer10920.github.io&#x2F;" rel="noopener" target="_blank">洛奇的邪惡組織手札</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Created by KaiFu Chang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+
+</body>
+</html>

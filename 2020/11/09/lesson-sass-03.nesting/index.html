@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans TC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"slideDownIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideDownIn","sidebar":"slideDownIn"}},"path":"search.xml"};
+  </script>
+
+<style>
+    .headband{
+      height:0;
+    }
+    .pace .pace-progress {
+      background: rgba(255,255,255,1); /*進度條顏色*/
+      height: 1px;
+    }
+    .pace .pace-progress-inner {
+      box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*陰影顏色*/
+    }
+    .pace .pace-activity {
+      border-top-color: #ff009e; /*上邊框顏色*/
+      border-left-color: #ff009e; /*左邊框顏色*/
+    }
+</style>
+  <meta name="description" content="嵌套巢狀（Nesting）SASS 嵌套可以解決 CSS 父元素重複編寫的問題， #content article h1 &amp;#123;  color: #333;&amp;#125;#content article p &amp;#123;  margin-bottom: 1.4em;&amp;#125;#content aside &amp;#123;  background-color: #eee;&amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三章 - 巢狀嵌套">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/11/09/lesson-sass-03.nesting/index.html">
+<meta property="og:site_name" content="樂遊前端趣">
+<meta property="og:description" content="嵌套巢狀（Nesting）SASS 嵌套可以解決 CSS 父元素重複編寫的問題， #content article h1 &amp;#123;  color: #333;&amp;#125;#content article p &amp;#123;  margin-bottom: 1.4em;&amp;#125;#content aside &amp;#123;  background-color: #eee;&amp;#125;">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-11-09T12:08:38.660Z">
+<meta property="article:modified_time" content="2020-11-09T12:52:33.541Z">
+<meta property="article:author" content="Kai-Fu Chang">
+<meta property="article:tag" content="SASS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://powerkaifu.github.io/2020/11/09/lesson-sass-03.nesting/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>第三章 - 巢狀嵌套 | 樂遊前端趣</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-175260737-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">樂遊前端趣</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端技術筆記本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>技術筆記<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>文章分類<span class="badge">5</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/powerkaifu" class="github-corner" title="KaiFu&#39;s GitHub" aria-label="KaiFu&#39;s GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/11/09/lesson-sass-03.nesting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第三章 - 巢狀嵌套
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-11-09 20:08:38 / 修改時間：20:52:33" itemprop="dateCreated datePublished" datetime="2020-11-09T20:08:38+08:00">2020-11-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="嵌套巢狀（Nesting）"><a href="#嵌套巢狀（Nesting）" class="headerlink" title="嵌套巢狀（Nesting）"></a>嵌套巢狀（Nesting）</h1><p>SASS 嵌套可以解決 CSS 父元素重複編寫的問題，</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">article</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">article</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">1.4em</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>SASS 可以讓撰寫樣式更輕鬆。可以一次編寫一個樣式階層規則，而不必一次又一次地重複使用相同的選擇器，這種方式常使用於後代選擇器方式。SASS 會將自動將它們組合在一起，避免重複撰寫，讓樣式可讀性提高。這就好像俄羅斯娃娃一樣，每一層就像打開一個俄羅斯娃娃，可以很清楚每一層的關係。雖然，Nesting 嵌套功能非常方便，但有過度階層化的陷阱，會造成選擇器的層級過深，不超過 3 層即可。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123;</span><br><span class="line">    <span class="selector-tag">h1</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">p</span> &#123;</span><br><span class="line">      <span class="attribute">margin-bottom</span>: <span class="number">1.4em</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">aside</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="嵌套屬性（Neseted-Properties）"><a href="#嵌套屬性（Neseted-Properties）" class="headerlink" title="嵌套屬性（Neseted Properties）"></a>嵌套屬性（Neseted Properties）</h1><p>屬性嵌套被使用在屬性有相同的字元，例如：font-family、font-size、font-weight 都是以 font 作為屬性命名空間，為了避免重複輸入而使用屬性嵌套。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.font-setting</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: &#123;</span><br><span class="line">    family: <span class="string">&#x27;微軟正黑體&#x27;</span>;</span><br><span class="line">    size: <span class="number">2rem</span>;</span><br><span class="line">    weight: bold;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: &#123;</span><br><span class="line">    style: solid;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.font-setting</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&#x27;微軟正黑體&#x27;</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">border-style</span>: solid;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用-amp-與父選擇器連結"><a href="#使用-amp-與父選擇器連結" class="headerlink" title="使用 &amp; 與父選擇器連結"></a>使用 &amp; 與父選擇器連結</h1><p>在嵌套 CSS 規則時，若遇到偽類，使用後代選擇器的方式就不適用，此時需要與父層連結，例如元素設定 :hover 樣式時，以下例子編譯後 &amp; 會直接替換成父選擇器來用。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 無法與偽類連結</span></span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">  <span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用 &amp; 連結</span></span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果沒有父選擇器，&amp; 的值將是空。這意味著你可以在一個 mixin 中使用它來檢測父選擇是否存在。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> does-parent-exist &#123;</span><br><span class="line">  <span class="keyword">@if</span> &amp; &#123;</span><br><span class="line">    &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: red;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">@else</span> &#123;</span><br><span class="line">    <span class="selector-tag">a</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: red;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>雖然 body.ie 在巢狀裡面，但因為使用 &amp;，編譯出來會獨立出自己的樣式，但是寫在別人巢狀裡面會有較難以閱讀的問題。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  <span class="selector-tag">body</span><span class="selector-class">.ie</span> &amp; &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.ie</span> <span class="selector-id">#content</span> <span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.alert</span> &#123;</span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span> &#123;</span><br><span class="line">      <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//  &amp; 被當作父選擇器 .alert，子代 &amp; 前要空白</span></span><br><span class="line">  <span class="selector-attr">[dir=&#x27;rtl&#x27;]</span> &amp; &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//  &amp; 被當作父選擇器 .alert</span></span><br><span class="line">  <span class="selector-tag">body</span><span class="selector-class">.box</span> &amp; &#123;</span><br><span class="line">    <span class="attribute">color</span>: Red;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-pseudo">:not</span>(&amp;) &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.alert</span><span class="selector-pseudo">:hover</span> <span class="attribute">font-weight</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[dir=&#x27;rtl&#x27;]</span> <span class="selector-class">.alert</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.box</span> <span class="selector-class">.alert</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: Red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">:not</span>(<span class="selector-class">.alert</span>) &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以使用 &amp; 增加後綴詞：</p>
+<ul>
+<li>&amp; 作為選擇器的第一個字符，其後可以跟隨後綴詞產生複合選擇器。</li>
+<li>&amp; 必須出現在的選擇器的開頭位置（愚人碼頭注：也就是作為選擇器的第一個字符），但可以跟隨後綴，將被添加到父選擇的後面。</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.btn</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#212529</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">  <span class="attribute">background-color</span>: transparent;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid transparent;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.375rem</span> <span class="number">0.75rem</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">0.25rem</span>;</span><br><span class="line"></span><br><span class="line">  &amp;-primary &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#007bff</span>;</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="number">#007bff</span>;</span><br><span class="line">    &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: <span class="number">#0069d9</span>;</span><br><span class="line">      <span class="attribute">border-color</span>: <span class="number">#0062cc</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &amp;-lg &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0.5rem</span> <span class="number">1rem</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.25rem</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">0.3rem</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.btn</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#212529</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">  <span class="attribute">background-color</span>: transparent;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid transparent;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.375rem</span> <span class="number">0.75rem</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">0.25rem</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-primary</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#007bff</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="number">#007bff</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-primary</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#0069d9</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="number">#0062cc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-lg</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.5rem</span> <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.25rem</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">0.3rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="amp-與判斷式-if"><a href="#amp-與判斷式-if" class="headerlink" title="&amp; 與判斷式 if"></a>&amp; 與判斷式 if</h2><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@mixin</span> app-background(<span class="variable">$color</span>) &#123;</span><br><span class="line">  #&#123;if(&amp;,&#x27;&amp;.app-background&#x27;,&#x27;.app-background&#x27;)&#125; &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$color</span>;</span><br><span class="line">    <span class="attribute">color</span>: rgba(<span class="number">#fff</span>, <span class="number">0.75</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@include</span> app-background(<span class="number">#036</span>);</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> app-background(<span class="number">#c6539c</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.app-background</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#036</span>;</span><br><span class="line">  <span class="attribute">color</span>: rgba(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.75</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar</span><span class="selector-class">.app-background</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#c6539c</span>;</span><br><span class="line">  <span class="attribute">color</span>: rgba(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.75</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="進階-amp-使用"><a href="#進階-amp-使用" class="headerlink" title="進階 &amp; 使用"></a>進階 &amp; 使用</h2><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> unify-parent(<span class="variable">$child</span>) &#123;</span><br><span class="line">  <span class="keyword">@at-root</span> #&#123;selector<span class="selector-class">.unify</span>(&amp;, <span class="variable">$child</span>)&#125; &#123;</span><br><span class="line">    <span class="keyword">@content</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span> <span class="selector-class">.field</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> unify-parent(<span class="string">&#x27;input&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">@include</span> unify-parent(<span class="string">&#x27;select&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.wrapper</span> <span class="selector-tag">input</span><span class="selector-class">.field</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span> <span class="selector-tag">select</span><span class="selector-class">.field</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="群組選擇器（逗號分隔的選擇器）"><a href="#群組選擇器（逗號分隔的選擇器）" class="headerlink" title="群組選擇器（逗號分隔的選擇器）"></a>群組選擇器（逗號分隔的選擇器）</h1><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="selector-tag">h1</span>,</span><br><span class="line">  <span class="selector-tag">h2</span>,</span><br><span class="line">  <span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">0.8em</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CSS</span></span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">h2</span>,</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">0.8em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="與各選擇器的結合"><a href="#與各選擇器的結合" class="headerlink" title="與各選擇器的結合"></a>與各選擇器的結合</h1><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="comment">// 子代選擇器</span></span><br><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">  &gt; <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 相鄰選擇器</span></span><br><span class="line"><span class="selector-tag">h2</span> &#123;</span><br><span class="line">  + <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">1px</span> solid gray;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同層之後的選擇，我全都要</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  ~ <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">list-style-type</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">h2</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">1px</span> solid gray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> ~ <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="at-root"><a href="#at-root" class="headerlink" title="@at-root"></a>@at-root</h1><p>寫在層級內，但卻想從外層開始選擇時，跳脫父層獨立出來</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.tooltip</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="keyword">@at-root</span> body.active .tooltip-backdrop &#123;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.tooltip</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.active</span> <span class="selector-class">.tooltip-backdrop</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SASS/" rel="tag"># SASS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/09/lesson-sass-02.variables/" rel="prev" title="第二章 - 變數">
+      <i class="fa fa-chevron-left"></i> 第二章 - 變數
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/09/lesson-sass-04.extends/" rel="next" title="第四章 - 繼承">
+      第四章 - 繼承 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E5%B7%A2%E7%8B%80%EF%BC%88Nesting%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">嵌套巢狀（Nesting）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E5%B1%AC%E6%80%A7%EF%BC%88Neseted-Properties%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">嵌套屬性（Neseted Properties）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-amp-%E8%88%87%E7%88%B6%E9%81%B8%E6%93%87%E5%99%A8%E9%80%A3%E7%B5%90"><span class="nav-number">3.</span> <span class="nav-text">使用 &amp; 與父選擇器連結</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#amp-%E8%88%87%E5%88%A4%E6%96%B7%E5%BC%8F-if"><span class="nav-number">3.1.</span> <span class="nav-text">&amp; 與判斷式 if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%B2%E9%9A%8E-amp-%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">進階 &amp; 使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BE%A4%E7%B5%84%E9%81%B8%E6%93%87%E5%99%A8%EF%BC%88%E9%80%97%E8%99%9F%E5%88%86%E9%9A%94%E7%9A%84%E9%81%B8%E6%93%87%E5%99%A8%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">群組選擇器（逗號分隔的選擇器）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%88%87%E5%90%84%E9%81%B8%E6%93%87%E5%99%A8%E7%9A%84%E7%B5%90%E5%90%88"><span class="nav-number">5.</span> <span class="nav-text">與各選擇器的結合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#at-root"><span class="nav-number">6.</span> <span class="nav-text">@at-root</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kai-Fu Chang"
+      src="/images/kaifu.png">
+  <p class="site-author-name" itemprop="name">Kai-Fu Chang</p>
+  <div class="site-description" itemprop="description">前端設計講師</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      相關資源
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wdaweb.github.io/" title="https:&#x2F;&#x2F;wdaweb.github.io&#x2F;" rel="noopener" target="_blank">泰山網頁設計官網</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://rogeraabbccdd.github.io/F2E-book/" title="https:&#x2F;&#x2F;rogeraabbccdd.github.io&#x2F;F2E-book&#x2F;" rel="noopener" target="_blank">泰山職訓前端班課程講義</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://summer10920.github.io/" title="https:&#x2F;&#x2F;summer10920.github.io&#x2F;" rel="noopener" target="_blank">洛奇的邪惡組織手札</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Created by KaiFu Chang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+
+</body>
+</html>

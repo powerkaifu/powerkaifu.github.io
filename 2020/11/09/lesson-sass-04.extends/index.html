@@ -39,27 +39,20 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="定位 - position定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。">
+  <meta name="description" content="繼承（Extend） 繼承可以用 CSS 選擇器 或 % 開始命名 使用普通的 CSS 規則，最後會編譯出很多用不到的樣式，也容易與其他樣式名衝突，所以，SASS 引入了「佔位選擇器」(placeholder selectors)，它看起來很像普通的 id 或 class 選擇器，只是 # 或 . 被替換成了 %，可以像 class 或者 id 選擇器那樣使用，當它們單獨使用時，不會被編譯到 CS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第六章 - 定位">
-<meta property="og:url" content="https://powerkaifu.github.io/2020/08/30/lesson-css-06.position/index.html">
+<meta property="og:title" content="第四章 - 繼承">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/11/09/lesson-sass-04.extends/index.html">
 <meta property="og:site_name" content="樂遊前端趣">
-<meta property="og:description" content="定位 - position定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。">
+<meta property="og:description" content="繼承（Extend） 繼承可以用 CSS 選擇器 或 % 開始命名 使用普通的 CSS 規則，最後會編譯出很多用不到的樣式，也容易與其他樣式名衝突，所以，SASS 引入了「佔位選擇器」(placeholder selectors)，它看起來很像普通的 id 或 class 選擇器，只是 # 或 . 被替換成了 %，可以像 class 或者 id 選擇器那樣使用，當它們單獨使用時，不會被編譯到 CS">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-01.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-02.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-03.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-04.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-05.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-06.png">
-<meta property="article:published_time" content="2020-08-30T13:03:11.333Z">
-<meta property="article:modified_time" content="2020-11-08T18:53:18.083Z">
+<meta property="article:published_time" content="2020-11-09T12:15:47.067Z">
+<meta property="article:modified_time" content="2020-11-09T16:35:03.905Z">
 <meta property="article:author" content="Kai-Fu Chang">
-<meta property="article:tag" content="css">
+<meta property="article:tag" content="SASS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://powerkaifu.github.io/images/css/css-position-01.png">
 
-<link rel="canonical" href="https://powerkaifu.github.io/2020/08/30/lesson-css-06.position/">
+<link rel="canonical" href="https://powerkaifu.github.io/2020/11/09/lesson-sass-04.extends/">
 
 
 <script id="page-configurations">
@@ -72,7 +65,7 @@
   };
 </script>
 
-  <title>第六章 - 定位 | 樂遊前端趣</title>
+  <title>第四章 - 繼承 | 樂遊前端趣</title>
   
     <script>
       function sendPageView() {
@@ -231,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/30/lesson-css-06.position/">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/11/09/lesson-sass-04.extends/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/kaifu.png">
@@ -244,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第六章 - 定位
+          第四章 - 繼承
         </h1>
 
         <div class="post-meta">
@@ -254,14 +247,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2020-08-30 21:03:11" itemprop="dateCreated datePublished" datetime="2020-08-30T21:03:11+08:00">2020-08-30</time>
+              <time title="創建時間：2020-11-09 20:15:47" itemprop="dateCreated datePublished" datetime="2020-11-09T20:15:47+08:00">2020-11-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-09 02:53:18" itemprop="dateModified" datetime="2020-11-09T02:53:18+08:00">2020-11-09</time>
+                <time title="修改時間：2020-11-10 00:35:03" itemprop="dateModified" datetime="2020-11-10T00:35:03+08:00">2020-11-10</time>
               </span>
 
           
@@ -275,28 +268,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h1><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層級（z-index）。</p>
+        <h1 id="繼承（Extend）"><a href="#繼承（Extend）" class="headerlink" title="繼承（Extend）"></a>繼承（Extend）</h1><ul>
+<li><p>繼承可以用 CSS 選擇器 或 % 開始命名</p>
+<p>使用普通的 CSS 規則，最後會編譯出很多用不到的樣式，也容易與其他樣式名衝突，所以，SASS 引入了「佔位選擇器」(placeholder selectors)，它看起來很像普通的 id 或 class 選擇器，只是 # 或 . 被替換成了 %，可以像 class 或者 id 選擇器那樣使用，當它們單獨使用時，不會被編譯到 CSS 文件中。</p>
+</li>
+<li><p>@extend 可以賦予繼承某個 % 或 選擇器所定義的樣式。</p>
+</li>
+<li><p>繼承相同樣式的選擇器在編譯後會以群組選擇器的方式合併在一起。</p>
+</li>
+<li><p>避開 @extend 不使用，就連 Bootstrap 的原始碼中也不怎麼使用 @extend 這手法。</p>
+</li>
+</ul>
 <a id="more"></a>
 
-<h1 id="西天取經"><a href="#西天取經" class="headerlink" title="西天取經"></a>西天取經</h1><p>以西遊記舉例，唐僧帶領了師徒三人及白龍馬前往西天取經，遭逢九九八十一難關…，我們現在假設父元素是唐僧，子元素分別是會七十二變的悟空、好色諂媚愛搞分化的八戒、無聲努力辛勤的沙僧以及偶爾串場的白龍馬，我們將它們全部轉型為 inline-block 橫向流動排列，目前取經團子成員都乖乖在唐僧管理下正常流向排列著。</p>
-<img data-src="/images/css/css-position-01.png" width="700">
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 繼承 @extend</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&#x27;微軟正黑體&#x27;</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#222</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h2</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> h1;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#444</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">h3</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> h1;</span><br><span class="line">  magin-<span class="attribute">left</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 編譯後 css，相同的繼承在編譯後會被合併</span></span><br><span class="line"><span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-tag">h2</span>,</span><br><span class="line"><span class="selector-tag">h3</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&#x27;微軟正黑體&#x27;</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#222</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h2</span> &#123;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#444</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h3</span> &#123;</span><br><span class="line">  magin-<span class="attribute">left</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="相對定位-relative"><a href="#相對定位-relative" class="headerlink" title="相對定位 - relative"></a>相對定位 - relative</h1><p>此時，諂媚愛分化團隊的八戒使用了相對定位 position:relative，在瀏覽器的視覺上並未有任何改變，但其實八戒已經進入定位層，八戒還使用了偏移（top、bottom、left、right）會在團隊之間遊說不利團隊的話語，在西遊記裡，唐僧對八戒非常容忍，說容忍還是唐僧也愛聽諂媚的話？不會將其趕出團隊，我們發現八戒<strong>原本的位置會被保留空下</strong>，後方的沙僧、白馬並不會遞補上去，沒人敢挑戰二師兄的位置。這也讓我們知道相對定位並不會讓元素原本的位置脫離正常流向，就像八戒空出的位置一樣。</p>
-<img data-src="/images/css/css-position-02.png" width="700">
+<ul>
+<li>範例</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.hoverlink</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> a:hover;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="comment">// 編譯後 css，相同的繼承在編譯後會被合併</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>,</span><br><span class="line"><span class="selector-class">.hoverlink</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="絕對定位-absolute"><a href="#絕對定位-absolute" class="headerlink" title="絕對定位 - absolute"></a>絕對定位 - absolute</h1><p>大師兄孫悟空，師承菩提老祖習成七十二變，偷吃王母娘娘蟠桃、喝壽酒身體變成刀槍不入，又在太上老君煉金爐練成能看穿妖魔的「火眼金睛」，在團隊裡面衝鋒陷陣戰力堪稱第一。八戒的挑撥是非，讓唐僧與悟空的關係好幾次讓團隊陷入危機，悟空氣到使用了絕對定位 position:absolute，下圖可以看到悟空也進入的定位層（腳踏觔斗雲原地起飛），我們也可以看到八戒一心想取代大師兄的位置，此時八戒在悟空的底下，也就是悟空原本的位置，悟空後方的師弟們都向前遞補了，這也讓我們知道了絕對定位的元素會脫離正常流向，後方元素會往前遞補。</p>
-<img data-src="/images/css/css-position-03.png" width="700">
+<ul>
+<li>範例</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.hoverlink</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> a:hover;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.comment</span> <span class="selector-tag">a</span><span class="selector-class">.user</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="comment">// 編譯後 css，相同的繼承在編譯後會被合併</span></span><br><span class="line"><span class="selector-class">.comment</span> <span class="selector-tag">a</span><span class="selector-class">.user</span><span class="selector-pseudo">:hover</span>,</span><br><span class="line"><span class="selector-class">.comment</span> <span class="selector-class">.user</span><span class="selector-class">.hoverlink</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>若是八戒也如同上方設定了 position:relative，我們會更清楚看見八戒想取代悟空的野心，這是因為八戒是後方元素的關係，當悟空、八戒兩者都進入定位層，八戒會覆蓋悟空。</p>
-<img data-src="/images/css/css-position-04.png" width="700">
+<ul>
+<li>繼承樣式一樣會依照後面的樣式套用</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.error</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.attention</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">3em</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ff0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.seriousError</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> .error;</span><br><span class="line">  <span class="keyword">@extend</span> .attention;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="comment">// 會套用 .attention，因為是後面出現的樣式</span></span><br><span class="line"><span class="selector-class">.error</span>,</span><br><span class="line"><span class="selector-class">.seriousError</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.attention</span>,</span><br><span class="line"><span class="selector-class">.seriousError</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">3em</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ff0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.seriousError</span> &#123;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>劇情往下走，被師父誤會的悟空，內心百感交集，心想：「遇到妖怪我來打，Boss 太強師傅被抓找救兵也是靠我的關係，現在師傅盡聽信老豬的廢話，沒把我放在心上」，一氣之下使用了偏移 top:0、left:0，搭上觔斗雲一個跟斗翻了十萬八千里回到了花果山（瀏覽器左上角位置），悟空徹底離開了團隊（唐僧範圍），尋找到最後的位置－花果山。</p>
-<img data-src="/images/css/css-position-05.png" width="700">
+<ul>
+<li>連續繼承</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.error</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.seriousError</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> .error;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.criticalError</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> .seriousError;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">10%</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">10%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">10%</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">10%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.error</span>,</span><br><span class="line"><span class="selector-class">.seriousError</span>,</span><br><span class="line"><span class="selector-class">.criticalError</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.seriousError</span>,</span><br><span class="line"><span class="selector-class">.criticalError</span> &#123;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.criticalError</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">10%</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">10%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">10%</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">10%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="唐僧的緊箍咒"><a href="#唐僧的緊箍咒" class="headerlink" title="唐僧的緊箍咒"></a>唐僧的緊箍咒</h1><p>這種結果不是我們想看到的結局，那有甚麼辦法讓大師兄悟空繼續留在西天取經團隊呢？有的！那就是觀音姐姐給唐僧的「緊箍咒」，即是唐僧使用了 position:relative，那麼悟空又會回到團隊裡面，即使悟空使用了 top、bottom、left、right 位移，也會以唐僧為基準點偏移。最後我們得到了一個結論，<strong>相對定位常會讓父元素變成子元素的一個定位點，子元素可以依據這個定位點進行絕對定位的偏移，若父元素沒有任何定位點（relative、absolute），則會繼續往外尋找直到瀏覽器為定位點</strong>。</p>
-<img data-src="/images/css/css-position-06.png" width="700">
-
-<h1 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 - fixed"></a>固定定位 - fixed</h1><p>position:fixed，固定定位可以說定位裡面最愛刷存在感的傢伙，它就像穿著寬鬆背心愛秀肌肉的猛男，希望成為大眾目光焦點，所以捲軸上下移動是無法脫離這位自戀狂，它就會像醒目的廣告看板固定在一個位置。通常，固定定位只有一個基準點位置，那就是以瀏覽器視窗為偏移基準點，但…若遇到了父元素有 transform 屬性結果就不同了。結論：<strong>絕對定位、固定定位它們都會讓元素脫離正常流向</strong>。</p>
+<ul>
+<li>clearfix 繼承</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* scss 繼承 */</span></span><br><span class="line">%clearfix &#123;</span><br><span class="line">  &amp;<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.components</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %clearfix;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %clearfix;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* css */</span></span><br><span class="line"><span class="comment">// 編譯後 css，相同的繼承在編譯後會被合併</span></span><br><span class="line"><span class="selector-class">.components</span><span class="selector-pseudo">:after</span>,</span><br><span class="line"><span class="selector-class">.card</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -306,7 +316,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/SASS/" rel="tag"># SASS</a>
           </div>
 
         
@@ -315,12 +325,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/29/lesson-css-05.float/" rel="prev" title="第五章 - 浮動">
-      <i class="fa fa-chevron-left"></i> 第五章 - 浮動
+    <a href="/2020/11/09/lesson-sass-03.nesting/" rel="prev" title="第三章 - 巢狀嵌套">
+      <i class="fa fa-chevron-left"></i> 第三章 - 巢狀嵌套
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/09/07/lesson-css-07.transform/" rel="next" title="第七章 - 變形">
-      第七章 - 變形 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/11/09/lesson-sass-07.mixins/" rel="next" title="第七章 - 混合">
+      第七章 - 混合 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -380,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D-position"><span class="nav-number">1.</span> <span class="nav-text">定位 - position</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A5%BF%E5%A4%A9%E5%8F%96%E7%B6%93"><span class="nav-number">2.</span> <span class="nav-text">西天取經</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%B0%8D%E5%AE%9A%E4%BD%8D-relative"><span class="nav-number">3.</span> <span class="nav-text">相對定位 - relative</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B5%95%E5%B0%8D%E5%AE%9A%E4%BD%8D-absolute"><span class="nav-number">4.</span> <span class="nav-text">絕對定位 - absolute</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%94%90%E5%83%A7%E7%9A%84%E7%B7%8A%E7%AE%8D%E5%92%92"><span class="nav-number">5.</span> <span class="nav-text">唐僧的緊箍咒</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D-fixed"><span class="nav-number">6.</span> <span class="nav-text">固定定位 - fixed</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B9%BC%E6%89%BF%EF%BC%88Extend%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">繼承（Extend）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
