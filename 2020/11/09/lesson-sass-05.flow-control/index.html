@@ -39,15 +39,15 @@
       border-left-color: #ff009e; /*左邊框顏色*/
     }
 </style>
-  <meta name="description" content="流程控制@if@if 語句後面可以跟多個語句和一個語句。 如果語句失敗，Sass 將逐條嘗試語句，直到有一個成功，或如果全部失敗，那麼會執行語句。 @if 條件{ 敘述 }@else if{ 敘述 }@else{ 敘述 } &#x2F;&#x2F; scss$type: monster;p &amp;#123;  @if $type &#x3D;&#x3D; ocean &amp;#123;    color: blue;  &amp;#125; @else">
+  <meta name="description" content="@if與其他程式語言一樣，SASS 的條件判斷也分為 @if、@else if、@else。 &#x2F;&#x2F; scss$type: monster;p &amp;#123;  @if $type &#x3D;&#x3D; ocean &amp;#123;    color: blue;  &amp;#125; @else if $type &#x3D;&#x3D; matador &amp;#123;    color: red;  &amp;#125; @else if $type">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第五章 - 流程控制">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/11/09/lesson-sass-05.flow-control/index.html">
 <meta property="og:site_name" content="樂遊前端趣">
-<meta property="og:description" content="流程控制@if@if 語句後面可以跟多個語句和一個語句。 如果語句失敗，Sass 將逐條嘗試語句，直到有一個成功，或如果全部失敗，那麼會執行語句。 @if 條件{ 敘述 }@else if{ 敘述 }@else{ 敘述 } &#x2F;&#x2F; scss$type: monster;p &amp;#123;  @if $type &#x3D;&#x3D; ocean &amp;#123;    color: blue;  &amp;#125; @else">
+<meta property="og:description" content="@if與其他程式語言一樣，SASS 的條件判斷也分為 @if、@else if、@else。 &#x2F;&#x2F; scss$type: monster;p &amp;#123;  @if $type &#x3D;&#x3D; ocean &amp;#123;    color: blue;  &amp;#125; @else if $type &#x3D;&#x3D; matador &amp;#123;    color: red;  &amp;#125; @else if $type">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-11-09T12:21:29.780Z">
-<meta property="article:modified_time" content="2020-11-09T12:23:33.144Z">
+<meta property="article:modified_time" content="2020-11-09T19:26:21.113Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="SASS">
 <meta name="twitter:card" content="summary">
@@ -246,10 +246,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-11-09 20:21:29 / 修改時間：20:23:33" itemprop="dateCreated datePublished" datetime="2020-11-09T20:21:29+08:00">2020-11-09</time>
+              <time title="創建時間：2020-11-09 20:21:29" itemprop="dateCreated datePublished" datetime="2020-11-09T20:21:29+08:00">2020-11-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-11-10 03:26:21" itemprop="dateModified" datetime="2020-11-10T03:26:21+08:00">2020-11-10</time>
+              </span>
 
           
 
@@ -262,51 +268,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="if"><a href="#if" class="headerlink" title="@if"></a>@if</h2><p>@if 語句後面可以跟多個語句和一個語句。 如果語句失敗，Sass 將逐條嘗試語句，直到有一個成功，或如果全部失敗，那麼會執行語句。</p>
-<p>@if 條件{</p>
-<p>敘述</p>
-<p>}@else if{</p>
-<p>敘述</p>
-<p>}@else{</p>
-<p>敘述</p>
-<p>}</p>
+        <h1 id="if"><a href="#if" class="headerlink" title="@if"></a>@if</h1><p>與其他程式語言一樣，SASS 的條件判斷也分為 @if、@else if、@else。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$type</span>: monster;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="keyword">@if</span> <span class="variable">$type</span> == ocean &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">  &#125; <span class="keyword">@else</span> if <span class="variable">$type</span> == matador &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125; <span class="keyword">@else</span> if <span class="variable">$type</span> == monster &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">  &#125; <span class="keyword">@else</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: black;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="for-兩種格式"><a href="#for-兩種格式" class="headerlink" title="@for 兩種格式"></a>@for 兩種格式</h2><p>Sass 提供的 For 迴圈 運算，其概念與一般程式中的 for 迴圈概念相同，需給定迴圈的 <code>起始值</code> 與 <code>終止值</code>。</p>
+<h1 id="for"><a href="#for" class="headerlink" title="@for"></a>@for</h1><p>SASS 提供的 for 迴圈重複運算，其概念與一般程式中的 for 迴圈概念相同，需給定迴圈的「起始值」與「終止值」，它有兩種格式，且判斷條件不需用括號包起來。</p>
 <ul>
-<li><p>@for $i from <code>$start</code> through <code>$end</code></p>
+<li><p>@for $i from $start through $end</p>
 <ul>
 <li>變數 $i 僅作爲清單 (List) 中元素都編號。</li>
-<li>條件範圍包含 $start 與 $end 的值， $start 和 $end 必須是整數值。</li>
+<li>條件範圍<strong>包含 start 與 end 的值</strong>，start 和 end 必須是整數值。</li>
 </ul>
 </li>
-<li><p>@for $i from <code>$start</code> to <code>$end</code></p>
+<li><p>@for $i from $start to $end</p>
 <ul>
 <li>變數 $i 僅作爲清單 (List) 中元素都編號。</li>
-<li>條件範圍只包含 $start 的值不包含 $end 的值， $start 和 $end 必須是整數值。</li>
+<li>條件範圍只包含 start 的值<strong>不包含 end 的值</strong>， start 和 end 必須是整數值。</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@for</span> <span class="variable">$i</span> from <span class="number">1</span> through <span class="number">3</span> &#123;</span><br><span class="line">  <span class="selector-class">.item-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">2em</span> * <span class="variable">$i</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.item-1</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">2em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item-2</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">4em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item-3</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">6em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="while"><a href="#while" class="headerlink" title="@while"></a>@while</h2><p><code>@while</code> 迴圈，很少會用到。</p>
+<h1 id="while"><a href="#while" class="headerlink" title="@while"></a>@while</h1><p>@while 迴圈，很少會用到。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$i</span>: <span class="number">6</span>;</span><br><span class="line"><span class="keyword">@while</span> <span class="variable">$i</span>&gt;<span class="number">0</span> &#123;</span><br><span class="line">  <span class="selector-class">.item-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">2em</span> * <span class="variable">$i</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable">$i</span>: <span class="variable">$i</span> - <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.item-6</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">12em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item-4</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">8em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item-2</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">4em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="each"><a href="#each" class="headerlink" title="@each"></a>@each</h2><p>Sass 提供的 Each 迴圈 針對清單 (List)或 物件(Map) 中的每一項值進行迭代運算，在 Sass 中，以符號 @each 進行迴圈運算。</p>
-<p>@each 通出用在 list 和 map 的提取，<code>$var</code> 可以任何自取的變數名稱，動態帶入 list 或 map 中的每個項目。</p>
-<p>用法：@each <code>$var</code> in <list or map></p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$list</span>: (orange, purple, teal);</span><br><span class="line"></span><br><span class="line"><span class="keyword">@each</span> <span class="variable">$item</span> in <span class="variable">$list</span> &#123;</span><br><span class="line">  .#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="variable">$item</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.orange</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.purple</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: purple;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.teal</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: teal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="each"><a href="#each" class="headerlink" title="@each"></a>@each</h1><p>SASS 提供的 each 迴圈 針對陣列（List）或物件（Map）等資料結構中的每一項元素進行迭代運算，它以符號 @each 進行迴圈運算。</p>
+<p>@each 用在 list 和 map 的提取，$var 可以任何自取的變數名稱，動態帶入 list 或 map 中的每個項目。</p>
+<blockquote>
+<p>@each $var in <list or map>{…}</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$list</span>: orange, purple, teal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@each</span> <span class="variable">$item</span> in <span class="variable">$list</span> &#123;</span><br><span class="line">  .#&#123;<span class="variable">$item</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="variable">$item</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.orange</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.purple</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: purple;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.teal</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: teal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>@each 多參數</li>
+<li>@each 進行多參數迭代</li>
 </ul>
+<p>@each 會依序從陣列中逐一取出值並對應前面的變數。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@each</span> <span class="variable">$name</span>, <span class="variable">$color</span>, <span class="variable">$bgcolor</span> in (box1, red, black), (box2, green, black), (box3, blue, black) &#123;</span><br><span class="line">  .#&#123;<span class="variable">$name</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$color</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$bgcolor</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.box1</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  <span class="attribute">background-color</span>: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box2</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">  <span class="attribute">background-color</span>: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box3</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">  <span class="attribute">background-color</span>: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>@each 搭 map</li>
+<li>@each 與 Map</li>
 </ul>
+<p>注意 Map 最後要有分號。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$themes</span>: (</span><br><span class="line">  <span class="string">&#x27;primary&#x27;</span>: blue,</span><br><span class="line">  <span class="string">&#x27;danger&#x27;</span>: red</span><br><span class="line">);</span><br><span class="line"><span class="keyword">@each</span> <span class="variable">$key</span>, <span class="variable">$value</span> in <span class="variable">$themes</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn-</span>#&#123;<span class="variable">$key</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="variable">$value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.btn-primary</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-danger</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>Map 裡面的 Map</li>
+</ul>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$share-map</span>: (</span><br><span class="line">  <span class="string">&#x27;facebook&#x27;</span>: (</span><br><span class="line">    <span class="string">&#x27;pic&#x27;</span>: <span class="string">&#x27;facebook.png&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;color&#x27;</span>: <span class="number">#3c5998</span></span><br><span class="line">  ),</span><br><span class="line">  <span class="string">&#x27;google&#x27;</span>: (</span><br><span class="line">    <span class="string">&#x27;pic&#x27;</span>: <span class="string">&#x27;google.png&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;color&#x27;</span>: <span class="number">#cb3726</span></span><br><span class="line">  ),</span><br><span class="line">  <span class="string">&#x27;email&#x27;</span>: (</span><br><span class="line">    <span class="string">&#x27;pic&#x27;</span>: <span class="string">&#x27;email.png&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;color&#x27;</span>: <span class="number">#666666</span></span><br><span class="line">  )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// $key 將會取出 facebook , $value 取出裡面的值</span></span><br><span class="line"><span class="keyword">@each</span> <span class="variable">$key</span>, <span class="variable">$value</span> in <span class="variable">$share-map</span> &#123;</span><br><span class="line">  <span class="variable">$pic</span>: map-get(<span class="variable">$value</span>, <span class="string">&#x27;pic&#x27;</span>); <span class="comment">//取出 facebook 的  pic</span></span><br><span class="line">  <span class="variable">$color</span>: map-get(<span class="variable">$value</span>, <span class="string">&#x27;color&#x27;</span>); <span class="comment">//取出 facebook 的  color</span></span><br><span class="line"></span><br><span class="line">  .#&#123;<span class="variable">$key</span>&#125; &#123;</span><br><span class="line">    <span class="comment">//將 facebook 轉型，變成 class name</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="variable">$pic</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$color</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -391,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">1.1.</span> <span class="nav-text">@if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-%E5%85%A9%E7%A8%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">@for 兩種格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while"><span class="nav-number">1.3.</span> <span class="nav-text">@while</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#each"><span class="nav-number">1.4.</span> <span class="nav-text">@each</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#if"><span class="nav-number">1.</span> <span class="nav-text">@if</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for"><span class="nav-number">2.</span> <span class="nav-text">@for</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#while"><span class="nav-number">3.</span> <span class="nav-text">@while</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#each"><span class="nav-number">4.</span> <span class="nav-text">@each</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
