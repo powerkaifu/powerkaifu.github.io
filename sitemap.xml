@@ -156,16 +156,16 @@
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/2020/10/07/lesson-jq-04.geometry/</loc>
+    <loc>https://powerkaifu.github.io/2020/10/09/lesson-jq-06.traversing/</loc>
     
     <lastmod>2020-10-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/2020/10/09/lesson-jq-06.traversing/</loc>
+    <loc>https://powerkaifu.github.io/2020/10/07/lesson-jq-04.geometry/</loc>
     
-    <lastmod>2020-10-19</lastmod>
+    <lastmod>2020-10-20</lastmod>
     
   </url>
   
@@ -347,6 +347,13 @@
   </url>
   
   <url>
+    <loc>https://powerkaifu.github.io/tags/SASS/</loc>
+    <lastmod>2020-11-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/tags/TailwindCSS/</loc>
     <lastmod>2020-11-10</lastmod>
     <changefreq>daily</changefreq>
@@ -355,13 +362,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/tags/Velocity-js/</loc>
-    <lastmod>2020-11-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/tags/SASS/</loc>
     <lastmod>2020-11-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
