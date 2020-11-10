@@ -155,7 +155,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>技術筆記<span class="badge">5</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>技術筆記<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -217,6 +217,580 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/16/lesson-jq-09.utilities/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/16/lesson-jq-09.utilities/" class="post-title-link" itemprop="url">第九章 - 通用工具</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-10-16 07:58:30" itemprop="dateCreated datePublished" datetime="2020-10-16T07:58:30+08:00">2020-10-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-26 04:11:14" itemprop="dateModified" datetime="2020-10-26T04:11:14+08:00">2020-10-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="each"><a href="#each" class="headerlink" title=".each()"></a>.each()</h1><p>如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/16/lesson-jq-09.utilities/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/14/lesson-css-11.flexbox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/14/lesson-css-11.flexbox/" class="post-title-link" itemprop="url">第十一章 - 彈性盒</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-10-14 00:27:23" itemprop="dateCreated datePublished" datetime="2020-10-14T00:27:23+08:00">2020-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-11-09 02:53:58" itemprop="dateModified" datetime="2020-11-09T02:53:58+08:00">2020-11-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="彈性盒（FlexBox）"><a href="#彈性盒（FlexBox）" class="headerlink" title="彈性盒（FlexBox）"></a>彈性盒（FlexBox）</h1><p>「彈性盒」是 CSS 裡很重要的觀念，如同名稱，是一種靈活佈局的盒子，至今 2020 主流的排版方式，許多著名 CSS FrameWork 都以它為佈局基礎。彈性盒的使用方式是在宣告一個元素容器為彈性盒 flex 或 inlne-flex 時，該容器就成為彈性容器（flex container）。而此彈性容器裡面的子元素，無論它們是區塊（block）或是行內（inline）類型，全部都會變成彈性項目（flex item）。當然，一些區塊元素預設的外距還是會造成些許差異（移除外距大家就一樣了），但不影響其成為彈性項目。在彈性盒裡面，有屬於它自己佈局的方式，自成領域。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/14/lesson-css-11.flexbox/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/12/lesson-jq-08.ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/12/lesson-jq-08.ajax/" class="post-title-link" itemprop="url">第八章 - AJAX</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-10-12 22:11:24" itemprop="dateCreated datePublished" datetime="2020-10-12T22:11:24+08:00">2020-10-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-16 07:57:25" itemprop="dateModified" datetime="2020-10-16T07:57:25+08:00">2020-10-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><h2 id="同步（Synchronous）"><a href="#同步（Synchronous）" class="headerlink" title="同步（Synchronous）"></a>同步（Synchronous）</h2><p>在瀏覽器處理 script 標籤時，傳統上會先停止頁面其他內容的處理，直到程式碼均載入且處理完成為止。這樣的模式稱為「同步處理模型」（synchronous processing model）。換句話說，也就是等我做完，你才能進行。因此，當頁面正進行載入時，若程式需要自伺服器要求資料，瀏覽器不只需要等待程式的載入和執行，還需要等待伺服器回傳程式需呈現資料的時間。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/12/lesson-jq-08.ajax/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/11/lesson-jq-07.animate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/11/lesson-jq-07.animate/" class="post-title-link" itemprop="url">第七章 - 動畫</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-10-11 02:25:31 / 修改時間：02:34:57" itemprop="dateCreated datePublished" datetime="2020-10-11T02:25:31+08:00">2020-10-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="動畫設定"><a href="#動畫設定" class="headerlink" title="動畫設定"></a>動畫設定</h1><p>jQuery 的 animate 只支援任何「數字+單位」的屬性，且均為單個數值，例如 width、height、left，它們都可以是數字+單位（100px），background-color 就不行，除非使用 <a target="_blank" rel="noopener" href="https://github.com/jquery/jquery-color">jQuery.Color</a> 或 <a target="_blank" rel="noopener" href="https://jqueryui.com/">jQuery UI</a>來擴充設定，jQuery UI 還能擴充 easing 動畫速率使用種類（jQuery 只提供 swing 與 linear）。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/11/lesson-jq-07.animate/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/09/lesson-jq-06.traversing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/09/lesson-jq-06.traversing/" class="post-title-link" itemprop="url">第六章 - 選擇器與遍歷</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-10-09 21:56:46" itemprop="dateCreated datePublished" datetime="2020-10-09T21:56:46+08:00">2020-10-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-19 15:08:30" itemprop="dateModified" datetime="2020-10-19T15:08:30+08:00">2020-10-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="選擇器（Selectors）"><a href="#選擇器（Selectors）" class="headerlink" title="選擇器（Selectors）"></a>選擇器（Selectors）</h1><p>jQuery 的選擇器以 CSS 為規範，以最快速、便捷的方式選擇到元素，是 jQuery 的強項之一，並且自訂了許多屬於自己的偽類過濾器來擴展選擇，不過，這些偽類並不是 CSS 的規範，不能被 querySelectorAll 所獲取，因此在 3.4 不推薦使用，改由相對應的方法進行篩選。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/09/lesson-jq-06.traversing/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/07/lesson-jq-05.events/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/07/lesson-jq-05.events/" class="post-title-link" itemprop="url">第五章 - 事件處理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-10-07 18:37:24" itemprop="dateCreated datePublished" datetime="2020-10-07T18:37:24+08:00">2020-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-16 07:24:16" itemprop="dateModified" datetime="2020-10-16T07:24:16+08:00">2020-10-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="事件處理"><a href="#事件處理" class="headerlink" title="事件處理"></a>事件處理</h1><p>事件處理是網頁互動行為很重要的核心，通常當一個事件發生時，會去呼叫一個事件處理程序（event handler）的回呼函式，也就是事件發生時要做的事情。jQuery 對事件有許多特別的貼心設定。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/07/lesson-jq-05.events/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/07/lesson-jq-04.geometry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/07/lesson-jq-04.geometry/" class="post-title-link" itemprop="url">第四章 - 元素的位置與大小</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-10-07 18:37:24" itemprop="dateCreated datePublished" datetime="2020-10-07T18:37:24+08:00">2020-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-20 13:40:33" itemprop="dateModified" datetime="2020-10-20T13:40:33+08:00">2020-10-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="寬度與高度"><a href="#寬度與高度" class="headerlink" title="寬度與高度"></a>寬度與高度</h1><p>有三種設置及查詢元素的寬度（width）、高度（height）的方式。</p>
+<img data-src="/images/jquery/jq-04-dimensions.gif">
+
+<h2 id="width-與-height"><a href="#width-與-height" class="headerlink" title="width() 與 height()"></a>width() 與 height()</h2><p>width()與 height()方法回傳元素的寬度與高度，在 jQuery 指的是內容區域的寬度與高度，因此不包括內距（padding）、邊框（border）。若設定 box-sizing:border-box，width()、height()取值會被影響，但依舊指的是內容區域，此時 CSS 設定的 width 值扣掉 padding、border 才是 width()、height()真正的值。</p>
+<p>width(value) 與 height(value) value 可以設定 <code>數字</code>、<code>px</code>、<code>%</code>、<code>auto</code>。如果傳入的是數字（未設定任何單位），視為預設以像素為單位的尺寸大小，如果傳入的是字串值，會被用作 CSS width 或 height 屬性的值，因此可以套用任何 CSS 單位，但不能設定 Window 或 Document 物件的寬度或高度。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/07/lesson-jq-04.geometry/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樂遊前端趣">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/02/lesson-jq-03.insert-replace/" class="post-title-link" itemprop="url">第三章 - 插入、取代、刪除元素</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-10-02 23:34:45" itemprop="dateCreated datePublished" datetime="2020-10-02T23:34:45+08:00">2020-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-17 00:11:32" itemprop="dateModified" datetime="2020-10-17T00:11:32+08:00">2020-10-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h1><p>before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/02/lesson-jq-03.insert-replace/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -365,589 +939,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/30/lesson-jq-00.intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="前端設計講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樂遊前端趣">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/30/lesson-jq-00.intro/" class="post-title-link" itemprop="url">序　章 - jQuery 介紹與設定</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-09-30 17:10:41" itemprop="dateCreated datePublished" datetime="2020-09-30T17:10:41+08:00">2020-09-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-15 05:53:39" itemprop="dateModified" datetime="2020-10-15T05:53:39+08:00">2020-10-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="jQuery-介紹"><a href="#jQuery-介紹" class="headerlink" title="jQuery 介紹"></a>jQuery 介紹</h1><p>jQuery 的作者是 John Resig，橫空出世於 2006 年 1 月瀏覽器紛爭的戰場，當時各家瀏覽器對設計者來說相容是個難題，jQuery 解決了這方面的問題。它是 JavaScript 的函式庫，封裝並簡化了 JavaScript 的功能，可以輕鬆找出文件元素 DOM、新增元素內容、編輯 HTML 與 CSS 屬性，定義事件處理器，或是加上動畫效果等等，它使得操作元素變得容易，而且，它也有完善的 Ajax 工具，還有一般用途的函式方法用來處理物件與陣列。這些功能對於當時網站開發都帶來相當的便利，因此 jQuery 很快成為一個時代很重要的函式庫，而如其名稱所示，jQuery 它專注於 Query（查詢）及使用各種功能。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/30/lesson-jq-00.intro/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/24/lesson-tailwind-css/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="前端設計講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樂遊前端趣">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/24/lesson-tailwind-css/" class="post-title-link" itemprop="url">Tailwind CSS 大全</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-09-24 03:23:30" itemprop="dateCreated datePublished" datetime="2020-09-24T03:23:30+08:00">2020-09-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-10 03:08:07" itemprop="dateModified" datetime="2020-10-10T03:08:07+08:00">2020-10-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="框架介紹"><a href="#框架介紹" class="headerlink" title="框架介紹"></a>框架介紹</h1><h2 id="Component-UI"><a href="#Component-UI" class="headerlink" title="Component UI"></a>Component UI</h2><p>Bootstrap 是 Component UI 型的 CSS Framework，使用過 Bootstrap 都知道它擁有強大的網格系統與 Components UI 提供設計者使用，另外也有貼心的 Utility 工具調整內容、寬度、距離等等，但在操作切版的自由靈活度上稍嫌不足，多組件設計的方便性讓製作出的版型常常長得很像，不過，它之所以成為全球著名的 CSS Framework 之一，設計的核心就是希望被普遍大眾接受且容易使用，它確實做到了，使用組件來設計 RWD 版型，Bootstrap 非常快速。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/24/lesson-tailwind-css/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/22/lesson-css-10.before-after/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="前端設計講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樂遊前端趣">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/22/lesson-css-10.before-after/" class="post-title-link" itemprop="url">第十章 - 偽元素</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-09-22 08:39:09" itemprop="dateCreated datePublished" datetime="2020-09-22T08:39:09+08:00">2020-09-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-09 02:53:51" itemprop="dateModified" datetime="2020-11-09T02:53:51+08:00">2020-11-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="偽類與偽元素"><a href="#偽類與偽元素" class="headerlink" title="偽類與偽元素"></a>偽類與偽元素</h1><p>偽類（Pseudo-classes ）與偽元素（Pseudo-element）兩者都是 CSS 為了擴張變化性而衍生出的選擇器，偽類以元素狀態、結構為主要的選擇方式：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/22/lesson-css-10.before-after/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/08/lesson-css-09.animation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="前端設計講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樂遊前端趣">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/08/lesson-css-09.animation/" class="post-title-link" itemprop="url">第九章 - 動畫</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-09-08 00:52:46" itemprop="dateCreated datePublished" datetime="2020-09-08T00:52:46+08:00">2020-09-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-09 02:53:41" itemprop="dateModified" datetime="2020-11-09T02:53:41+08:00">2020-11-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="動畫-Animation"><a href="#動畫-Animation" class="headerlink" title="動畫 - Animation"></a>動畫 - Animation</h1><p>「轉場」與「動畫」可說是兄弟，兩人分工負責了 CSS 世界的動態效果。轉場可以在觸發狀態時，讓起始、結束狀態兩組樣式產生一組簡單的補間動畫，它是容易且強大的效果，但若要製作較為複雜的效果時，這就不是轉場的工作囉，因為它屬於<strong>一次性</strong>的動畫，例如黑色與白色的補間動畫。若是要黑色變成黃色，再變成白色，再變其他顏色，這時候就是動畫（animation）登場的時候。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/08/lesson-css-09.animation/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/07/lesson-css-08.transition/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="前端設計講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樂遊前端趣">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/07/lesson-css-08.transition/" class="post-title-link" itemprop="url">第八章 - 轉場</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-09-07 19:24:23" itemprop="dateCreated datePublished" datetime="2020-09-07T19:24:23+08:00">2020-09-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-09 02:53:32" itemprop="dateModified" datetime="2020-11-09T02:53:32+08:00">2020-11-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="轉場-transition"><a href="#轉場-transition" class="headerlink" title="轉場 - transition"></a>轉場 - transition</h1><p>轉場指的是從一個<strong>初始狀態</strong>到另一個<strong>結束狀態</strong>，兩種狀態樣式轉變補間的過程。它通常發生於與使用者的互動，但也有可能是程式改變了 class、ID 或使用了其他狀態。當觸發條件發生，瀏覽器會套用轉場效果，在兩種樣式間漸進發生。最好的例子就是 :hover 偽類，也就是當滑鼠移到元素時所發生的狀態改變。無論轉場或動畫的使用，關係到與使用者的互動感受，因此 duration 時間拿捏非常重要。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/07/lesson-css-08.transition/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/09/07/lesson-css-07.transform/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="前端設計講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樂遊前端趣">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/07/lesson-css-07.transform/" class="post-title-link" itemprop="url">第七章 - 變形</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-09-07 02:44:02" itemprop="dateCreated datePublished" datetime="2020-09-07T02:44:02+08:00">2020-09-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-09 02:53:24" itemprop="dateModified" datetime="2020-11-09T02:53:24+08:00">2020-11-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="變形-transform"><a href="#變形-transform" class="headerlink" title="變形 - transform"></a>變形 - transform</h1><p>transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果不再是矩形呢？有了想打破這矩形的限制，transform 就這樣誕生了。</p>
-<blockquote>
-<p>變形有四個函式，分別是平移（translate）、縮放（scale）、旋轉（rotate）、歪斜（skew）。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/07/lesson-css-07.transform/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/30/lesson-css-06.position/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="前端設計講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樂遊前端趣">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/30/lesson-css-06.position/" class="post-title-link" itemprop="url">第六章 - 定位</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-08-30 21:03:11" itemprop="dateCreated datePublished" datetime="2020-08-30T21:03:11+08:00">2020-08-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-09 02:53:18" itemprop="dateModified" datetime="2020-11-09T02:53:18+08:00">2020-11-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h1><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層級（z-index）。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/30/lesson-css-06.position/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/08/29/lesson-css-05.float/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/kaifu.png">
-      <meta itemprop="name" content="Kai-Fu Chang">
-      <meta itemprop="description" content="前端設計講師">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樂遊前端趣">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/29/lesson-css-05.float/" class="post-title-link" itemprop="url">第五章 - 浮動</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-08-29 23:15:05" itemprop="dateCreated datePublished" datetime="2020-08-29T23:15:05+08:00">2020-08-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-09 02:53:10" itemprop="dateModified" datetime="2020-11-09T02:53:10+08:00">2020-11-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="浮動-float"><a href="#浮動-float" class="headerlink" title="浮動 - float"></a>浮動 - float</h1><p>浮動（float）屬性的初衷是希望用來設計「文繞圖」，但是，技術始終來自創意，網頁設計師天馬行空的想法，讓 float 屬性有了新的出路，設計師發現原來浮動厲害的很，可以用來佈局設計版型，也因此一股「浮動流」旋風式颳起，在彈性盒（flex box）穩定前，浮動是排版布局的好幫手。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/29/lesson-css-05.float/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
   </nav>
 
 
@@ -1014,7 +1009,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1027,7 +1022,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
