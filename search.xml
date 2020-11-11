@@ -739,6 +739,8 @@
     <title>Velocity.js 動畫</title>
     <url>/2020/11/07/lesson-velocity.js/</url>
     <content><![CDATA[<h1 id="特點"><a href="#特點" class="headerlink" title="特點"></a>特點</h1><p>Velocity 與 jQuery 的 animate 使用方式一樣，但多了顏色、變形、轉場的動畫效果。這裡的版本為 1.5.2 版本，可參考官方網站文件，2.0.0 版本以上以 Github 版本文件為主，兩者文件本版不同，使用上也有些差異。Velocity 受 jQuery 影響，支援 Chain 串鏈方法。</p>
+<a id="more"></a>
+
 <h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><p>Velocity 可以配合 jQuery 或 JavaScript 這兩種寫法，一旦使用了 jQuery，另一種方式<strong>可能會失敗</strong>。</p>
 <h2 id="jQuery-Velocity"><a href="#jQuery-Velocity" class="headerlink" title="jQuery + Velocity"></a>jQuery + Velocity</h2><p>velocity 配合 jQuery 時兩個參數都是物件，與 jQuery animate 參數使用方式一樣，一個是<strong>樣式物件</strong>，另一個是<strong>動畫參數物件</strong>。</p>
 <blockquote>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://powerkaifu.github.io/2020/11/07/lesson-velocity.js/</loc>
+    
+    <lastmod>2020-11-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/2020/11/09/lesson-sass-00.ruby/</loc>
     
     <lastmod>2020-11-10</lastmod>
@@ -129,13 +136,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/2020/08/23/lesson-css-01.selectors/</loc>
-    
-    <lastmod>2020-11-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/11/07/lesson-velocity.js/</loc>
     
     <lastmod>2020-11-08</lastmod>
     
