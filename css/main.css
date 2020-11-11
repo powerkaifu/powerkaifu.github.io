@@ -1008,6 +1008,7 @@ pre code {
   flex-grow: 1;
   list-style-type: none;
   border-radius: 0 0 0 0;
+  transition: all 0.2s ease-out;
 }
 @media (max-width: 413px) {
   .post-body .tabs ul.nav-tabs li.tab,
@@ -1179,6 +1180,10 @@ pre code {
 .post-body .note.danger h5,
 .post-body .note.danger h6 {
   color: #d9534f;
+}
+.mermaid {
+  margin-bottom: 20px;
+  text-align: center;
 }
 .pagination .prev,
 .pagination .next,
@@ -2931,7 +2936,7 @@ mark.search-keyword {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #52d495;
+  background: #a3b6f5;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
