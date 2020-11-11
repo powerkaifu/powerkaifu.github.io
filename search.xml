@@ -989,7 +989,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第十一章 - 彈性盒</title>
+    <title>CSS - 彈性盒</title>
     <url>/2020/10/14/lesson-css-11.flexbox/</url>
     <content><![CDATA[<h1 id="彈性盒（FlexBox）"><a href="#彈性盒（FlexBox）" class="headerlink" title="彈性盒（FlexBox）"></a>彈性盒（FlexBox）</h1><p>「彈性盒」是 CSS 裡很重要的觀念，如同名稱，是一種靈活佈局的盒子，至今 2020 主流的排版方式，許多著名 CSS FrameWork 都以它為佈局基礎。彈性盒的使用方式是在宣告一個元素容器為彈性盒 flex 或 inlne-flex 時，該容器就成為彈性容器（flex container）。而此彈性容器裡面的子元素，無論它們是區塊（block）或是行內（inline）類型，全部都會變成彈性項目（flex item）。當然，一些區塊元素預設的外距還是會造成些許差異（移除外距大家就一樣了），但不影響其成為彈性項目。在彈性盒裡面，有屬於它自己佈局的方式，自成領域。</p>
 <a id="more"></a>
@@ -2973,7 +2973,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第十章 - 偽元素</title>
+    <title>CSS - 偽元素</title>
     <url>/2020/09/22/lesson-css-10.before-after/</url>
     <content><![CDATA[<h1 id="偽類與偽元素"><a href="#偽類與偽元素" class="headerlink" title="偽類與偽元素"></a>偽類與偽元素</h1><p>偽類（Pseudo-classes ）與偽元素（Pseudo-element）兩者都是 CSS 為了擴張變化性而衍生出的選擇器，偽類以元素狀態、結構為主要的選擇方式：</p>
 <a id="more"></a>
@@ -3023,7 +3023,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第九章 - 動畫</title>
+    <title>CSS - 動畫</title>
     <url>/2020/09/08/lesson-css-09.animation/</url>
     <content><![CDATA[<h1 id="動畫-Animation"><a href="#動畫-Animation" class="headerlink" title="動畫 - Animation"></a>動畫 - Animation</h1><p>「轉場」與「動畫」可說是兄弟，兩人分工負責了 CSS 世界的動態效果。轉場可以在觸發狀態時，讓起始、結束狀態兩組樣式產生一組簡單的補間動畫，它是容易且強大的效果，但若要製作較為複雜的效果時，這就不是轉場的工作囉，因為它屬於<strong>一次性</strong>的動畫，例如黑色與白色的補間動畫。若是要黑色變成黃色，再變成白色，再變其他顏色，這時候就是動畫（animation）登場的時候。</p>
 <a id="more"></a>
@@ -3097,7 +3097,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第八章 - 轉場</title>
+    <title>CSS - 轉場</title>
     <url>/2020/09/07/lesson-css-08.transition/</url>
     <content><![CDATA[<h1 id="轉場-transition"><a href="#轉場-transition" class="headerlink" title="轉場 - transition"></a>轉場 - transition</h1><p>轉場指的是從一個<strong>初始狀態</strong>到另一個<strong>結束狀態</strong>，兩種狀態樣式轉變補間的過程。它通常發生於與使用者的互動，但也有可能是程式改變了 class、ID 或使用了其他狀態。當觸發條件發生，瀏覽器會套用轉場效果，在兩種樣式間漸進發生。最好的例子就是 :hover 偽類，也就是當滑鼠移到元素時所發生的狀態改變。無論轉場或動畫的使用，關係到與使用者的互動感受，因此 duration 時間拿捏非常重要。</p>
 <a id="more"></a>
@@ -3241,7 +3241,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第七章 - 變形</title>
+    <title>CSS - 變形</title>
     <url>/2020/09/07/lesson-css-07.transform/</url>
     <content><![CDATA[<h1 id="變形-transform"><a href="#變形-transform" class="headerlink" title="變形 - transform"></a>變形 - transform</h1><p>transform（變形）、translate（平移）、transition（轉場） 是剛學習 CSS 常搞混的三個名詞，transform 是改變盒子的形狀與行為，translate 是 transform 的其中一個函式，而 transition 指的是樣式屬性兩種狀態的變化。變形（transform）的出現在於早期網頁設計只有四四方方的矩形所組合成版型，而隨著人們的想法，開始有人覺得如果不再是矩形呢？有了想打破這矩形的限制，transform 就這樣誕生了。</p>
 <blockquote>
@@ -3281,7 +3281,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第六章 - 定位</title>
+    <title>CSS - 定位</title>
     <url>/2020/08/30/lesson-css-06.position/</url>
     <content><![CDATA[<h1 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h1><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層級（z-index）。</p>
 <a id="more"></a>
@@ -3311,7 +3311,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第五章 - 浮動</title>
+    <title>CSS - 浮動</title>
     <url>/2020/08/29/lesson-css-05.float/</url>
     <content><![CDATA[<h1 id="浮動-float"><a href="#浮動-float" class="headerlink" title="浮動 - float"></a>浮動 - float</h1><p>浮動（float）屬性的初衷是希望用來設計「文繞圖」，但是，技術始終來自創意，網頁設計師天馬行空的想法，讓 float 屬性有了新的出路，設計師發現原來浮動厲害的很，可以用來佈局設計版型，也因此一股「浮動流」旋風式颳起，在彈性盒（flex box）穩定前，浮動是排版布局的好幫手。</p>
 <a id="more"></a>
@@ -3330,7 +3330,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第四章 - 盒模型</title>
+    <title>CSS - 盒模型</title>
     <url>/2020/08/29/lesson-css-04.box-model/</url>
     <content><![CDATA[<h1 id="盒模型-Box-Model"><a href="#盒模型-Box-Model" class="headerlink" title="盒模型 - Box Model"></a>盒模型 - Box Model</h1><p>CSS 在視覺的呈現是創意無限，就我所知，沒有一本書可以涵蓋介紹完他的屬性與效果間的組合，在這些組合技上，CSS 有時是很容易接近的朋友，但有時會鬧鬧脾氣，需要一段時間了解他。而本篇主題盒模型（Box-Model）的是其中一。</p>
 <p>在 CSS 的世界裡，是由各式各樣的盒子組成，而這些盒子指的是網頁最基礎的 HTML 元素，也就是說，當我們建立一個 HTML 元素其實等於建立一個 CSS 盒子，一個矩形的盒子，他通常被稱為元素盒（element box）。每個元素盒的中心是內容區域（content area），也就是放文字、圖片的區域，內容區域的周圍還有內距（padding）、邊框（border）、外距（margin），由這些屬性來形成盒模型。</p>
@@ -3550,7 +3550,7 @@
       </categories>
   </entry>
   <entry>
-    <title>第三章 - 背景</title>
+    <title>CSS - 背景</title>
     <url>/2020/08/25/lesson-css-03.background/</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="comment">/* background-color 背景顏色 */</span></span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#faa</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* background-image 背景圖片 */</span></span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;https://picsum.photos/100/100/?random=1&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* background-repeat 背景重複 */</span></span><br><span class="line">  <span class="comment">/* repeat-x、repeat-y、no-repeat */</span></span><br><span class="line">  <span class="attribute">background-repeat</span>: repeat;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* background-size 背景尺寸 */</span></span><br><span class="line">  <span class="comment">/* contain、cover、數值、百分比 */</span></span><br><span class="line">  <span class="attribute">background-size</span>: contain;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* background-position 背景定位 */</span></span><br><span class="line">  <span class="comment">/* 可使用數值、百分比、left、right、center、top、bottom 關鍵字 */</span></span><br><span class="line">  <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -3563,7 +3563,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第二章 - 文字</title>
+    <title>CSS - 文字</title>
     <url>/2020/08/25/lesson-css-02.text/</url>
     <content><![CDATA[<h1 id="字型"><a href="#字型" class="headerlink" title="字型"></a>字型</h1><p>CSS 常用的字型設定：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="comment">/* 設定字型家族 */</span></span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&#x27;Microsoft JhengHei&#x27;</span>, Verdana, Geneva, Tahoma, sans-serif;</span><br><span class="line">  <span class="comment">/* 設定字體大小 px、em、rem */</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="comment">/* 設定斜體 */</span></span><br><span class="line">  <span class="attribute">font-style</span>: italic;</span><br><span class="line">  <span class="comment">/* 設定粗體 */</span></span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">  <span class="comment">/* 設定字體都變成大寫，但第一個字較大 */</span></span><br><span class="line">  <span class="attribute">font-variant</span>: small-caps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -3726,7 +3726,7 @@
       </tags>
   </entry>
   <entry>
-    <title>第一章 - 選擇器</title>
+    <title>CSS - 選擇器</title>
     <url>/2020/08/23/lesson-css-01.selectors/</url>
     <content><![CDATA[<h1 id="愛你所擇，擇你所愛"><a href="#愛你所擇，擇你所愛" class="headerlink" title="愛你所擇，擇你所愛"></a>愛你所擇，擇你所愛</h1><p>HTML 負責的是結構，CSS 則是外觀，它是元素的化妝師，負責文件的版型，例如文字、顏色、尺寸、位置、響應式等等。首先登場的即是主角「選擇器」，它是 CSS 世界裡的支柱，如同人類的脊椎支撐了整個身體，我們必須要選擇到目標，才能對元素進行樣式的設計，然而，CSS 選擇器非常多樣貌，認識各種選擇器及使用特性才能夠靈活設計樣式。此外，只要符合 CSS 規範的選擇器，在 jQuery 裡，也能成為$()加工廠的原料產生出 jQuery 物件，選擇到匹配的元素集合，同時也能被 JavaScript 的 querySelector()與 querySelectorAll()方法選擇（與 jQuery 在選擇元素一樣的功能）。</p>
 <h1 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h1><p>一個「選擇器」決定選擇的元素目標，連結著大括號「{}」，大括號裡面是屬性、屬性值，以冒號「:」分隔屬性與屬性值，屬性值後面以分號「;」結尾。</p>
