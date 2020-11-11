@@ -29,13 +29,13 @@
 
   <meta name="description" content="簡介SASS（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），它誕生於 2007 年，是最早的 CSS 預處理器，它的目的是在撰寫 CSS 時減少反覆的重工動作及更好維護，撰寫 SASS 需進行編譯成原生的 CSS 才能使用，也就是說瀏覽器看不懂 SASS，需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一章 - 簡介">
+<meta property="og:title" content="SASS - liveSass 設定與介紹">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/11/09/lesson-sass-01.basic/index.html">
 <meta property="og:site_name" content="樂遊前端趣">
 <meta property="og:description" content="簡介SASS（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），它誕生於 2007 年，是最早的 CSS 預處理器，它的目的是在撰寫 CSS 時減少反覆的重工動作及更好維護，撰寫 SASS 需進行編譯成原生的 CSS 才能使用，也就是說瀏覽器看不懂 SASS，需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-11-08T17:50:12.852Z">
-<meta property="article:modified_time" content="2020-11-10T21:48:18.430Z">
+<meta property="article:modified_time" content="2020-11-11T08:23:04.358Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="SASS">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>第一章 - 簡介 | 樂遊前端趣</title>
+  <title>SASS - liveSass 設定與介紹 | 樂遊前端趣</title>
   
     <script>
       function sendPageView() {
@@ -222,7 +222,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">簡介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%84%AA%E9%BB%9E"><span class="nav-number">2.</span> <span class="nav-text">優點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%BA%E9%BB%9E"><span class="nav-number">3.</span> <span class="nav-text">缺點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-%E6%9C%83%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C%E2%80%A6"><span class="nav-number">4.</span> <span class="nav-text">CSS 會遇到的問題…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SASS-%E6%9C%89%E5%85%A9%E7%A8%AE%E8%AA%9E%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">SASS 有兩種語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8-Sass%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">如何開始使用 Sass？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%AF%E5%85%A5%E3%80%81%E5%8C%AF%E5%87%BA%E6%AA%94%E6%A1%88"><span class="nav-number">7.</span> <span class="nav-text">匯入、匯出檔案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#import"><span class="nav-number">7.1.</span> <span class="nav-text">@import</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%BB%E8%A7%A3"><span class="nav-number">8.</span> <span class="nav-text">註解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%80%BC%E8%AA%9E%E6%B3%95"><span class="nav-number">9.</span> <span class="nav-text">插值語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B8%E5%AD%B8%E9%81%8B%E7%AE%97"><span class="nav-number">10.</span> <span class="nav-text">數學運算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#media-%E4%BD%BF%E7%94%A8%E5%AA%92%E9%AB%94%E6%9F%A5%E8%A9%A2"><span class="nav-number">10.1.</span> <span class="nav-text">@media 使用媒體查詢</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">簡介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SASS-%E5%84%AA%E9%BB%9E"><span class="nav-number">2.</span> <span class="nav-text">SASS 優點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SASS-%E7%BC%BA%E9%BB%9E"><span class="nav-number">3.</span> <span class="nav-text">SASS 缺點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-%E6%9C%83%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C%E2%80%A6"><span class="nav-number">4.</span> <span class="nav-text">CSS 會遇到的問題…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SASS-%E6%9C%89%E5%85%A9%E7%A8%AE%E8%AA%9E%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">SASS 有兩種語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8-Sass%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">如何開始使用 Sass？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%AF%E5%85%A5%E3%80%81%E5%8C%AF%E5%87%BA%E6%AA%94%E6%A1%88"><span class="nav-number">7.</span> <span class="nav-text">匯入、匯出檔案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#import"><span class="nav-number">7.1.</span> <span class="nav-text">@import</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%BB%E8%A7%A3"><span class="nav-number">8.</span> <span class="nav-text">註解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%80%BC%E8%AA%9E%E6%B3%95"><span class="nav-number">9.</span> <span class="nav-text">插值語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B8%E5%AD%B8%E9%81%8B%E7%AE%97"><span class="nav-number">10.</span> <span class="nav-text">數學運算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#media-%E4%BD%BF%E7%94%A8%E5%AA%92%E9%AB%94%E6%9F%A5%E8%A9%A2"><span class="nav-number">10.1.</span> <span class="nav-text">@media 使用媒體查詢</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -321,7 +321,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第一章 - 簡介
+          SASS - liveSass 設定與介紹
         </h1>
 
         <div class="post-meta-container">
@@ -339,7 +339,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-11 05:48:18" itemprop="dateModified" datetime="2020-11-11T05:48:18+08:00">2020-11-11</time>
+        <time title="修改時間：2020-11-11 16:23:04" itemprop="dateModified" datetime="2020-11-11T16:23:04+08:00">2020-11-11</time>
       </span>
 
   
@@ -355,7 +355,7 @@
         <h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p>SASS（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），它誕生於 2007 年，是最早的 CSS 預處理器，它的目的是在撰寫 CSS 時減少反覆的重工動作及更好維護，撰寫 SASS 需進行編譯成原生的 CSS 才能使用，也就是說瀏覽器看不懂 SASS，需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。</p>
 <a id="more"></a>
 
-<h1 id="優點"><a href="#優點" class="headerlink" title="優點"></a>優點</h1><p>CSS 不是程式語言，沒有流程控制、函式等等的功能，SASS 除了可以使用嵌套規則（nested rules）、繼承（extends）、混合（mixins），也可以稱為 CSS 的程式語言（SassScript），它可以使用變數（variables）、流程控制（flow control）、函式（functions）等等，並且完全兼容 CSS 語法，撰寫起來親和更為彈性，樣式碼較短且強大優雅，由於 SASS 維護起來比 CSS 容易，很適合用來開發專案，例如：Bootstrap 是使用 SASS 開發出來的專案框架。</p>
+<h1 id="SASS-優點"><a href="#SASS-優點" class="headerlink" title="SASS 優點"></a>SASS 優點</h1><p>CSS 不是程式語言，沒有流程控制、函式等等的功能，SASS 除了可以使用嵌套規則（nested rules）、繼承（extends）、混合（mixins），也可以稱為 CSS 的程式語言（SassScript），它可以使用變數（variables）、流程控制（flow control）、函式（functions）等等，並且完全兼容 CSS 語法，撰寫起來親和更為彈性，樣式碼較短且強大優雅，由於 SASS 維護起來比 CSS 容易，很適合用來開發專案，例如：Bootstrap 是使用 SASS 開發出來的專案框架。</p>
 <ul>
 <li>完全相容 CSS。</li>
 <li>重複模組化的設計（mixins）。</li>
@@ -363,7 +363,7 @@
 <li>擁有數學加減乘除的計算。</li>
 <li>CSS 的程式語言，例如：變數（variables）、函式（functions）、流程控制（flow control）、MAP 映射等等。</li>
 </ul>
-<h1 id="缺點"><a href="#缺點" class="headerlink" title="缺點"></a>缺點</h1><p>CSS 巢狀階層運用需謹慎，否則即使簡短的樣式碼也可能會解譯成 CSS 龐然大物，例如選擇器太長的問題。</p>
+<h1 id="SASS-缺點"><a href="#SASS-缺點" class="headerlink" title="SASS 缺點"></a>SASS 缺點</h1><p>CSS 巢狀階層運用需謹慎，否則即使簡短的樣式碼也可能會解譯成 CSS 龐然大物，例如選擇器太長的問題。</p>
 <h1 id="CSS-會遇到的問題…"><a href="#CSS-會遇到的問題…" class="headerlink" title="CSS 會遇到的問題…"></a>CSS 會遇到的問題…</h1><p>在撰寫 CSS 時，常常為了一個區塊間的樣式使用了重複性的動作，例如使用 .menu 去階層選擇，此時會遇到重複的動作，若要修改 .menu 成其他名稱，就要一一修改，SASS 可以使用巢狀寫法來解決問題，下面的範例為 scss，SASS 的其中一種。</p>
 <ul>
 <li>css</li>
@@ -454,8 +454,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/11/09/lesson-sass-02.variables/" rel="next" title="第二章 - 變數">
-                  第二章 - 變數 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/11/09/lesson-sass-02.variables/" rel="next" title="SASS - 變數">
+                  SASS - 變數 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

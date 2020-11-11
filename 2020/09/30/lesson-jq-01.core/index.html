@@ -29,13 +29,13 @@
 
   <meta name="description" content="jQuery 函式jQuery()，也可以寫成$()，兩者相同，它是 jQuery 的起手式，是最重要的函式及核心，用來製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 jQuery 物件。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件，而且會是一或多個的 DOM 元素集合。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一章 - 核心介紹">
+<meta property="og:title" content="jQuery - 核心介紹">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/09/30/lesson-jq-01.core/index.html">
 <meta property="og:site_name" content="樂遊前端趣">
 <meta property="og:description" content="jQuery 函式jQuery()，也可以寫成$()，兩者相同，它是 jQuery 的起手式，是最重要的函式及核心，用來製造 jQuery 物件的加工廠，也就是說這個工廠回傳的是 jQuery 物件。它不是一般我們認知的 JavaScript 物件，而是 jQuery 的特製物件，而且會是一或多個的 DOM 元素集合。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-09-30T09:10:41.968Z">
-<meta property="article:modified_time" content="2020-10-16T17:51:45.138Z">
+<meta property="article:modified_time" content="2020-11-11T08:24:42.785Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>第一章 - 核心介紹 | 樂遊前端趣</title>
+  <title>jQuery - 核心介紹 | 樂遊前端趣</title>
   
     <script>
       function sendPageView() {
@@ -321,7 +321,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第一章 - 核心介紹
+          jQuery - 核心介紹
         </h1>
 
         <div class="post-meta-container">
@@ -339,7 +339,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-17 01:51:45" itemprop="dateModified" datetime="2020-10-17T01:51:45+08:00">2020-10-17</time>
+        <time title="修改時間：2020-11-11 16:24:42" itemprop="dateModified" datetime="2020-11-11T16:24:42+08:00">2020-11-11</time>
       </span>
 
   
@@ -381,19 +381,19 @@
 <p>jQuery( element )</p>
 </blockquote>
 <p>除了 CSS 選擇器，也可以直接抓取 DOM 元素標籤的名稱。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;body&#x27;</span>).css(&#123;</span><br><span class="line">  backgroundColor: <span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;body&#x27;</span>).css(&#123;</span><br><span class="line">  backgroundColor: <span class="string">&#x27;black&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-建立一個元素（DOM-創建）"><a href="#3-建立一個元素（DOM-創建）" class="headerlink" title="3. 建立一個元素（DOM 創建）"></a>3. 建立一個元素（DOM 創建）</h2><blockquote>
 <p>jQuery( html [, optionObject ] )</p>
 </blockquote>
 <p>可直接傳入 html 標籤建立一個 html 元素， optionObject 是一個可選的物件，可直接設定 html 的屬性，而從 jQuery1.8 開始，所有$.fn.方法都可以指定。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一個引數必須為 HTML 元素</span></span><br><span class="line"><span class="comment">// 第二個引數為可選物件，可以設定該元素的屬性 name/value。</span></span><br><span class="line">$(<span class="string">&#x27;&lt;input&gt;&#x27;</span>, &#123;</span><br><span class="line">  type: <span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">  val: <span class="string">&#x27;Test&#x27;</span>,</span><br><span class="line">  click: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).toggleClass(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  focusin: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).addClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  focusout: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).removeClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;).appendTo(<span class="string">&#x27;form&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一個引數必須為 HTML 元素</span></span><br><span class="line"><span class="comment">// 第二個引數為可選物件，可以設定該元素的屬性 name/value。</span></span><br><span class="line">$(<span class="string">&#x27;&lt;input&gt;&#x27;</span>, &#123;</span><br><span class="line">  type: <span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">  val: <span class="string">&#x27;Test&#x27;</span>,</span><br><span class="line">  click: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).toggleClass(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  focusin: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).addClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  focusout: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).removeClass(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).appendTo(<span class="string">&#x27;form&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-傳入一個函式（DOM-加載完成）"><a href="#4-傳入一個函式（DOM-加載完成）" class="headerlink" title="4. 傳入一個函式（DOM 加載完成）"></a>4. 傳入一個函式（DOM 加載完成）</h2><p>傳入一個函式給它，函式會在文件已經載入，DOM 準備就緒可供操作時被呼叫。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [縮寫]</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//  ready do，與上方相同</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.50 支援 ES6</span></span><br><span class="line">$(() =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
 
 <h2 id="5-複製陣列、物件"><a href="#5-複製陣列、物件" class="headerlink" title="5. 複製陣列、物件"></a>5. 複製陣列、物件</h2><p>jQuery 函式可以複製陣列、物件，注意資料類型，尤其是 JSON 物件，它是被指向同一個記憶體位置，也就是說改變了一個，另一個也會更改。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> ary2 = $(ary1)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 複製 json 物件須注意</span></span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = $(obj1)</span><br><span class="line">obj1.a = <span class="number">100</span> <span class="comment">// obj2[0].a 也會更改為 200</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> ary2 = $(ary1)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 複製 json 物件須注意</span></span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = $(obj1)</span><br><span class="line">obj1.a = <span class="number">100</span> <span class="comment">// obj2[0].a 也會更改為 200</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="ready-和-load-的區別"><a href="#ready-和-load-的區別" class="headerlink" title="ready 和 load 的區別"></a>ready 和 load 的區別</h1><ul>
 <li><p>$(document).ready<br>會在 HTML 結構載入後，並且 DOM 就緒後呼叫，但不包含圖片。觸發時間較早，使用了 JavaScript 的 DOMContentLoaded 事件。</p>
@@ -466,7 +466,7 @@
 <li>可以讓動畫更豐富。</li>
 <li>鍊式中一個方法無法正確執行時，後續的方法也不會被執行。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// != 這種選擇是 jQ 獨創的用法，CSS沒有，最好符合CSS規範做選擇</span></span><br><span class="line">$(<span class="string">&#x27;li[id!=&quot;one&quot;]&#x27;</span>).hide().delay(<span class="number">500</span>).fadeIn(<span class="number">1400</span>).css(&#123;</span><br><span class="line">  <span class="string">&#x27;background-color&#x27;</span>: <span class="string">&#x27;#F00&#x27;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// != 這種選擇是 jQ 獨創的用法，CSS沒有，最好符合CSS規範做選擇</span></span><br><span class="line">$(<span class="string">&#x27;li[id!=&quot;one&quot;]&#x27;</span>).hide().delay(<span class="number">500</span>).fadeIn(<span class="number">1400</span>).css(&#123;</span><br><span class="line">  <span class="string">&#x27;background-color&#x27;</span>: <span class="string">&#x27;#F00&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -483,13 +483,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/30/lesson-jq-00.intro/" rel="prev" title="序　章 - jQuery 介紹與設定">
-                  <i class="fa fa-chevron-left"></i> 序　章 - jQuery 介紹與設定
+                <a href="/2020/09/30/lesson-jq-00.intro/" rel="prev" title="jQuery - 介紹與設定">
+                  <i class="fa fa-chevron-left"></i> jQuery - 介紹與設定
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/02/lesson-jq-02.set-and-get/" rel="next" title="第二章 - 變更及取得內容">
-                  第二章 - 變更及取得內容 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/02/lesson-jq-02.set-and-get/" rel="next" title="jQuery - 變更及取得內容">
+                  jQuery - 變更及取得內容 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

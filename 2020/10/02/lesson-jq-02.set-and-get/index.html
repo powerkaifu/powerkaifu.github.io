@@ -29,13 +29,13 @@
 
   <meta name="description" content="變更及取得內容jQuery 變更與取得元素的內容是非常容易的事情：  變更內容：$(選擇器).html(變更的內容) 取得內容：$(選擇器).html()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第二章 - 變更及取得內容">
+<meta property="og:title" content="jQuery - 變更及取得內容">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/10/02/lesson-jq-02.set-and-get/index.html">
 <meta property="og:site_name" content="樂遊前端趣">
 <meta property="og:description" content="變更及取得內容jQuery 變更與取得元素的內容是非常容易的事情：  變更內容：$(選擇器).html(變更的內容) 取得內容：$(選擇器).html()">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-02T12:09:58.451Z">
-<meta property="article:modified_time" content="2020-10-15T22:48:39.726Z">
+<meta property="article:modified_time" content="2020-11-11T08:24:44.312Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>第二章 - 變更及取得內容 | 樂遊前端趣</title>
+  <title>jQuery - 變更及取得內容 | 樂遊前端趣</title>
   
     <script>
       function sendPageView() {
@@ -321,7 +321,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第二章 - 變更及取得內容
+          jQuery - 變更及取得內容
         </h1>
 
         <div class="post-meta-container">
@@ -339,7 +339,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-16 06:48:39" itemprop="dateModified" datetime="2020-10-16T06:48:39+08:00">2020-10-16</time>
+        <time title="修改時間：2020-11-11 16:24:44" itemprop="dateModified" datetime="2020-11-11T16:24:44+08:00">2020-11-11</time>
       </span>
 
   
@@ -379,7 +379,7 @@
 <h1 id="attr-取得與設定-HTML-屬性"><a href="#attr-取得與設定-HTML-屬性" class="headerlink" title="attr() 取得與設定 HTML 屬性"></a>attr() 取得與設定 HTML 屬性</h1><p>attr()方法是可以取得與設定 HTML 屬性。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;img&#x27;</span>).attr(<span class="string">&#x27;width&#x27;</span>) <span class="comment">// 取得屬性值</span></span><br><span class="line">$(<span class="string">&#x27;img&#x27;</span>).attr(<span class="string">&#x27;width&#x27;</span>, <span class="string">&#x27;500&#x27;</span>) <span class="comment">// 設定屬性值</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).attr(<span class="string">&#x27;target&#x27;</span>, <span class="string">&#x27;_blank&#x27;</span>) <span class="comment">// 替所有連結新增 target 屬性</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).attr(<span class="string">&#x27;target&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 本地連結在原處載入，他站連結則在新視窗載入</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.host == location.host) <span class="keyword">return</span> <span class="string">&#x27;_self&#x27;</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="string">&#x27;_blank&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用選項物件設定多屬性"><a href="#使用選項物件設定多屬性" class="headerlink" title="使用選項物件設定多屬性"></a>使用選項物件設定多屬性</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#banner&#x27;</span>).attr(&#123;</span><br><span class="line">  src: <span class="string">&#x27;banner.gif&#x27;</span>,</span><br><span class="line">  alt: <span class="string">&#x27;廣告&#x27;</span>,</span><br><span class="line">  width: <span class="number">720</span>,</span><br><span class="line">  height: <span class="number">64</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="使用選項物件設定多屬性"><a href="#使用選項物件設定多屬性" class="headerlink" title="使用選項物件設定多屬性"></a>使用選項物件設定多屬性</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#banner&#x27;</span>).attr(&#123;</span><br><span class="line">  src: <span class="string">&#x27;banner.gif&#x27;</span>,</span><br><span class="line">  alt: <span class="string">&#x27;廣告&#x27;</span>,</span><br><span class="line">  width: <span class="number">720</span>,</span><br><span class="line">  height: <span class="number">64</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h2 id="可以使用回呼函式-2"><a href="#可以使用回呼函式-2" class="headerlink" title="可以使用回呼函式"></a>可以使用回呼函式</h2><blockquote>
 <p>$(selector).attr(attribute,function(index,oldvalue))</p>
@@ -440,7 +440,7 @@
 <li>多屬性可使用選項物件（PlainObject）</li>
 </ul>
 <p>設定 CSS 屬性時，應該使用選項物件。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;h1&#x27;</span>).css(&#123;</span><br><span class="line">  backgroundColor: <span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">  color: <span class="string">&#x27;white&#x27;</span>,</span><br><span class="line">  padding: <span class="string">&#x27;10px&#x27;</span>,</span><br><span class="line">  border: <span class="string">&#x27;5px dotted black&#x27;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;h1&#x27;</span>).css(&#123;</span><br><span class="line">  backgroundColor: <span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">  color: <span class="string">&#x27;white&#x27;</span>,</span><br><span class="line">  padding: <span class="string">&#x27;10px&#x27;</span>,</span><br><span class="line">  border: <span class="string">&#x27;5px dotted black&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <div class="admonition warning"><p>注意的是 css()會忽略 !important，建議改用 CSS class 類別，否則就得使用 jQuery 套件。</p>
 </div>
@@ -462,13 +462,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/30/lesson-jq-01.core/" rel="prev" title="第一章 - 核心介紹">
-                  <i class="fa fa-chevron-left"></i> 第一章 - 核心介紹
+                <a href="/2020/09/30/lesson-jq-01.core/" rel="prev" title="jQuery - 核心介紹">
+                  <i class="fa fa-chevron-left"></i> jQuery - 核心介紹
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/02/lesson-jq-03.insert-replace/" rel="next" title="第三章 - 插入、取代、刪除元素">
-                  第三章 - 插入、取代、刪除元素 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/02/lesson-jq-03.insert-replace/" rel="next" title="jQuery - 插入、取代、刪除元素">
+                  jQuery - 插入、取代、刪除元素 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
