@@ -28,7 +28,7 @@
 <p>備份初始化、設定完成後的環境，之後新專案可以使用</p>
 </blockquote>
 <h2 id="編譯-SASS-檔案"><a href="#編譯-SASS-檔案" class="headerlink" title="編譯 SASS 檔案"></a>編譯 SASS 檔案</h2><p>在終端機視窗環境下，確定在該工作目錄，鍵入 compass watch，此時打開的 scss 檔案編輯，存檔後會自動編譯成 css。</p>
-<h1 id="其他（others）"><a href="#其他（others）" class="headerlink" title="其他（others）"></a>其他（others）</h1><h1 id="SASS-資源"><a href="#SASS-資源" class="headerlink" title="SASS 資源"></a>SASS 資源</h1><table>
+<h1 id="其他（others）"><a href="#其他（others）" class="headerlink" title="其他（others）"></a>其他（others）</h1><h2 id="SASS-資源"><a href="#SASS-資源" class="headerlink" title="SASS 資源"></a>SASS 資源</h2><table>
 <thead>
 <tr>
 <th>連結</th>
