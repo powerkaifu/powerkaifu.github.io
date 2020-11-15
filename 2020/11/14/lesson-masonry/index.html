@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic|fira+code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="MasonryMasonry 是一個自動佈局（Layout）垂直空間不同尺寸區塊的套件，它就像堆砌磚頭那樣將元素區塊一塊一塊相疊，例子：Pinterest。搭配 imagesloaded 套件可以形成網站設計中的瀑布流技術。 需要套件 CDN需要 jQuery、Masonry、imagesloaded 三種套件。在載入時會導致子元素佈局重疊，imagesLoaded 套件可以解決這個問題，使用方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Masonry">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/11/14/lesson-masonry/index.html">
+<meta property="og:site_name" content="AFUの前端漂遊記">
+<meta property="og:description" content="MasonryMasonry 是一個自動佈局（Layout）垂直空間不同尺寸區塊的套件，它就像堆砌磚頭那樣將元素區塊一塊一塊相疊，例子：Pinterest。搭配 imagesloaded 套件可以形成網站設計中的瀑布流技術。 需要套件 CDN需要 jQuery、Masonry、imagesloaded 三種套件。在載入時會導致子元素佈局重疊，imagesLoaded 套件可以解決這個問題，使用方式">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-11-13T17:41:03.322Z">
+<meta property="article:modified_time" content="2020-11-15T15:20:35.619Z">
+<meta property="article:author" content="Kai-Fu Chang">
+<meta property="article:tag" content="Masonry">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://powerkaifu.github.io/2020/11/14/lesson-masonry/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Masonry | AFUの前端漂遊記</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-175260737-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">AFUの前端漂遊記</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端技術筆記本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">5</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Masonry"><span class="nav-number">1.</span> <span class="nav-text">Masonry</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E5%A5%97%E4%BB%B6-CDN"><span class="nav-number">2.</span> <span class="nav-text">需要套件 CDN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">3.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A"><span class="nav-number">4.</span> <span class="nav-text">設定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#itemSelector"><span class="nav-number">4.1.</span> <span class="nav-text">itemSelector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#columnWidth"><span class="nav-number">4.2.</span> <span class="nav-text">columnWidth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#percentPosition"><span class="nav-number">4.3.</span> <span class="nav-text">percentPosition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gutter"><span class="nav-number">4.4.</span> <span class="nav-text">gutter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#horizontalOrder"><span class="nav-number">4.5.</span> <span class="nav-text">horizontalOrder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stamp"><span class="nav-number">4.6.</span> <span class="nav-text">stamp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#originLeft"><span class="nav-number">4.7.</span> <span class="nav-text">originLeft</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#originTop"><span class="nav-number">4.8.</span> <span class="nav-text">originTop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#containerStyle"><span class="nav-number">4.9.</span> <span class="nav-text">containerStyle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transitionDuration"><span class="nav-number">4.10.</span> <span class="nav-text">transitionDuration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stagger"><span class="nav-number">4.11.</span> <span class="nav-text">stagger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resiz"><span class="nav-number">4.12.</span> <span class="nav-text">resiz</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initLayout"><span class="nav-number">4.13.</span> <span class="nav-text">initLayout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#masonry"><span class="nav-number">5.1.</span> <span class="nav-text">.masonry()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E7%AF%84%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text">完整範例</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kai-Fu Chang"
+      src="/images/kaifu.png">
+  <p class="site-author-name" itemprop="name">Kai-Fu Chang</p>
+  <div class="site-description" itemprop="description">前端設計講師</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      相關資源
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wdaweb.github.io/" title="https:&#x2F;&#x2F;wdaweb.github.io&#x2F;" rel="noopener" target="_blank">泰山網頁設計官網</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://rogeraabbccdd.github.io/F2E-book/" title="https:&#x2F;&#x2F;rogeraabbccdd.github.io&#x2F;F2E-book&#x2F;" rel="noopener" target="_blank">泰山職訓前端班課程講義</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://summer10920.github.io/" title="https:&#x2F;&#x2F;summer10920.github.io&#x2F;" rel="noopener" target="_blank">洛奇的邪惡組織手札</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/11/14/lesson-masonry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AFUの前端漂遊記">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Masonry
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-11-14 01:41:03" itemprop="dateCreated datePublished" datetime="2020-11-14T01:41:03+08:00">2020-11-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-11-15 23:20:35" itemprop="dateModified" datetime="2020-11-15T23:20:35+08:00">2020-11-15</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Masonry"><a href="#Masonry" class="headerlink" title="Masonry"></a>Masonry</h1><p>Masonry 是一個自動佈局（Layout）垂直空間不同尺寸區塊的套件，它就像堆砌磚頭那樣將元素區塊一塊一塊相疊，例子：<a target="_blank" rel="noopener" href="https://www.pinterest.com/">Pinterest</a>。搭配 imagesloaded 套件可以形成網站設計中的瀑布流技術。</p>
+<h1 id="需要套件-CDN"><a href="#需要套件-CDN" class="headerlink" title="需要套件 CDN"></a>需要套件 CDN</h1><p>需要 jQuery、Masonry、imagesloaded 三種套件。在載入時會導致子元素佈局重疊，imagesLoaded 套件可以解決這個問題，使用方式在下方完整範例。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&#x27;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js&#x27;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>npm 安裝方式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install masonry-layout</span><br></pre></td></tr></table></figure>
+
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>設定父元素 .grid 底下的子元素 .grid-item 讓它們具有自動佈局的效果。所以套件重點都在這兩個 class 設定，您也可以使用其他名稱，id 或 class 都可以。</p>
+<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><p>Masonry 所有設定都是可選的，官方建議 columnWidth、itemSelector 要設定。</p>
+<h2 id="itemSelector"><a href="#itemSelector" class="headerlink" title="itemSelector"></a>itemSelector</h2><p>為指定的子元素，也就是 .grid-item。.grid-item 為 Masonry 主要控制的對象，你可以為這些子元素設定寬度、高度。官方表示子元素項目的 CSS 由自己設計。</p>
+<h2 id="columnWidth"><a href="#columnWidth" class="headerlink" title="columnWidth"></a>columnWidth</h2><p>子元素 .grid-item 的寬度，可設定數字。對具有百分比寬度的響應式佈局使用元素大小調整。設置 columnWidth 為元素或選擇器字符串，以使用元素的外部寬度作為寬度大小。</p>
+<div class="admonition warning"><p>官方建議設置 columnWidth。如果 columnWidth 未設置，則砌體將使用第一個項目的外部寬度。</p>
+</div>
+
+<h2 id="percentPosition"><a href="#percentPosition" class="headerlink" title="percentPosition"></a>percentPosition</h2><p>以百分比值而非像素值設置項目位置。與百分比寬度的子元素配合得很好，如果要使用響應式佈局，.grid-item 要設定為百分比，並且將設定選項的<code>percentPosition: true</code>打開。</p>
+<h2 id="gutter"><a href="#gutter" class="headerlink" title="gutter"></a>gutter</h2><p>設定子元素 .grid-item 水平之間的距離，bootstrap 此項不需設定（如果與欄位系統綁在一起），也就是 .grid-item 與 .col 欄位都在同一個元素，這是因為 .col 欄位空間都已經分配完畢，若再設定 gutter 會導致欄位換行。<strong>如果要在元素之間設置垂直空間，請使用 CSS margin</strong>。</p>
+<h2 id="horizontalOrder"><a href="#horizontalOrder" class="headerlink" title="horizontalOrder"></a>horizontalOrder</h2><p>horizontalOrder 設定為 true，對項目進行佈局以（大部分）保持水平的從左到右的順序。</p>
+<h2 id="stamp"><a href="#stamp" class="headerlink" title="stamp"></a>stamp</h2><p>推擠子元素的效果。<a target="_blank" rel="noopener" href="https://masonry.desandro.com/options.html#stamp">請見設定</a></p>
+<h2 id="originLeft"><a href="#originLeft" class="headerlink" title="originLeft"></a>originLeft</h2><p>true，設置子元素從左至右的佈局。</p>
+<h2 id="originTop"><a href="#originTop" class="headerlink" title="originTop"></a>originTop</h2><p>true，設置子元素從上至下的佈局。</p>
+<h2 id="containerStyle"><a href="#containerStyle" class="headerlink" title="containerStyle"></a>containerStyle</h2><p>應用於容器元素的 CSS 樣式，預設為<code>containerStyle:&#123; position: &#39;relative&#39; &#125;</code>。</p>
+<h2 id="transitionDuration"><a href="#transitionDuration" class="headerlink" title="transitionDuration"></a>transitionDuration</h2><p>子元素轉場持續時間，預設是<code>transitionDuration: &#39;0.4s&#39;</code>。</p>
+<h2 id="stagger"><a href="#stagger" class="headerlink" title="stagger"></a>stagger</h2><p>子元素轉場錯開時間，單位毫秒。</p>
+<h2 id="resiz"><a href="#resiz" class="headerlink" title="resiz"></a>resiz</h2><p>調整窗口大小時調整大小和位置。預設 resize: true。</p>
+<h2 id="initLayout"><a href="#initLayout" class="headerlink" title="initLayout"></a>initLayout</h2><p>在初始化時啟用佈局。預設 initLayout: true。</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>方法是由實體完成的動作。</p>
+<h2 id="masonry"><a href="#masonry" class="headerlink" title=".masonry()"></a>.masonry()</h2><p>設定所有子元素的選項設定。參數字串 ‘layout’ 是當某個子元素尺寸變動，可以設定 ‘layout’ 讓所有項目重新佈局。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 設定子元素項目</span></span><br><span class="line"><span class="keyword">var</span> $grid = $(<span class="string">&#x27;.grid&#x27;</span>).masonry(&#123;</span><br><span class="line">  itemSelector: <span class="string">&#x27;.grid-item&#x27;</span>,</span><br><span class="line">  columnWidth: <span class="string">&#x27;.grid-item&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 當觸發 gigante 類別時，改變子元素的尺寸</span></span><br><span class="line">$grid.on(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;.grid-item&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="built_in">this</span>).toggleClass(<span class="string">&#x27;gigante&#x27;</span>)</span><br><span class="line">  <span class="comment">// 重新佈局</span></span><br><span class="line">  $grid.masonry(<span class="string">&#x27;layout&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>更多方法請參考<a target="_blank" rel="noopener" href="https://masonry.desandro.com/methods.html">官網</a></p>
+<h1 id="完整範例"><a href="#完整範例" class="headerlink" title="完整範例"></a>完整範例</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.grid</span> &#123;</span></span><br><span class="line">    background: pink;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.grid-item</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line">    display: block;</span><br><span class="line">    max-width: 100%;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.row</span> &gt; <span class="selector-tag">div</span> &#123;</span></span><br><span class="line">    padding: 0;</span><br><span class="line"><span class="css">    <span class="comment">/* padding: 5px; */</span></span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.card</span> &#123;</span></span><br><span class="line">    padding: 5px;</span><br><span class="line">    margin: 0 5px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.grid-item</span> &#123;</span></span><br><span class="line">    margin-bottom: 10px;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row grid&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6 col-md-3 col-lg-4 grid-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;lazyload&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/01.jpg&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6 col-md-3 col-lg-4 grid-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;lazyload&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/02.jpg&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6 col-md-3 col-lg-4 grid-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;lazyload&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/03.jpg&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6 col-md-3 col-lg-4 grid-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;lazyload&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/04.jpg&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6 col-md-3 col-lg-4 grid-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;lazyload&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/05.jpg&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6 col-md-3 col-lg-4 grid-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;lazyload&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/06.jpg&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6 col-md-3 col-lg-4 grid-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;lazyload&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/07.jpg&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6 col-md-3 col-lg-4 grid-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;lazyload&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/08.jpg&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6 col-md-3 col-lg-4 grid-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;lazyload&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/09.jpg&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// jQuery + masonry + imagesLoaded + wow</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">new</span> WOW().init()</span></span><br><span class="line"><span class="javascript">  <span class="comment">// imagesLoaded 的 background 可針對背景的對象圖片進行偵測,true 為選擇器所有圖片，也可以針對子元素的 selector，例如 .lazyload</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;.grid&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    .imagesLoaded(&#123;<span class="attr">background</span>: <span class="string">&#x27;.lazyload&#x27;</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> $grid = $(<span class="string">&#x27;.grid&#x27;</span>).masonry(&#123;</span></span><br><span class="line"><span class="javascript">        itemSelector: <span class="string">&#x27;.grid-item&#x27;</span>, <span class="comment">// 選擇要排列的子元素</span></span></span><br><span class="line"><span class="javascript">        columnWidth: <span class="string">&#x27;.grid-item&#x27;</span>, <span class="comment">// 子元素寬度，可為數字，RWD 可以設定子元素 .grid-item 選擇器名稱</span></span></span><br><span class="line"><span class="javascript">        percentPosition: <span class="literal">true</span>, <span class="comment">// RWD 百分比設定選項</span></span></span><br><span class="line"><span class="javascript">        transitionDuration: <span class="string">&#x27;0.5s&#x27;</span>, <span class="comment">// 子元素轉場持續時間,預設&#x27;0.4s&#x27;</span></span></span><br><span class="line"><span class="javascript">        stagger: <span class="number">0</span>, <span class="comment">// 子元素轉場錯開時間，單位毫秒</span></span></span><br><span class="line"><span class="javascript">        isAnimated: <span class="literal">true</span></span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    .done(<span class="function"><span class="keyword">function</span> (<span class="params">instance</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">&#x27;all images have been successfully loaded&#x27;</span>)</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    .fail(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.lgo(<span class="string">&#x27;have a fail&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      <span class="comment">// progress 每當一個圖片載入會觸發</span></span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    .progress(<span class="function"><span class="keyword">function</span> (<span class="params">instance, image</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      $(<span class="string">&#x27;.grid-item&#x27;</span>).addClass(<span class="string">&#x27;wow slideInUp&#x27;</span>)</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">&#x27;elm:&#x27;</span> + instance, <span class="string">&#x27;img:&#x27;</span> + image.img.src)</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    .always(<span class="function"><span class="keyword">function</span> (<span class="params">instance</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">&#x27;all images have been loaded&#x27;</span>)</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="comment">// Masonry 的事件，完成後可做的事情</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;.grid&#x27;</span>).on(<span class="string">&#x27;layoutComplete&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event, laidOutItems</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(event)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">&#x27;Masonry layout completed on &#x27;</span> + laidOutItems.length + <span class="string">&#x27; items&#x27;</span>)</span></span><br><span class="line">  &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Masonry/" rel="tag"># Masonry</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/09/lesson-sass-00.ruby/" rel="prev" title="SASS - ruby 設定">
+                  <i class="fa fa-chevron-left"></i> SASS - ruby 設定
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Created by KaiFu Chang</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.8.2/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://powerkaifu.github.io/2020/11/14/lesson-masonry/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '4c687bd2f02e6a2a0a40',
+      clientSecret: 'c49cda32d8eb1f929a4dce2cb9a4477d06099122',
+      repo        : 'powerkaifu.github.io',
+      owner       : 'powerkaifu',
+      admin       : ['powerkaifu'],
+      id          : '7f19ff85609a274a6f946e73f3ecff58',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>
