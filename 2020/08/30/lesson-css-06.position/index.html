@@ -27,25 +27,18 @@
     var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="定位 - position定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。">
+  <meta name="description" content="定位 - position定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，相對定位、絕對定位之間的關係，是必須要了解的重點，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS - 定位">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/08/30/lesson-css-06.position/index.html">
 <meta property="og:site_name" content="AFUの情熱前端">
-<meta property="og:description" content="定位 - position定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。">
+<meta property="og:description" content="定位 - position定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，相對定位、絕對定位之間的關係，是必須要了解的重點，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-01.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-02.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-03.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-04.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-05.png">
-<meta property="og:image" content="https://powerkaifu.github.io/images/css/css-position-06.png">
 <meta property="article:published_time" content="2020-08-30T13:03:11.333Z">
-<meta property="article:modified_time" content="2020-11-11T09:59:51.986Z">
+<meta property="article:modified_time" content="2020-12-11T11:48:56.369Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://powerkaifu.github.io/images/css/css-position-01.png">
 
 
 <link rel="canonical" href="https://powerkaifu.github.io/2020/08/30/lesson-css-06.position/">
@@ -229,7 +222,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D-position"><span class="nav-number">1.</span> <span class="nav-text">定位 - position</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A5%BF%E5%A4%A9%E5%8F%96%E7%B6%93"><span class="nav-number">2.</span> <span class="nav-text">西天取經</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%B0%8D%E5%AE%9A%E4%BD%8D-relative"><span class="nav-number">3.</span> <span class="nav-text">相對定位 - relative</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B5%95%E5%B0%8D%E5%AE%9A%E4%BD%8D-absolute"><span class="nav-number">4.</span> <span class="nav-text">絕對定位 - absolute</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%94%90%E5%83%A7%E7%9A%84%E7%B7%8A%E7%AE%8D%E5%92%92"><span class="nav-number">5.</span> <span class="nav-text">唐僧的緊箍咒</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D-fixed"><span class="nav-number">6.</span> <span class="nav-text">固定定位 - fixed</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D-position"><span class="nav-number">1.</span> <span class="nav-text">定位 - position</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B5%95%E5%B0%8D%E5%AE%9A%E4%BD%8D-absolute"><span class="nav-number">2.</span> <span class="nav-text">絕對定位 - absolute</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%B0%8D%E5%AE%9A%E4%BD%8D-relative"><span class="nav-number">3.</span> <span class="nav-text">相對定位 - relative</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D-fixed"><span class="nav-number">4.</span> <span class="nav-text">固定定位 - fixed</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E7%96%8A%E9%A0%86%E5%BA%8F"><span class="nav-number">5.</span> <span class="nav-text">重疊順序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E8%83%BD%E5%B0%87%E5%85%B6%E4%BD%9C%E7%82%BA%E6%8E%92%E7%89%88%E5%B7%A5%E5%85%B7"><span class="nav-number">6.</span> <span class="nav-text">不能將其作為排版工具</span></a></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -346,7 +339,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-11 17:59:51" itemprop="dateModified" datetime="2020-11-11T17:59:51+08:00">2020-11-11</time>
+        <time title="修改時間：2020-12-11 19:48:56" itemprop="dateModified" datetime="2020-12-11T19:48:56+08:00">2020-12-11</time>
       </span>
 
   
@@ -359,28 +352,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h1><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是剛學 CSS 必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層級（z-index）。</p>
+        <h1 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 - position"></a>定位 - position</h1><p>定位（position）在 CSS 扮演了指定元素盒在視埠（瀏覽器視窗）的某個位置，它會根據某個元素或是父元素為基準而進行偏移。常用的定位分為相對定位（relative）、絕對定位（absolute）以及固定定位（fixed）。其中，<strong>相對定位、絕對定位之間的關係，是必須要了解的重點</strong>，也就是它們在元素中所扮演的腳色，尤其是以父元素為基準時兩者關係所產生的偏移。定位有著別人沒有的特性，當元素進行定位後，元素會升至「定位層」（position-level），它是比正常流向（normal-flow）與浮動層（float-level）還高的 z 軸層級（z-index）。</p>
 <a id="more"></a>
 
-<h1 id="西天取經"><a href="#西天取經" class="headerlink" title="西天取經"></a>西天取經</h1><p>以西遊記舉例，唐僧帶領了師徒三人及白龍馬前往西天取經，遭逢九九八十一難關…，我們現在假設父元素是唐僧，子元素分別是會七十二變的悟空、好色諂媚愛搞分化的八戒、無聲努力辛勤的沙僧以及偶爾串場的白龍馬，我們將它們全部轉型為 inline-block 橫向流動排列，目前取經團子成員都乖乖在唐僧管理下正常流向排列著。</p>
-<img data-src="/images/css/css-position-01.png" width="700">
-
-<h1 id="相對定位-relative"><a href="#相對定位-relative" class="headerlink" title="相對定位 - relative"></a>相對定位 - relative</h1><p>此時，諂媚愛分化團隊的八戒使用了相對定位 position:relative，在瀏覽器的視覺上並未有任何改變，但其實八戒已經進入定位層，八戒還使用了偏移（top、bottom、left、right）會在團隊之間遊說不利團隊的話語，在西遊記裡，唐僧對八戒非常容忍，說容忍還是唐僧也愛聽諂媚的話？不會將其趕出團隊，我們發現八戒<strong>原本的位置會被保留空下</strong>，後方的沙僧、白馬並不會遞補上去，沒人敢挑戰二師兄的位置。這也讓我們知道相對定位並不會讓元素原本的位置脫離正常流向，就像八戒空出的位置一樣。</p>
-<img data-src="/images/css/css-position-02.png" width="700">
-
-<h1 id="絕對定位-absolute"><a href="#絕對定位-absolute" class="headerlink" title="絕對定位 - absolute"></a>絕對定位 - absolute</h1><p>大師兄孫悟空，師承菩提老祖習成七十二變，偷吃王母娘娘蟠桃、喝壽酒身體變成刀槍不入，又在太上老君煉金爐練成能看穿妖魔的「火眼金睛」，在團隊裡面衝鋒陷陣戰力堪稱第一。八戒的挑撥是非，讓唐僧與悟空的關係好幾次讓團隊陷入危機，悟空氣到使用了絕對定位 position:absolute，下圖可以看到悟空也進入的定位層（腳踏觔斗雲原地起飛），我們也可以看到八戒一心想取代大師兄的位置，此時八戒在悟空的底下，也就是悟空原本的位置，悟空後方的師弟們都向前遞補了，這也讓我們知道了絕對定位的元素會脫離正常流向，後方元素會往前遞補。</p>
-<img data-src="/images/css/css-position-03.png" width="700">
-
-<p>若是八戒也如同上方設定了 position:relative，我們會更清楚看見八戒想取代悟空的野心，這是因為八戒是後方元素的關係，當悟空、八戒兩者都進入定位層，八戒會覆蓋悟空。</p>
-<img data-src="/images/css/css-position-04.png" width="700">
-
-<p>劇情往下走，被師父誤會的悟空，內心百感交集，心想：「遇到妖怪我來打，Boss 太強師傅被抓找救兵也是靠我的關係，現在師傅盡聽信老豬的廢話，沒把我放在心上」，一氣之下使用了偏移 top:0、left:0，搭上觔斗雲一個跟斗翻了十萬八千里回到了花果山（瀏覽器左上角位置），悟空徹底離開了團隊（唐僧範圍），尋找到最後的位置－花果山。</p>
-<img data-src="/images/css/css-position-05.png" width="700">
-
-<h1 id="唐僧的緊箍咒"><a href="#唐僧的緊箍咒" class="headerlink" title="唐僧的緊箍咒"></a>唐僧的緊箍咒</h1><p>這種結果不是我們想看到的結局，那有甚麼辦法讓大師兄悟空繼續留在西天取經團隊呢？有的！那就是觀音姐姐給唐僧的「緊箍咒」，即是唐僧使用了 position:relative，那麼悟空又會回到團隊裡面，即使悟空使用了 top、bottom、left、right 位移，也會以唐僧為基準點偏移。最後我們得到了一個結論，<strong>相對定位常會讓父元素變成子元素的一個定位點，子元素可以依據這個定位點進行絕對定位的偏移，若父元素沒有任何定位點（relative、absolute），則會繼續往外尋找直到瀏覽器為定位點</strong>。</p>
-<img data-src="/images/css/css-position-06.png" width="700">
-
-<h1 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 - fixed"></a>固定定位 - fixed</h1><p>position:fixed，固定定位可以說定位裡面最愛刷存在感的傢伙，它就像穿著寬鬆背心愛秀肌肉的猛男，希望成為大眾目光焦點，所以捲軸上下移動是無法脫離這位自戀狂，它就會像醒目的廣告看板固定在一個位置。通常，固定定位只有一個基準點位置，那就是以瀏覽器視窗為偏移基準點，但…若遇到了父元素有 transform 屬性結果就不同了。結論：<strong>絕對定位、固定定位它們都會讓元素脫離正常流向</strong>。</p>
+<h1 id="絕對定位-absolute"><a href="#絕對定位-absolute" class="headerlink" title="絕對定位 - absolute"></a>絕對定位 - absolute</h1><p>當區塊設定 position:absolute 時，該區塊就會脫離正常流向的配置進入定位層，其後面若還有其他元素，會自動流動到絕對定位元素位置的下方，絕對定位元素就像一個透明圖層疊壓在它們上方。絕對定位可以藉由 top、bottom、left、right 四種屬性來設定位置，在設定位置的時候，會往上層找尋一個基準定位點作為起始（為設定 absolute、relative、fixed 屬性值的父元素），如果往上一直找不到任何一個定位點，最後會以 body 視埠（瀏覽器畫面）為定位點。</p>
+<h1 id="相對定位-relative"><a href="#相對定位-relative" class="headerlink" title="相對定位 - relative"></a>相對定位 - relative</h1><p>當區塊設定 position:relative 時，區塊會以自己為基準定位點來設定 top、bottom、left、right 的位置，與絕對定位不同的是，相對定位區塊移動後，原本自己所佔據的空間會留下來，其他元素是無法佔據他原本的空間。相對定位最棒的是，如果都沒有設定任何的偏移位置（沒有 top、bottom、left、right），在畫面上它不會有任何改變，<strong>具有定錨的作用</strong>。</p>
+<h1 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 - fixed"></a>固定定位 - fixed</h1><p>position:fixed，固定定位可以說定位裡面最愛刷存在感的傢伙，它就像穿著寬鬆背心愛秀肌肉的猛男，希望成為大眾目光焦點，所以捲軸上下移動是無法脫離這位自戀狂，它就會像醒目的廣告看板固定在一個位置。固定定位只有一個基準點位置，那就是以 body 瀏覽器畫面為偏移基準點，但是，若遇到了父元素有 transform 屬性結果就不同了。</p>
+<blockquote>
+<p>絕對定位、固定定位都會讓元素脫離正常流向。</p>
+</blockquote>
+<h1 id="重疊順序"><a href="#重疊順序" class="headerlink" title="重疊順序"></a>重疊順序</h1><p>當多個元素 position 屬性值不為 static，亦即是 relative、absolute、fixed 時，三者雖然特性不同，因為都進入定位層，會有誰在上、誰在下順序的配置，若都沒有設定 z-index，會有 HTML 結構出現順序，後者蓋過前者。若想改變重疊順序，可以設定 z-index，數值越大越上面，z-indexu 也可以設定負數。</p>
+<h1 id="不能將其作為排版工具"><a href="#不能將其作為排版工具" class="headerlink" title="不能將其作為排版工具"></a>不能將其作為排版工具</h1><p>定位不能將其作為主要的排版工具，只能作為輔助排版的工具，這是因為定位不夠彈性，不具備 CSS 流動特性。試想，如果每個區塊都是用絕對定位設定其位置，那麼要更動時，是不是也要一個一個去修改位置呢？沒錯，這是很耗費成本的。定位常用的例子如下：</p>
+<ul>
+<li>fixed：藉由固定定位將 navbar 選單及功能區塊固定在一側，主要顯示內容還是以流動為主。</li>
+<li>relative ＋ absolute：父元素只設定為 relative（定錨），子元素設定 absolute 及偏移位置來設計關閉按鈕位置、促銷標籤。</li>
+<li>absolute ＋ transform：水平垂直置中效果。</li>
+</ul>
 
     </div>
 
