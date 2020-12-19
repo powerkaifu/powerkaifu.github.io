@@ -27,15 +27,15 @@
     var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="簡介SASS（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），它誕生於 2007 年，是最早的 CSS 預處理器，它的目的是在撰寫 CSS 時減少反覆的重工動作及更好維護，撰寫 SASS 需進行編譯成原生的 CSS 才能使用，也就是說瀏覽器看不懂 SASS，需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。">
+  <meta name="description" content="簡介Sass（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），誕生於 2007 年，是最早的 CSS 預處理器，目的是在撰寫 CSS 時減少反覆重工動作及更好維護樣式結構，撰寫 Sass 需進行編譯成原生的 CSS 才能使用（瀏覽器看不懂 Sass），需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SASS - liveSass 設定與介紹">
+<meta property="og:title" content="Sass - liveSass 設定與介紹">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/11/09/lesson-sass-01.basic/index.html">
 <meta property="og:site_name" content="AFUの情熱前端">
-<meta property="og:description" content="簡介SASS（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），它誕生於 2007 年，是最早的 CSS 預處理器，它的目的是在撰寫 CSS 時減少反覆的重工動作及更好維護，撰寫 SASS 需進行編譯成原生的 CSS 才能使用，也就是說瀏覽器看不懂 SASS，需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。">
+<meta property="og:description" content="簡介Sass（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），誕生於 2007 年，是最早的 CSS 預處理器，目的是在撰寫 CSS 時減少反覆重工動作及更好維護樣式結構，撰寫 Sass 需進行編譯成原生的 CSS 才能使用（瀏覽器看不懂 Sass），需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-11-08T17:50:12.852Z">
-<meta property="article:modified_time" content="2020-11-11T08:23:04.358Z">
+<meta property="article:modified_time" content="2020-12-19T12:54:20.456Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="SASS">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>SASS - liveSass 設定與介紹 | AFUの情熱前端</title>
+  <title>Sass - liveSass 設定與介紹 | AFUの情熱前端</title>
   
     <script>
       function sendPageView() {
@@ -157,7 +157,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">7</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -222,7 +222,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">簡介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SASS-%E5%84%AA%E9%BB%9E"><span class="nav-number">2.</span> <span class="nav-text">SASS 優點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SASS-%E7%BC%BA%E9%BB%9E"><span class="nav-number">3.</span> <span class="nav-text">SASS 缺點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-%E6%9C%83%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C%E2%80%A6"><span class="nav-number">4.</span> <span class="nav-text">CSS 會遇到的問題…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SASS-%E6%9C%89%E5%85%A9%E7%A8%AE%E8%AA%9E%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">SASS 有兩種語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8-Sass%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">如何開始使用 Sass？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%AF%E5%85%A5%E3%80%81%E5%8C%AF%E5%87%BA%E6%AA%94%E6%A1%88"><span class="nav-number">7.</span> <span class="nav-text">匯入、匯出檔案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#import"><span class="nav-number">7.1.</span> <span class="nav-text">@import</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%BB%E8%A7%A3"><span class="nav-number">8.</span> <span class="nav-text">註解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%80%BC%E8%AA%9E%E6%B3%95"><span class="nav-number">9.</span> <span class="nav-text">插值語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B8%E5%AD%B8%E9%81%8B%E7%AE%97"><span class="nav-number">10.</span> <span class="nav-text">數學運算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#media-%E4%BD%BF%E7%94%A8%E5%AA%92%E9%AB%94%E6%9F%A5%E8%A9%A2"><span class="nav-number">10.1.</span> <span class="nav-text">@media 使用媒體查詢</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">簡介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sass-%E5%84%AA%E9%BB%9E"><span class="nav-number">2.</span> <span class="nav-text">Sass 優點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sass-%E7%BC%BA%E9%BB%9E"><span class="nav-number">3.</span> <span class="nav-text">Sass 缺點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-%E6%9C%83%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C%E2%80%A6"><span class="nav-number">4.</span> <span class="nav-text">CSS 會遇到的問題…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sass-%E6%9C%89%E5%85%A9%E7%A8%AE%E8%AA%9E%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">Sass 有兩種語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8-Sass%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">如何開始使用 Sass？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%AF%E5%85%A5%E3%80%81%E5%8C%AF%E5%87%BA%E6%AA%94%E6%A1%88"><span class="nav-number">7.</span> <span class="nav-text">匯入、匯出檔案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#import"><span class="nav-number">7.1.</span> <span class="nav-text">@import</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%BB%E8%A7%A3"><span class="nav-number">8.</span> <span class="nav-text">註解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%80%BC%E8%AA%9E%E6%B3%95"><span class="nav-number">9.</span> <span class="nav-text">插值語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B8%E5%AD%B8%E9%81%8B%E7%AE%97"><span class="nav-number">10.</span> <span class="nav-text">數學運算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#media-%E4%BD%BF%E7%94%A8%E5%AA%92%E9%AB%94%E6%9F%A5%E8%A9%A2"><span class="nav-number">10.1.</span> <span class="nav-text">@media 使用媒體查詢</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -250,7 +250,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -321,7 +321,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SASS - liveSass 設定與介紹
+          Sass - liveSass 設定與介紹
         </h1>
 
         <div class="post-meta-container">
@@ -339,7 +339,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-11 16:23:04" itemprop="dateModified" datetime="2020-11-11T16:23:04+08:00">2020-11-11</time>
+        <time title="修改時間：2020-12-19 20:54:20" itemprop="dateModified" datetime="2020-12-19T20:54:20+08:00">2020-12-19</time>
       </span>
 
   
@@ -352,19 +352,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p>SASS（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），它誕生於 2007 年，是最早的 CSS 預處理器，它的目的是在撰寫 CSS 時減少反覆的重工動作及更好維護，撰寫 SASS 需進行編譯成原生的 CSS 才能使用，也就是說瀏覽器看不懂 SASS，需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。</p>
+        <h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p>Sass（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），誕生於 2007 年，是最早的 CSS 預處理器，目的是在撰寫 CSS 時減少反覆重工動作及更好維護樣式結構，撰寫 Sass 需進行編譯成原生的 CSS 才能使用（瀏覽器看不懂 Sass），需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。</p>
 <a id="more"></a>
 
-<h1 id="SASS-優點"><a href="#SASS-優點" class="headerlink" title="SASS 優點"></a>SASS 優點</h1><p>CSS 不是程式語言，沒有流程控制、函式等等的功能，SASS 除了可以使用嵌套規則（nested rules）、繼承（extends）、混合（mixins），也可以稱為 CSS 的程式語言（SassScript），它可以使用變數（variables）、流程控制（flow control）、函式（functions）等等，並且完全兼容 CSS 語法，撰寫起來親和更為彈性，樣式碼較短且強大優雅，由於 SASS 維護起來比 CSS 容易，很適合用來開發專案，例如：Bootstrap 是使用 SASS 開發出來的專案框架。</p>
+<h1 id="Sass-優點"><a href="#Sass-優點" class="headerlink" title="Sass 優點"></a>Sass 優點</h1><p>CSS 不是一種程式語言，沒有流程控制、函式等等的功能，Sass 除了可以使用嵌套規則（nested rules）、繼承（extends）、混合（mixins），也可以稱為 CSS 的程式語言（SassScript），它可以使用變數（variables）、流程控制（flow control）、函式（functions）等等，並且完全兼容 CSS 語法（scss），撰寫起來親和更為彈性，樣式碼較短且強大優雅，由於 Sass 維護起來比 CSS 容易，很適合用來開發專案，例如：Bootstrap 是使用 Sass（scss）開發出來的專案框架。</p>
 <ul>
-<li>完全相容 CSS。</li>
+<li>完全相容 CSS（scss）。</li>
 <li>重複模組化的設計（mixins）。</li>
 <li>減少重工的流程，維護起來容易。</li>
 <li>擁有數學加減乘除的計算。</li>
-<li>CSS 的程式語言，例如：變數（variables）、函式（functions）、流程控制（flow control）、MAP 映射等等。</li>
+<li>CSS 的程式語言，例如：變數（variables）、函式（functions）、流程控制（flow control）、map 物件等等。</li>
 </ul>
-<h1 id="SASS-缺點"><a href="#SASS-缺點" class="headerlink" title="SASS 缺點"></a>SASS 缺點</h1><p>CSS 巢狀階層運用需謹慎，否則即使簡短的樣式碼也可能會解譯成 CSS 龐然大物，例如選擇器太長的問題。</p>
-<h1 id="CSS-會遇到的問題…"><a href="#CSS-會遇到的問題…" class="headerlink" title="CSS 會遇到的問題…"></a>CSS 會遇到的問題…</h1><p>在撰寫 CSS 時，常常為了一個區塊間的樣式使用了重複性的動作，例如使用 .menu 去階層選擇，此時會遇到重複的動作，若要修改 .menu 成其他名稱，就要一一修改，SASS 可以使用巢狀寫法來解決問題，下面的範例為 scss，SASS 的其中一種。</p>
+<h1 id="Sass-缺點"><a href="#Sass-缺點" class="headerlink" title="Sass 缺點"></a>Sass 缺點</h1><p>CSS 巢狀階層運用需謹慎，否則即使簡短的樣式碼也可能會解譯成 CSS 龐然大物，例如選擇器太長的問題。</p>
+<h1 id="CSS-會遇到的問題…"><a href="#CSS-會遇到的問題…" class="headerlink" title="CSS 會遇到的問題…"></a>CSS 會遇到的問題…</h1><p>在撰寫 CSS 時，常常為了一個區塊間的樣式使用了重複性的動作，例如使用 .menu 去階層選擇，此時會遇到重複的動作，若要修改 .menu 成其他名稱，就要一一修改，Sass 可以使用巢狀寫法來解決問題，下面的範例為 scss，Sass 的其中一種。</p>
 <ul>
 <li>css</li>
 </ul>
@@ -375,44 +375,44 @@
 </ul>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="selector-tag">a</span> &#123;</span><br><span class="line">      <span class="attribute">display</span>: block;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="SASS-有兩種語法"><a href="#SASS-有兩種語法" class="headerlink" title="SASS 有兩種語法"></a>SASS 有兩種語法</h1><ul>
+<h1 id="Sass-有兩種語法"><a href="#Sass-有兩種語法" class="headerlink" title="Sass 有兩種語法"></a>Sass 有兩種語法</h1><ul>
 <li><p>第一種是比較歷史較久的語法稱為 sass<br>它不需要括號、也不用分號，使用<strong>縮進語法（TAB）</strong>用換行和縮進來分隔屬性，副檔名是<strong>sass</strong>。</p>
 </li>
 <li><p>第二種是較年輕的語法稱為 scss<br>它是 CSS3 語法的擴充版，更接近 CSS 的原生面貌，使用<strong>塊語法（BLOCK）</strong>，寫法跟 CSS3 一樣有親和性，也是目前主流的語法，需要括號、分號，副檔名是<strong>scss</strong>。</p>
 </li>
 </ul>
-<p>它們都稱為 SASS。SASS 還有其他兄弟叫 Less、Stylus，三兄弟的概念相同，寫法有些不同。</p>
+<p>它們都稱為 Sass。Sass 還有其他兄弟叫 Less、Stylus，三兄弟的概念相同，寫法有些不同。</p>
 <h1 id="如何開始使用-Sass？"><a href="#如何開始使用-Sass？" class="headerlink" title="如何開始使用 Sass？"></a>如何開始使用 Sass？</h1><ol>
 <li>環境：安裝 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a></li>
 <li>管理 Node.js ：安裝 <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">nvm</a></li>
 <li>VScode 擴充套件：Live Server、Live Sass Compiler，以下為 settings.json 要設定。</li>
 </ol>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Live Sass Compiler -----------------------------------------------------------------------------------------</span></span><br><span class="line">   &quot;liveSassCompile.settings.formats&quot;: [</span><br><span class="line">      <span class="comment">// 輸出 css 檔案</span></span><br><span class="line">      &#123;</span><br><span class="line">         <span class="attr">&quot;format&quot;</span>: <span class="string">&quot;expanded&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;extensionName&quot;</span>: <span class="string">&quot;.css&quot;</span>,</span><br><span class="line">         <span class="comment">// &quot;savePath&quot;: &quot;~/../css&quot;,</span></span><br><span class="line">         <span class="attr">&quot;savePath&quot;</span>: <span class="string">&quot;/css&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 輸出 min.css 壓縮檔案</span></span><br><span class="line">      &#123;</span><br><span class="line">         <span class="attr">&quot;format&quot;</span>: <span class="string">&quot;compressed&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;extensionName&quot;</span>: <span class="string">&quot;.min.css&quot;</span>,</span><br><span class="line">         <span class="comment">// &quot;savePath&quot;: &quot;~/../dist&quot;,</span></span><br><span class="line">         <span class="attr">&quot;savePath&quot;</span>: <span class="string">&quot;/dist&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 排除區域，這些路徑下不會轉成SASS</span></span><br><span class="line">   &quot;liveSassCompile.settings.excludeList&quot;: [&quot;**/node_modules/**&quot;, &quot;.vscode/**&quot;],</span><br><span class="line">   <span class="comment">// 產生 Map 檔，SASS 跟 CSS 做對應行數,false =&gt; 不啟動</span></span><br><span class="line">   &quot;liveSassCompile.settings.generateMap&quot;: false,</span><br><span class="line">   <span class="comment">// 自動加入前綴（Prefix =&gt; moz、webkit、o、ms），市佔率大於 1% 或 最新的 2 個版本的瀏覽器</span></span><br><span class="line">   &quot;liveSassCompile.settings.autoprefix&quot;: [&quot;&gt; 1%&quot;, &quot;last 2 versions&quot;],</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Live Sass Compiler -----------------------------------------------------------------------------------------</span></span><br><span class="line">   &quot;liveSassCompile.settings.formats&quot;: [</span><br><span class="line">      <span class="comment">// 輸出 css 檔案</span></span><br><span class="line">      &#123;</span><br><span class="line">         <span class="attr">&quot;format&quot;</span>: <span class="string">&quot;expanded&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;extensionName&quot;</span>: <span class="string">&quot;.css&quot;</span>,</span><br><span class="line">         <span class="comment">// &quot;savePath&quot;: &quot;~/../css&quot;,</span></span><br><span class="line">         <span class="attr">&quot;savePath&quot;</span>: <span class="string">&quot;/css&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 輸出 min.css 壓縮檔案</span></span><br><span class="line">      &#123;</span><br><span class="line">         <span class="attr">&quot;format&quot;</span>: <span class="string">&quot;compressed&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;extensionName&quot;</span>: <span class="string">&quot;.min.css&quot;</span>,</span><br><span class="line">         <span class="comment">// &quot;savePath&quot;: &quot;~/../dist&quot;,</span></span><br><span class="line">         <span class="attr">&quot;savePath&quot;</span>: <span class="string">&quot;/dist&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 排除區域，這些路徑下不會轉成Sass</span></span><br><span class="line">   &quot;liveSassCompile.settings.excludeList&quot;: [&quot;**/node_modules/**&quot;, &quot;.vscode/**&quot;],</span><br><span class="line">   <span class="comment">// 產生 Map 檔，Sass 跟 CSS 做對應行數,false =&gt; 不啟動</span></span><br><span class="line">   &quot;liveSassCompile.settings.generateMap&quot;: false,</span><br><span class="line">   <span class="comment">// 自動加入前綴（Prefix =&gt; moz、webkit、o、ms），市佔率大於 1% 或 最新的 2 個版本的瀏覽器</span></span><br><span class="line">   &quot;liveSassCompile.settings.autoprefix&quot;: [&quot;&gt; 1%&quot;, &quot;last 2 versions&quot;],</span><br></pre></td></tr></table></figure>
 
-<h1 id="匯入、匯出檔案"><a href="#匯入、匯出檔案" class="headerlink" title="匯入、匯出檔案"></a>匯入、匯出檔案</h1><p>SASS 能分割成數個檔案並且再組合成單一檔案，SASS 稱這些檔案為區塊（partials），要告知 SASS 不想要匯出這些區塊成單獨 CSS 檔案，必須將區塊檔案用底線 _ 字元開頭。</p>
+<h1 id="匯入、匯出檔案"><a href="#匯入、匯出檔案" class="headerlink" title="匯入、匯出檔案"></a>匯入、匯出檔案</h1><p>Sass 能分割成數個檔案並且再組合成單一檔案，Sass 稱這些檔案為區塊（partials），要告知 Sass 不想要匯出這些區塊成單獨 CSS 檔案，必須將區塊檔案用底線 _ 字元開頭。</p>
 <h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p>CSS 有一個我特別不常用的特性，即 @import 規則，它允許在一個 css 文件中導入其他 css 文件。然而，只有執行到 @import 時，瀏覽器才會去下載其他 CSS 文件，這會影響頁面加載速度。</p>
-<p>SASS 也有一個 @import 規則，但不同的是，SASS 的 @import 規則在生成 css 文件時就把相關文件導入進來。這意味著所有相關的樣式被歸納到了同一個 css 文件中，而無需發起額外的下載請求。@import 尋找 SASS 文件副檔名為 <strong>scss</strong> 或 <strong>sass</strong> 並將其導入。如果只想做匯入至其他 SASS 檔案，而不匯出成 CSS，以下有兩種方式：</p>
+<p>SASS 也有一個 @import 規則，但不同的是，Sass 的 @import 規則在生成 css 文件時就把相關文件導入進來。這意味著所有相關的樣式被歸納到了同一個 css 文件中，而無需發起額外的下載請求。@import 尋找 Sass 文件副檔名為 <strong>scss</strong> 或 <strong>sass</strong> 並將其導入。如果只想做匯入至其他 Sass 檔案，而不匯出成 CSS，以下有兩種方式：</p>
 <ul>
 <li>檔名前面可以加上 <code>_</code>，只做匯入給其他檔案使用。</li>
 <li>或是直接忽略 <code>_</code> 和 <code>.scss</code> 或 <code>.sass</code>。</li>
 </ul>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 只要有 _檔名的檔案，不會編譯成 CSS</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_grid.scss&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以忽略 _ 和 .scss 寫成以下，這樣只會匯入 _grid.scss，一樣不會編譯成 CSS</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;grid&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sass 允許同時導入多個文件，但一般建議一個 @impot 一個 sass 檔</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;grid&#x27;</span>, <span class="string">&#x27;variables&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-<p>在以下情況下，@import 僅作為普通的 CSS 語句，不會導入任何 SASS 文件。</p>
+<p>在以下情況下，@import 僅作為普通的 CSS 語句，不會導入任何 Sass 文件。</p>
 <ul>
 <li>被導入文件是 .css 結尾</li>
 <li>被導入文件是一個 URL 位置以 http:// 開頭</li>
 <li>被導入文件是 css 的 url() 值</li>
 <li>@import 包含 media queries</li>
 </ul>
-<p>也就是說不能用 SASS 的 @import 直接導入一個原始的 css 文件，換句話說 SASS 可以使用 css @import，但是不吃 <code>.css</code> 檔名，它只吃 <code>.scss</code> 或 <code>.sass</code>檔名。</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下都無法載入 SASS，SASS 會拒絕</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;foo.css&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;foo&#x27;</span> screen;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;http://foo.com/bar&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> url(foo);</span><br></pre></td></tr></table></figure>
+<p>也就是說不能用 Sass 的 @import 直接導入一個原始的 css 文件，換句話說 Sass 可以使用 css @import，但是不吃 <code>.css</code> 檔名，它只吃 <code>.scss</code> 或 <code>.sass</code>檔名。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下都無法載入 Sass，Sass 會拒絕</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;foo.css&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;foo&#x27;</span> screen;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;http://foo.com/bar&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> url(foo);</span><br></pre></td></tr></table></figure>
 
-<h1 id="註解"><a href="#註解" class="headerlink" title="註解"></a>註解</h1><p>SASS 支援標準的 CSS 多行註解 <code>/* */</code>，以及單行註解 <code>//</code>，編譯後，前者會輸出在 CSS 文件中，後者則不會。</p>
-<h1 id="插值語法"><a href="#插值語法" class="headerlink" title="插值語法"></a>插值語法</h1><p>使用變數與其它語句組合時，SASS 有提供插值語法 #{$var}，插值語法也可以使用在註解裡面。</p>
+<h1 id="註解"><a href="#註解" class="headerlink" title="註解"></a>註解</h1><p>Sass 支援標準的 CSS 多行註解 <code>/* */</code>，以及單行註解 <code>//</code>，編譯後，前者會輸出在 CSS 文件中，後者則不會。</p>
+<h1 id="插值語法"><a href="#插值語法" class="headerlink" title="插值語法"></a>插值語法</h1><p>使用變數與其它語句組合時，Sass 有提供插值語法 #{$var}，插值語法也可以使用在註解裡面。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// sass</span></span><br><span class="line"><span class="variable">$name</span>: foo;</span><br><span class="line"><span class="variable">$attr</span>: border;</span><br><span class="line"><span class="selector-tag">p</span>.#&#123;<span class="variable">$name</span>&#125; &#123;</span><br><span class="line">  #&#123;<span class="variable">$attr</span>&#125;-<span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.foo</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// sass</span></span><br><span class="line"><span class="variable">$version</span>: <span class="string">&#x27;1.2.3&#x27;</span>;</span><br><span class="line"><span class="comment">/* 此版本為 #&#123;$version&#125; 編譯 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="comment">/* 此版本為 1.2.3 編譯 */</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="數學運算"><a href="#數學運算" class="headerlink" title="數學運算"></a>數學運算</h1><p>SASS 可以做數學計算，且不會耗效能。CSS 的 calc() 則是在解析網頁文件階段處理計算，因此會耗掉些些記憶體。</p>
+<h1 id="數學運算"><a href="#數學運算" class="headerlink" title="數學運算"></a>數學運算</h1><p>Sass 可以做數學計算，且不會耗效能。CSS 的 calc() 則是在解析網頁文件階段處理計算，因此會耗掉些些記憶體。</p>
 <ul>
 <li>加、減、乘、除，只有除法需要括號。</li>
 <li>除法分母的單位，分母無單位可以做一般除法，若分子、分母兩者有單位（需要括號包住），單位會被抵銷，變成倍數。</li>
@@ -454,8 +454,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/11/09/lesson-sass-02.variables/" rel="next" title="SASS - 變數">
-                  SASS - 變數 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/11/09/lesson-sass-02.variables/" rel="next" title="Sass - 變數">
+                  Sass - 變數 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

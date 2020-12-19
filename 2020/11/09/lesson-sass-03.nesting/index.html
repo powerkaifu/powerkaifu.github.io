@@ -27,17 +27,17 @@
     var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="嵌套巢狀（Nesting）SASS 嵌套可以解決 CSS 父元素重複編寫的問題， #content article h1 &amp;#123;  color: #333;&amp;#125;#content article p &amp;#123;  margin-bottom: 1.4em;&amp;#125;#content aside &amp;#123;  background-color: #eee;&amp;#125;">
+  <meta name="description" content="嵌套巢狀（Nesting）Sass 嵌套可以解決 CSS 階層結構重複撰寫的問題。 #content article h1 &amp;#123;  color: #333;&amp;#125;#content article p &amp;#123;  margin-bottom: 1.4em;&amp;#125;#content aside &amp;#123;  background-color: #eee;&amp;#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SASS - 巢狀嵌套">
+<meta property="og:title" content="Sass - 巢狀嵌套">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/11/09/lesson-sass-03.nesting/index.html">
 <meta property="og:site_name" content="AFUの情熱前端">
-<meta property="og:description" content="嵌套巢狀（Nesting）SASS 嵌套可以解決 CSS 父元素重複編寫的問題， #content article h1 &amp;#123;  color: #333;&amp;#125;#content article p &amp;#123;  margin-bottom: 1.4em;&amp;#125;#content aside &amp;#123;  background-color: #eee;&amp;#125;">
+<meta property="og:description" content="嵌套巢狀（Nesting）Sass 嵌套可以解決 CSS 階層結構重複撰寫的問題。 #content article h1 &amp;#123;  color: #333;&amp;#125;#content article p &amp;#123;  margin-bottom: 1.4em;&amp;#125;#content aside &amp;#123;  background-color: #eee;&amp;#125;">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-11-09T12:08:38.660Z">
-<meta property="article:modified_time" content="2020-11-11T08:18:21.044Z">
+<meta property="article:modified_time" content="2020-12-18T22:13:11.412Z">
 <meta property="article:author" content="Kai-Fu Chang">
-<meta property="article:tag" content="SASS">
+<meta property="article:tag" content="Sass">
 <meta name="twitter:card" content="summary">
 
 
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>SASS - 巢狀嵌套 | AFUの情熱前端</title>
+  <title>Sass - 巢狀嵌套 | AFUの情熱前端</title>
   
     <script>
       function sendPageView() {
@@ -157,7 +157,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">7</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -250,7 +250,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -321,7 +321,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SASS - 巢狀嵌套
+          Sass - 巢狀嵌套
         </h1>
 
         <div class="post-meta-container">
@@ -339,7 +339,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-11 16:18:21" itemprop="dateModified" datetime="2020-11-11T16:18:21+08:00">2020-11-11</time>
+        <time title="修改時間：2020-12-19 06:13:11" itemprop="dateModified" datetime="2020-12-19T06:13:11+08:00">2020-12-19</time>
       </span>
 
   
@@ -352,12 +352,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="嵌套巢狀（Nesting）"><a href="#嵌套巢狀（Nesting）" class="headerlink" title="嵌套巢狀（Nesting）"></a>嵌套巢狀（Nesting）</h1><p>SASS 嵌套可以解決 CSS 父元素重複編寫的問題，</p>
+        <h1 id="嵌套巢狀（Nesting）"><a href="#嵌套巢狀（Nesting）" class="headerlink" title="嵌套巢狀（Nesting）"></a>嵌套巢狀（Nesting）</h1><p>Sass 嵌套可以解決 CSS 階層結構重複撰寫的問題。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">article</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">article</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">1.4em</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
-<p>SASS 可以讓撰寫樣式更輕鬆。可以一次編寫一個樣式階層規則，而不必一次又一次地重複使用相同的選擇器，這種方式常使用於後代選擇器方式。SASS 會將自動將它們組合在一起，避免重複撰寫，讓樣式可讀性提高。這就好像俄羅斯娃娃一樣，每一層就像打開一個俄羅斯娃娃，可以很清楚每一層的關係。雖然，Nesting 嵌套功能非常方便，但有過度階層化的陷阱，會造成選擇器的層級過深，不超過 3 層即可。</p>
+<p>Sass 可以讓撰寫樣式更輕鬆。可以一次編寫一個樣式階層規則，而不必一次又一次地重複使用相同的選擇器，這種方式常使用於後代選擇器方式。Sass 會將自動將它們組合在一起，避免重複撰寫，讓樣式可讀性提高。這就好像俄羅斯娃娃一樣，每一層就像打開一個俄羅斯娃娃，可以很清楚每一層的關係。雖然，Nesting 嵌套功能非常方便，但有過度階層化的陷阱，會造成選擇器的層級過深，不超過 3 層即可。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123;</span><br><span class="line">    <span class="selector-tag">h1</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">p</span> &#123;</span><br><span class="line">      <span class="attribute">margin-bottom</span>: <span class="number">1.4em</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">aside</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="嵌套屬性（Neseted-Properties）"><a href="#嵌套屬性（Neseted-Properties）" class="headerlink" title="嵌套屬性（Neseted Properties）"></a>嵌套屬性（Neseted Properties）</h1><p>屬性嵌套被使用在屬性有相同的字元，例如：font-family、font-size、font-weight 都是以 font 作為屬性命名空間，為了避免重複輸入而使用屬性嵌套。</p>
@@ -406,20 +406,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/SASS/" rel="tag"># SASS</a>
+              <a href="/tags/Sass/" rel="tag"># Sass</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/11/09/lesson-sass-02.variables/" rel="prev" title="SASS - 變數">
-                  <i class="fa fa-chevron-left"></i> SASS - 變數
+                <a href="/2020/11/09/lesson-sass-02.variables/" rel="prev" title="Sass - 變數">
+                  <i class="fa fa-chevron-left"></i> Sass - 變數
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/11/09/lesson-sass-04.extends/" rel="next" title="SASS - 繼承">
-                  SASS - 繼承 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/11/09/lesson-sass-04.extends/" rel="next" title="Sass - 繼承">
+                  Sass - 繼承 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

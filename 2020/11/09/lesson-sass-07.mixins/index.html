@@ -27,17 +27,17 @@
     var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="混合（Mixins）Mixins 的作用很像函式（function），主要用於重複使用的樣式區塊或產出具有變化性的樣式效果，它與函式一樣可以透過參數傳遞變數，mixins 是 SASS 很重要的功能。">
+  <meta name="description" content="混合（Mixins）Mixins 的作用很像函式（function），主要用於重複使用的樣式區塊或產出具有變化性的樣式效果，它與函式一樣可以透過參數傳遞變數，mixins 是 Sass 很重要的功能。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SASS - 混合">
+<meta property="og:title" content="Sass - 混合">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/11/09/lesson-sass-07.mixins/index.html">
 <meta property="og:site_name" content="AFUの情熱前端">
-<meta property="og:description" content="混合（Mixins）Mixins 的作用很像函式（function），主要用於重複使用的樣式區塊或產出具有變化性的樣式效果，它與函式一樣可以透過參數傳遞變數，mixins 是 SASS 很重要的功能。">
+<meta property="og:description" content="混合（Mixins）Mixins 的作用很像函式（function），主要用於重複使用的樣式區塊或產出具有變化性的樣式效果，它與函式一樣可以透過參數傳遞變數，mixins 是 Sass 很重要的功能。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-11-09T12:18:17.204Z">
-<meta property="article:modified_time" content="2020-11-11T08:18:42.564Z">
+<meta property="article:modified_time" content="2020-12-18T22:22:36.489Z">
 <meta property="article:author" content="Kai-Fu Chang">
-<meta property="article:tag" content="SASS">
+<meta property="article:tag" content="Sass">
 <meta name="twitter:card" content="summary">
 
 
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>SASS - 混合 | AFUの情熱前端</title>
+  <title>Sass - 混合 | AFUの情熱前端</title>
   
     <script>
       function sendPageView() {
@@ -157,7 +157,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">7</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -250,7 +250,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -321,7 +321,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SASS - 混合
+          Sass - 混合
         </h1>
 
         <div class="post-meta-container">
@@ -339,7 +339,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-11 16:18:42" itemprop="dateModified" datetime="2020-11-11T16:18:42+08:00">2020-11-11</time>
+        <time title="修改時間：2020-12-19 06:22:36" itemprop="dateModified" datetime="2020-12-19T06:22:36+08:00">2020-12-19</time>
       </span>
 
   
@@ -352,7 +352,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="混合（Mixins）"><a href="#混合（Mixins）" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h1><p>Mixins 的作用很像函式（function），主要用於重複使用的樣式區塊或產出具有變化性的樣式效果，它與函式一樣可以透過參數傳遞變數，mixins 是 SASS 很重要的功能。</p>
+        <h1 id="混合（Mixins）"><a href="#混合（Mixins）" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h1><p>Mixins 的作用很像函式（function），主要用於重複使用的樣式區塊或產出具有變化性的樣式效果，它與函式一樣可以透過參數傳遞變數，mixins 是 Sass 很重要的功能。</p>
 <a id="more"></a>
 
 <h1 id="使用時機"><a href="#使用時機" class="headerlink" title="使用時機"></a>使用時機</h1><p>由於 Mixins 太好用了，一不小心可能會過度使用。大量的重複使用可能會讓樣式碼太過肥大，導致加載變慢。</p>
@@ -390,7 +390,7 @@
 </blockquote>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> rotate(<span class="variable">$deg</span>) &#123;</span><br><span class="line">  <span class="attribute">transform</span>: rotate(#&#123;<span class="variable">$deg</span>&#125;deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> rotate(<span class="number">45</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="參數若不需要不能省略"><a href="#參數若不需要不能省略" class="headerlink" title="參數若不需要不能省略"></a>參數若不需要不能省略</h2><p>如果省略參數不寫，SASS 編譯會錯誤！非必要的參數要用 null，告訴 SASS 數值可為 null。</p>
+<h2 id="參數若不需要不能省略"><a href="#參數若不需要不能省略" class="headerlink" title="參數若不需要不能省略"></a>參數若不需要不能省略</h2><p>如果省略參數不寫，Sass 編譯會錯誤！非必要的參數要用 null，告訴 Sass 數值可為 null。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> text(<span class="variable">$size</span>, <span class="variable">$lin-height</span>: null, <span class="variable">$weight</span>: null, <span class="variable">$color</span>: null) &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$size</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line-height</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="variable">$weight</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> text(<span class="number">2em</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> text(<span class="number">1.25em</span>, <span class="number">1.2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> text(<span class="number">1em</span>, <span class="number">1.2</span>, normal);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="參數可以使用預設數值"><a href="#參數可以使用預設數值" class="headerlink" title="參數可以使用預設數值"></a>參數可以使用預設數值</h2><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@mixin</span> sexy-border(<span class="variable">$color</span>, <span class="variable">$width</span>: <span class="number">1in</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: &#123;</span><br><span class="line">    color: <span class="variable">$color</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">    <span class="selector-tag">style</span>: dashed;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> sexy-border(blue);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> sexy-border(blue, <span class="number">2in</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: blue;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">1in</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: dashed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: blue;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">2in</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: dashed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -398,10 +398,10 @@
 <h2 id="直接指定給參數一個值"><a href="#直接指定給參數一個值" class="headerlink" title="直接指定給參數一個值"></a>直接指定給參數一個值</h2><p>這種方式也叫關鍵詞參數，閱讀起來會很方便，提供明確易懂的接口。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> sexy-border(<span class="variable">$color</span>: blue);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> sexy-border(<span class="variable">$color</span>: blue, <span class="variable">$width</span>: <span class="number">2in</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="不確定多少個參數，可以使用-…"><a href="#不確定多少個參數，可以使用-…" class="headerlink" title="不確定多少個參數，可以使用 …"></a>不確定多少個參數，可以使用 …</h2><p>有時，不能確定混合指令需要使用多少個參數，比如一個關於 box-shadow 的混合不能確定有多少個 shadow 會被用到。這時可以使用「…」表示（寫在參數的最後方）告訴 SASS 將這些參數視為陣列處理：</p>
+<h2 id="不確定多少個參數，可以使用-…"><a href="#不確定多少個參數，可以使用-…" class="headerlink" title="不確定多少個參數，可以使用 …"></a>不確定多少個參數，可以使用 …</h2><p>有時，不能確定混合指令需要使用多少個參數，比如一個關於 box-shadow 的混合不能確定有多少個 shadow 會被用到。這時可以使用「…」表示（寫在參數的最後方）告訴 Sass 將這些參數視為陣列處理：</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@mixin</span> box-shadow(<span class="variable">$shadows</span>...) &#123;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="variable">$shadows</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.shadows</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> box-shadow(<span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.shadows</span> &#123;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用一串變數值，也可以使用…"><a href="#使用一串變數值，也可以使用…" class="headerlink" title="使用一串變數值，也可以使用…"></a>使用一串變數值，也可以使用…</h2><p>同樣地，傳陣列進去，如果沒使用…，SASS 會報錯。</p>
+<h2 id="使用一串變數值，也可以使用…"><a href="#使用一串變數值，也可以使用…" class="headerlink" title="使用一串變數值，也可以使用…"></a>使用一串變數值，也可以使用…</h2><p>同樣地，傳陣列進去，如果沒使用…，Sass 會報錯。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@mixin</span> colors(<span class="variable">$text</span>, <span class="variable">$background</span>, <span class="variable">$border</span>) &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$text</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="variable">$background</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="variable">$border</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 一串變數值 ...</span></span><br><span class="line"><span class="variable">$values</span>: <span class="number">#ff0000</span>, <span class="number">#00ff00</span>, <span class="number">#0000ff</span>;</span><br><span class="line"><span class="selector-class">.primary</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> colors(<span class="variable">$values</span>...);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.primary</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ff0000</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#00ff00</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="number">#0000ff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="混合可以包含混合"><a href="#混合可以包含混合" class="headerlink" title="混合可以包含混合"></a>混合可以包含混合</h1><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> compound &#123;</span><br><span class="line">  <span class="keyword">@include</span> highlighted-background;</span><br><span class="line">  <span class="keyword">@include</span> header-text;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@mixin</span> highlighted-background &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fc0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@mixin</span> header-text &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -417,20 +417,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/SASS/" rel="tag"># SASS</a>
+              <a href="/tags/Sass/" rel="tag"># Sass</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/11/09/lesson-sass-04.extends/" rel="prev" title="SASS - 繼承">
-                  <i class="fa fa-chevron-left"></i> SASS - 繼承
+                <a href="/2020/11/09/lesson-sass-04.extends/" rel="prev" title="Sass - 繼承">
+                  <i class="fa fa-chevron-left"></i> Sass - 繼承
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/11/09/lesson-sass-06.functions/" rel="next" title="SASS - 函式">
-                  SASS - 函式 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/11/09/lesson-sass-06.functions/" rel="next" title="Sass - 函式">
+                  Sass - 函式 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
