@@ -303,14 +303,14 @@
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/lib/reading_progress/package.json</loc>
+    <loc>https://powerkaifu.github.io/lib/reading_progress/README.html</loc>
     
     <lastmod>2020-08-18</lastmod>
     
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/lib/reading_progress/README.html</loc>
+    <loc>https://powerkaifu.github.io/lib/reading_progress/package.json</loc>
     
     <lastmod>2020-08-18</lastmod>
     
@@ -361,6 +361,13 @@
   </url>
   
   <url>
+    <loc>https://powerkaifu.github.io/tags/Sass/</loc>
+    <lastmod>2020-12-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/tags/TailwindCSS/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
@@ -369,13 +376,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/tags/Velocity-js/</loc>
-    <lastmod>2020-12-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/tags/Sass/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
