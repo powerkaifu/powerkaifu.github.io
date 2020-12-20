@@ -312,13 +312,6 @@
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/tags/SASS/</loc>
-    <lastmod>2020-12-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://powerkaifu.github.io/tags/TailwindCSS/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
@@ -327,6 +320,13 @@
   
   <url>
     <loc>https://powerkaifu.github.io/tags/Velocity-js/</loc>
+    <lastmod>2020-12-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/tags/Sass/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
