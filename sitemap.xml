@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-00.ruby/</loc>
+    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-07.mixins/</loc>
     
     <lastmod>2020-12-20</lastmod>
     
@@ -16,6 +16,34 @@
   </url>
   
   <url>
+    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-05.flow-control/</loc>
+    
+    <lastmod>2020-12-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-04.extends/</loc>
+    
+    <lastmod>2020-12-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-03.nesting/</loc>
+    
+    <lastmod>2020-12-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-02.variables/</loc>
+    
+    <lastmod>2020-12-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-01.basic/</loc>
     
     <lastmod>2020-12-20</lastmod>
@@ -23,37 +51,9 @@
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-07.mixins/</loc>
+    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-00.ruby/</loc>
     
-    <lastmod>2020-12-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-05.flow-control/</loc>
-    
-    <lastmod>2020-12-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-04.extends/</loc>
-    
-    <lastmod>2020-12-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-02.variables/</loc>
-    
-    <lastmod>2020-12-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/12/20/lesson-sass-03.nesting/</loc>
-    
-    <lastmod>2020-12-18</lastmod>
+    <lastmod>2020-12-20</lastmod>
     
   </url>
   
@@ -355,13 +355,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/tags/Masonry/</loc>
-    <lastmod>2020-12-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/tags/Sass/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
