@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://powerkaifu.github.io/2020/11/09/lesson-sass-06.functions/</loc>
+    
+    <lastmod>2020-12-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/2020/11/09/lesson-sass-01.basic/</loc>
     
     <lastmod>2020-12-20</lastmod>
@@ -10,13 +17,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/2020/11/09/lesson-sass-07.mixins/</loc>
-    
-    <lastmod>2020-12-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/11/09/lesson-sass-06.functions/</loc>
     
     <lastmod>2020-12-18</lastmod>
     
@@ -340,13 +340,6 @@
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/tags/html/</loc>
-    <lastmod>2020-12-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://powerkaifu.github.io/tags/jQuery/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
@@ -354,14 +347,7 @@
   </url>
   
   <url>
-    <loc>https://powerkaifu.github.io/tags/Velocity-js/</loc>
-    <lastmod>2020-12-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/tags/TailwindCSS/</loc>
+    <loc>https://powerkaifu.github.io/tags/html/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -376,6 +362,20 @@
   
   <url>
     <loc>https://powerkaifu.github.io/tags/Sass/</loc>
+    <lastmod>2020-12-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/tags/TailwindCSS/</loc>
+    <lastmod>2020-12-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/tags/Velocity-js/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
