@@ -27,15 +27,15 @@
     var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="aaaa">
+  <meta name="description" content="另一種編譯方式可以使用 liveSass 來編譯 Sass。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sass - ruby 設定">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/12/20/lesson-sass-00.ruby/index.html">
 <meta property="og:site_name" content="AFUの情熱前端">
-<meta property="og:description" content="aaaa">
+<meta property="og:description" content="另一種編譯方式可以使用 liveSass 來編譯 Sass。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-12-20T07:13:54.619Z">
-<meta property="article:modified_time" content="2020-12-20T07:16:30.391Z">
+<meta property="article:modified_time" content="2020-12-20T07:11:41.729Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="Sass">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#aaaa"><span class="nav-number">1.</span> <span class="nav-text">aaaa</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%A6%E4%B8%80%E7%A8%AE%E7%B7%A8%E8%AD%AF%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">另一種編譯方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-ruby"><span class="nav-number">2.</span> <span class="nav-text">安裝 ruby</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Compass"><span class="nav-number">3.</span> <span class="nav-text">安裝 Compass</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA-Compass-%E5%B0%88%E6%A1%88"><span class="nav-number">3.1.</span> <span class="nav-text">新建 Compass 專案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E7%94%A2%E7%94%9F%E7%9A%84%E7%9B%AE%E9%8C%84%E8%88%87%E6%AA%94%E6%A1%88"><span class="nav-number">3.2.</span> <span class="nav-text">初始化產生的目錄與檔案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#config-rb"><span class="nav-number">3.2.1.</span> <span class="nav-text">config.rb</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B7%A8%E8%AD%AF-Sass-%E6%AA%94%E6%A1%88"><span class="nav-number">3.3.</span> <span class="nav-text">編譯 Sass 檔案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%EF%BC%88others%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">其他（others）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sass-%E8%B3%87%E6%BA%90"><span class="nav-number">4.1.</span> <span class="nav-text">Sass 資源</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -237,7 +237,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -333,7 +333,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-12-20 15:13:54 / 修改時間：15:16:30" itemprop="dateCreated datePublished" datetime="2020-12-20T15:13:54+08:00">2020-12-20</time>
+      <time title="創建時間：2020-12-20 15:13:54 / 修改時間：15:11:41" itemprop="dateCreated datePublished" datetime="2020-12-20T15:13:54+08:00">2020-12-20</time>
     </span>
 
   
@@ -346,7 +346,60 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="aaaa"><a href="#aaaa" class="headerlink" title="aaaa"></a>aaaa</h1>
+        <h1 id="另一種編譯方式"><a href="#另一種編譯方式" class="headerlink" title="另一種編譯方式"></a>另一種編譯方式</h1><p>可以使用 <a target="_blank" rel="noopener" href="http://localhost:4000/2020/11/09/lesson-sass-01.basic/">liveSass</a> 來編譯 Sass。</p>
+<a id="more"></a>
+
+<h1 id="安裝-ruby"><a href="#安裝-ruby" class="headerlink" title="安裝 ruby"></a>安裝 ruby</h1><p>安裝 ruby 以及 Sass 環境：<a target="_blank" rel="noopener" href="https://wcc723.github.io/sass/2013/09/02/start-ruby/">https://wcc723.github.io/sass/2013/09/02/start-ruby/</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://rubyinstaller.org/">安裝 Ruby</a></li>
+</ul>
+<h1 id="安裝-Compass"><a href="#安裝-Compass" class="headerlink" title="安裝 Compass"></a>安裝 Compass</h1><p>Compass 是支援 Sass 的 Framework，非常強大，它是 CSS 架構框架，有許多好用的 mixins。</p>
+<ul>
+<li>安裝 Ruby 完成後會在開始建立 Ruby 目錄。</li>
+<li>在此目錄選擇 <code>Start command prompt with ruby</code> 打開 dos 視窗。</li>
+<li>鍵入 <code>gem install compass</code>，安裝 compass。</li>
+</ul>
+<h2 id="新建-Compass-專案"><a href="#新建-Compass-專案" class="headerlink" title="新建 Compass 專案"></a>新建 Compass 專案</h2><p>在 dos 視窗環境下，進入工作目錄，鍵入 <code>compass init</code> 初始化成 compass 環境的工作目錄。</p>
+<h2 id="初始化產生的目錄與檔案"><a href="#初始化產生的目錄與檔案" class="headerlink" title="初始化產生的目錄與檔案"></a>初始化產生的目錄與檔案</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.sass-cache         cache 目錄</span><br><span class="line">sass                sass 目錄，可以改成 scss</span><br><span class="line">stylesheets         css 目錄，可以改成 css</span><br><span class="line">config.rb           設定檔，可以設定各目錄的路徑，修改過 config.rb 後，要重新啟動 &#96;compass watch&#96;</span><br></pre></td></tr></table></figure>
+
+<h3 id="config-rb"><a href="#config-rb" class="headerlink" title="config.rb"></a>config.rb</h3><ul>
+<li>將 # line_comments = false 前面的#號拿掉就不會產生出註解。</li>
+<li><a target="_blank" rel="noopener" href="https://zoneless.blog/2016/07/01/sass-tutorial-7/">css 顯示方式 output_style = :xxxxxxx</a></li>
+<li>修改過 config.rb 後，要重新啟動 <code>compass watch</code></li>
+</ul>
+<blockquote>
+<p>備份初始化、設定完成後的環境，之後新專案可以使用</p>
+</blockquote>
+<h2 id="編譯-Sass-檔案"><a href="#編譯-Sass-檔案" class="headerlink" title="編譯 Sass 檔案"></a>編譯 Sass 檔案</h2><p>在終端機視窗環境下，確定在該工作目錄，鍵入 compass watch，此時打開的 scss 檔案編輯，存檔後會自動編譯成 css。</p>
+<h1 id="其他（others）"><a href="#其他（others）" class="headerlink" title="其他（others）"></a>其他（others）</h1><h2 id="Sass-資源"><a href="#Sass-資源" class="headerlink" title="Sass 資源"></a>Sass 資源</h2><table>
+<thead>
+<tr>
+<th>連結</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.oddbird.net/susy/">Susy</a></td>
+<td>用來建立 CSS 網格的 mixins，函式庫在 Sass 使用者中非常熱門</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://breakpoint-sass.com/">Breakpoint</a></td>
+<td>單一用途的 mixin 函式庫，讓撰寫媒體查詢簡單迅速</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://compass-style.org/">Compass</a></td>
+<td>Compass 非常強大，它是 CSS 架構框架，有許多好用的 mixins</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.bourbon.io/">Bourbon</a></td>
+<td>很棒的工具，小型 mixin 函式庫，動畫、轉場等等效果</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://neat.bourbon.io/">Neat</a></td>
+<td>一組簡單建立網格的 mixins，作者跟 Bourbon 同一人</td>
+</tr>
+</tbody></table>
+
     </div>
 
     
@@ -367,6 +420,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2020/12/20/lesson-sass-07.mixins/" rel="next" title="Sass - 混合">
+                  Sass - 混合 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

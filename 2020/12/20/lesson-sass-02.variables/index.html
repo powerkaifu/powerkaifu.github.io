@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic|fira+code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="變數（Variables）變數使用 $ 來表示，變數名稱需以易懂，一眼就知道這個變數的用途為命名標準。變數寫在最上面，確保宣告可以讓 Sass 文件使用，賦值寫法與 CSS 屬性一樣。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass - 變數">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/12/20/lesson-sass-02.variables/index.html">
+<meta property="og:site_name" content="AFUの情熱前端">
+<meta property="og:description" content="變數（Variables）變數使用 $ 來表示，變數名稱需以易懂，一眼就知道這個變數的用途為命名標準。變數寫在最上面，確保宣告可以讓 Sass 文件使用，賦值寫法與 CSS 屬性一樣。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-12-20T07:18:10.027Z">
+<meta property="article:modified_time" content="2020-12-18T22:20:00.921Z">
+<meta property="article:author" content="Kai-Fu Chang">
+<meta property="article:tag" content="Sass">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://powerkaifu.github.io/2020/12/20/lesson-sass-02.variables/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Sass - 變數 | AFUの情熱前端</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-175260737-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">AFUの情熱前端</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端技術筆記本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">5</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%EF%BC%88Variables%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">變數（Variables）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%A3%E5%91%8A"><span class="nav-number">2.</span> <span class="nav-text">宣告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">3.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%A3%E6%8E%A5%E7%AC%A6%E8%88%87%E5%BA%95%E7%B7%9A%E7%9B%B8%E4%BA%92%E5%85%BC%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">連接符與底線相互兼容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%BB%98%E8%AA%8D%E5%B1%AC%E6%80%A7%E5%80%BC-default"><span class="nav-number">5.</span> <span class="nav-text">默認屬性值 !default</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E9%A1%9E%E5%9E%8B%EF%BC%88Data-Types%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">資料類型（Data Types）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2"><span class="nav-number">6.1.</span> <span class="nav-text">字串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lists%EF%BC%88%E9%99%A3%E5%88%97%EF%BC%89"><span class="nav-number">6.2.</span> <span class="nav-text">Lists（陣列）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nth-list-index"><span class="nav-number">6.2.1.</span> <span class="nav-text">nth($list, $index)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index-list-value"><span class="nav-number">6.2.2.</span> <span class="nav-text">index($list, $value)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each-%E8%88%87-list"><span class="nav-number">6.2.3.</span> <span class="nav-text">@each 與 list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">6.2.4.</span> <span class="nav-text">Map</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#at-root"><span class="nav-number">7.</span> <span class="nav-text">@at-root</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#at-root-%E5%92%8C-amp-%E7%9A%84%E7%B5%90%E5%90%88"><span class="nav-number">7.1.</span> <span class="nav-text">@at-root 和 &amp; 的結合</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BEM-%E8%A6%8F%E5%89%87"><span class="nav-number">8.</span> <span class="nav-text">BEM 規則</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kai-Fu Chang"
+      src="/images/kaifu.png">
+  <p class="site-author-name" itemprop="name">Kai-Fu Chang</p>
+  <div class="site-description" itemprop="description">前端設計講師</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      相關資源
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wdaweb.github.io/" title="https:&#x2F;&#x2F;wdaweb.github.io&#x2F;" rel="noopener" target="_blank">泰山網頁設計官網</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://rogeraabbccdd.github.io/F2E-book/" title="https:&#x2F;&#x2F;rogeraabbccdd.github.io&#x2F;F2E-book&#x2F;" rel="noopener" target="_blank">泰山職訓前端班課程講義</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://summer10920.github.io/" title="https:&#x2F;&#x2F;summer10920.github.io&#x2F;" rel="noopener" target="_blank">洛奇的邪惡組織手札</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/12/20/lesson-sass-02.variables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AFUの情熱前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Sass - 變數
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-12-20 15:18:10" itemprop="dateCreated datePublished" datetime="2020-12-20T15:18:10+08:00">2020-12-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-12-19 06:20:00" itemprop="dateModified" datetime="2020-12-19T06:20:00+08:00">2020-12-19</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="變數（Variables）"><a href="#變數（Variables）" class="headerlink" title="變數（Variables）"></a>變數（Variables）</h1><p>變數使用 $ 來表示，變數名稱需以易懂，一眼就知道這個變數的用途為命名標準。變數寫在最上面，確保宣告可以讓 Sass 文件使用，賦值寫法與 CSS 屬性一樣。</p>
+<a id="more"></a>
+
+<h1 id="宣告"><a href="#宣告" class="headerlink" title="宣告"></a>宣告</h1><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 宣告變數</span></span><br><span class="line"><span class="variable">$width</span>: <span class="number">300px</span>;</span><br><span class="line"><span class="variable">$height</span>: <span class="number">300px</span>;</span><br><span class="line"><span class="variable">$color</span>: <span class="number">#ffa</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用變數</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="variable">$height</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="variable">$color</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="variable">$color</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以以空格分開的多屬性值</span></span><br><span class="line"><span class="variable">$basic-border</span>: <span class="number">1px</span> solid black;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以是以逗號分開的多屬性值</span></span><br><span class="line"><span class="variable">$main-font</span>: <span class="string">&#x27;微軟正黑體&#x27;</span>, <span class="string">&#x27;Helvetica&#x27;</span>, <span class="string">&#x27;Arial&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//更複雜的變數</span></span><br><span class="line"><span class="variable">$highlight-color</span>: <span class="number">#f90</span>;</span><br><span class="line"><span class="variable">$highlight-border</span>: <span class="number">1px</span> solid <span class="variable">$highlight-color</span>;</span><br><span class="line"><span class="selector-class">.selected</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">$highlight-border</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p>變數定義在 CSS {} 塊級區塊內，變成只能在此區塊內使用，稱為區域變數；非區塊內最外層的為全域變數，整份文件皆可以使用，稱為全域變數。在值的後方添加 !global 可以將區域變數轉換為全域變數。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$nav-color</span>: <span class="number">#f90</span>;</span><br><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="variable">$width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$nav-color</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#f90</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="連接符與底線相互兼容"><a href="#連接符與底線相互兼容" class="headerlink" title="連接符與底線相互兼容"></a>連接符與底線相互兼容</h1><p>變數可以使用連接符<code>$hight-color</code>、底線<code>$hight_color</code>，建議使用連接符，但 Sass 不會強迫任使用連字符或底線，也就是宣告連接符變數，接著使用底線變數，Sass 會相互兼容，在 Sass 的大多數地方，連接符命名的內容和底線命名的內容是互通的。除了變數可以這樣使用，其他也包括對混合（mixins）和函數（functions）的命名。注意的是，在 Sass 中純 CSS 部分不互通，比如 Class、ID 或屬性名。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// $link-color 和 $link_color 其實指向同一個變數</span></span><br><span class="line"><span class="variable">$link-color</span>: blue;</span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$link_color</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//編譯後</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="默認屬性值-default"><a href="#默認屬性值-default" class="headerlink" title="默認屬性值 !default"></a>默認屬性值 !default</h1><p>!default 很像 css 屬性中 !important 的對立面，不同的是 !default 用於變數，含義是：如果這個變數被宣告賦值了，那就用它宣告的值，否則就用這個默認值。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// SCSS</span></span><br><span class="line"><span class="variable">$gray</span>: <span class="number">#eaeaea</span>;</span><br><span class="line"><span class="variable">$black</span>: <span class="number">#333</span> !default; <span class="comment">// $black 沒被賦值過，所以會套用預設值</span></span><br><span class="line"><span class="variable">$gray</span>: <span class="number">#cacaca</span> !default; <span class="comment">// $gray 被賦值過，所以不會套用預設值</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="variable">$black</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$gray</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#eaeaea</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="資料類型（Data-Types）"><a href="#資料類型（Data-Types）" class="headerlink" title="資料類型（Data Types）"></a>資料類型（Data Types）</h1><p>Sass 有七種資料類型：</p>
+<ul>
+<li>數字（number）：分為有單位或無單位，1,2,13,10px</li>
+<li>字串（string）：分為有引號字串 “foo”，’bar’，與無引號字串 baz</li>
+<li>顏色（color）：blue,#04a3f9,rgba(255,0,0,0.5)</li>
+<li>布林值（boolean）：true,false</li>
+<li>空值（null）：null</li>
+<li>陣列（list）：用空格或逗號作為分隔，1.5em 1em 0 2em 或 Helvetica,Arial,sans-serif</li>
+<li>maps(物件)：Sass 物件，類似 JavaScript 的物件，使用鍵/值，(key1:value1, key2:value:2)</li>
+</ul>
+<h2 id="字串"><a href="#字串" class="headerlink" title="字串"></a>字串</h2><p>分為有引號與無引號字串，在編譯 CSS 文件時不會改變其類型，只有一種情況例外，使用插值語法 #{}(interpolation) 時，有引號字符串將被編譯為無引號字符串，這樣便於在 mixin 中引用選擇器名。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="keyword">@mixin</span> firefox-message(<span class="variable">$selector</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span><span class="selector-class">.firefox</span> #&#123;<span class="variable">$selector</span>&#125;<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;Hi, Firefox users!&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 傳字串</span></span><br><span class="line"><span class="keyword">@include</span> firefox-message(<span class="string">&#x27;.header&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.firefox</span> <span class="selector-class">.header</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;Hi, Firefox users!&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Lists（陣列）"><a href="#Lists（陣列）" class="headerlink" title="Lists（陣列）"></a>Lists（陣列）</h2><p>Sass 陣列指的是處理 CSS 中像是 margin: 10px 15px 0 0 或 font-face: Helvetica, Arial, sans-seri，這種一串的值，不過，獨立的值也被視為陣列（只包含一個值得陣列）。陣列通常是用來存放沒有鍵名的變數，這意味著當要從陣列裡取得資料的時候只能透過索引值（1, 2, 3, 4），而不是鍵名（hover, active…等），在 Sass 中，List 從 1 開始算起，而不是其他類程式的 0。列表本身沒有太多的功能，但 Sass list functions 賦予了數組更多新功能：</p>
+<ul>
+<li>nth()：函式可以直接訪問陣列中的某一項。</li>
+<li>join()：函數可以將多個陣列連接在一起。</li>
+<li>append()：函數可以在陣列中添加新值。</li>
+<li>@each()：指令能夠遍歷陣列中的每一項。</li>
+</ul>
+<p>陣列寫法：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一般</span></span><br><span class="line"><span class="variable">$var</span>: <span class="number">1px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="number">4px</span>;</span><br><span class="line"><span class="comment">// 二維使用逗號分開</span></span><br><span class="line"><span class="variable">$var1</span>: <span class="number">1px</span> <span class="number">2px</span>, <span class="number">3px</span> <span class="number">4px</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="nth-list-index"><a href="#nth-list-index" class="headerlink" title="nth($list, $index)"></a>nth($list, $index)</h3><p>在變數表示中，變數型態可以是「清單 (Lists)」的型式 (即：變數值可以為多個)。 nth($list, $index) 可以取出在 $list 中第 $index 的變數值，其中索引值是由 1 開始起算。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// list</span></span><br><span class="line"><span class="variable">$width</span>: <span class="number">100px</span>, <span class="number">200px</span>, <span class="number">300px</span>;</span><br><span class="line"><span class="variable">$height</span>: <span class="number">100px</span>, <span class="number">200px</span>, <span class="number">300px</span>;</span><br><span class="line"><span class="variable">$color</span>: white, yellow, lightGreen;</span><br><span class="line"><span class="variable">$bgColor</span>: red, green, blue;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: nth(<span class="variable">$width</span>, <span class="number">2</span>); <span class="comment">// 200px</span></span><br><span class="line">  <span class="attribute">height</span>: nth(<span class="variable">$height</span>, <span class="number">2</span>); <span class="comment">// 200px</span></span><br><span class="line">  <span class="attribute">color</span>: nth(<span class="variable">$color</span>, <span class="number">2</span>); <span class="comment">// yellow</span></span><br><span class="line">  <span class="attribute">background-color</span>: nth(<span class="variable">$bgColor</span>, <span class="number">2</span>); <span class="comment">// green</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="index-list-value"><a href="#index-list-value" class="headerlink" title="index($list, $value)"></a>index($list, $value)</h3><p>與 nth($list, $index) 很類似，是取出 $value 所對應的索引值。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$width</span>: <span class="number">100px</span>, <span class="number">200px</span>, <span class="number">300px</span>;</span><br><span class="line"><span class="variable">$height</span>: <span class="number">100px</span>, <span class="number">200px</span>, <span class="number">300px</span>;</span><br><span class="line"><span class="variable">$color</span>: white, yellow, lightGreen;</span><br><span class="line"><span class="variable">$bgColor</span>: red, green, blue;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: index(<span class="variable">$width</span>, <span class="number">100px</span>); <span class="comment">// 1</span></span><br><span class="line">  <span class="attribute">height</span>: index(<span class="variable">$height</span>, <span class="number">300px</span>); <span class="comment">// 3</span></span><br><span class="line">  <span class="attribute">color</span>: index(<span class="variable">$color</span>, lightGreen); <span class="comment">// 3</span></span><br><span class="line">  <span class="attribute">background-color</span>: index(<span class="variable">$bgColor</span>, green); <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="each-與-list"><a href="#each-與-list" class="headerlink" title="@each 與 list"></a>@each 與 list</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// list</span></span><br><span class="line"><span class="variable">$list</span>: (<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;green&#x27;</span>);</span><br><span class="line"><span class="keyword">@each</span> <span class="variable">$value</span> in <span class="variable">$list</span> &#123;</span><br><span class="line">  <span class="comment">// 插值語法</span></span><br><span class="line">  <span class="selector-class">.bg-color-</span>#&#123;<span class="variable">$value</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bg-color-red</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.bg-color-blue</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="string">&#x27;blue&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.bg-color-green</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="string">&#x27;green&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>Map 和 List 不ㄧ樣的地方在於你可以自訂每個資料的鍵名，也就是他們的名稱，Maps 必須始終使用括號括起來，並且必須用逗號分隔。它類似 Javascript 當中的 Object 的功能，提供了 key-value 的方式儲存變數，並且內建一些函式以供操作。使用函數以產生輸出字符串，這對於調試 maps 非常有用。inspect($value)</p>
+<ul>
+<li>Map 的函式名稱</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>map-get(map,key)</td>
+<td>返回 map 裏面指定可以的 value</td>
+</tr>
+<tr>
+<td>map-keys(map)</td>
+<td>返回 map 裏面所有的 key(list)</td>
+</tr>
+<tr>
+<td>map-values(map)</td>
+<td>返回 map 裏面所有的 value(list)</td>
+</tr>
+<tr>
+<td>map-has-key(map,key)</td>
+<td>返回 map 裏面是否含有指定的 key</td>
+</tr>
+<tr>
+<td>map-merge(map1,map2)</td>
+<td>合併 兩個 map</td>
+</tr>
+<tr>
+<td>map-remove(map,keys)</td>
+<td>刪除指定 map 中的指定 key(map)</td>
+</tr>
+<tr>
+<td>keywords(args)</td>
+<td>返回一個函數參數組成的 map(map)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>map-get($map,key)：取出 $map 裡指定的 $key，將 value 取出來。</li>
+<li>map-merge($map1,$map2)：將兩個 $map 合併起來。</li>
+<li>map-remove($map,key)：從 Map 裡面刪除一個 $key。</li>
+<li>map-keys($map)：取出所有的 key。</li>
+<li>map-values($map)：取出所有的 value。</li>
+<li>map-has-key($map,key)：瀏覽裡面是否有 $key 值，有則回傳 true，沒有便回傳 false。</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$map</span>: (</span><br><span class="line">  key1: value1,</span><br><span class="line">  key2: value2,</span><br><span class="line">  key3: value3</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>例子 1</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// map</span></span><br><span class="line"><span class="variable">$map</span>: (</span><br><span class="line">  <span class="string">&#x27;bg1&#x27;</span>: <span class="string">&#x27;red&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;bg2&#x27;</span>: <span class="string">&#x27;green&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;bg3&#x27;</span>: <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">@each</span> <span class="variable">$key</span>, <span class="variable">$value</span> in <span class="variable">$map</span> &#123;</span><br><span class="line">  .#&#123;<span class="variable">$key</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@each 與 map</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$themes</span>: (</span><br><span class="line">  <span class="string">&#x27;primary&#x27;</span>: blue,</span><br><span class="line">  <span class="string">&#x27;danger&#x27;</span>: red</span><br><span class="line">);</span><br><span class="line"><span class="keyword">@each</span> <span class="variable">$key</span>, <span class="variable">$value</span> in <span class="variable">$themes</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn-</span>#&#123;<span class="variable">$key</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="variable">$value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.btn-primary</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-danger</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$icon</span>: (</span><br><span class="line">  <span class="string">&#x27;facebook&#x27;</span>: (</span><br><span class="line">    <span class="string">&#x27;pic&#x27;</span>: <span class="string">&#x27;facebook.png&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;color&#x27;</span>: <span class="number">#3c5998</span></span><br><span class="line">  ),</span><br><span class="line">  <span class="string">&#x27;google&#x27;</span>: (</span><br><span class="line">    <span class="string">&#x27;pic&#x27;</span>: <span class="string">&#x27;google.png&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;color&#x27;</span>: <span class="number">#cb3726</span></span><br><span class="line">  ),</span><br><span class="line">  <span class="string">&#x27;email&#x27;</span>: (</span><br><span class="line">    <span class="string">&#x27;pic&#x27;</span>: <span class="string">&#x27;email.png&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;color&#x27;</span>: <span class="number">#666666</span></span><br><span class="line">  )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">//＄key 將會取出 facebook 字串,  $value 會取出 facebook 屬定對應的值，pic 或 color</span></span><br><span class="line"><span class="keyword">@each</span> <span class="variable">$key</span>, <span class="variable">$value</span> in <span class="variable">$icon</span> &#123;</span><br><span class="line">  <span class="variable">$pic</span>: map-get(<span class="variable">$value</span>, <span class="string">&#x27;pic&#x27;</span>); <span class="comment">//取出 facebook 的  pic</span></span><br><span class="line">  <span class="variable">$color</span>: map-get(<span class="variable">$value</span>, <span class="string">&#x27;color&#x27;</span>); <span class="comment">//取出 facebook 的  color</span></span><br><span class="line"></span><br><span class="line">  .#&#123;<span class="variable">$key</span>&#125; &#123;</span><br><span class="line">    <span class="comment">//將 facebook 轉型，變成 class name</span></span><br><span class="line">    <span class="attribute">background-image</span>: url(<span class="variable">$pic</span>);</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$color</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="at-root"><a href="#at-root" class="headerlink" title="@at-root"></a>@at-root</h1><p>在開發時，如果想要 access 到外層的 class，又希望保持模組化所以將 class 寫在 nested 內時，@at-root 就相當好用。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.tooltip</span> &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="keyword">@at-root</span> body.active .tooltip-backdrop &#123;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.tooltip</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.active</span> <span class="selector-class">.tooltip-backdrop</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="at-root-和-amp-的結合"><a href="#at-root-和-amp-的結合" class="headerlink" title="@at-root 和 &amp; 的結合"></a>@at-root 和 &amp; 的結合</h2><p>在@at-root 中也同樣可以配合&amp;一起使用：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.foo</span> &#123;</span><br><span class="line">  <span class="keyword">@at-root</span> .bar &amp; &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bar</span> <span class="selector-class">.foo</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: gray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上範例和不加 @at-root 的 SCSS 代碼一樣，可以編譯出完全相同的代碼：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.foo</span> &#123;</span><br><span class="line">  <span class="selector-class">.bar</span> &amp; &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="BEM-規則"><a href="#BEM-規則" class="headerlink" title="BEM 規則"></a>BEM 規則</h1><p>為了讓 CSS 保持命名空間，常常使用 BEM 來組織 CSS 代碼。不過卻常常出現 <code>__</code>、<code>-</code>之類不太好看的符號，一不小心就可能打錯，我們可以使用 mixin 封裝這個功能。注意到在 mixin 當中使用了 @at-root，所以編譯的 CSS 會一律放到最頂層，這可以解決 BEM 層數太深的問題，也可以在開發時保持良好的模組性。你也可以在 mixin 加上一些參數決定是否要套用 @at-root 來保持開發上的彈性。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> block(<span class="variable">$block_name</span>) &#123;</span><br><span class="line">  .#&#123;<span class="variable">$block_name</span>&#125; &#123;</span><br><span class="line">    <span class="keyword">@content</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@mixin</span> element(<span class="variable">$element_name</span>) &#123;</span><br><span class="line">  <span class="keyword">@at-root</span> &amp;__#&#123;<span class="variable">$element_name</span>&#125; &#123;</span><br><span class="line">    <span class="keyword">@content</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@mixin</span> modifier(<span class="variable">$modifier_name</span>) &#123;</span><br><span class="line">  <span class="keyword">@at-root</span> &amp;--#&#123;<span class="variable">$modifier_name</span>&#125; &#123;</span><br><span class="line">    <span class="keyword">@content</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@include</span> block(article-entry) &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="keyword">@include</span> element(content) &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">@include</span> element(footer) &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="keyword">@include</span> modifier(larger) &#123;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.article-entry</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.article-entry__content</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.article-entry__footer</span> &#123;</span><br><span class="line">  <span class="attribute">background-size</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.article-entry__footer--larger</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Sass/" rel="tag"># Sass</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/20/lesson-sass-01.basic/" rel="prev" title="Sass - liveSass 設定與介紹">
+                  <i class="fa fa-chevron-left"></i> Sass - liveSass 設定與介紹
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/20/lesson-sass-03.nesting/" rel="next" title="Sass - 巢狀嵌套">
+                  Sass - 巢狀嵌套 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Created by KaiFu Chang</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.8.2/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://powerkaifu.github.io/2020/12/20/lesson-sass-02.variables/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '4c687bd2f02e6a2a0a40',
+      clientSecret: 'c49cda32d8eb1f929a4dce2cb9a4477d06099122',
+      repo        : 'powerkaifu.github.io',
+      owner       : 'powerkaifu',
+      admin       : ['powerkaifu'],
+      id          : '94d681d1ace9c3c4af290dddd04ecb49',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

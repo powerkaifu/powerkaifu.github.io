@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic|fira+code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="簡介Sass（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），誕生於 2007 年，是最早的 CSS 預處理器，目的是在撰寫 CSS 時減少反覆重工動作及更好維護樣式結構，撰寫 Sass 需進行編譯成原生的 CSS 才能使用（瀏覽器看不懂 Sass），需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass - liveSass 設定與介紹">
+<meta property="og:url" content="https://powerkaifu.github.io/2020/12/20/lesson-sass-01.basic/index.html">
+<meta property="og:site_name" content="AFUの情熱前端">
+<meta property="og:description" content="簡介Sass（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），誕生於 2007 年，是最早的 CSS 預處理器，目的是在撰寫 CSS 時減少反覆重工動作及更好維護樣式結構，撰寫 Sass 需進行編譯成原生的 CSS 才能使用（瀏覽器看不懂 Sass），需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-12-20T07:18:10.026Z">
+<meta property="article:modified_time" content="2020-12-20T07:05:41.057Z">
+<meta property="article:author" content="Kai-Fu Chang">
+<meta property="article:tag" content="Sass">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://powerkaifu.github.io/2020/12/20/lesson-sass-01.basic/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Sass - liveSass 設定與介紹 | AFUの情熱前端</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-175260737-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">AFUの情熱前端</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端技術筆記本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">5</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">簡介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sass-%E5%84%AA%E9%BB%9E"><span class="nav-number">2.</span> <span class="nav-text">Sass 優點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sass-%E7%BC%BA%E9%BB%9E"><span class="nav-number">3.</span> <span class="nav-text">Sass 缺點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-%E6%9C%83%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C%E2%80%A6"><span class="nav-number">4.</span> <span class="nav-text">CSS 會遇到的問題…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sass-%E6%9C%89%E5%85%A9%E7%A8%AE%E8%AA%9E%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">Sass 有兩種語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8-Sass%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">如何開始使用 Sass？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%AF%E5%85%A5%E3%80%81%E5%8C%AF%E5%87%BA%E6%AA%94%E6%A1%88"><span class="nav-number">7.</span> <span class="nav-text">匯入、匯出檔案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#import"><span class="nav-number">7.1.</span> <span class="nav-text">@import</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%BB%E8%A7%A3"><span class="nav-number">8.</span> <span class="nav-text">註解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%80%BC%E8%AA%9E%E6%B3%95"><span class="nav-number">9.</span> <span class="nav-text">插值語法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B8%E5%AD%B8%E9%81%8B%E7%AE%97"><span class="nav-number">10.</span> <span class="nav-text">數學運算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#media-%E4%BD%BF%E7%94%A8%E5%AA%92%E9%AB%94%E6%9F%A5%E8%A9%A2"><span class="nav-number">10.1.</span> <span class="nav-text">@media 使用媒體查詢</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kai-Fu Chang"
+      src="/images/kaifu.png">
+  <p class="site-author-name" itemprop="name">Kai-Fu Chang</p>
+  <div class="site-description" itemprop="description">前端設計講師</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      相關資源
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wdaweb.github.io/" title="https:&#x2F;&#x2F;wdaweb.github.io&#x2F;" rel="noopener" target="_blank">泰山網頁設計官網</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://rogeraabbccdd.github.io/F2E-book/" title="https:&#x2F;&#x2F;rogeraabbccdd.github.io&#x2F;F2E-book&#x2F;" rel="noopener" target="_blank">泰山職訓前端班課程講義</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://summer10920.github.io/" title="https:&#x2F;&#x2F;summer10920.github.io&#x2F;" rel="noopener" target="_blank">洛奇的邪惡組織手札</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://powerkaifu.github.io/2020/12/20/lesson-sass-01.basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kaifu.png">
+      <meta itemprop="name" content="Kai-Fu Chang">
+      <meta itemprop="description" content="前端設計講師">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AFUの情熱前端">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Sass - liveSass 設定與介紹
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-12-20 15:18:10 / 修改時間：15:05:41" itemprop="dateCreated datePublished" datetime="2020-12-20T15:18:10+08:00">2020-12-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p>Sass（Syntactically Awesome StyleSheets）是 CSS 的 preprocesser（預前處理器），誕生於 2007 年，是最早的 CSS 預處理器，目的是在撰寫 CSS 時減少反覆重工動作及更好維護樣式結構，撰寫 Sass 需進行編譯成原生的 CSS 才能使用（瀏覽器看不懂 Sass），需預前經過編譯這個動作成原生 CSS 瀏覽器才能閱讀。</p>
+<a id="more"></a>
+
+<h1 id="Sass-優點"><a href="#Sass-優點" class="headerlink" title="Sass 優點"></a>Sass 優點</h1><p>CSS 不是一種程式語言，沒有流程控制、函式等等的功能，Sass 除了可以使用嵌套規則（nested rules）、繼承（extends）、混合（mixins），也可以稱為 CSS 的程式語言（SassScript），它可以使用變數（variables）、流程控制（flow control）、函式（functions）等等，並且完全兼容 CSS 語法（scss），撰寫起來親和更為彈性，樣式碼較短且強大優雅，由於 Sass 維護起來比 CSS 容易，很適合用來開發專案，例如：Bootstrap 是使用 Sass（scss）開發出來的專案框架。</p>
+<ul>
+<li>完全相容 CSS（scss）。</li>
+<li>重複模組化的設計（mixins）。</li>
+<li>減少重工的流程，維護起來容易。</li>
+<li>擁有數學加減乘除的計算。</li>
+<li>CSS 的程式語言，例如：變數（variables）、函式（functions）、流程控制（flow control）、map 物件等等。</li>
+</ul>
+<h1 id="Sass-缺點"><a href="#Sass-缺點" class="headerlink" title="Sass 缺點"></a>Sass 缺點</h1><p>CSS 巢狀階層運用需謹慎，否則即使簡短的樣式碼也可能會解譯成 CSS 龐然大物，例如選擇器太長的問題。</p>
+<h1 id="CSS-會遇到的問題…"><a href="#CSS-會遇到的問題…" class="headerlink" title="CSS 會遇到的問題…"></a>CSS 會遇到的問題…</h1><p>在撰寫 CSS 時，常常為了一個區塊間的樣式使用了重複性的動作，例如使用 .menu 去階層選擇，此時會遇到重複的動作，若要修改 .menu 成其他名稱，就要一一修改，Sass 可以使用巢狀寫法來解決問題，下面的範例為 scss，Sass 的其中一種。</p>
+<ul>
+<li>css</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.menu</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.menu</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>scss</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="selector-tag">a</span> &#123;</span><br><span class="line">      <span class="attribute">display</span>: block;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Sass-有兩種語法"><a href="#Sass-有兩種語法" class="headerlink" title="Sass 有兩種語法"></a>Sass 有兩種語法</h1><ul>
+<li><p>第一種是比較歷史較久的語法稱為 sass<br>它不需要括號、也不用分號，使用<strong>縮進語法（TAB）</strong>用換行和縮進來分隔屬性，副檔名是<strong>sass</strong>。</p>
+</li>
+<li><p>第二種是較年輕的語法稱為 scss<br>它是 CSS3 語法的擴充版，更接近 CSS 的原生面貌，使用<strong>塊語法（BLOCK）</strong>，寫法跟 CSS3 一樣有親和性，也是目前主流的語法，需要括號、分號，副檔名是<strong>scss</strong>。</p>
+</li>
+</ul>
+<p>它們都稱為 Sass。Sass 還有其他兄弟叫 Less、Stylus，三兄弟的概念相同，寫法有些不同。</p>
+<h1 id="如何開始使用-Sass？"><a href="#如何開始使用-Sass？" class="headerlink" title="如何開始使用 Sass？"></a>如何開始使用 Sass？</h1><ol>
+<li>環境：安裝 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a></li>
+<li>管理 Node.js ：安裝 <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">nvm</a></li>
+<li>VScode 擴充套件：Live Server、Live Sass Compiler，以下為 settings.json 要設定。</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Live Sass Compiler -----------------------------------------------------------------------------------------</span></span><br><span class="line">   &quot;liveSassCompile.settings.formats&quot;: [</span><br><span class="line">      <span class="comment">// 輸出 css 檔案</span></span><br><span class="line">      &#123;</span><br><span class="line">         <span class="attr">&quot;format&quot;</span>: <span class="string">&quot;expanded&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;extensionName&quot;</span>: <span class="string">&quot;.css&quot;</span>,</span><br><span class="line">         <span class="comment">// &quot;savePath&quot;: &quot;~/../css&quot;,</span></span><br><span class="line">         <span class="attr">&quot;savePath&quot;</span>: <span class="string">&quot;/css&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 輸出 min.css 壓縮檔案</span></span><br><span class="line">      &#123;</span><br><span class="line">         <span class="attr">&quot;format&quot;</span>: <span class="string">&quot;compressed&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;extensionName&quot;</span>: <span class="string">&quot;.min.css&quot;</span>,</span><br><span class="line">         <span class="comment">// &quot;savePath&quot;: &quot;~/../dist&quot;,</span></span><br><span class="line">         <span class="attr">&quot;savePath&quot;</span>: <span class="string">&quot;/dist&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="comment">// 排除區域，這些路徑下不會轉成Sass</span></span><br><span class="line">   &quot;liveSassCompile.settings.excludeList&quot;: [&quot;**/node_modules/**&quot;, &quot;.vscode/**&quot;],</span><br><span class="line">   <span class="comment">// 產生 Map 檔，Sass 跟 CSS 做對應行數,false =&gt; 不啟動</span></span><br><span class="line">   &quot;liveSassCompile.settings.generateMap&quot;: false,</span><br><span class="line">   <span class="comment">// 自動加入前綴（Prefix =&gt; moz、webkit、o、ms），市佔率大於 1% 或 最新的 2 個版本的瀏覽器</span></span><br><span class="line">   &quot;liveSassCompile.settings.autoprefix&quot;: [&quot;&gt; 1%&quot;, &quot;last 2 versions&quot;],</span><br></pre></td></tr></table></figure>
+
+<h1 id="匯入、匯出檔案"><a href="#匯入、匯出檔案" class="headerlink" title="匯入、匯出檔案"></a>匯入、匯出檔案</h1><p>Sass 能分割成數個檔案並且再組合成單一檔案，Sass 稱這些檔案為區塊（partials），要告知 Sass 不想要匯出這些區塊成單獨 CSS 檔案，必須將區塊檔案用底線 _ 字元開頭。</p>
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p>CSS 有一個我特別不常用的特性，即 @import 規則，它允許在一個 css 文件中導入其他 css 文件。然而，只有執行到 @import 時，瀏覽器才會去下載其他 CSS 文件，這會影響頁面加載速度。</p>
+<p>SASS 也有一個 @import 規則，但不同的是，Sass 的 @import 規則在生成 css 文件時就把相關文件導入進來。這意味著所有相關的樣式被歸納到了同一個 css 文件中，而無需發起額外的下載請求。@import 尋找 Sass 文件副檔名為 <strong>scss</strong> 或 <strong>sass</strong> 並將其導入。如果只想做匯入至其他 Sass 檔案，而不匯出成 CSS，以下有兩種方式：</p>
+<ul>
+<li>檔名前面可以加上 <code>_</code>，只做匯入給其他檔案使用。</li>
+<li>或是直接忽略 <code>_</code> 和 <code>.scss</code> 或 <code>.sass</code>。</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 只要有 _檔名的檔案，不會編譯成 CSS</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_grid.scss&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以忽略 _ 和 .scss 寫成以下，這樣只會匯入 _grid.scss，一樣不會編譯成 CSS</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;grid&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sass 允許同時導入多個文件，但一般建議一個 @impot 一個 sass 檔</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;grid&#x27;</span>, <span class="string">&#x27;variables&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在以下情況下，@import 僅作為普通的 CSS 語句，不會導入任何 Sass 文件。</p>
+<ul>
+<li>被導入文件是 .css 結尾</li>
+<li>被導入文件是一個 URL 位置以 http:// 開頭</li>
+<li>被導入文件是 css 的 url() 值</li>
+<li>@import 包含 media queries</li>
+</ul>
+<p>也就是說不能用 Sass 的 @import 直接導入一個原始的 css 文件，換句話說 Sass 可以使用 css @import，但是不吃 <code>.css</code> 檔名，它只吃 <code>.scss</code> 或 <code>.sass</code>檔名。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下都無法載入 Sass，Sass 會拒絕</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;foo.css&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;foo&#x27;</span> screen;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;http://foo.com/bar&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> url(foo);</span><br></pre></td></tr></table></figure>
+
+<h1 id="註解"><a href="#註解" class="headerlink" title="註解"></a>註解</h1><p>Sass 支援標準的 CSS 多行註解 <code>/* */</code>，以及單行註解 <code>//</code>，編譯後，前者會輸出在 CSS 文件中，後者則不會。</p>
+<h1 id="插值語法"><a href="#插值語法" class="headerlink" title="插值語法"></a>插值語法</h1><p>使用變數與其它語句組合時，Sass 有提供插值語法 #{$var}，插值語法也可以使用在註解裡面。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// sass</span></span><br><span class="line"><span class="variable">$name</span>: foo;</span><br><span class="line"><span class="variable">$attr</span>: border;</span><br><span class="line"><span class="selector-tag">p</span>.#&#123;<span class="variable">$name</span>&#125; &#123;</span><br><span class="line">  #&#123;<span class="variable">$attr</span>&#125;-<span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.foo</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// sass</span></span><br><span class="line"><span class="variable">$version</span>: <span class="string">&#x27;1.2.3&#x27;</span>;</span><br><span class="line"><span class="comment">/* 此版本為 #&#123;$version&#125; 編譯 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="comment">/* 此版本為 1.2.3 編譯 */</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="數學運算"><a href="#數學運算" class="headerlink" title="數學運算"></a>數學運算</h1><p>Sass 可以做數學計算，且不會耗效能。CSS 的 calc() 則是在解析網頁文件階段處理計算，因此會耗掉些些記憶體。</p>
+<ul>
+<li>加、減、乘、除，只有除法需要括號。</li>
+<li>除法分母的單位，分母無單位可以做一般除法，若分子、分母兩者有單位（需要括號包住），單位會被抵銷，變成倍數。</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$width</span>: <span class="number">1000px</span>;</span><br><span class="line"><span class="variable">$font-size</span>: <span class="number">12px</span>;</span><br><span class="line"><span class="variable">$line-height</span>: <span class="number">30px</span>;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="comment">// 除法無效</span></span><br><span class="line">  <span class="attribute">font</span>: <span class="number">10px</span> / <span class="number">8px</span>;</span><br><span class="line">  <span class="comment">// 變數可以使用除法</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$width</span> / <span class="number">2</span>;</span><br><span class="line">  <span class="comment">// 使用()進行除法</span></span><br><span class="line">  <span class="attribute">height</span>: (<span class="number">500px</span> / <span class="number">2</span>);</span><br><span class="line">  <span class="comment">// 使用 round 函式</span></span><br><span class="line">  <span class="attribute">line-height</span>: round(<span class="number">2.5</span>) / <span class="number">2</span>;</span><br><span class="line">  <span class="comment">// 運算式可以直接用除法</span></span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">5px</span> + <span class="number">8px</span> / <span class="number">2px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不想做除法又想使用 /，可以使用插值語法將變數包在裡面，可以避免執行運算式。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="variable">$font-size</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="variable">$line-height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">font</span>: #&#123;<span class="variable">$font-size</span>&#125;/#&#123;<span class="variable">$line-height</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">12px</span>/<span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>計算顏色，採分段計算。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="comment">// 計算01 + 04 = 05 , 02 + 05 = 07 , 03 + 06 = 09   =&gt; #050709</span></span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#010203</span> + <span class="number">#040506</span>;</span><br><span class="line">  <span class="comment">// 計算01 * 2 = 02 , 02 * 2 = 04 , 03 * 2 = 06 =&gt; #020406</span></span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#010203</span> * <span class="number">2</span>;</span><br><span class="line">  <span class="comment">// 顏色值包含alpha channel（rgba 或hsla 兩種顏色值），必須擁有相等的alpha 值才能進行運算，因為算術運算不會作用於 alpha 值</span></span><br><span class="line">  <span class="attribute">color</span>: rgba(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.75</span>) + rgba(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.75</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>加號可以連接字串。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: e + -resize;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: e-resize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>加號連接會以左邊為主，左邊有引號編譯出來會有引號，若左邊沒有引號編譯出來不會有引號。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;Foo &#x27;</span> + Bar;</span><br><span class="line">  <span class="attribute">font-family</span>: sans- + <span class="string">&#x27;serif&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;Foo Bar&#x27;</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="media-使用媒體查詢"><a href="#media-使用媒體查詢" class="headerlink" title="@media 使用媒體查詢"></a>@media 使用媒體查詢</h2><p>@media 可以嵌套在 CSS 規則內，編譯時，@media 將被編譯到文件的最外層，包含嵌套的父選擇器，但這樣的使用方式會讓整個樣式非常混亂。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="keyword">@media</span> (min-width: <span class="number">1200px</span>) &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">3em</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (min-width: <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">3em</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Sass/" rel="tag"># Sass</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/20/lesson-sass-07.mixins/" rel="prev" title="Sass - 混合">
+                  <i class="fa fa-chevron-left"></i> Sass - 混合
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/20/lesson-sass-02.variables/" rel="next" title="Sass - 變數">
+                  Sass - 變數 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Created by KaiFu Chang</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.8.2/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://powerkaifu.github.io/2020/12/20/lesson-sass-01.basic/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '4c687bd2f02e6a2a0a40',
+      clientSecret: 'c49cda32d8eb1f929a4dce2cb9a4477d06099122',
+      repo        : 'powerkaifu.github.io',
+      owner       : 'powerkaifu',
+      admin       : ['powerkaifu'],
+      id          : '58a2f014340fb29d3e16a6c40209fcf8',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>
