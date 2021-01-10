@@ -3949,7 +3949,7 @@
 <td>全域修改作者</td>
 </tr>
 <tr>
-<td>git config –global user.email “<a href="mailto:&#x70;&#x6f;&#x77;&#101;&#114;&#x6b;&#x61;&#x69;&#x66;&#x75;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#109;">&#x70;&#x6f;&#x77;&#101;&#114;&#x6b;&#x61;&#x69;&#x66;&#x75;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#109;</a>“</td>
+<td>git config –global user.email “<a href="mailto:&#112;&#111;&#x77;&#101;&#x72;&#107;&#97;&#105;&#102;&#117;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#112;&#111;&#x77;&#101;&#x72;&#107;&#97;&#105;&#102;&#117;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a>“</td>
 <td>全域修改 EMAIL</td>
 </tr>
 <tr>
@@ -3957,7 +3957,7 @@
 <td>區域修改作者</td>
 </tr>
 <tr>
-<td>git config –local user.email “<a href="mailto:&#x70;&#111;&#119;&#101;&#114;&#107;&#x61;&#x69;&#102;&#117;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;">&#x70;&#111;&#119;&#101;&#114;&#107;&#x61;&#x69;&#102;&#117;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;</a>“</td>
+<td>git config –local user.email “<a href="mailto:&#x70;&#111;&#x77;&#101;&#x72;&#x6b;&#97;&#105;&#x66;&#117;&#64;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x70;&#111;&#x77;&#101;&#x72;&#x6b;&#97;&#105;&#x66;&#117;&#64;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>“</td>
 <td>區域修改 EMAIL</td>
 </tr>
 </tbody></table>
@@ -3972,7 +3972,7 @@
 <li>modified：編輯過的檔案。</li>
 <li>deleted: 刪除的檔案。</li>
 </ul>
-<p>輸入<code>git add .</code>後，並再次輸入<code>git status</code>，此時檔案顯示綠色，表示已經增加到暫存區（Staging Area），記住，只有在暫存區的檔案，才能 commit 後存進儲存庫。最後輸入提交訊息 <code>git commit -m &quot;message&quot;</code>，””裡面為想表達的訊息，這樣就<strong>完成一次 git 的操作（add 與 commit）</strong>。</p>
+<p>輸入<code>git add .</code>後，並再次輸入<code>git status</code>，此時檔案顯示綠色，表示已經增加到暫存區（Staging Area），記住，只有在暫存區的檔案，才能 commit 後存進儲存庫。最後輸入提交訊息 <code>git commit -m &quot;message&quot;</code>，””裡面為想表達的訊息，這樣就<strong>完成一次 git 的操作（add 與 commit）</strong>。完成第一次 add 與 commit，才會產生 master 分支。</p>
 <p>再次檢查狀態，出現「nothing to commit, working tree clean」表示沒有東西可以提交，工作目錄為空。若想將 commit 後的檔案返回工作目錄（Working Directory），可輸入<code>git reset head~</code>（等同 git reset <del>head –mixed 模式）。若想回到暫存區進行 commit，可以輸入`git reset head</del> –soft`。</p>
 <p>PS：只輸入 <code>git commit</code> 指令會進入文字編輯模式，要先按<code>任意鍵</code> 進行編輯，編輯完按 <code>esc</code> 輸入 <code>:wq</code> 退出。</p>
 </li>
@@ -3982,28 +3982,26 @@
 <h1 id="上傳至遠端儲存庫（GitHub）"><a href="#上傳至遠端儲存庫（GitHub）" class="headerlink" title="上傳至遠端儲存庫（GitHub）"></a>上傳至遠端儲存庫（GitHub）</h1><ol>
 <li><p>進入 <a href="https://github.com/">GitHub</a>，新建一個專案。</p>
 </li>
-<li><p>註冊遠端連結點與本地端綁定，本地端需先建立工作目錄，並且初始化</p>
-<p><code>git remote add 遠端儲存庫名稱（可以自訂） 綁定遠端儲存庫的網址</code><br>例如：git remote add origin <a href="https://github.com/powerkaifu/test.git">https://github.com/powerkaifu/test.git</a><br>一般遠端節點會預設 origin，可以自訂名稱。</p>
+<li><p>本地端需先建立工作目錄，並且初始化（git init），註冊遠端連結點與本地端綁定。</p>
+<p>git remote add 遠端儲存庫名稱（可以自訂） 綁定遠端儲存庫的網址<br>例如：git remote add origin <a href="https://github.com/powerkaifu/test.git">https://github.com/powerkaifu/test.git</a><br>一般遠端節點會預設 origin，可以自訂名稱。</p>
 </li>
-<li><p>檢查隱藏目錄 .git 裡面的 config，如果有 [remote “origin”] 表示綁定成功<br>[remote “origin”]<br>url = <a href="https://github.com/powerkaifu/test.git">https://github.com/powerkaifu/test.git</a></p>
+<li><p>可以檢查隱藏目錄 .git 裡面的 config，如果有 [remote “origin”] 表示綁定成功<br>[remote “origin”]<br>url = <a href="https://github.com/powerkaifu/test.git">https://github.com/powerkaifu/test.git</a></p>
 </li>
 <li><p>push 上傳至遠端 <code>git push -u origin master</code></p>
 <ul>
-<li>-u 會推到預設的遠端儲存庫服務</li>
-<li>origin 可以修改它的遠端儲存庫名稱，但一般都用 origin，例如：git push -u develop master</li>
-<li>也可以不打 -u，直接推到指定的遠端儲存庫，<code>git push origin master</code></li>
+<li>-u 會推到預設的遠端儲存庫服務，也可以不打 -u 直接推送指定的遠端儲存庫，<code>git push origin master</code></li>
+<li>origin 可以修改它的遠端儲存庫名稱，但一般都使用 origin，例如：git push -u develop master</li>
+<li>master 為分支名稱，可以對指定的分支 push。</li>
 </ul>
-<p>注意！在 push 儲存庫要注意名稱，若用過的名稱會錯誤。</p>
-</li>
-<li><p>本地端、遠端的 commits 可以提供參考，誰為最新或相同。<br><code>SourceTree：按右上角 Settings，選擇 Remote，再點選 Add</code></p>
 </li>
 </ol>
-<h2 id="使用-GitHub-Pages"><a href="#使用-GitHub-Pages" class="headerlink" title="使用 GitHub Pages"></a>使用 GitHub Pages</h2><ol>
+<h1 id="使用-GitHub-Pages"><a href="#使用-GitHub-Pages" class="headerlink" title="使用 GitHub Pages"></a>使用 GitHub Pages</h1><p>第一種方式：</p>
+<ol>
 <li>進入 Settings，找到 GitHub Pages。</li>
-<li>Source 選擇 master branch，回到原來 GitHub Pages 的位置會出現網址。</li>
-<li>Your site is ready to be published at <a href="https://powerkaifu.github.io/test/">https://powerkaifu.github.io/test/</a></li>
+<li>Source 選擇哪個分支要成為 gh-pages。</li>
 </ol>
-<p>PS：若 GitHub 分支名稱是 gh-pages，它會自動開啟 gh-pages 分支靜態網頁的功能。</p>
+<p>第二種方式：</p>
+<p>若本地端建立 gh-pages 分支並 push 上去，GitHub 會自動開啟 gh-pages 分支靜態網頁的功能。</p>
 <h1 id="Fetch-與-Pull"><a href="#Fetch-與-Pull" class="headerlink" title="Fetch 與 Pull"></a>Fetch 與 Pull</h1><p><code>git fetch</code> 若遠端進度比本地端還要新，git fetch 可以抓下來遠端進度，但不會合併，自己還是要與遠端進行合併 <code>git merge orgin master</code>，將使用快轉模式合併。</p>
 <p><code>git pull</code>=<code>git fetch</code>+<code>git merge</code>，使用 pull 比較快。</p>
 <p>使用時機：</p>
@@ -4020,16 +4018,15 @@
 </li>
 </ol>
 <h2 id="推不上解決方案"><a href="#推不上解決方案" class="headerlink" title="推不上解決方案"></a>推不上解決方案</h2><p>第一招： 先拉下來，再推上去。<br>第二招：<code>git push -force</code>或<code>git push -f</code>，暴力硬推，會把其他人的內容覆蓋掉，接著可能會遇到很尷尬的狀況，得向對方解釋為甚麼。</p>
-<h1 id="HEAD（時光機）"><a href="#HEAD（時光機）" class="headerlink" title="HEAD（時光機）"></a>HEAD（時光機）</h1><p>HEAD 指標指向一個分支，也就是目前所在的分支。<br>HEAD 可以在 .git/HEAD 找到，並且指向 .git/refs/heads/master，是一個 40 個字元的雜湊碼。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ cat .git&#x2F;HEAD</span><br><span class="line">ref: refs&#x2F;heads&#x2F;master</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="HEAD-是一台時光機"><a href="#HEAD-是一台時光機" class="headerlink" title="HEAD 是一台時光機"></a>HEAD 是一台時光機</h1><p>HEAD 指標指向一個分支，也就是目前所在的分支。很重要，因為時常忘記切換分支。<br>HEAD 可以在 .git/HEAD 找到，並且指向 .git/refs/heads/master，是一個 40 個字元的雜湊碼。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cat .git&#x2F;HEAD</span><br><span class="line">ref: refs&#x2F;heads&#x2F;master</span><br><span class="line"></span><br><span class="line">$ cat .git&#x2F;refs&#x2F;heads&#x2F;master</span><br><span class="line">be8be827b6f344383c21869cba22e73018314cc8</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ cat .git&#x2F;refs&#x2F;heads&#x2F;master</span><br><span class="line">be8be827b6f344383c21869cba22e73018314cc8</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="在-SourceTree-使用-HEAD-指標"><a href="#在-SourceTree-使用-HEAD-指標" class="headerlink" title="在 SourceTree 使用 HEAD 指標"></a>在 SourceTree 使用 HEAD 指標</h2><ul>
-<li>只要在任一時間節點上點兩下，按下確定，即可將 HEAD 指標回朔至該時間節點，此時工作目錄檔案結構也會回到當時狀態。</li>
+<ul>
+<li>在 SourceTree 使用 HEAD 指標</li>
 </ul>
+<p>只要在任一時間節點上點兩下，按下確定，即可將 HEAD 指標回朔至該時間節點，而且工作目錄檔案結構也會回到當時狀態。</p>
 <h2 id="在-Command-Line-輸入指令切換-HEAD-指標"><a href="#在-Command-Line-輸入指令切換-HEAD-指標" class="headerlink" title="在 Command Line 輸入指令切換 HEAD 指標"></a>在 Command Line 輸入指令切換 HEAD 指標</h2><ul>
-<li><code>git log</code> 查詢 commit 碼，或在 SourceTree 找到。</li>
+<li>先使用 <code>git log</code> 查詢 commit 碼，或在 SourceTree 找到。</li>
 <li><code>git checkout commit碼</code> 可以將 HEAD 指標回到該 commit 碼的時間節點，commit 碼至少要輸入四個。</li>
 </ul>
 <h1 id="斷頭（Detached-HEAD-）"><a href="#斷頭（Detached-HEAD-）" class="headerlink" title="斷頭（Detached HEAD ）"></a>斷頭（Detached HEAD ）</h1><p>一般，HEAD 會指向某個分支，分支會指向某個 Commit，若 HEAD 發生沒有指到某個分支的情況，這就叫斷頭（Detached HEAD ），<br>這通常發生在沒有分支名稱的 commit 時間點上，進行了修改並且 commit 產生了新的 commit 時間點，這個沒有分支名稱的 commit 點就叫斷頭，<br>因此斷頭還是可以繼續進行 Commit。</p>
@@ -4128,8 +4125,8 @@
 <blockquote>
 <p>SourceTree：在想開分支的 commit 上按滑鼠右鍵，選擇 Branch…</p>
 </blockquote>
-<h2 id="更改分支"><a href="#更改分支" class="headerlink" title="更改分支"></a>更改分支</h2><ul>
-<li><p><code>git branch -m 舊分支名稱 新分支名稱</code> 更改分支名稱</p>
+<h2 id="更改分支名稱"><a href="#更改分支名稱" class="headerlink" title="更改分支名稱"></a>更改分支名稱</h2><ul>
+<li><p><code>git branch -m 舊分支名稱 新分支名稱</code></p>
 <blockquote>
 <p>SourceTree：在左邊分支名稱上按右鍵，選擇 Rename。</p>
 </blockquote>
@@ -4308,7 +4305,7 @@
 <blockquote>
 <p>SourceTree：左邊側欄選單，WORKSPACE 下方的 Search，都可以完成。</p>
 </blockquote>
-<h2 id="檢視"><a href="#檢視" class="headerlink" title="檢視"></a>檢視</h2><p><code>git log index.html</code> 檢視該檔案簡易的 commit 紀錄 <code>git log -p index.html</code> 檢視該檔案的 commit 紀錄，內容做了甚麼修改。</p>
+<h2 id="檢視"><a href="#檢視" class="headerlink" title="檢視"></a>檢視</h2><p>檢視某個檔案的 commit 紀錄，<code>git log index.html</code> 檢視該檔案簡易的 commit 紀錄 <code>git log -p index.html</code> 檢視該檔案的 commit 紀錄，內容做了甚麼修改。</p>
 <blockquote>
 <p>SourceTree：指定的檔案按右鍵，選擇 Log Selected ，可看到該檔案每次 Commit 紀錄。</p>
 </blockquote>
@@ -4316,7 +4313,7 @@
 <blockquote>
 <p>SourceTree：對檔案按右鍵，選擇 Move，輸入更改名稱，會標記 Ｒ。</p>
 </blockquote>
-<h1 id="修改歷史紀錄"><a href="#修改歷史紀錄" class="headerlink" title="修改歷史紀錄"></a>修改歷史紀錄</h1><blockquote>
+<h2 id="修改歷史紀錄"><a href="#修改歷史紀錄" class="headerlink" title="修改歷史紀錄"></a>修改歷史紀錄</h2><blockquote>
 <p>SourceTree：對要修改的節點目標，按右鍵選擇 Rebase children of SHA-1 interactively…，會列出這個範圍的 commit 碼，</p>
 </blockquote>
 <ul>
@@ -4484,8 +4481,16 @@
 <td>刪除分支</td>
 </tr>
 <tr>
+<td>git branch -m 舊分支名稱 新分支名稱</td>
+<td>修改分支名稱</td>
+</tr>
+<tr>
 <td>git checkout 分支名稱</td>
 <td>切換分支</td>
+</tr>
+<tr>
+<td>git checkout .</td>
+<td>救回刪除檔案或修改檔案後悔回復上一次 commit 紀錄狀態</td>
 </tr>
 <tr>
 <td>git merge 分支名稱 –no-ff</td>
@@ -4496,6 +4501,7 @@
 <td>快轉合併(fast-forward merge)，直線式合併，不推薦</td>
 </tr>
 </tbody></table>
+<p>git checkout 後面接分支名稱為切換分支，如果接檔名或路徑，則會回復上一次 commit 紀錄狀態。</p>
 <h1 id="還原指令"><a href="#還原指令" class="headerlink" title="還原指令"></a>還原指令</h1><ul>
 <li>還原父節點</li>
 </ul>
@@ -4519,8 +4525,9 @@
 <td>還原父節點，儲存庫、暫存區、資料夾檔案的狀態。</td>
 </tr>
 </tbody></table>
+<p>PS：head~ 後面可以加數字，若為 2 表示還原兩次父節點，往前兩次。</p>
 <ul>
-<li>還原至某個 commit 節點</li>
+<li>還原到某個 commit 節點</li>
 </ul>
 <p>原理與還原父節點一樣，將 head~ 替換成 commit 代碼。</p>
 <table>
@@ -4577,9 +4584,9 @@
 <p>SourceTree：點選左上角的 Commit 按鈕進行 Commit 畫面，然後在右上角的 Commit Options 選擇 Amend last commit。</p>
 </blockquote>
 <ul>
-<li>追加一個檔案卻不想 commit</li>
+<li>不想新增一個 commit</li>
 </ul>
-<p>例如完成追加檔案的 commit 動作，發現還有一個檔案忘記加入，卻不想新增一次 commit。一樣 git add . 後，輸入以下指令，這樣就不會再新增一次 commit。</p>
+<p>例如，commit 後想追加檔案或修改檔案的內容卻不想新增一個 commit，一樣 git add . 後，輸入以下指令，這樣就不會再新增一次 commit。</p>
 <table>
 <thead>
 <tr>
