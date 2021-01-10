@@ -36,7 +36,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://powerkaifu.github.io/images/git/git_flow_chart.png">
 <meta property="article:published_time" content="2019-10-13T18:53:57.153Z">
-<meta property="article:modified_time" content="2021-01-10T12:32:25.188Z">
+<meta property="article:modified_time" content="2021-01-10T17:22:18.355Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -224,7 +224,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">Git 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C-Git"><span class="nav-number">2.</span> <span class="nav-text">操作 Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D"><span class="nav-number">3.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E8%88%87%E6%8F%90%E4%BA%A4"><span class="nav-number">5.</span> <span class="nav-text">初始化與提交</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%9A%E9%BA%BC%E6%98%AF%E6%8F%90%E4%BA%A4-Commit%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">甚麼是提交 Commit？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8A%E5%82%B3%E8%87%B3%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%EF%BC%88GitHub%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">上傳至遠端儲存庫（GitHub）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-GitHub-Pages"><span class="nav-number">8.</span> <span class="nav-text">使用 GitHub Pages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch-%E8%88%87-Pull"><span class="nav-number">9.</span> <span class="nav-text">Fetch 與 Pull</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E4%B8%8D%E4%B8%8A%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"><span class="nav-number">9.1.</span> <span class="nav-text">推不上解決方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HEAD-%E6%98%AF%E4%B8%80%E5%8F%B0%E6%99%82%E5%85%89%E6%A9%9F"><span class="nav-number">10.</span> <span class="nav-text">HEAD 是一台時光機</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-Command-Line-%E8%BC%B8%E5%85%A5%E6%8C%87%E4%BB%A4%E5%88%87%E6%8F%9B-HEAD-%E6%8C%87%E6%A8%99"><span class="nav-number">10.1.</span> <span class="nav-text">在 Command Line 輸入指令切換 HEAD 指標</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B7%E9%A0%AD%EF%BC%88Detached-HEAD-%EF%BC%89"><span class="nav-number">11.</span> <span class="nav-text">斷頭（Detached HEAD ）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reset%EF%BC%88%E9%82%84%E5%8E%9F%E3%80%81%E5%89%8D%E5%BE%80%E6%9F%90%E5%80%8B-Commit-%E6%99%82%E9%96%93%E7%AF%80%E9%BB%9E%E7%9A%84%E6%84%8F%E6%80%9D%EF%BC%89"><span class="nav-number">12.</span> <span class="nav-text">Reset（還原、前往某個 Commit 時間節點的意思）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#soft%E3%80%81mixed%E3%80%81hard"><span class="nav-number">12.1.</span> <span class="nav-text">soft、mixed、hard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reset-%E2%80%93hard-%EF%BC%88%E5%BC%B7%E8%BF%AB%E6%94%BE%E6%A3%84-Reset-%E9%82%A3%E5%80%8B%E4%BD%8D%E7%BD%AE%E4%B9%8B%E5%BE%8C%E4%BF%AE%E6%94%B9%E7%9A%84%E6%AA%94%E6%A1%88%EF%BC%89"><span class="nav-number">12.2.</span> <span class="nav-text">Reset –hard （強迫放棄 Reset 那個位置之後修改的檔案）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%AA%E9%99%A4"><span class="nav-number">13.</span> <span class="nav-text">刪除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rm-%E8%88%87-git-rm%EF%BC%8C%E5%85%A9%E8%80%85%E9%83%BD%E6%98%AF%E5%85%88%E6%A8%99%E8%A8%98%E7%82%BA%E5%88%AA%E9%99%A4-%EF%BC%8D"><span class="nav-number">13.1.</span> <span class="nav-text">rm 與 git rm，兩者都是先標記為刪除 －</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%91%E5%9B%9E%E6%AA%94%E6%A1%88%EF%BC%81"><span class="nav-number">13.2.</span> <span class="nav-text">救回檔案！</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%94%AF%EF%BC%88Branch%EF%BC%89"><span class="nav-number">14.</span> <span class="nav-text">分支（Branch）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="nav-number">14.1.</span> <span class="nav-text">建立分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%88%B0%E9%81%8E%E5%8E%BB%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="nav-number">14.2.</span> <span class="nav-text">回到過去建立分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E5%88%86%E6%94%AF%E5%90%8D%E7%A8%B1"><span class="nav-number">14.3.</span> <span class="nav-text">更改分支名稱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF-d%E3%80%81-D"><span class="nav-number">14.4.</span> <span class="nav-text">刪除分支 -d、-D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF-checkout"><span class="nav-number">14.5.</span> <span class="nav-text">切換分支 checkout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF-merge"><span class="nav-number">14.6.</span> <span class="nav-text">合併分支 merge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%9A%84%E6%83%85%E6%B3%81"><span class="nav-number">14.7.</span> <span class="nav-text">分支合併的情況</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E4%BD%B5%E5%BE%8C%E7%99%BC%E7%94%9F%E8%A1%9D%E7%AA%81"><span class="nav-number">14.8.</span> <span class="nav-text">合併後發生衝突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase-%E5%92%8C-merge-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">14.9.</span> <span class="nav-text">rebase 和 merge 的差異</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%99%E7%B1%A4-TAG"><span class="nav-number">15.</span> <span class="nav-text">標籤 TAG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9A%AB%E6%99%82%E5%84%B2%E5%AD%98%E9%80%B2%E5%BA%A6%EF%BC%88stash%EF%BC%89"><span class="nav-number">16.</span> <span class="nav-text">暫時儲存進度（stash）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cherry-pick"><span class="nav-number">17.</span> <span class="nav-text">cherry-pick</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fork"><span class="nav-number">18.</span> <span class="nav-text">Fork</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Clone-%E8%88%87-Fork-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">18.1.</span> <span class="nav-text">Clone 與 Fork 的差異</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pull-requests%EF%BC%88PR%EF%BC%89"><span class="nav-number">19.</span> <span class="nav-text">Pull requests（PR）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%9F%E4%B8%8A-fork-%E5%B0%88%E6%A1%88%E7%9A%84%E9%80%B2%E5%BA%A6"><span class="nav-number">20.</span> <span class="nav-text">跟上 fork 專案的進度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E7%9B%AE%E9%8C%84%E7%B5%90%E6%A7%8B"><span class="nav-number">21.</span> <span class="nav-text">.git 目錄結構</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gitignore"><span class="nav-number">22.</span> <span class="nav-text">.gitignore</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%AF%87"><span class="nav-number">23.</span> <span class="nav-text">指令篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E5%B0%8B"><span class="nav-number">23.1.</span> <span class="nav-text">搜尋</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%A2%E8%A6%96"><span class="nav-number">23.2.</span> <span class="nav-text">檢視</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E5%90%8D"><span class="nav-number">23.3.</span> <span class="nav-text">改名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%AD%B7%E5%8F%B2%E7%B4%80%E9%8C%84"><span class="nav-number">23.4.</span> <span class="nav-text">修改歷史紀錄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4%E5%A4%9A%E6%AA%94%E6%A1%88"><span class="nav-number">23.5.</span> <span class="nav-text">一次提交多檔案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E5%B0%8F%E5%BF%83%E7%9A%84%E6%8C%87%E4%BB%A4%EF%BC%9A"><span class="nav-number">23.6.</span> <span class="nav-text">需小心的指令：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%9F%AD%E6%8C%87%E4%BB%A4"><span class="nav-number">24.</span> <span class="nav-text">設定短指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A6%E4%B8%80%E7%A8%AE%E5%90%88%E4%BD%B5-rebase%EF%BC%88%E4%B8%8D%E8%A6%81%E7%94%A8%EF%BC%8C%E4%B8%8D%E6%9C%83%E7%94%A2%E7%94%9F%E5%90%88%E4%BD%B5%E7%9A%84-commit%EF%BC%8C%E5%BE%88%E9%9B%A3%E7%9F%A5%E9%81%93%E7%99%BC%E7%94%9F%E7%8B%80%E6%B3%81%EF%BC%89"><span class="nav-number">24.1.</span> <span class="nav-text">另一種合併 rebase（不要用，不會產生合併的 commit，很難知道發生狀況）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%94%E5%B0%8D"><span class="nav-number">25.</span> <span class="nav-text">比對</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%86%B1%E9%96%80%E7%9A%84%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%9C%8D%E5%8B%99%E5%B9%B3%E5%8F%B0"><span class="nav-number">26.</span> <span class="nav-text">熱門的遠端儲存庫服務平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E7%9B%AE%E9%8C%84%E7%84%A1%E6%B3%95%E8%A2%AB%E6%8F%90%E4%BA%A4"><span class="nav-number">26.1.</span> <span class="nav-text">空目錄無法被提交</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTPS-%E5%92%8C-SSH"><span class="nav-number">27.</span> <span class="nav-text">HTTPS 和 SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-Flow"><span class="nav-number">28.</span> <span class="nav-text">Git Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E5%85%87%E6%89%8B"><span class="nav-number">28.1.</span> <span class="nav-text">查兇手</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub"><span class="nav-number">29.</span> <span class="nav-text">GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitKraken"><span class="nav-number">30.</span> <span class="nav-text">GitKraken</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4"><span class="nav-number">31.</span> <span class="nav-text">基本指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E6%8C%87%E4%BB%A4"><span class="nav-number">32.</span> <span class="nav-text">分支指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%82%84%E5%8E%9F%E6%8C%87%E4%BB%A4"><span class="nav-number">33.</span> <span class="nav-text">還原指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%A8%8A%E6%81%AF"><span class="nav-number">34.</span> <span class="nav-text">修改訊息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BC%94%E5%8A%A9%E6%8C%87%E4%BB%A4"><span class="nav-number">35.</span> <span class="nav-text">輔助指令</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">Git 介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C-Git"><span class="nav-number">2.</span> <span class="nav-text">操作 Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Git-%E8%88%87-GUI"><span class="nav-number">3.</span> <span class="nav-text">安裝 Git 與 GUI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">Git 原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E8%88%87%E6%8F%90%E4%BA%A4"><span class="nav-number">5.</span> <span class="nav-text">初始化與提交</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%9A%E9%BA%BC%E6%98%AF%E6%8F%90%E4%BA%A4%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">甚麼是提交？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8A%E5%82%B3%E8%87%B3%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%EF%BC%88GitHub%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">上傳至遠端儲存庫（GitHub）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-GitHub-Pages"><span class="nav-number">8.</span> <span class="nav-text">使用 GitHub Pages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch-%E8%88%87-Pull"><span class="nav-number">9.</span> <span class="nav-text">Fetch 與 Pull</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E4%B8%8D%E4%B8%8A%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"><span class="nav-number">9.1.</span> <span class="nav-text">推不上解決方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HEAD-%E6%98%AF%E4%B8%80%E5%8F%B0%E6%99%82%E5%85%89%E6%A9%9F"><span class="nav-number">10.</span> <span class="nav-text">HEAD 是一台時光機</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-Command-Line-%E8%BC%B8%E5%85%A5%E6%8C%87%E4%BB%A4%E5%88%87%E6%8F%9B-HEAD-%E6%8C%87%E6%A8%99"><span class="nav-number">10.1.</span> <span class="nav-text">在 Command Line 輸入指令切換 HEAD 指標</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reset%EF%BC%88%E9%82%84%E5%8E%9F%E3%80%81%E5%89%8D%E5%BE%80%E6%9F%90%E5%80%8B-Commit-%E7%AF%80%E9%BB%9E%E7%9A%84%E6%84%8F%E6%80%9D%EF%BC%89"><span class="nav-number">11.</span> <span class="nav-text">Reset（還原、前往某個 Commit 節點的意思）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%AA%E9%99%A4"><span class="nav-number">12.</span> <span class="nav-text">刪除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rm-%E8%88%87-git-rm%EF%BC%8C%E5%85%A9%E8%80%85%E9%83%BD%E6%98%AF%E5%85%88%E6%A8%99%E8%A8%98%E7%82%BA%E5%88%AA%E9%99%A4-%EF%BC%8D"><span class="nav-number">12.1.</span> <span class="nav-text">rm 與 git rm，兩者都是先標記為刪除 －</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%91%E5%9B%9E%E6%AA%94%E6%A1%88"><span class="nav-number">13.</span> <span class="nav-text">救回檔案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%94%AF"><span class="nav-number">14.</span> <span class="nav-text">分支</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%88%B0%E9%81%8E%E5%8E%BB%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="nav-number">14.1.</span> <span class="nav-text">回到過去建立分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E5%88%86%E6%94%AF%E5%90%8D%E7%A8%B1"><span class="nav-number">14.2.</span> <span class="nav-text">更改分支名稱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF-d%E3%80%81-D"><span class="nav-number">14.3.</span> <span class="nav-text">刪除分支 -d、-D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF-checkout"><span class="nav-number">14.4.</span> <span class="nav-text">切換分支 checkout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF-merge"><span class="nav-number">14.5.</span> <span class="nav-text">合併分支 merge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%9A%84%E6%83%85%E6%B3%81"><span class="nav-number">14.6.</span> <span class="nav-text">分支合併的情況</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E4%BD%B5%E5%BE%8C%E7%99%BC%E7%94%9F%E8%A1%9D%E7%AA%81"><span class="nav-number">14.7.</span> <span class="nav-text">合併後發生衝突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase-%E5%92%8C-merge-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">14.8.</span> <span class="nav-text">rebase 和 merge 的差異</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rebase-%E5%8F%A6%E4%B8%80%E7%A8%AE%E5%90%88%E4%BD%B5"><span class="nav-number">15.</span> <span class="nav-text">rebase 另一種合併</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B7%E9%A0%AD%EF%BC%88Detached-HEAD-%EF%BC%89"><span class="nav-number">16.</span> <span class="nav-text">斷頭（Detached HEAD ）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%99%E7%B1%A4-TAG"><span class="nav-number">17.</span> <span class="nav-text">標籤 TAG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9A%AB%E6%99%82%E5%84%B2%E5%AD%98%E9%80%B2%E5%BA%A6%EF%BC%88stash%EF%BC%89"><span class="nav-number">18.</span> <span class="nav-text">暫時儲存進度（stash）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cherry-pick"><span class="nav-number">19.</span> <span class="nav-text">cherry-pick</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fork"><span class="nav-number">20.</span> <span class="nav-text">Fork</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Clone-%E8%88%87-Fork-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">20.1.</span> <span class="nav-text">Clone 與 Fork 的差異</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pull-requests%EF%BC%88PR%EF%BC%89"><span class="nav-number">21.</span> <span class="nav-text">Pull requests（PR）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%9F%E4%B8%8A-fork-%E5%B0%88%E6%A1%88%E7%9A%84%E9%80%B2%E5%BA%A6"><span class="nav-number">22.</span> <span class="nav-text">跟上 fork 專案的進度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-%E7%9B%AE%E9%8C%84%E7%B5%90%E6%A7%8B"><span class="nav-number">23.</span> <span class="nav-text">.git 目錄結構</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gitignore"><span class="nav-number">24.</span> <span class="nav-text">.gitignore</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%AF%87"><span class="nav-number">25.</span> <span class="nav-text">指令篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E5%B0%8B"><span class="nav-number">25.1.</span> <span class="nav-text">搜尋</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%A2%E8%A6%96"><span class="nav-number">25.2.</span> <span class="nav-text">檢視</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E5%90%8D"><span class="nav-number">25.3.</span> <span class="nav-text">改名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%AD%B7%E5%8F%B2%E7%B4%80%E9%8C%84"><span class="nav-number">25.4.</span> <span class="nav-text">修改歷史紀錄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4%E5%A4%9A%E6%AA%94%E6%A1%88"><span class="nav-number">25.5.</span> <span class="nav-text">一次提交多檔案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E5%B0%8F%E5%BF%83%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="nav-number">25.6.</span> <span class="nav-text">需小心的指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%9F%AD%E6%8C%87%E4%BB%A4"><span class="nav-number">26.</span> <span class="nav-text">設定短指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%94%E5%B0%8D"><span class="nav-number">27.</span> <span class="nav-text">比對</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%86%B1%E9%96%80%E7%9A%84%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%9C%8D%E5%8B%99%E5%B9%B3%E5%8F%B0"><span class="nav-number">28.</span> <span class="nav-text">熱門的遠端儲存庫服務平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E7%9B%AE%E9%8C%84%E7%84%A1%E6%B3%95%E8%A2%AB%E6%8F%90%E4%BA%A4"><span class="nav-number">28.1.</span> <span class="nav-text">空目錄無法被提交</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTPS-%E5%92%8C-SSH"><span class="nav-number">29.</span> <span class="nav-text">HTTPS 和 SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-Flow"><span class="nav-number">30.</span> <span class="nav-text">Git Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E5%85%87%E6%89%8B"><span class="nav-number">30.1.</span> <span class="nav-text">查兇手</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub"><span class="nav-number">31.</span> <span class="nav-text">GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitKraken"><span class="nav-number">32.</span> <span class="nav-text">GitKraken</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4"><span class="nav-number">33.</span> <span class="nav-text">基本指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%A8%8A%E6%81%AF"><span class="nav-number">34.</span> <span class="nav-text">修改訊息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BC%94%E5%8A%A9%E6%8C%87%E4%BB%A4"><span class="nav-number">35.</span> <span class="nav-text">輔助指令</span></a></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -341,7 +341,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-01-10 20:32:25" itemprop="dateModified" datetime="2021-01-10T20:32:25+08:00">2021-01-10</time>
+        <time title="修改時間：2021-01-11 01:22:18" itemprop="dateModified" datetime="2021-01-11T01:22:18+08:00">2021-01-11</time>
       </span>
 
   
@@ -356,12 +356,12 @@
     <div class="post-body" itemprop="articleBody">
         <h1 id="Git-介紹"><a href="#Git-介紹" class="headerlink" title="Git 介紹"></a>Git 介紹</h1><p>Git 是一種版本控制系統（Version Control System），可以紀錄開發時各階段版本的檔案目錄結構（新增、修改、刪除內容的變化），就像搭乘時光機可以隨時切換到過去某個版本時候的專案狀態，它也很像 RPG 角色扮演遊戲的紀錄檔，在打未知能力 BOSS 或關卡前，習慣會先記錄一下，預防全滅後還可以回到紀錄時的狀態重新挑戰。Git 是分散式的版控系統（Distributed Version Control），其好處是即使沒有網路，也可以在本機電腦使用，等到有網路時在進行同步操作，例如與 GitHub。</p>
 <h1 id="操作-Git"><a href="#操作-Git" class="headerlink" title="操作 Git"></a>操作 Git</h1><p>Git 的操作是在終端機或是在 GUI 圖形介面上，由於 Git 指令非常多（不常用就忘了），因此使用圖形介面會比較容易上手，但是，熟悉部分 Git 指令是必要的，個人覺得以常操作的指令並且配合 GUI 來開始。另外，剛開始學習時，有些終端機指令可以嘗試看看（dir、cd、mkdir、rm），但並不是必須，因為有其他方式可以達到目的。</p>
-<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><ul>
+<h1 id="安裝-Git-與-GUI"><a href="#安裝-Git-與-GUI" class="headerlink" title="安裝 Git 與 GUI"></a>安裝 Git 與 GUI</h1><ul>
 <li>安裝環境 Git <a target="_blank" rel="noopener" href="https://git-scm.com/">Download Git</a></li>
-<li>Sourcetree GUI 圖形介面 <a target="_blank" rel="noopener" href="https://www.sourcetreeapp.com/">Downlad Sourcetree</a></li>
-<li>GitKraken GUI 圖形介面 <a target="_blank" rel="noopener" href="https://www.gitkraken.com/">Downlad GitKraken</a></li>
+<li>Sourcetree GUI <a target="_blank" rel="noopener" href="https://www.sourcetreeapp.com/">Downlad Sourcetree</a></li>
+<li>GitKraken GUI <a target="_blank" rel="noopener" href="https://www.gitkraken.com/">Downlad GitKraken</a></li>
 </ul>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><img data-src="/images/git/git_flow_chart.png" width="700">
+<h1 id="Git-原理"><a href="#Git-原理" class="headerlink" title="Git 原理"></a>Git 原理</h1><img data-src="/images/git/git_flow_chart.png" width="700">
 
 <ol>
 <li>git add 把檔案從工作目錄移至暫存區。</li>
@@ -386,7 +386,7 @@
 <td>全域修改作者</td>
 </tr>
 <tr>
-<td>git config –global user.email “<a href="mailto:&#112;&#111;&#x77;&#101;&#x72;&#107;&#97;&#105;&#102;&#117;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#112;&#111;&#x77;&#101;&#x72;&#107;&#97;&#105;&#102;&#117;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a>“</td>
+<td>git config –global user.email “<a href="mailto:&#x70;&#x6f;&#x77;&#x65;&#114;&#107;&#x61;&#105;&#x66;&#117;&#64;&#x67;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x70;&#x6f;&#x77;&#x65;&#114;&#107;&#x61;&#105;&#x66;&#117;&#64;&#x67;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>“</td>
 <td>全域修改 EMAIL</td>
 </tr>
 <tr>
@@ -394,7 +394,7 @@
 <td>區域修改作者</td>
 </tr>
 <tr>
-<td>git config –local user.email “<a href="mailto:&#x70;&#111;&#x77;&#101;&#x72;&#x6b;&#97;&#105;&#x66;&#117;&#64;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x70;&#111;&#x77;&#101;&#x72;&#x6b;&#97;&#105;&#x66;&#117;&#64;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>“</td>
+<td>git config –local user.email “<a href="mailto:&#112;&#x6f;&#x77;&#x65;&#x72;&#x6b;&#x61;&#x69;&#x66;&#x75;&#x40;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;">&#112;&#x6f;&#x77;&#x65;&#x72;&#x6b;&#x61;&#x69;&#x66;&#x75;&#x40;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;</a>“</td>
 <td>區域修改 EMAIL</td>
 </tr>
 </tbody></table>
@@ -414,7 +414,7 @@
 <p>PS：只輸入 <code>git commit</code> 指令會進入文字編輯模式，要先按<code>任意鍵</code> 進行編輯，編輯完按 <code>esc</code> 輸入 <code>:wq</code> 退出。</p>
 </li>
 </ol>
-<h1 id="甚麼是提交-Commit？"><a href="#甚麼是提交-Commit？" class="headerlink" title="甚麼是提交 Commit？"></a>甚麼是提交 Commit？</h1><p>當每次提交一些東西時，Git 會產生一個快照，將所有檔案放置在一個物件記錄著，可以輸入<code>git log</code>（歷史紀錄） 會看到提交後 40 個字元長 16 進位 的 SHA-1（Secure Hash Algorithm 1）雜湊演算碼，這可以做為提交後的<strong>識別碼</strong>，使用指令配合 commit 識別碼，一般只需要 6~8 個數字即可辨識。</p>
+<h1 id="甚麼是提交？"><a href="#甚麼是提交？" class="headerlink" title="甚麼是提交？"></a>甚麼是提交？</h1><p>當每次提交一些東西時，Git 會產生一個快照，將所有檔案放置在一個物件記錄著，可以輸入<code>git log</code>（歷史紀錄） 會看到提交後 40 個字元長 16 進位 的 SHA-1（Secure Hash Algorithm 1）雜湊演算碼，這可以做為提交後的<strong>識別碼</strong>，使用指令配合 commit 識別碼，一般只需要 6~8 個數字即可辨識。</p>
 <p>PS：SourceTree 檢視歷史紀錄，在介面左側 History，檔案狀態則是 File Status，推薦使用，指令不易瀏覽。</p>
 <h1 id="上傳至遠端儲存庫（GitHub）"><a href="#上傳至遠端儲存庫（GitHub）" class="headerlink" title="上傳至遠端儲存庫（GitHub）"></a>上傳至遠端儲存庫（GitHub）</h1><ol>
 <li><p>進入 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>，新建一個專案。</p>
@@ -455,7 +455,7 @@
 </li>
 </ol>
 <h2 id="推不上解決方案"><a href="#推不上解決方案" class="headerlink" title="推不上解決方案"></a>推不上解決方案</h2><p>第一招： 先拉下來，再推上去。<br>第二招：<code>git push -force</code>或<code>git push -f</code>，暴力硬推，會把其他人的內容覆蓋掉，接著可能會遇到很尷尬的狀況，得向對方解釋為甚麼。</p>
-<h1 id="HEAD-是一台時光機"><a href="#HEAD-是一台時光機" class="headerlink" title="HEAD 是一台時光機"></a>HEAD 是一台時光機</h1><p>HEAD 指標指向一個分支，也就是目前所在的分支。很重要，因為時常忘記切換分支。<br>HEAD 可以在 .git/HEAD 找到，並且指向 .git/refs/heads/master，是一個 40 個字元的雜湊碼。</p>
+<h1 id="HEAD-是一台時光機"><a href="#HEAD-是一台時光機" class="headerlink" title="HEAD 是一台時光機"></a>HEAD 是一台時光機</h1><p>HEAD 指標指向一個分支，也就是目前所在的分支。很重要，因為時常忘記切換分支。<br>HEAD 可以在 .git/HEAD 找到，並且指向 .git/refs/heads/master，它是一個 40 個字元的雜湊碼。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cat .git&#x2F;HEAD</span><br><span class="line">ref: refs&#x2F;heads&#x2F;master</span><br><span class="line"></span><br><span class="line">$ cat .git&#x2F;refs&#x2F;heads&#x2F;master</span><br><span class="line">be8be827b6f344383c21869cba22e73018314cc8</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -466,22 +466,28 @@
 <li>先使用 <code>git log</code> 查詢 commit 碼，或在 SourceTree 找到。</li>
 <li><code>git checkout commit碼</code> 可以將 HEAD 指標回到該 commit 碼的時間節點，commit 碼至少要輸入四個。</li>
 </ul>
-<h1 id="斷頭（Detached-HEAD-）"><a href="#斷頭（Detached-HEAD-）" class="headerlink" title="斷頭（Detached HEAD ）"></a>斷頭（Detached HEAD ）</h1><p>一般，HEAD 會指向某個分支，分支會指向某個 Commit，若 HEAD 發生沒有指到某個分支的情況，這就叫斷頭（Detached HEAD ），<br>這通常發生在沒有分支名稱的 commit 時間點上，進行了修改並且 commit 產生了新的 commit 時間點，這個沒有分支名稱的 commit 點就叫斷頭，<br>因此斷頭還是可以繼續進行 Commit。</p>
-<ul>
-<li>處理斷頭的方式</li>
-</ul>
-<ol>
-<li><code>git branch 無名分支的分支名稱</code> 給斷頭一個新的名稱，解決斷頭問題。</li>
-<li><code>git checkout master</code> 回到 master 分支，也可以解除斷頭。</li>
-<li><code>git merge 無名分支的分支名稱</code> 或是回到 master 合併無名分支的分支名稱</li>
-</ol>
-<p>以上合併是屬於 3-way merge，在合併過程中可能發生衝突。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git branch 名稱 給無名分支取一個名稱</span><br><span class="line">git checkout master 切換回 master</span><br><span class="line">git branch -D 名稱 刪除它</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>SourceTree：左上角，File &gt; Clone/New</p>
-</blockquote>
-<h1 id="Reset（還原、前往某個-Commit-時間節點的意思）"><a href="#Reset（還原、前往某個-Commit-時間節點的意思）" class="headerlink" title="Reset（還原、前往某個 Commit 時間節點的意思）"></a>Reset（還原、前往某個 Commit 時間節點的意思）</h1><p>reset 表示 HEAD 與 Master 一起移動，並且消除時間節點進行還原<br>checkout 只移動了 HEAD 指標，到各時間節點查看狀態。</p>
+<h1 id="Reset（還原、前往某個-Commit-節點的意思）"><a href="#Reset（還原、前往某個-Commit-節點的意思）" class="headerlink" title="Reset（還原、前往某個 Commit 節點的意思）"></a>Reset（還原、前往某個 Commit 節點的意思）</h1><p>使用 Reset 的觀念，不管是用甚麼模式進行 Reset（即便是–hard），Commit 代碼會因為 Reset 到哪裡，中間那一大段就全部消失不見。Reset 其實代表回到過去某個 commit 節點，中間那一大段只是隱藏起來看不到，可以使用<code>git reflog</code> 查詢這些 commit 代碼，並使用 git reset commit 代碼返回。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git reset head~ –soft</td>
+<td>檔案還原至暫存區狀態，保留修改完檔案，讓使用者 Commit。</td>
+</tr>
+<tr>
+<td>git reset head~ –mixed</td>
+<td>等同預設值 git reset HEAD~，檔案會還原至工作目錄，保留修改完檔案。</td>
+</tr>
+<tr>
+<td>git reset head~ –hard</td>
+<td>直接放棄暫存區、工作區的檔案。</td>
+</tr>
+</tbody></table>
+<p>–soft 與 –mixed 都會保留目前的節點，修改完的檔案（Uncommitted changes 狀態），差異在於前者只需 commit 動作，後者需要 add 與 commit 動作。<br>–hard 會直接刪除掉 commit 節點，回到上一個節點。</p>
 <table>
 <thead>
 <tr>
@@ -498,20 +504,40 @@
 <td>還原兩次父節點。</td>
 </tr>
 </tbody></table>
-<h2 id="soft、mixed、hard"><a href="#soft、mixed、hard" class="headerlink" title="soft、mixed、hard"></a>soft、mixed、hard</h2><p><code>git reset head~ --soft</code> 還原父節點，檔案會還原至暫存區，也就是可以修改 Commit。</p>
-<blockquote>
-<p>SourceTree：選擇要還原的 commit 節點，按右鍵選擇 Reset current brancg to commit，選擇 Soft，可以再 commit 訊息。</p>
-</blockquote>
-<p><code>git reset head~ --mixed</code> 等同 <code>git reset HEAD~</code> 預設值，還原父節點，檔案會還原至工作區。</p>
-<blockquote>
-<p>SourceTree：選擇要還原的 commit 節點，按右鍵選擇 Reset current brancg to commit，選擇 mixed，</p>
-</blockquote>
-<p><code>git reset head~ --hard</code> 還原成父節點儲存庫、暫存區、資料夾檔案的狀態。</p>
-<blockquote>
-<p>SourceTree：選擇要還原的 commit 節點，按右鍵選擇 Reset current brancg to commit，選擇 Hard，會拆掉還原點之前的步驟，不能再 commit 訊息。</p>
-</blockquote>
-<p><code>git reset commit碼 --hard</code> 還原至 commit 碼位置，不能再 commit 訊息。</p>
-<h2 id="Reset-–hard-（強迫放棄-Reset-那個位置之後修改的檔案）"><a href="#Reset-–hard-（強迫放棄-Reset-那個位置之後修改的檔案）" class="headerlink" title="Reset –hard （強迫放棄 Reset 那個位置之後修改的檔案）"></a>Reset –hard （強迫放棄 Reset 那個位置之後修改的檔案）</h2><p>使用 Reset 要有一個觀念，不管是用甚麼模式進行 Reset，Commit 不會因為 Reset 到哪裡就消失不見，Reset 回到一個過去時間點，<br>git log –oneline 查詢雖然會少掉過去時間點之後的 Commit，但其實都還在，<br>這時只要使用 <code>git reset commit代碼 --hard</code> ，並放棄那個位置之後修改的檔案，忘記代碼可以使用<code>git reflog</code> 查詢 reset 指令前的代碼。</p>
+<p>原理與還原父節點一樣，將 head~ 替換成 commit 代碼。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git reset commit 代碼 –soft</td>
+<td>還原至指定的 commit 碼，檔案會還原至暫存區，也就是可以修改 Commit 訊息。</td>
+</tr>
+<tr>
+<td>git reset commit 代碼 –mixed</td>
+<td>還原至指定的 commit 碼，檔案會還原至工作區（working directory）。</td>
+</tr>
+<tr>
+<td>git reset commit 代碼 –hard</td>
+<td>還原至指定的 commit 碼，儲存庫、暫存區、資料夾檔案的狀態。</td>
+</tr>
+</tbody></table>
+<p>特別還原</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git reset ORIG_HEAD –hard</td>
+<td>返回危險記錄點的狀態，可以在 .git 目錄查到 ORIG_HEAD 目前指向哪個 commit 碼。</td>
+</tr>
+</tbody></table>
 <h1 id="刪除"><a href="#刪除" class="headerlink" title="刪除"></a>刪除</h1><h2 id="rm-與-git-rm，兩者都是先標記為刪除-－"><a href="#rm-與-git-rm，兩者都是先標記為刪除-－" class="headerlink" title="rm 與 git rm，兩者都是先標記為刪除 －"></a>rm 與 git rm，兩者都是先標記為刪除 －</h2><ol>
 <li><p><code>rm *.html</code> 檔案標記刪除記號（工作區 Unstatged files），告訴 Git 要做刪除檔案的動作，需 add 到（暫存區 Statged files），commit 後才能完成刪除，</p>
 <blockquote>
@@ -538,25 +564,65 @@
 <li>直接刪除檔案。</li>
 <li><code>git add -all .</code>或<code>git add -A .</code>，add 後會檢查暫存區有沒有標記刪除的檔案，有的話 commit 後，會在新的 commit 節點刪除。</li>
 </ol>
-<h2 id="救回檔案！"><a href="#救回檔案！" class="headerlink" title="救回檔案！"></a>救回檔案！</h2><p>不管是<code>rm</code>或<code>git rm</code>，若已 commit 刪除，則要使用 <code>git reset HEAD^</code> 還原到工作區（Unstatged files），再<code>git checkout .</code>救回。</p>
-<ul>
-<li>git checkout 除了可以切換分支，還可以救回檔案，也就是將當下的檔案回復到上一次 Commit 狀態。</li>
-</ul>
-<h1 id="分支（Branch）"><a href="#分支（Branch）" class="headerlink" title="分支（Branch）"></a>分支（Branch）</h1><p>在開發過程中，分支基本上就是儲存庫中另一條路徑。寫程式時，希望藉由分支來實驗某些功能，而不會破會原本正常運作的程式碼，<br>例如開發新功能、維護專案的不同版本或是發行版本的管理，使用分支可以簡化這些工作，等待做完確認沒問題之後再合併回來，不會影響正在運行的產品線。<br>分支只是 40 字元的雜湊碼，標記指向哪一個 Commit，不管是快轉、非快轉模式，合併過後指代表「這些內容本只有你有，現在我也有」。</p>
+<h1 id="救回檔案"><a href="#救回檔案" class="headerlink" title="救回檔案"></a>救回檔案</h1><p>不管是<code>rm</code>或<code>git rm</code>，若已 commit 刪除，則要使用 <code>git reset HEAD^</code> 還原到工作區（Unstatged files），再<code>git checkout .</code>救回。<br>git checkout 除了可以切換分支，還可以救回檔案，也就是將當下的檔案回復到上一次 Commit 狀態。</p>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>分支 = 分身，開分支等於開分身，對於使用 Git 來說，它很重要。在開發過程中，藉由分支來實驗某些功能，而不會破會原本正常運作的程式碼，等待成功確認沒問題再進行合併。分支也是 40 字元的雜湊碼，標記指向哪一個 Commit，不管是快轉、非快轉模式，合併過後都表示「你的內容都被已經我接收」。</p>
 <ul>
 <li><code>git merge commit代碼</code>，雖說合併分支，其實只是指向一個 commit，在 Git 都是 commit 指來指去。</li>
 </ul>
 <p>PS：可以在<code>Repo初始化</code>時建立所需的分支，master 就存放專案原始碼，分支存放展示用的靜態網頁（例如：GitHub 的分支 gh-pages）。</p>
-<h2 id="建立分支"><a href="#建立分支" class="headerlink" title="建立分支"></a>建立分支</h2><p>Git 會預設建立一個名為 master 的分支，SourceTree 空心小圓圈表示 HEAD，目前分支位置。</p>
-<ul>
-<li><p><code>git branch</code> 檢查哪些目前分支，並以 *綠色文字 表示現在分支的位置。</p>
-</li>
-<li><p><code>git branch 分支名稱</code> 建立新分支</p>
-<blockquote>
-<p>SourceTree：上方功能選單 Branch，按下去可以新增分支。Checkout New branch 打勾會建立分支完成後切換到該分支。</p>
-</blockquote>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git branch</td>
+<td>列出本地分支</td>
+</tr>
+<tr>
+<td>git branch –remote</td>
+<td>列出遠端分支</td>
+</tr>
+<tr>
+<td>git branch -a</td>
+<td>列出本地與遠端所有分支</td>
+</tr>
+<tr>
+<td>git branch 分支名稱</td>
+<td>新增分支</td>
+</tr>
+<tr>
+<td>git branch -d 分支名稱</td>
+<td>刪除分支</td>
+</tr>
+<tr>
+<td>git branch -m 舊分支名稱 新分支名稱</td>
+<td>修改分支名稱</td>
+</tr>
+<tr>
+<td>git checkout 分支名稱</td>
+<td>切換分支</td>
+</tr>
+<tr>
+<td>git checkout -b 新分支名稱</td>
+<td>建立分支，並且切換到該分支</td>
+</tr>
+<tr>
+<td>git checkout .</td>
+<td>救回刪除檔案或修改檔案後悔回復上一次 commit 紀錄狀態</td>
+</tr>
+<tr>
+<td>git merge 分支名稱 –no-ff</td>
+<td>分支合併，會建立合併提交，產生小耳朵紀錄，推薦使用</td>
+</tr>
+<tr>
+<td>git merge 分支名稱</td>
+<td>快轉合併(fast-forward merge)，直線式合併，不推薦</td>
+</tr>
+</tbody></table>
+<p>git checkout 後面接分支名稱為切換分支，如果接檔名或路徑，則會回復上一次 commit 紀錄狀態。</p>
 <h2 id="回到過去建立分支"><a href="#回到過去建立分支" class="headerlink" title="回到過去建立分支"></a>回到過去建立分支</h2><p>第一種方式：<br>先回到過去的 commit 時間點，<code>git checkout commit碼</code>，再建立新分支<code>git checkout -b 新分支名稱</code>。<br>或是合併一行，<code>git checkout -b bird commit代碼</code></p>
 <p>第二種方式：<br>不想回到過去，直接建立<code>git branch bird commit碼</code>，commit 碼為過去時間點。</p>
 <blockquote>
@@ -569,9 +635,9 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="刪除分支-d、-D"><a href="#刪除分支-d、-D" class="headerlink" title="刪除分支 -d、-D"></a>刪除分支 -d、-D</h2><p>沒有不能刪除的分支，包括預設分支 master 也可以，只有目前所在的分支不能刪除，但只要切換到別的分支就可以刪除。</p>
+<h2 id="刪除分支-d、-D"><a href="#刪除分支-d、-D" class="headerlink" title="刪除分支 -d、-D"></a>刪除分支 -d、-D</h2><p>沒有不能刪除的分支，包括預設分支 master 也可以，但是，<strong>目前所在的分支不能刪除</strong>，只要切換到別的分支就可以刪除。</p>
 <ul>
-<li><p><code>git branch -d 分支名稱</code> 刪除分支，若沒有合併，-d 參數不給刪，要改成 -D 參數才可以刪除。</p>
+<li><p><code>git branch -d 分支名稱</code> 刪除分支，還沒有合併過後的分支，-d 參數不給刪的，git 會提醒使用 -D 參數才可以刪除。</p>
 <blockquote>
 <p>SourceTree：在左側分支選單，分支名稱上按右鍵，選擇 Delete，若沒有合併無法刪除，要勾選 Force Delete</p>
 </blockquote>
@@ -579,17 +645,17 @@
 </ul>
 <p>若刪除掉還沒合併的分支，怎麼救回來？</p>
 <ol>
-<li><p>git branch -D cat。（強制刪除 cat 分支）</p>
+<li><p>git branch -D cat（刪除 cat 分支）。</p>
 </li>
-<li><p>訊息：Deleted branch cat（was 01168d8），會有簡易雜湊碼 01168d8。</p>
+<li><p>刪除分支 Commit 雜湊碼其實還在，會出現這樣的訊息 Deleted branch cat（was 01168d8），</p>
 </li>
 <li><p>git branch cat 01168d8，把 cat 分支建立回來。</p>
 <blockquote>
-<p>SourceTree：點擊上方選單的 Branch 按鈕設定，New Branch：cat，Specified commit: 貼上 01168d8 雜湊碼</p>
+<p>SourceTree：點擊上方選單的 Branch 按鈕設定，New Branch：cat，Specified commit: 貼上 01168d8 雜湊碼。</p>
 </blockquote>
 </li>
 </ol>
-<p>分支指是一個指向某個 Commit 雜湊指標，刪除分支指標不會造成那些 Commit 消失，只是沒有人指到 Commit，只要把他們的聯繫接回來，內容就會回來。<br>刪掉後，卻忘記 SHA-1？ 請使用 <code>git reflog</code>查詢，跟 使用 hard 模式 Reset 某個 commit 一樣。</p>
+<p>分支只是一個指向某個 Commit 雜湊指標，刪除分支不會造成那些 Commit 消失，只是沒有人指到 Commit，斷開了魂結，只要把他們連接回來，內容就會回來。但是，刪掉後，卻忘記 SHA-1 commit 雜湊碼怎麼辦？ 可使用<code>git reflog</code>查詢，跟使用 reset 某個 commit 一樣。</p>
 <h2 id="切換分支-checkout"><a href="#切換分支-checkout" class="headerlink" title="切換分支 checkout"></a>切換分支 checkout</h2><ul>
 <li><p><code>git checkout 分支名稱</code> 切換到分支名稱，例如：git checkout devlop</p>
 <blockquote>
@@ -599,18 +665,19 @@
 <li><p><code>git checkout -</code> 兩個分支來回切換</p>
 </li>
 </ul>
-<h2 id="合併分支-merge"><a href="#合併分支-merge" class="headerlink" title="合併分支 merge"></a>合併分支 merge</h2><ul>
-<li><p><code>git merge 被合併的分支名稱</code> 合併分支，通常做完分支項目，切換到 master，再進行合併指令。</p>
+<h2 id="合併分支-merge"><a href="#合併分支-merge" class="headerlink" title="合併分支 merge"></a>合併分支 merge</h2><p>合併分支也就是合併自己開出去的分身，收割它們為你做的事情，合併分支的概念其實是合併他人的分支指向一個新的 commit，每個分支都只是一張便利貼，它們都是指向一個 commit 的指標。</p>
+<ul>
+<li>一般合併<br><code>git merge 被合併的分支名稱</code>，做完分支項目，git checkout 切換到 master，再進行合併指令。</li>
+</ul>
 <blockquote>
 <p>SourceTree：在左側分支選單，切換至進度落後的分支，再對進度超前的目標分支按右鍵，選擇 Merge into current branch</p>
 </blockquote>
-</li>
-<li><p><code>git merge 被合併的分支名稱 --no-ff</code> 顯示同條支線要合併，剷生合併過的小耳朵，可知道何時合併，也就是不使用快轉模式合併。</p>
+<ul>
+<li>小耳朵合併<br><code>git merge 被合併的分支名稱 --no-ff</code> 顯示同條支線要合併，剷生合併過的小耳朵，可知道何時合併，也就是不使用快轉模式合併。</li>
+</ul>
 <blockquote>
 <p>SourceTree：合併時勾選 Create a commit even if fast-forward is possible，沒有勾選就會進行 fast-forward。</p>
 </blockquote>
-</li>
-</ul>
 <h2 id="分支合併的情況"><a href="#分支合併的情況" class="headerlink" title="分支合併的情況"></a>分支合併的情況</h2><ol>
 <li><p>若是系出同源的雙胞胎分支（兩分支獨立前進）要進行合併，Git 會產生一個 Commit 來處理，這個 Commit 會指向二個 Commit<br>（一般 Commit 只會指向某個 Commit），明確標記來自哪兩個分支，兩獨立分支合併可能產生內容相同的衝突。</p>
 </li>
@@ -626,6 +693,34 @@
 <li>執行 git pull –rebase 時，合併會排在同一分支線上。</li>
 <li>執行 merge 時，則會出現合併提交，也就是所謂的小耳朵。</li>
 </ul>
+<h1 id="rebase-另一種合併"><a href="#rebase-另一種合併" class="headerlink" title="rebase 另一種合併"></a>rebase 另一種合併</h1><p>盡量不要用，不會產生合併的 commit，很難知道發生狀況，</p>
+<p>rebase，重新定義真的參考基準，a、b 為各自獨立分支，若以 a 分支是 head，要用 rebase 合併 b，那麼 b 這條分支是新的參考基準，</p>
+<p>a 會接到 b 分支上，但不會產生任何新的合併 commit。</p>
+<blockquote>
+<p>SourceTree：在左邊分支名稱上按右鍵，選擇 Rebase current changes onto ..</p>
+</blockquote>
+<p>如何取消 rebase？</p>
+<p>git reset HEAD^ –hard 只會拆掉最後一個 Commit，無法回到 Rebase 的狀態。</p>
+<p>搭配使用<code>git reflog</code>，查出 rebase 前的 commit 的代碼，<code>git reset commit代碼 --hard</code>，</p>
+<p>或是使用記錄點 ORIG_HEAD 參數，它表示危險操作（分支合併、Reset、Rebase）之前的 HEAD 位置，</p>
+<p><code>git reset ORIG_HEAD --hard</code>，更方便使用。</p>
+<p>Rebase instead of merge：拉回來不會有額外的 Commit 的方式進行合併，也會使用快轉模式，覺得很像 Commit merge changes immediately…目前無法比較。</p>
+<p><code>git pull --rebase</code></p>
+<h1 id="斷頭（Detached-HEAD-）"><a href="#斷頭（Detached-HEAD-）" class="headerlink" title="斷頭（Detached HEAD ）"></a>斷頭（Detached HEAD ）</h1><p>一般，HEAD 會指向某個分支，分支會指向某個 Commit，若 HEAD 發生沒有指到某個分支的情況，這就叫斷頭（Detached HEAD ），<br>這通常發生在沒有分支名稱的 commit 時間點上，進行了修改並且 commit 產生了新的 commit 時間點，這個沒有分支名稱的 commit 點就叫斷頭，<br>因此斷頭還是可以繼續進行 Commit。</p>
+<ul>
+<li>處理斷頭的方式</li>
+</ul>
+<ol>
+<li><code>git branch 無名分支的分支名稱</code> 給斷頭一個新的名稱，解決斷頭問題。</li>
+<li><code>git checkout master</code> 回到 master 分支，也可以解除斷頭。</li>
+<li><code>git merge 無名分支的分支名稱</code> 或是回到 master 合併無名分支的分支名稱</li>
+</ol>
+<p>以上合併是屬於 3-way merge，在合併過程中可能發生衝突。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git branch 名稱 給無名分支取一個名稱</span><br><span class="line">git checkout master 切換回 master</span><br><span class="line">git branch -D 名稱 刪除它</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>SourceTree：左上角，File &gt; Clone/New</p>
+</blockquote>
 <h1 id="標籤-TAG"><a href="#標籤-TAG" class="headerlink" title="標籤 TAG"></a>標籤 TAG</h1><p>標籤（tag）是一個指向某個 Commit 的指標，跟分支（branch）很像，都是 SHA-1 40 字元碼，但些許不同。<br>標籤有兩種，<br>第一種是輕量標籤（lightweight tag），它指向某一個 Commit，<br>另一種是有附註標籤（annotated tag），它指向某個 Tag 物件，Tag 物件再指向 Commit，</p>
 <p>不管哪種，標籤是貼紙的概念，都可以把它當作貼紙一樣使用，貼在某個 Commit 上，差異就在要不要為這標籤輸入資訊，<br>標籤會存於 .git/refs/tags 裡面，標籤被刪除，也不會影響到被指到的物件，標籤跟分支真正的差別在於分支會隨著 Commit 移動，<br>但標籤不會，標籤只會留在原來貼的位置在。</p>
 <ul>
@@ -687,7 +782,7 @@
 <blockquote>
 <p>SourceTree：選擇想要 Cherry-pick 的對象，按右鍵選擇 Cherry Pick。</p>
 </blockquote>
-<h1 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h1><p>將儲存庫 Fork 一份下來。</p>
+<h1 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h1><p>Fork 是 GitHub 的一種機制，可將別人或自己的儲存庫 Fork 一份下來，這動作就好像 Git 的 branch。</p>
 <h2 id="Clone-與-Fork-的差異"><a href="#Clone-與-Fork-的差異" class="headerlink" title="Clone 與 Fork 的差異"></a>Clone 與 Fork 的差異</h2><p>Fork 讓 Git 儲存庫分出另一個版本，很像 Clone 指令，Clone 的功能也是複製 Git 儲存庫，兩者的不同點在於 Clone 複製的 Git 儲存庫不會記錄是由哪一個 Git 儲存庫複製出來，<br>Fork 複製出來的 Git 儲存庫會保留它的來源 Git 儲存庫，將來這個 Fork 得到的 Git 儲存庫，可以再合併到原來的 Git 儲存庫。</p>
 <p>也就是說，Fork 得到的儲存庫可以執行 Commit、建立分支、合併等各種操作，在同一段時間，原來的 Git 儲存庫也會進行修改和更新，現在可以在任意時間點，從原來的 Git 儲存庫取得更新，<br>並且套用到 Fork 得到的儲存庫。當程式專案開發完成，並且 Commit 到 Git 檔案庫後，可以發送一個 Pull Request 訊息給原來的 Git 儲存庫。<br>原來的 Git 儲存庫擁有者收到 Pull Request 的請求之後，如果採用我們的 Fork 儲存庫，可以把內容合併到原來的 Git 儲存庫。</p>
 <ul>
@@ -710,7 +805,7 @@
 <ol>
 <li><code>git remote -v</code> 查看遠端自己專案的訊息。</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">test https:&#x2F;&#x2F;github.com&#x2F;powerkaifu&#x2F;test.git (fetch)</span><br><span class="line">test https:&#x2F;&#x2F;github.com&#x2F;powerkaifu&#x2F;test.git (push)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test https:&#x2F;&#x2F;github.com&#x2F;powerkaifu&#x2F;test.git (fetch)</span><br><span class="line">test https:&#x2F;&#x2F;github.com&#x2F;powerkaifu&#x2F;test.git (push)</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li><code>git remote add test2 對方遠端專案網址</code> 在遠端新增一個遠端儲存庫名稱，來源是對方遠端專案的網址。</li>
@@ -733,7 +828,7 @@
 </ol>
 <p>在 Git 的世界裡，會根據當下的 Commit，一個一個得把所有物件抽出來，且每次 add 到暫存區時，即使檔案內容只改了一個字，也會算出新的 SHA-1 值，<br>做出一顆全新的 Blob 物件，就像拎一串葡萄， 這也是所謂的快照（Snapshot）概念。每一次的 Commit 都是一個物件，它會指向某一個 Tree 物件（目錄），<br>而這些 Tree 物件會指向其他 Tree 物件（子目錄）或是 Blob 物件（檔案），結構就像葡萄串，只要伸手從源頭的 Commit 物件拎起來，整串內容都可以被拿出來。</p>
 <p>refs/heads 記錄了分支指標的 40 commit SHA-1 值，它對應了 SourceTree 的 commit SHA-1 值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.</span><br><span class="line">├── hooks</span><br><span class="line">├── info</span><br><span class="line">├── logs</span><br><span class="line">├── objects 存放 Blob、Tree、Commit、Tag 物件</span><br><span class="line">└── refs 紀錄了 heads（分支指標）、remotes（遠端儲存庫）、tags</span><br><span class="line">COMMIT_EDITMSG</span><br><span class="line">config</span><br><span class="line">description</span><br><span class="line">HEAD 紀錄目前指向的分支名稱（commit 碼）或是 其他 commit 碼</span><br><span class="line">index</span><br><span class="line">ORIG_HEAD 危險操作的紀錄點（commit 碼），git reset ORIG_HEAD --hard 可以返回之前的狀態</span><br><span class="line">sourcetreeconfig.json</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── hooks</span><br><span class="line">├── info</span><br><span class="line">├── logs</span><br><span class="line">├── objects 存放 Blob、Tree、Commit、Tag 物件</span><br><span class="line">└── refs 紀錄了 heads（分支指標）、remotes（遠端儲存庫）、tags</span><br><span class="line">COMMIT_EDITMSG</span><br><span class="line">config</span><br><span class="line">description</span><br><span class="line">HEAD 紀錄目前指向的分支名稱（commit 碼）或是 其他 commit 碼</span><br><span class="line">index</span><br><span class="line">ORIG_HEAD 危險操作的紀錄點（commit 碼），git reset ORIG_HEAD --hard 可以返回之前的狀態</span><br><span class="line">sourcetreeconfig.json</span><br></pre></td></tr></table></figure>
 
 <h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p>在工作目錄下新增一個 .gitignore 檔案，可以忽略某些檔案或目錄不被 Git 追蹤，也就是說 .gitignore 的名單可以讓 Git 無視，感應不到。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># .gitignore 可以忽略檔案與目錄</span><br><span class="line"></span><br><span class="line">*.tmp</span><br><span class="line">config&#x2F;database.yml</span><br><span class="line">node_modules</span><br><span class="line">.env</span><br><span class="line">nogrok.exe</span><br></pre></td></tr></table></figure>
@@ -760,35 +855,18 @@
 <li>刪除 Commit：叫出 Rebase 視窗，隊要刪除的 Commit 按右鍵 Delete commot…</li>
 </ul>
 <h2 id="一次提交多檔案"><a href="#一次提交多檔案" class="headerlink" title="一次提交多檔案"></a>一次提交多檔案</h2><p><code>git add --all</code> 、<code>git add -A</code>、<code>git add .</code> 一次全部提交<br><code>git add *.txt</code> 一次全部提交 .txt 檔案</p>
-<h2 id="需小心的指令："><a href="#需小心的指令：" class="headerlink" title="需小心的指令："></a>需小心的指令：</h2><p><code>git push -f</code> 要注意使用，暴力推上去，放大招會影響其他人，GitHub 有保護機制，進入 settings 頁面，左側 Branches，選擇分支，預設是 master，</p>
+<h2 id="需小心的指令"><a href="#需小心的指令" class="headerlink" title="需小心的指令"></a>需小心的指令</h2><p><code>git push -f</code> 要注意使用，暴力推上去，放大招會影響其他人，GitHub 有保護機制，進入 settings 頁面，左側 Branches，選擇分支，預設是 master，</p>
 <h1 id="設定短指令"><a href="#設定短指令" class="headerlink" title="設定短指令"></a>設定短指令</h1><p>可以使用短指令 <code>git tree</code> 替代，檢查該分支 log</p>
 <p><code>git config --global alias.tree &#39;log --graph --decorate --pretty=oneline --abbrev-commit&#39;</code><br><code>git config --global alias.l &quot;log --oneline --graph&quot;</code><br><code>git config --global alias.ls &#39;log --graph --pretty=format:&quot;%h &lt;%an&gt; %ar %s&quot;&#39;</code><br><code>git config --global alias.unstage &#39;reset HEAD --&#39;</code><br><code>git config --global alias.undo &#39;reset --soft HEAD~1&#39;</code> 還原父節點，檔案回到暫存區，也就是可以修改 Commit。<br><code>git config --global alias.last &#39;log -1 HEAD&#39;</code> 最後一次 Commit。<br><code>git config --globa alias.difflast &#39;diff --chached HEAD^&#39;</code> 最後一次 Commit 的差異。</p>
 <p>其他常用短指令縮寫：</p>
-<p><code>git config --global alias.co checkout</code></p>
-<p><code>git config --global alias.br branch</code></p>
-<p><code>git config --global alias.st status</code></p>
-<p><code>git config --global alias.cm commit</code></p>
+<p><code>git config --global alias.co checkout</code><br><code>git config --global alias.br branch</code><br><code>git config --global alias.st status</code><br><code>git config --global alias.cm commit</code></p>
 <p>也可以到以下目錄的設定檔 <strong>.gitconfig</strong>，設定短指令，此檔案也可以看到其他全域 config –global 的設定</p>
 <p>全域設定檔：</p>
 <ul>
-<li><code>Win：C:\Users\KaiFu\.gitconfig</code></li>
-<li><code>Mac：~/.gitconfig</code></li>
+<li>Win：C:\Users\KaiFu.gitconfig</li>
+<li>Mac：~/.gitconfig</li>
 </ul>
-<h2 id="另一種合併-rebase（不要用，不會產生合併的-commit，很難知道發生狀況）"><a href="#另一種合併-rebase（不要用，不會產生合併的-commit，很難知道發生狀況）" class="headerlink" title="另一種合併 rebase（不要用，不會產生合併的 commit，很難知道發生狀況）"></a>另一種合併 rebase（不要用，不會產生合併的 commit，很難知道發生狀況）</h2><p>rebase，重新定義真的參考基準，a、b 為各自獨立分支，若以 a 分支是 head，要用 rebase 合併 b，那麼 b 這條分支是新的參考基準，</p>
-<p>a 會接到 b 分支上，但不會產生任何新的合併 commit。</p>
-<blockquote>
-<p>SourceTree：在左邊分支名稱上按右鍵，選擇 Rebase current changes onto ..</p>
-</blockquote>
-<p>如何取消 rebase？</p>
-<p>git reset HEAD^ –hard 只會拆掉最後一個 Commit，無法回到 Rebase 的狀態。</p>
-<p>搭配使用<code>git reflog</code>，查出 rebase 前的 commit 的代碼，<code>git reset commit代碼 --hard</code>，</p>
-<p>或是使用記錄點 ORIG_HEAD 參數，它表示危險操作（分支合併、Reset、Rebase）之前的 HEAD 位置，</p>
-<p><code>git reset ORIG_HEAD --hard</code>，更方便使用。</p>
-<p>Rebase instead of merge：拉回來不會有額外的 Commit 的方式進行合併，也會使用快轉模式，覺得很像 Commit merge changes immediately…目前無法比較。</p>
-<p><code>git pull --rebase</code></p>
-<h1 id="比對"><a href="#比對" class="headerlink" title="比對"></a>比對</h1><p><code>git diff 來源分支..目的分支</code> 比對分支</p>
-<p><code>git log 來源分支..目的分支</code> 比對 log</p>
-<p><code>git shortlog</code> 簡易 log</p>
+<h1 id="比對"><a href="#比對" class="headerlink" title="比對"></a>比對</h1><p><code>git diff 來源分支..目的分支</code> 比對分支<br><code>git log 來源分支..目的分支</code> 比對 log<br><code>git shortlog</code> 簡易 log</p>
 <h1 id="熱門的遠端儲存庫服務平台"><a href="#熱門的遠端儲存庫服務平台" class="headerlink" title="熱門的遠端儲存庫服務平台"></a>熱門的遠端儲存庫服務平台</h1><ul>
 <li>GitHub：擁有 GitHub Pages 功能，可擁有私人數據庫，免費方案是 3 人以下。（適合擁有自己的公開對外靜態網站）</li>
 <li>GitLab：自架 Git 伺服器，有提供 web 視覺化管理介面，常用於企業內部開發。</li>
@@ -814,31 +892,18 @@
 <li>同一台電腦上，不同使用者帳號的 SSH 金鑰是互相獨立，不能互相使用。</li>
 </ol>
 <h1 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h1><ul>
-<li>Master（持續不關閉分支）</li>
+<li><p>Master（持續不關閉分支）<br>最穩定版本，隨時可上線版本，此分支的來源只能從別的分支合併過來。不會直接 Commit 這個分支，會在這個分支上的 Commit 打上版本標籤。</p>
+</li>
+<li><p>Develop（持續不關閉分支）<br>開發分支的基礎，需要新增功能時，所有的 Feature 分支都是這個分支切出去的。而 Feature 分支完成功能後再合併回 Develop，</p>
+</li>
+<li><p>Hotfix（暫時性分支）<br>線上產品出現問題時，會從 Master 分支開一個 Hotfix 分支出來進行修復，完成後再合併回 Master，同時也合併一分到 Develop。<br>必須如此，因為 Develop 分支完成並合併 Master 的時候，那個問題又會出現。</p>
+</li>
+<li><p>Release<br>當 Develop 分支夠成熟，就可以合併到 Release 分支，進行上線前的最後測試。測試完成後，Release 分支可以合併到 Master 與 Develop 兩個分支上，<br>Master 分支是上線版本，合併 Develop 分支是因為 Release 分支上還會遇到修正的問題，所以需要跟 Develop 分支同步，免得之後的版本又再度出現同樣的問題。<br>Release 名稱以 release/1.0 數字格式為主，</p>
+</li>
+<li><p>Feature（暫時性分支）<br>新增功能時，會從 Develop 分支分出 Feature 分支 來開發功能，完成後再合併回 Develop 分支，就可以刪除 Feature 分支。<br>Feature 分支的名稱會以 feature/，例如：feature/新功能名稱或 feature/#9527，#9527 是功能編號。</p>
+</li>
 </ul>
-<p>最穩定版本，隨時可上線版本，此分支的來源只能從別的分支合併過來。不會直接 Commit 這個分支，會在這個分支上的 Commit 打上版本標籤。</p>
-<ul>
-<li>Develop（持續不關閉分支）</li>
-</ul>
-<p>開發分支的基礎，需要新增功能時，所有的 Feature 分支都是這個分支切出去的。而 Feature 分支完成功能後再合併回 Develop，</p>
-<ul>
-<li>Hotfix（暫時性分支）</li>
-</ul>
-<p>線上產品出現問題時，會從 Master 分支開一個 Hotfix 分支出來進行修復，完成後再合併回 Master，同時也合併一分到 Develop。</p>
-<p>必須如此，因為 Develop 分支完成並合併 Master 的時候，那個問題又會出現。</p>
-<ul>
-<li>Release</li>
-</ul>
-<p>當 Develop 分支夠成熟，就可以合併到 Release 分支，進行上線前的最後測試。測試完成後，Release 分支可以合併到 Master 與 Develop 兩個分支上，</p>
-<p>Master 分支是上線版本，合併 Develop 分支是因為 Release 分支上還會遇到修正的問題，所以需要跟 Develop 分支同步，免得之後的版本又再度出現同樣的問題。</p>
-<p>Release 名稱以 release/1.0 數字格式為主，</p>
-<ul>
-<li>Feature（暫時性分支）</li>
-</ul>
-<p>新增功能時，會從 Develop 分支分出 Feature 分支 來開發功能，完成後再合併回 Develop 分支，就可以刪除 Feature 分支。</p>
-<p>Feature 分支的名稱會以 feature/，例如：feature/新功能名稱或 feature/#9527，#9527 是功能編號。</p>
-<h2 id="查兇手"><a href="#查兇手" class="headerlink" title="查兇手"></a>查兇手</h2><p><code>git blame index.html</code> 抓出兇手看誰寫的程式</p>
-<p><code>git blame -L 5,10 index.html</code> 檔案太大，可以顯示程式行數範圍，看誰寫的程式</p>
+<h2 id="查兇手"><a href="#查兇手" class="headerlink" title="查兇手"></a>查兇手</h2><p><code>git blame index.html</code> 抓出兇手看誰寫的程式<br><code>git blame -L 5,10 index.html</code> 檔案太大，可以顯示程式行數範圍，看誰寫的程式</p>
 <blockquote>
 <p>SourceTree：對檔案按右鍵，選擇 Blame Selected。</p>
 </blockquote>
@@ -888,118 +953,6 @@
 <tr>
 <td>git push origin 其他分支名稱(通常與本地端分支名稱相同)</td>
 <td>將本地專案推送至遠端的其他分支</td>
-</tr>
-</tbody></table>
-<h1 id="分支指令"><a href="#分支指令" class="headerlink" title="分支指令"></a>分支指令</h1><table>
-<thead>
-<tr>
-<th>指令</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>git branch</td>
-<td>列出本地分支</td>
-</tr>
-<tr>
-<td>git branch –remote</td>
-<td>列出遠端分支</td>
-</tr>
-<tr>
-<td>git branch -a</td>
-<td>列出本地與遠端所有分支</td>
-</tr>
-<tr>
-<td>git branch 分支名稱</td>
-<td>新增分支</td>
-</tr>
-<tr>
-<td>git branch -d 分支名稱</td>
-<td>刪除分支</td>
-</tr>
-<tr>
-<td>git branch -m 舊分支名稱 新分支名稱</td>
-<td>修改分支名稱</td>
-</tr>
-<tr>
-<td>git checkout 分支名稱</td>
-<td>切換分支</td>
-</tr>
-<tr>
-<td>git checkout .</td>
-<td>救回刪除檔案或修改檔案後悔回復上一次 commit 紀錄狀態</td>
-</tr>
-<tr>
-<td>git merge 分支名稱 –no-ff</td>
-<td>分支合併，會建立合併提交，產生小耳朵紀錄，推薦使用</td>
-</tr>
-<tr>
-<td>git merge 分支名稱</td>
-<td>快轉合併(fast-forward merge)，直線式合併，不推薦</td>
-</tr>
-</tbody></table>
-<p>git checkout 後面接分支名稱為切換分支，如果接檔名或路徑，則會回復上一次 commit 紀錄狀態。</p>
-<h1 id="還原指令"><a href="#還原指令" class="headerlink" title="還原指令"></a>還原指令</h1><ul>
-<li>還原父節點</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>指令</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>git reset head~ –soft</td>
-<td>還原父節點，檔案會還原至暫存區，也就是可以修改 Commit。</td>
-</tr>
-<tr>
-<td>git reset head~ –mixed</td>
-<td>還原父節點，等同預設值 git reset HEAD~，檔案會還原至工作區（working directory）。</td>
-</tr>
-<tr>
-<td>git reset head~ –hard</td>
-<td>還原父節點，儲存庫、暫存區、資料夾檔案的狀態。</td>
-</tr>
-</tbody></table>
-<p>PS：head~ 後面可以加數字，若為 2 表示還原兩次父節點，往前兩次。</p>
-<ul>
-<li>還原到某個 commit 節點</li>
-</ul>
-<p>原理與還原父節點一樣，將 head~ 替換成 commit 代碼。</p>
-<table>
-<thead>
-<tr>
-<th>指令</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>git reset commit 代碼 –soft</td>
-<td>還原至指定的 commit 碼，檔案會還原至暫存區，也就是可以修改 Commit 訊息。</td>
-</tr>
-<tr>
-<td>git reset commit 代碼 –mixed</td>
-<td>還原至指定的 commit 碼，檔案會還原至工作區（working directory）。</td>
-</tr>
-<tr>
-<td>git reset commit 代碼 –hard</td>
-<td>還原至指定的 commit 碼，儲存庫、暫存區、資料夾檔案的狀態。</td>
-</tr>
-</tbody></table>
-<ul>
-<li>特別還原</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>指令</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>git reset ORIG_HEAD –hard</td>
-<td>返回危險記錄點的狀態，可以在 .git 目錄查到 ORIG_HEAD 目前指向哪個 commit 碼。</td>
 </tr>
 </tbody></table>
 <h1 id="修改訊息"><a href="#修改訊息" class="headerlink" title="修改訊息"></a>修改訊息</h1><ul>
@@ -1072,13 +1025,14 @@
 <td>查看簡易的 log 歷史紀錄</td>
 </tr>
 <tr>
+<td>git reflog 或 git log -g</td>
+<td>檢視 commit 所有紀錄，還原很重要的指令</td>
+</tr>
+<tr>
 <td>git branch -r</td>
 <td>檢視遠端分支，-r 或 –remote。</td>
 </tr>
 </tbody></table>
-<ol>
-<li>可以回到過去一個節點修改訊息？</li>
-</ol>
 
     </div>
 
