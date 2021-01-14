@@ -3947,7 +3947,7 @@
 <td>設定全域作者</td>
 </tr>
 <tr>
-<td>git config –global user.email “<a href="mailto:&#x70;&#111;&#x77;&#x65;&#114;&#107;&#97;&#x69;&#102;&#117;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x70;&#111;&#x77;&#x65;&#114;&#107;&#97;&#x69;&#102;&#117;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a>“</td>
+<td>git config –global user.email “<a href="mailto:&#x70;&#111;&#x77;&#x65;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#x70;&#111;&#x77;&#x65;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a>“</td>
 <td>設定全域 EMAIL</td>
 </tr>
 <tr>
@@ -3955,7 +3955,7 @@
 <td>設定區域作者</td>
 </tr>
 <tr>
-<td>git config –local user.email “<a href="mailto:&#x70;&#111;&#119;&#101;&#114;&#x6b;&#x61;&#105;&#102;&#x75;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;">&#x70;&#111;&#119;&#101;&#114;&#x6b;&#x61;&#105;&#102;&#x75;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;</a>“</td>
+<td>git config –local user.email “<a href="mailto:&#112;&#x6f;&#119;&#x65;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;">&#112;&#x6f;&#119;&#x65;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;</a>“</td>
 <td>設定區域 EMAIL</td>
 </tr>
 </tbody></table>
@@ -4241,7 +4241,7 @@
 <li>此時會進入編輯器，修改成自己想要的訊息，存檔關閉，修改成功。</li>
 </ol>
 <p>如果要返回這次 rebase，記得可以使用 git reset orig_head –hard，返回危險操作前一個狀態。</p>
-<h1 id="斷頭（Detached-HEAD）"><a href="#斷頭（Detached-HEAD）" class="headerlink" title="斷頭（Detached HEAD）"></a>斷頭（Detached HEAD）</h1><p>一般來說，分支會指向某個 Commit，而 HEAD 指向某個分支的指標，也就是說我們可以將 HEAD 看成目前所在的分支。但是，若 HEAD 發生沒有指到某個分支的情況，這就稱為斷頭（Detached HEAD）。HEAD 只要指到沒有分支名稱的 commit 上，我們又進行了修改並且 commit，這樣就會產生新的 commit，這個沒有分支名稱的 commit 點就叫斷頭，它還是可以繼續進行 Commit，如果你肯為它取名，它就會成為新的分支。</p>
+<h1 id="Detached-HEAD"><a href="#Detached-HEAD" class="headerlink" title="Detached HEAD"></a>Detached HEAD</h1><p>一般來說，分支會指向某個 Commit，而 HEAD 指向某個分支的指標，也就是說我們可以將 HEAD 看成目前所在的分支。但是，若 HEAD 發生沒有指到某個分支的情況，這就稱為斷頭（Detached HEAD）。HEAD 只要指到沒有分支名稱的 commit 上，我們又進行了修改並且 commit，這樣就會產生新的 commit，這個沒有分支名稱的 commit 點就叫斷頭，它還是可以繼續進行 Commit，如果你肯為它取名，它就會成為新的分支。</p>
 <p>斷頭是無名的新分支，還有個特點，當回到其他分支後，斷頭就會消失在樹狀圖上，看似消失其實存在，如果有記得它的 commit SHA-1，還是可以使用 git checkout commit 碼返回，但都沒有回來拜訪它，過不久之後它就會被 Git 資源機制回收。</p>
 <ul>
 <li>處理斷頭的方式</li>
@@ -4261,13 +4261,13 @@
 <li><code>git checkout -t origin/abc</code> 切換遠端分支不呈現斷頭，要加上 -t 或–track。</li>
 </ol>
 <p>PS：其實 -t 是在本機建立一個追蹤分支，其實就是等於將本地端分支改為 git checkout abc。</p>
-<h1 id="標籤-TAG"><a href="#標籤-TAG" class="headerlink" title="標籤 TAG"></a>標籤 TAG</h1><p>標籤（tag）是一個指向某個 Commit 的指標，跟分支（branch）很像，都是 SHA-1 40 字元碼，但些許不同。<br>標籤有兩種：輕量標籤是用於暫時標記，附註標籤可以註解更多的資訊，例如貼標籤的人是誰、及註解的訊息。</p>
+<h1 id="標籤（Tag）"><a href="#標籤（Tag）" class="headerlink" title="標籤（Tag）"></a>標籤（Tag）</h1><p>標籤（tag）是一個指向某個 Commit 的指標，跟分支（branch）很像，都是 SHA-1 40 字元碼，但些許不同。<br>標籤有兩種：輕量標籤是用於暫時標記，附註標籤可以註解更多的資訊，例如貼標籤的人是誰、及註解的訊息。</p>
 <h2 id="輕量標籤（lightweight-tag）"><a href="#輕量標籤（lightweight-tag）" class="headerlink" title="輕量標籤（lightweight tag）"></a>輕量標籤（lightweight tag）</h2><p><code>git tag 標籤名稱 commit碼</code> 例如：git tag hello ffda1d4，在 commit 碼 ffda1d4 的地方貼上 hello 標籤</p>
 <h2 id="附註標籤（annotated-tag）"><a href="#附註標籤（annotated-tag）" class="headerlink" title="附註標籤（annotated tag）"></a>附註標籤（annotated tag）</h2><p><code>git tag 標籤名稱 commit碼 -a -m &quot;附註顯示的訊息&quot;</code> -a 建立附註標籤，-m 做 commit 訊息。</p>
 <p>刪除標籤：<code>git tag -d 標籤名稱</code></p>
 <p>不管哪種，標籤也是貼紙的概念，貼在某個 Commit 上，差異就在要不要為這標籤輸入資訊，標籤會存於 .git/refs/tags 裡面，<br>標籤被刪除，也不會影響到被指到的物件，標籤跟分支真正的差別在於分支會隨著 Commit 移動，但標籤不會，標籤只會留在原來貼的位置在。</p>
 <h2 id="分支與標籤差異？"><a href="#分支與標籤差異？" class="headerlink" title="分支與標籤差異？"></a>分支與標籤差異？</h2><p>標籤與分支都是一種指標，它們都放在.git/refs 目錄下，分支在 heads 目錄，標籤在 tags 目錄。兩者被刪除不會影響到指到的那個物件，因為他們都是便利貼的概念。差別在於分支可以在 commit 節點上移動，標籤被貼上就屬於該 commit 的便利貼，不會移動。留下來（標籤），或我跟你走（分支）。</p>
-<h1 id="暫時儲存進度（stash）"><a href="#暫時儲存進度（stash）" class="headerlink" title="暫時儲存進度（stash）"></a>暫時儲存進度（stash）</h1><p>如果要先忙別的任務，又不想先將現在的分支 commit，那麼要先儲存 stash 手邊的進度。</p>
+<h1 id="暫存進度（stash）"><a href="#暫存進度（stash）" class="headerlink" title="暫存進度（stash）"></a>暫存進度（stash）</h1><p>如果要先忙別的任務，又不想先將現在的分支 commit，那麼要先儲存 stash 手邊的進度。</p>
 <ul>
 <li>第一種方式，先 Commit 目前進度，然後去處理其他的任務，完成後再 <code>git reset HEAD^</code>拆掉當前的 commit 將檔案丟回工作目錄繼續做。</li>
 <li>第二種方式，使用 Stash。</li>
