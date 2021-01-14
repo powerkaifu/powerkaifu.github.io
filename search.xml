@@ -3918,6 +3918,8 @@
     <title>Git</title>
     <url>/2019/10/14/lesson-git/</url>
     <content><![CDATA[<h1 id="Git-介紹"><a href="#Git-介紹" class="headerlink" title="Git 介紹"></a>Git 介紹</h1><p>Git 是一種版本控制系統（Version Control System），可以紀錄開發時各階段版本的檔案目錄結構（新增、修改、刪除內容的變化），可以隨時切換到過去某個版本時候的專案狀態，它也很像 RPG 角色扮演遊戲的紀錄檔，在打未知能力 BOSS 或關卡前，習慣會先記錄一下，全滅後還可以回到紀錄時的狀態重新挑戰。Git 是分散式的版控系統（Distributed Version Control），好處是即使沒有網路，也可以在本機電腦使用，等到有網路時在進行同步操作。</p>
+<a id="more"></a>
+
 <h1 id="安裝-Git"><a href="#安裝-Git" class="headerlink" title="安裝 Git"></a>安裝 Git</h1><ul>
 <li>安裝環境 Git <a href="https://git-scm.com/">Download Git</a></li>
 <li>VSCode 安裝 Git History、GitLens、Git Graph</li>
@@ -3947,7 +3949,7 @@
 <td>設定全域作者</td>
 </tr>
 <tr>
-<td>git config –global user.email “<a href="mailto:&#x70;&#111;&#x77;&#x65;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#x70;&#111;&#x77;&#x65;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a>“</td>
+<td>git config –global user.email “<a href="mailto:&#x70;&#x6f;&#119;&#x65;&#114;&#x6b;&#x61;&#x69;&#x66;&#117;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#x70;&#x6f;&#119;&#x65;&#114;&#x6b;&#x61;&#x69;&#x66;&#117;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a>“</td>
 <td>設定全域 EMAIL</td>
 </tr>
 <tr>
@@ -3955,7 +3957,7 @@
 <td>設定區域作者</td>
 </tr>
 <tr>
-<td>git config –local user.email “<a href="mailto:&#112;&#x6f;&#119;&#x65;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;">&#112;&#x6f;&#119;&#x65;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;</a>“</td>
+<td>git config –local user.email “<a href="mailto:&#x70;&#111;&#119;&#101;&#x72;&#107;&#x61;&#105;&#102;&#117;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#x6d;">&#x70;&#111;&#119;&#101;&#x72;&#107;&#x61;&#105;&#102;&#117;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#x6d;</a>“</td>
 <td>設定區域 EMAIL</td>
 </tr>
 </tbody></table>
