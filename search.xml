@@ -3917,8 +3917,7 @@
   <entry>
     <title>Git</title>
     <url>/2019/10/14/lesson-git/</url>
-    <content><![CDATA[<h1 id="Git-介紹"><a href="#Git-介紹" class="headerlink" title="Git 介紹"></a>Git 介紹</h1><p>Git 是一種版本控制系統（Version Control System），可以紀錄開發時各階段版本的檔案目錄結構（新增、修改、刪除內容的變化），就像搭乘時光機可以隨時切換到過去某個版本時候的專案狀態，它也很像 RPG 角色扮演遊戲的紀錄檔，在打未知能力 BOSS 或關卡前，習慣會先記錄一下，預防全滅後還可以回到紀錄時的狀態重新挑戰。Git 是分散式的版控系統（Distributed Version Control），其好處是即使沒有網路，也可以在本機電腦使用，等到有網路時在進行同步操作，例如與 GitHub。</p>
-<p>Git 的操作是在終端機或是在 GUI 圖形介面上，由於 Git 指令非常多（不常用就忘了），因此使用圖形介面會比較容易上手，但是，熟悉部分 Git 指令是必要的，個人覺得以常操作的指令並且配合 GUI 來開始。另外，剛開始學習時，有些終端機指令可以嘗試看看（dir、cd、mkdir、rm），但並不是必須，因為有其他方式可以達到目的。</p>
+    <content><![CDATA[<h1 id="Git-介紹"><a href="#Git-介紹" class="headerlink" title="Git 介紹"></a>Git 介紹</h1><p>Git 是一種版本控制系統（Version Control System），可以紀錄開發時各階段版本的檔案目錄結構（新增、修改、刪除內容的變化），可以隨時切換到過去某個版本時候的專案狀態，它也很像 RPG 角色扮演遊戲的紀錄檔，在打未知能力 BOSS 或關卡前，習慣會先記錄一下，全滅後還可以回到紀錄時的狀態重新挑戰。Git 是分散式的版控系統（Distributed Version Control），好處是即使沒有網路，也可以在本機電腦使用，等到有網路時在進行同步操作。</p>
 <h1 id="安裝-Git"><a href="#安裝-Git" class="headerlink" title="安裝 Git"></a>安裝 Git</h1><ul>
 <li>安裝環境 Git <a href="https://git-scm.com/">Download Git</a></li>
 <li>VSCode 安裝 Git History、GitLens、Git Graph</li>
@@ -3931,10 +3930,10 @@
 </ol>
 <p>Git 就像倉庫貨物的控管流程，可以分為卡車卸貨區（工作目錄）、倉庫前的小廣場（索引暫存區）、倉庫（儲存庫），首先你會在卡車卸貨區（工作目錄）進行整理、打包、分類、移除瑕疵貨物（檔案新增、編輯、刪除…），接著將整理好的貨物入庫前，會將其先放到小廣場（索引暫存區）（<strong>git add .**），最後，紀錄貨物是甚麼用途、分類、明細（</strong>git commit**），將貨物送進倉庫裡（Repository）。</p>
 <h1 id="初始化與提交"><a href="#初始化與提交" class="headerlink" title="初始化與提交"></a>初始化與提交</h1><ol>
-<li>新增專案目錄，並設定為 VScode 專案目錄，` ctrl+``打開終端機，確認終端機顯示該目錄路徑。</li>
-<li>鍵入 <code>git init</code> 初始化 git，看到建立一個 .git 隱藏目錄表示成功，版控全部只靠 .git 目錄在做事，如果把 .git 目錄移除，Git 就對這個目錄失去控制權。</li>
+<li>新增專案目錄，並設定為 VSCode 專案目錄，打開終端機，確認終端機顯示該目錄路徑。</li>
+<li>鍵入<code>git init</code>初始化 git，看到建立一個 .git 隱藏目錄表示成功，版控全部只靠 .git 目錄在做事，如果把 .git 目錄移除，Git 就對這個目錄失去控制權。</li>
 <li>若終端機顯示其他目錄路徑，可以使用右側垃圾桶清掉即可變為目前專案目錄的路徑。</li>
-<li>設定作者、EMAIL：</li>
+<li>可以設定作者、EMAIL：</li>
 </ol>
 <table>
 <thead>
@@ -3948,7 +3947,7 @@
 <td>設定全域作者</td>
 </tr>
 <tr>
-<td>git config –global user.email “<a href="mailto:&#x70;&#111;&#119;&#101;&#x72;&#x6b;&#x61;&#x69;&#x66;&#117;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#x70;&#111;&#119;&#101;&#x72;&#x6b;&#x61;&#x69;&#x66;&#117;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a>“</td>
+<td>git config –global user.email “<a href="mailto:&#x70;&#x6f;&#x77;&#x65;&#x72;&#x6b;&#97;&#105;&#102;&#117;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">&#x70;&#x6f;&#x77;&#x65;&#x72;&#x6b;&#97;&#105;&#102;&#117;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;</a>“</td>
 <td>設定全域 EMAIL</td>
 </tr>
 <tr>
@@ -3956,31 +3955,26 @@
 <td>設定區域作者</td>
 </tr>
 <tr>
-<td>git config –local user.email “<a href="mailto:&#x70;&#111;&#119;&#x65;&#x72;&#107;&#97;&#x69;&#102;&#x75;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#x70;&#111;&#119;&#x65;&#x72;&#107;&#97;&#x69;&#102;&#x75;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a>“</td>
+<td>git config –local user.email “<a href="mailto:&#112;&#111;&#119;&#x65;&#114;&#107;&#x61;&#x69;&#102;&#117;&#x40;&#103;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">&#112;&#111;&#119;&#x65;&#114;&#107;&#x61;&#x69;&#102;&#117;&#x40;&#103;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;</a>“</td>
 <td>設定區域 EMAIL</td>
 </tr>
 </tbody></table>
-<p><code>git config --global --edit</code>，可以開啟 global 的 .gitconfig 檔。</p>
-<p>SourceTree 操作：設定作者、Email</p>
-<blockquote>
-<p>Tools &gt; Options &gt; General</p>
-</blockquote>
+<p>PS：<code>git config --global --edit</code>，可以開啟 global 的 .gitconfig 檔。</p>
 <ol start="5">
 <li><p>每次修改過檔案後（新增、編輯、刪除），都必需執行 add 的動作，可以使用<code>git status</code>來檢查檔案的狀態。<br>在終端機以紅字顯示，表示尚未 add 的檔案，它們會有幾種狀態：</p>
 <ul>
 <li>Untracked files（未追蹤）：新增的檔案，尚未被 git 追蹤控管。</li>
-<li>modified：編輯過的檔案。</li>
-<li>deleted: 刪除的檔案。</li>
+<li>Modified：編輯過的檔案。</li>
+<li>Deleted: 刪除的檔案。</li>
 </ul>
-<p>輸入<code>git add .</code>後，並再次輸入<code>git status</code>，此時檔案顯示綠色，表示已經增加到暫存區（Staging Area），記住，只有在暫存區的檔案，才能 commit 後存進儲存庫。最後輸入提交訊息 <code>git commit -m &quot;message&quot;</code>，””裡面為想表達的訊息，這樣就<strong>完成一次 git 的操作（add 與 commit）</strong>。完成第一次 add 與 commit，才會產生 master 分支。</p>
+<p>輸入<code>git add .</code>後，並再次輸入<code>git status</code>，檔案顯示綠色，表示已經增加到暫存區（Staging Area），只有在暫存區的檔案，才能 Commit 後存進儲存庫。最後輸入提交訊息 <code>git commit -m &quot;&quot;</code>，””裡面為想 Commit 的訊息，這樣就<strong>完成一次 git 的操作（add 與 commit）</strong>。完成第一次 add 與 commit，Git 才會產生 master 分支。</p>
 <p>再次檢查狀態，出現「nothing to commit, working tree clean」表示沒有東西可以提交，工作目錄為空。若想將 commit 後的檔案返回工作目錄（Working Directory），可輸入<code>git reset head~</code>（等同 git reset <del>head –mixed 模式）。若想回到暫存區進行 commit，可以輸入`git reset head</del> –soft`。</p>
 <p>PS：只輸入 <code>git commit</code> 指令會進入文字編輯模式，要先按<code>任意鍵</code> 進行編輯，編輯完按 <code>esc</code> 輸入 <code>:wq</code> 退出。</p>
 </li>
 </ol>
 <h1 id="甚麼是提交（commit）？"><a href="#甚麼是提交（commit）？" class="headerlink" title="甚麼是提交（commit）？"></a>甚麼是提交（commit）？</h1><p>當每次提交一些東西時，Git 會產生一個快照，將所有檔案放置在一個物件記錄著，可以輸入<code>git log</code>（歷史紀錄） 會看到提交後 40 個字元長 16 進位 的 SHA-1（Secure Hash Algorithm 1）雜湊演算碼，這可以做為提交後的<strong>識別碼</strong>，使用指令配合 commit 識別碼，一般只需要 6~8 個數字即可辨識。</p>
-<p>PS：SourceTree 檢視歷史紀錄，在介面左側 History，檔案狀態則是 File Status，推薦使用，指令不易瀏覽。</p>
 <h1 id="上傳至遠端儲存庫（GitHub）"><a href="#上傳至遠端儲存庫（GitHub）" class="headerlink" title="上傳至遠端儲存庫（GitHub）"></a>上傳至遠端儲存庫（GitHub）</h1><ol>
-<li><p>進入 <a href="https://github.com/">GitHub</a>，新建一個專案。</p>
+<li><p>進入 <a href="https://github.com/">GitHub</a>，新建一個專案 test。</p>
 </li>
 <li><p>本地端需先建立工作目錄，並且初始化（git init），註冊遠端連結點與本地端綁定。</p>
 <p>git remote add 遠端儲存庫名稱（可以自訂） 綁定遠端儲存庫的網址<br>例如：git remote add origin <a href="https://github.com/powerkaifu/test.git">https://github.com/powerkaifu/test.git</a><br>一般遠端節點會預設 origin，可以自訂名稱。</p>
@@ -3996,30 +3990,26 @@
 <li>Source 選擇哪個分支要成為 gh-pages。</li>
 </ol>
 <p>第二種方式：</p>
-<p>若本地端建立 gh-pages 分支並 push 上去，GitHub 會自動開啟 gh-pages 分支靜態網頁的功能。</p>
-<h1 id="push"><a href="#push" class="headerlink" title="push"></a>push</h1><p><code>git push -u origin master</code> 推送至遠端 origin 儲存庫的 master 分支</p>
+<p>在 Repo 初始化時建立所需的分支，master 就存放專案原始碼，分支存放展示用的靜態網頁（例如：GitHub 的分支 gh-pages），<br>在本地端 master 分支上，建立 gh-pages 分支並 push 上去，GitHub 會自動開啟 gh-pages 分支靜態網頁的功能。</p>
+<h1 id="Push"><a href="#Push" class="headerlink" title="Push"></a>Push</h1><p><code>git push -u origin master</code> 推送至遠端 origin 儲存庫的 master 分支</p>
 <ul>
 <li>-u 會推到預設的遠端儲存庫服務，也可以不打 -u 直接推送指定的遠端儲存庫，<code>git push origin master</code></li>
 <li>origin 可以修改它的遠端儲存庫名稱，一般都使用 origin，例如：git push -u develop master</li>
 <li>master 為分支名稱，可以對指定的分支 push。</li>
 </ul>
 <h2 id="需小心的指令"><a href="#需小心的指令" class="headerlink" title="需小心的指令"></a>需小心的指令</h2><p><code>git push -f</code> 要注意使用，暴力推上去，放大招會影響其他人，GitHub 有保護機制，進入 settings 頁面，左側 Branches，選擇分支，預設是 master，</p>
-<h1 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h1><h2 id="Pull-與-Fetch"><a href="#Pull-與-Fetch" class="headerlink" title="Pull 與 Fetch"></a>Pull 與 Fetch</h2><p>git pull = git fetch + git merge，使用 pull 比較快。<br>git fetch 若遠端進度比本地端還要新，git fetch 可以抓下來遠端進度，但不會合併，自己還是要與遠端進行合併 <code>git merge orgin master</code>，將使用快轉模式合併。</p>
+<h1 id="Pull"><a href="#Pull" class="headerlink" title="Pull"></a>Pull</h1><h2 id="Pull-與-Fetch"><a href="#Pull-與-Fetch" class="headerlink" title="Pull 與 Fetch"></a>Pull 與 Fetch</h2><p>git pull = git fetch + git merge，使用 pull 比較快。<br>git fetch 若遠端進度比本地端還要新，git fetch 可以抓下來遠端進度，但不會合併，自己還是要與遠端進行合併 <code>git merge orgin master</code>，將使用快轉模式合併。</p>
 <p>使用時機：</p>
 <ul>
 <li>當本機儲存庫沒有變更，或本機儲存庫和共享儲存庫上確認沒有衝突的話，就可以安心使用 pull。</li>
 <li>非上述情況時，最好先使用 fetch 取得變更後再進行 merge 會比較安全。因為 pull 會自帶 merge，當有其他人同時編輯時，就容易發生問題。</li>
 </ul>
 <h2 id="推不上解決方案"><a href="#推不上解決方案" class="headerlink" title="推不上解決方案"></a>推不上解決方案</h2><p>第一招： 先拉下來，再推上去。<br>第二招：<code>git push -force</code>或<code>git push -f</code>，暴力硬推，會把其他人的內容覆蓋掉，接著可能會遇到很尷尬的狀況，得向對方解釋為甚麼。</p>
-<h1 id="HEAD-是一台時光機"><a href="#HEAD-是一台時光機" class="headerlink" title="HEAD 是一台時光機"></a>HEAD 是一台時光機</h1><p>HEAD 指標指向一個分支，也就是目前所在的分支，它很重要，因為時常忘記 HEAD 在哪個分支，在開發時要注意目前是在哪個分支。<br>HEAD 在檔案路徑 .git/HEAD 此檔找到，它指向目前分支的 commit（40 個 SHA-1 字元的雜湊碼），<br>以下指向了 .git/refs/heads/master 這個分支，也就是說 .git/refs/heads/ 該目錄存放了所有分支檔案，砍了分支檔案就會不見，也可以更名。</p>
+<h1 id="HEAD-是一台時光機"><a href="#HEAD-是一台時光機" class="headerlink" title="HEAD 是一台時光機"></a>HEAD 是一台時光機</h1><p>HEAD 指標指向一個分支，也就是目前所在的分支，它很重要，因為時常忘記 HEAD 在哪個分支，在開發時要注意目前是在哪個分支。<br>HEAD 在檔案路徑 .git/HEAD 此檔找到，它指向目前分支的 commit（40 個 SHA-1 字元的雜湊碼），<br>以下指向 .git/refs/heads/master 這個分支，也就是說 .git/refs/heads/ 該目錄存放了所有分支檔案，砍了分支檔案就會不見，也可以更名。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// .git/HEAD，記錄了目前HEAD指標指向誰，目前HEAD是在 master 分支上</span></span><br><span class="line">ref: refs / heads / master</span><br><span class="line"></span><br><span class="line"><span class="comment">// .git/refs/heads/master</span></span><br><span class="line">bc3037b519ea2e899649eacc62df3ee584a25941</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>在 SourceTree 使用 HEAD 指標</li>
-</ul>
-<p>只要在任一時間節點上點兩下，按下確定，即可將 HEAD 指標回朔至該時間節點，而且工作目錄檔案結構也會回到當時狀態。</p>
 <h2 id="切換-HEAD-指標"><a href="#切換-HEAD-指標" class="headerlink" title="切換 HEAD 指標"></a>切換 HEAD 指標</h2><ul>
-<li>先使用 <code>git log</code> 查詢 commit 碼，或在 SourceTree 找到。</li>
+<li>先使用 <code>git log</code> 查詢 commit 碼。</li>
 <li><code>git checkout commit碼</code> 可以將 HEAD 指標回到該 commit 碼的時間節點，commit 碼至少要輸入四個。</li>
 </ul>
 <h1 id="Reset"><a href="#Reset" class="headerlink" title="Reset"></a>Reset</h1><p>使用 Reset 的觀念（還原、前往某個 Commit 的意思），不管是用甚麼模式進行 Reset（即便是–hard），Commit 代碼會因為 Reset 到哪裡，中間那一大段就全部消失不見。Reset 其實代表回到過去某個 commit 點，中間那一大段只是隱藏起來看不到，可以使用 git reflog 查詢這些 commit 代碼，並使用<code>git reset commit 代碼</code>返回。</p>
@@ -4095,12 +4085,11 @@
 <td>返回危險記錄點的狀態，可以在 .git 目錄查到 orig_head 目前指向哪個 commit 碼。</td>
 </tr>
 </tbody></table>
-<h2 id="刪除與救回"><a href="#刪除與救回" class="headerlink" title="刪除與救回"></a>刪除與救回</h2><p>刪除檔案會在工作區標記刪除記號「-」，告訴 Git 要做刪除檔案的動作，需 add 到（暫存區），並且 commit 後才能完成刪除，檔案還是救得回來，使用 git reset head~ –hard 來還原。</p>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>分支 = 分身，開分支等於開分身，對於使用 Git 來說，它很重要。在開發過程中，藉由分支來實驗某些功能，而不會破會原本正常運作的程式碼，等待成功確認沒問題再進行合併。分支也是 40 字元的雜湊碼，標記指向哪一個 Commit，不管是快轉、非快轉模式，合併過後都表示「你的內容都被已經我接收」。</p>
+<h2 id="刪除與救回"><a href="#刪除與救回" class="headerlink" title="刪除與救回"></a>刪除與救回</h2><p>刪除檔案對 Git 而言只是一個狀態，會在工作區標記刪除記號「-」，告訴 Git 要做刪除檔案的動作，需 add 到（暫存區），並且 commit 後才能完成刪除，檔案還是救得回來，使用 git reset head~ –hard 來還原。</p>
+<h1 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h1><p>分支 = 分身，開分支等於開分身，對於使用 Git 來說，它很重要。在開發過程中，藉由分支來實驗某些功能，而不會破會原本正常運作的程式碼，等待成功確認沒問題再進行合併。分支也是 40 字元的雜湊碼，標記指向哪一個 Commit，不管是快轉、非快轉模式，合併過後都表示「你的內容都被已經我接收」。</p>
 <ul>
-<li><code>git merge commit代碼</code>，雖說合併分支，其實只是指向一個 commit，在 Git 都是 commit 指來指去。</li>
+<li><code>git merge commit代碼</code>，雖說合併分支，其實只是合併另一個 Commit。</li>
 </ul>
-<p>PS：可以在<code>Repo初始化</code>時建立所需的分支，master 就存放專案原始碼，分支存放展示用的靜態網頁（例如：GitHub 的分支 gh-pages）。</p>
 <table>
 <thead>
 <tr>
@@ -4157,7 +4146,7 @@
 <td>快轉合併(fast-forward merge)，直線式合併，不推薦</td>
 </tr>
 </tbody></table>
-<p>git checkout 後面接分支名稱為切換分支，如果接檔名或路徑，則會回復上一次 commit 紀錄狀態。</p>
+<p>PS：git checkout 後面接分支名稱為切換分支，如果接檔名或路徑，則會回復上一次 commit 紀錄狀態。</p>
 <h2 id="回到過去建立分支"><a href="#回到過去建立分支" class="headerlink" title="回到過去建立分支"></a>回到過去建立分支</h2><p>第一種方式：<br>先回到過去的 commit 時間點，<code>git checkout commit碼</code>，再建立新分支<code>git checkout -b 新分支名稱</code>。</p>
 <p>第二種方式：<br>不想回到過去，直接建立<code>git branch 新的分支名稱 commit碼</code>，commit 碼為過去時間點。</p>
 <h2 id="更改分支名稱"><a href="#更改分支名稱" class="headerlink" title="更改分支名稱"></a>更改分支名稱</h2><ul>
@@ -4173,12 +4162,12 @@
 <li>刪除分支 Commit 雜湊碼其實還在，會出現這樣的訊息 Deleted branch cat（was 01168d8），</li>
 <li>git branch cat 01168d8，把 cat 分支建立回來。</li>
 </ol>
-<p>分支只是一個指向某個 Commit 雜湊指標，刪除分支不會造成那些 Commit 消失，只是沒有人指到 Commit，斷開了魂結，只要把他們連接回來，內容就會回來。但是，刪掉後，卻忘記 SHA-1 commit 雜湊碼怎麼辦？ 可使用<code>git reflog</code>查詢，跟使用 reset 某個 commit 一樣。</p>
+<p>分支只是一個指向某個 Commit 雜湊指標，刪除分支不會造成那些 Commit 消失，只是沒有人指到 Commit，只要把他們連接回來，內容就會回來。但是，刪掉後，卻忘記 SHA-1 commit 雜湊碼怎麼辦？ 可使用<code>git reflog</code>查詢，跟使用 reset 某個 commit 一樣。</p>
 <h2 id="切換分支-checkout"><a href="#切換分支-checkout" class="headerlink" title="切換分支 checkout"></a>切換分支 checkout</h2><ul>
 <li><code>git checkout 分支名稱</code> 切換到分支名稱，例如：git checkout devlop</li>
 <li><code>git checkout -</code> 兩個分支來回切換</li>
 </ul>
-<h2 id="合併分支-merge"><a href="#合併分支-merge" class="headerlink" title="合併分支 merge"></a>合併分支 merge</h2><p>合併分支也就是合併自己開出去的分身，收割它們為你做的事情，合併分支的概念其實是合併他人的分支指向一個新的 commit，每個分支都只是一張便利貼，它們都是指向一個 commit 的指標。</p>
+<h1 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h1><p>合併分支也就是合併自己開出去的分身，收割它們為你做的事情，合併分支的概念其實是合併他人的分支指向一個新的 commit，每個分支都只是一張便利貼，它們都是指向一個 commit 的指標。</p>
 <ul>
 <li>一般合併：<code>git merge 被合併的分支名稱</code>，做完分支項目，git checkout 切換到 master，再進行合併指令。</li>
 <li>小耳朵合併：<code>git merge 被合併的分支名稱 --no-ff</code> 顯示同條支線要合併，剷生合併過的小耳朵，可知道何時合併，也就是不使用快轉模式合併。</li>
