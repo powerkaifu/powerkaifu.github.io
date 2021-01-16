@@ -3949,7 +3949,7 @@
 <td>設定全域作者</td>
 </tr>
 <tr>
-<td>git config –global user.email “<a href="mailto:&#x70;&#x6f;&#119;&#x65;&#114;&#x6b;&#x61;&#x69;&#x66;&#117;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#x70;&#x6f;&#119;&#x65;&#114;&#x6b;&#x61;&#x69;&#x66;&#117;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a>“</td>
+<td>git config –global user.email “<a href="mailto:&#x70;&#x6f;&#119;&#101;&#114;&#107;&#97;&#x69;&#102;&#x75;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#x70;&#x6f;&#119;&#101;&#114;&#107;&#97;&#x69;&#102;&#x75;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a>“</td>
 <td>設定全域 EMAIL</td>
 </tr>
 <tr>
@@ -3957,7 +3957,7 @@
 <td>設定區域作者</td>
 </tr>
 <tr>
-<td>git config –local user.email “<a href="mailto:&#x70;&#111;&#119;&#101;&#x72;&#107;&#x61;&#105;&#102;&#117;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#x6d;">&#x70;&#111;&#119;&#101;&#x72;&#107;&#x61;&#105;&#102;&#117;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#x6d;</a>“</td>
+<td>git config –local user.email “<a href="mailto:&#112;&#x6f;&#x77;&#101;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#112;&#x6f;&#x77;&#101;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;</a>“</td>
 <td>設定區域 EMAIL</td>
 </tr>
 </tbody></table>
@@ -4427,6 +4427,10 @@
 </tr>
 </thead>
 <tbody><tr>
+<td>git</td>
+<td>列出 git 所有指令</td>
+</tr>
+<tr>
 <td>git config –list 或 git config -l</td>
 <td>顯示 config 設定</td>
 </tr>
@@ -4479,6 +4483,34 @@
 <li>Mac：~/.gitconfig</li>
 </ul>
 <h2 id="列出-commit"><a href="#列出-commit" class="headerlink" title="列出 commit"></a>列出 commit</h2><p><code>git log --oneline</code> 列出簡易的 commit 雜湊碼<br><code>git log --oneline --author=&quot;kaifu&quot;</code> 搜尋某人的 commit<br><code>git log --oneline --author=&quot;kaifu|huhu&quot;</code> 搜尋 kaifu 與 huhu 的 commit<br><code>git log --oneline --grep=&quot;wtf&quot;</code> 搜尋符合的關鍵字<br><code>git log -S &quot;Ruby&quot;</code> 檔案內容有提到 “Ruby” 這個字<br><code>git log --oneline --since=&quot;9am&quot; --until=&quot;12am&quot;</code> 查詢早上 9 點至 12 點工作進度</p>
+<h2 id="window-終端機指令"><a href="#window-終端機指令" class="headerlink" title="window 終端機指令"></a>window 終端機指令</h2><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>help</td>
+<td>列出所有指令</td>
+</tr>
+<tr>
+<td>指令 /?</td>
+<td>查詢指令使用方式</td>
+</tr>
+<tr>
+<td>help 指令</td>
+<td>查詢指令使用方式</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>切換目錄</td>
+</tr>
+<tr>
+<td>md</td>
+<td>建立目錄</td>
+</tr>
+</tbody></table>
 <h1 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h1><ul>
 <li><p>Master（持續不關閉分支）<br>最穩定版本，隨時可上線版本，此分支的來源只能從別的分支合併過來。不會直接 Commit 這個分支，會在這個分支上的 Commit 打上版本標籤。</p>
 </li>
