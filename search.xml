@@ -3949,7 +3949,7 @@
 <td>設定全域作者</td>
 </tr>
 <tr>
-<td>git config –global user.email “<a href="mailto:&#x70;&#x6f;&#119;&#101;&#114;&#107;&#97;&#x69;&#102;&#x75;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#x70;&#x6f;&#119;&#101;&#114;&#107;&#97;&#x69;&#102;&#x75;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a>“</td>
+<td>git config –global user.email “<a href="mailto:&#x70;&#111;&#x77;&#x65;&#x72;&#107;&#x61;&#105;&#x66;&#x75;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x70;&#111;&#x77;&#x65;&#x72;&#107;&#x61;&#105;&#x66;&#x75;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>“</td>
 <td>設定全域 EMAIL</td>
 </tr>
 <tr>
@@ -3957,7 +3957,7 @@
 <td>設定區域作者</td>
 </tr>
 <tr>
-<td>git config –local user.email “<a href="mailto:&#112;&#x6f;&#x77;&#101;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#112;&#x6f;&#x77;&#101;&#114;&#107;&#x61;&#105;&#102;&#117;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;</a>“</td>
+<td>git config –local user.email “<a href="mailto:&#112;&#x6f;&#119;&#101;&#114;&#107;&#97;&#x69;&#x66;&#x75;&#64;&#103;&#x6d;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;">&#112;&#x6f;&#119;&#101;&#114;&#107;&#97;&#x69;&#x66;&#x75;&#64;&#103;&#x6d;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;</a>“</td>
 <td>設定區域 EMAIL</td>
 </tr>
 </tbody></table>
@@ -4373,6 +4373,10 @@
 <li>登入 GitHub，進入右上角圖像的 setting，點選左側選單的 SSH and GPG Keys，再選擇右上角 New SSH Key，輸入 title 及貼上公鑰內容。</li>
 <li>同一台電腦上，不同使用者帳號的 SSH 金鑰是互相獨立，不能互相使用。</li>
 </ol>
+<h2 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h2><p>每個 repository 都有個 Actions 可以設定自動佈署，佈署完成會新增 gh-pages 分支，自動佈署會將專案打包的靜態檔案（通常為 dist 目錄）都 push 到 gh-pages 裡面，佈署完畢要到 settings 將 gh-pages 打開。</p>
+<p>以下為佈署需要設定：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"># Action 名稱</span><br><span class="line">name: Deploy</span><br><span class="line"># 觸發時機，當推送到分支 master 時</span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches: [ master ]</span><br><span class="line"># 執行的工作</span><br><span class="line">jobs:</span><br><span class="line">  # 工作名稱</span><br><span class="line">  deploy:</span><br><span class="line">    # 執行工作的虛擬機作業系統</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    # 工作步驟</span><br><span class="line">    steps:</span><br><span class="line">      # 步驟一：複製程式碼</span><br><span class="line">      - name: checkout</span><br><span class="line">        # 使用的 actions/checkout 複製程式碼</span><br><span class="line">        uses: actions/checkout@master</span><br><span class="line"></span><br><span class="line">      # 步驟二：編譯及部署</span><br><span class="line">      - name: buildAndDeploy</span><br><span class="line">        uses: JamesIves/github-pages-deploy-action@master</span><br><span class="line">        # 步驟設定</span><br><span class="line">        env:</span><br><span class="line">          GITHUB_TOKEN : $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;</span><br><span class="line">          # 使用 master 分支的檔案</span><br><span class="line">          BASE_BRANCH: master</span><br><span class="line">          # 部署到 gh-pages 分支</span><br><span class="line">          BRANCH: gh-pages</span><br><span class="line">          # 編譯後要上傳的資料夾</span><br><span class="line">          FOLDER: dist</span><br><span class="line">          # 執行指令</span><br><span class="line">          BUILD_SCRIPT: npm install &amp;&amp; npm run build</span><br><span class="line">          # 動作完成後清除檔案</span><br><span class="line">          CLEAN: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="readme-與-wiki"><a href="#readme-與-wiki" class="headerlink" title="readme 與 wiki"></a>readme 與 wiki</h2><p>readme.md 只做簡單說明，要詳細說明可以使用 GitHub 的 wiki 功能。</p>
 <h2 id="熱門的遠端儲存庫服務平台"><a href="#熱門的遠端儲存庫服務平台" class="headerlink" title="熱門的遠端儲存庫服務平台"></a>熱門的遠端儲存庫服務平台</h2><ul>
 <li>GitHub：擁有 GitHub Pages 功能，可擁有私人數據庫，免費方案是 3 人以下。（適合擁有自己的公開對外靜態網站）</li>
