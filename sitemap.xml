@@ -16,6 +16,13 @@
   </url>
   
   <url>
+    <loc>https://powerkaifu.github.io/2020/08/29/lesson-css-04.box-model/</loc>
+    
+    <lastmod>2021-01-09</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/2020/10/12/lesson-jq-08.ajax/</loc>
     
     <lastmod>2020-12-21</lastmod>
@@ -143,13 +150,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/2020/08/29/lesson-css-05.float/</loc>
-    
-    <lastmod>2020-11-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/08/29/lesson-css-04.box-model/</loc>
     
     <lastmod>2020-11-11</lastmod>
     
@@ -361,6 +361,13 @@
   </url>
   
   <url>
+    <loc>https://powerkaifu.github.io/tags/SASS/</loc>
+    <lastmod>2021-02-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/tags/Masonry/</loc>
     <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
@@ -376,13 +383,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/tags/Velocity-js/</loc>
-    <lastmod>2021-02-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/tags/SASS/</loc>
     <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
