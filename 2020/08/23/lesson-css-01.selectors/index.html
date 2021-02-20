@@ -35,7 +35,7 @@
 <meta property="og:description" content="選擇器HTML 負責結構，CSS 則是外觀，它是 HTML 元素的化妝師，負責文件的版型外觀、位置、尺寸、顏色、字體，以及響應式等等。「選擇器」，它是 CSS 世界裡的支柱，就如同人類的脊椎支撐了整個身體，我們必須要選擇到目標，才能對元素進行樣式的設計。然而，CSS 選擇器擁有非常多樣貌，認識各種選擇器才能夠靈活設計樣式。值得一提的是只要符合 CSS 規範的選擇器，在 jQuery 裡，能成為$(">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-08-23T05:50:42.304Z">
-<meta property="article:modified_time" content="2021-02-20T19:41:52.555Z">
+<meta property="article:modified_time" content="2021-02-20T19:43:21.830Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
@@ -341,7 +341,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-02-21 03:41:52" itemprop="dateModified" datetime="2021-02-21T03:41:52+08:00">2021-02-21</time>
+        <time title="修改時間：2021-02-21 03:43:21" itemprop="dateModified" datetime="2021-02-21T03:43:21+08:00">2021-02-21</time>
       </span>
 
   
@@ -496,7 +496,7 @@
 <h2 id="not-反選選擇器"><a href="#not-反選選擇器" class="headerlink" title=":not 反選選擇器"></a>:not 反選選擇器</h2><p>:not() 選擇器為反轉條件，否定掉:not()括號中的條件，不要它們，其他都要。使用 :not() 時要先將它附掛到元素，接著在括號裡填入一個簡單選擇器，也就是類型選擇器、通用選擇器(*)、屬性選擇器、ID 選擇器或虛擬類別其中之一。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 選擇誰:not(排除誰) */</span></span><br><span class="line"><span class="selector-class">.ha</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇所有 p ，排除 p 裡面有 .ha 的元素  */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:not(.ha)</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇所有li，但排除第一個兒子 */</span></span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:first-child)</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇 href 開頭為 http://，但排除 http://mysite.com 開頭的對象 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href^=<span class="string">&quot;http://&quot;</span>]</span><span class="selector-pseudo">:not(</span><span class="selector-attr">[href^=<span class="string">&quot;http://mysite.com&quot;</span>]</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 更簡短版 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href^=<span class="string">&quot;http://&quot;</span>]</span><span class="selector-pseudo">:not(</span><span class="selector-attr">[href*=<span class="string">&quot;mysite.com&quot;</span>]</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 選擇沒有勾選 checked 的對象 */</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&#x27;checkbox&#x27;</span>]</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:checked)</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="偽元素（虛擬元素）選擇器"><a href="#偽元素（虛擬元素）選擇器" class="headerlink" title="偽元素（虛擬元素）選擇器"></a>偽元素（虛擬元素）選擇器</h1><p>在此不包含::before、::after 這兩個偽元素，它們可以被獨立討論。偽元素（虛擬元素）（Pseudo-element Selector）擴展了元素本體選擇內容的方式，讓本體多了豐富的樣式選擇，但它們目前是很稀少的，除了::selection 與 ::placeholder 是較新的偽元素，它們只能用雙冒號顯示，其餘的可以單冒號、雙冒號，不過，CSS3 已經規範出偽元素必須是雙冒號，養成習慣，偽元素應該用雙冒號。</p>
+<h1 id="偽元素（虛擬元素）選擇器"><a href="#偽元素（虛擬元素）選擇器" class="headerlink" title="偽元素（虛擬元素）選擇器"></a>偽元素（虛擬元素）選擇器</h1><p>在此不介紹 ::before、::after 這兩個偽元素，它們可以被獨立討論。偽元素（虛擬元素）（Pseudo-element Selector）擴展了元素本體選擇內容的方式，讓本體多了豐富的樣式選擇，但它們目前是很稀少的，除了::selection 與 ::placeholder 是較新的偽元素，它們只能用雙冒號顯示，其餘的可以單冒號、雙冒號，不過，CSS3 已經規範出偽元素必須是雙冒號，請建立習慣，偽元素應該用雙冒號。</p>
 <ul>
 <li>::first-letter（第一個字母）</li>
 <li>::first-line（第一行）</li>
