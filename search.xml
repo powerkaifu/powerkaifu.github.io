@@ -37,10 +37,10 @@
 <h3 id="comparable-number1-number2"><a href="#comparable-number1-number2" class="headerlink" title="comparable($number1, $number2)"></a>comparable($number1, $number2)</h3><p>返回一個布林值，判斷傳入的兩個數值是否是可以進行比較或計算，true 或 false。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.round</span> &#123;</span><br><span class="line">  <span class="keyword">@if</span> (comparable(<span class="number">1000px</span>, <span class="number">500px</span>)) &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">  &#125; <span class="keyword">@else</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.round</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// comparable(2px, 1px) =&gt; true</span></span><br><span class="line"><span class="comment">// comparable(100px, 3em) =&gt; false</span></span><br><span class="line"><span class="comment">// comparable(10cm, 3mm) =&gt; true</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="max-number1"><a href="#max-number1" class="headerlink" title="max($number1)"></a>max($number1)</h3><p>取最大值，類似 Math.max()。</p>
+<h3 id="max-number1"><a href="#max-number1" class="headerlink" title="max($number1)"></a>max($number1)</h3><p>比較相同的類型值，取最大值，類似 Math.max()。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.max</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: max(<span class="number">100px</span>, <span class="number">300px</span>);</span><br><span class="line">  <span class="attribute">height</span>: max(<span class="number">30em</span>, <span class="number">50em</span>, <span class="number">40em</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.max</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="min-number1"><a href="#min-number1" class="headerlink" title="min($number1)"></a>min($number1)</h3><p>取最小值，類似 Math.min()。</p>
+<h3 id="min-number1"><a href="#min-number1" class="headerlink" title="min($number1)"></a>min($number1)</h3><p>比較相同的類型值，取最小值，類似 Math.min()。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.min</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: min(<span class="number">100px</span>, <span class="number">300px</span>);</span><br><span class="line">  <span class="attribute">height</span>: min(<span class="number">30em</span>, <span class="number">50em</span>, <span class="number">40em</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.min</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="percentage-number1"><a href="#percentage-number1" class="headerlink" title="percentage($number1)"></a>percentage($number1)</h3><p>將數字乘以 100% 以百分比（%）表示。</p>
@@ -2778,9 +2778,10 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> ary1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> ary2 = $(ary1)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 複製 json 物件須注意</span></span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = $(obj1)</span><br><span class="line">obj1.a = <span class="number">100</span> <span class="comment">// obj2[0].a 也會更改為 200</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="ready-和-load-的區別"><a href="#ready-和-load-的區別" class="headerlink" title="ready 和 load 的區別"></a>ready 和 load 的區別</h1><ul>
-<li><p>$(document).ready<br>會在 HTML 結構載入後，並且 DOM 就緒後呼叫，但不包含圖片。觸發時間較早，使用了 JavaScript 的 DOMContentLoaded 事件。</p>
+<li><p>$(document).ready()<br>會在 HTML 結構載入後，並且 DOM 就緒後呼叫，但不包含圖片。觸發時間較早，使用了 JavaScript 的 DOMContentLoaded 事件。</p>
 </li>
-<li><p>$(window).load<br>會在 HTML 結構載入後，DOM 就緒後，頁面渲染結束（iframe、img 圖片加載完成）後呼叫，也就是整份網頁讀取完成，使用了 JavaScript 的 load 事件。</p>
+<li><p>window.onload<br>會在 HTML 結構載入後，DOM 就緒後，頁面渲染結束（iframe、img 圖片加載完成）後呼叫，也就是整份網頁讀取完成，使用了 JavaScript 的 load 事件。</p>
+<p>由此可知，ready 發生於 load 之前。</p>
 </li>
 </ul>
 <h1 id="document-readyState"><a href="#document-readyState" class="headerlink" title="document.readyState"></a>document.readyState</h1><p>另外還有一個是 readystatechange 事件，可以藉由 document.readyState 描述文件讀取狀態，分為以下：</p>
@@ -3610,9 +3611,10 @@
 
 <h1 id="單位"><a href="#單位" class="headerlink" title="單位"></a>單位</h1><ul>
 <li>px：字型大小以像素為絕對單位。</li>
-<li>em：字型大小參考父元素為倍數相對縮放尺寸，例如：父元素外層是 10px，子元素 2em 則是 20px。</li>
+<li>em：字型大小參考外層元素為倍數相對縮放尺寸，例如：外層是 10px，子元素 2em 則是 20px，若都沒有會參考 html 為準。</li>
 <li>rem：相對於根元素 (:root or html) 的文字尺寸，預設是 16px，元素設定 2rem 則是 32px。</li>
 </ul>
+<p>em 與 rem 都是相對單位</p>
 <div class="admonition note"><p>html 或 :root 預設字型大小為 16px。</p>
 </div>
 
@@ -3924,6 +3926,7 @@
 <li>::selection（選取文字反白）</li>
 <li>::placeholder（選取有屬性 placeholder 的元素）</li>
 </ul>
+<h1 id="繼承"><a href="#繼承" class="headerlink" title="繼承"></a>繼承</h1><p>關於繼承，並不是所有屬性都會被繼承，大部分跟文本有關的屬性會被繼承，<br>color、font-family、font-size、font-weight、font-variant、font-style、line-height、letter-spacing、text-align、text-indent、white-space、word-spacing 等等…。</p>
 ]]></content>
       <tags>
         <tag>css</tag>

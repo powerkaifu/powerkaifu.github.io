@@ -35,7 +35,7 @@
 <meta property="og:description" content="函式@function 與 @mixin 相似，兩者的差異在於 @function 必須使用 @return 來返回結果，它運算後輸出是一個值，並非一段 CSS 樣式，@mixin 則可以使用 @include 產生一段 CSS 樣式。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-12-20T07:18:10.067Z">
-<meta property="article:modified_time" content="2020-12-20T10:59:58.033Z">
+<meta property="article:modified_time" content="2021-06-22T14:08:02.600Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="SASS">
 <meta name="twitter:card" content="summary">
@@ -333,10 +333,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2020-12-20 15:18:10 / 修改時間：18:59:58" itemprop="dateCreated datePublished" datetime="2020-12-20T15:18:10+08:00">2020-12-20</time>
+      <time title="創建時間：2020-12-20 15:18:10" itemprop="dateCreated datePublished" datetime="2020-12-20T15:18:10+08:00">2020-12-20</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2021-06-22 22:08:02" itemprop="dateModified" datetime="2021-06-22T22:08:02+08:00">2021-06-22</time>
+      </span>
 
   
 </div>
@@ -382,10 +388,10 @@
 <h3 id="comparable-number1-number2"><a href="#comparable-number1-number2" class="headerlink" title="comparable($number1, $number2)"></a>comparable($number1, $number2)</h3><p>返回一個布林值，判斷傳入的兩個數值是否是可以進行比較或計算，true 或 false。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.round</span> &#123;</span><br><span class="line">  <span class="keyword">@if</span> (comparable(<span class="number">1000px</span>, <span class="number">500px</span>)) &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">  &#125; <span class="keyword">@else</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.round</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// comparable(2px, 1px) =&gt; true</span></span><br><span class="line"><span class="comment">// comparable(100px, 3em) =&gt; false</span></span><br><span class="line"><span class="comment">// comparable(10cm, 3mm) =&gt; true</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="max-number1"><a href="#max-number1" class="headerlink" title="max($number1)"></a>max($number1)</h3><p>取最大值，類似 Math.max()。</p>
+<h3 id="max-number1"><a href="#max-number1" class="headerlink" title="max($number1)"></a>max($number1)</h3><p>比較相同的類型值，取最大值，類似 Math.max()。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.max</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: max(<span class="number">100px</span>, <span class="number">300px</span>);</span><br><span class="line">  <span class="attribute">height</span>: max(<span class="number">30em</span>, <span class="number">50em</span>, <span class="number">40em</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.max</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="min-number1"><a href="#min-number1" class="headerlink" title="min($number1)"></a>min($number1)</h3><p>取最小值，類似 Math.min()。</p>
+<h3 id="min-number1"><a href="#min-number1" class="headerlink" title="min($number1)"></a>min($number1)</h3><p>比較相同的類型值，取最小值，類似 Math.min()。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="selector-class">.min</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: min(<span class="number">100px</span>, <span class="number">300px</span>);</span><br><span class="line">  <span class="attribute">height</span>: min(<span class="number">30em</span>, <span class="number">50em</span>, <span class="number">40em</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line"><span class="selector-class">.min</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="percentage-number1"><a href="#percentage-number1" class="headerlink" title="percentage($number1)"></a>percentage($number1)</h3><p>將數字乘以 100% 以百分比（%）表示。</p>
