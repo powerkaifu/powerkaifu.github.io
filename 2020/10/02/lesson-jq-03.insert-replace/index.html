@@ -35,7 +35,7 @@
 <meta property="og:description" content="插入元素before()、prepend()、append()、after()都是用來指定要被插入至文件的內容，皆取一個引數，可以是用來指定新內容的「純文字」或 「HTML 字串」，也可以是個「jQuery 物件」。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-02T15:34:45.035Z">
-<meta property="article:modified_time" content="2020-11-11T08:24:31.202Z">
+<meta property="article:modified_time" content="2021-07-17T18:26:40.452Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -341,7 +341,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-11 16:24:31" itemprop="dateModified" datetime="2020-11-11T16:24:31+08:00">2020-11-11</time>
+        <time title="修改時間：2021-07-18 02:26:40" itemprop="dateModified" datetime="2021-07-18T02:26:40+08:00">2021-07-18</time>
       </span>
 
   
@@ -387,6 +387,9 @@
 <hr>
 <h1 id="clone-複製元素"><a href="#clone-複製元素" class="headerlink" title="clone() 複製元素"></a>clone() 複製元素</h1><p>clone() 複製出一份選取集合的副本（包含所有的後代子孫以及文字），<br>如果想要將文件上的元素複製到新的位置，而非移動它們，必須先用 clone() 方法來複製它們的副本。<br>clone()會製作並回傳每個所選元素（連同這些元素的所有子元素）的副本。</p>
 <p>但是，回傳的 jQuery 物件中的元素尚未成為文件的一部分，要使用上面提到的的方法<strong>插入</strong>。</p>
+<blockquote>
+<p>$(selector).clone( [withDataAndEvents ] )<br>$(selector).clone( [withDataAndEvents ] [, deepWithDataAndEvents ] )</p>
+</blockquote>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;clone&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://www.google.com&quot;</span>&gt;</span>Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 複製 a元素到 p</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> content = $(<span class="string">&#x27;a.clone&#x27;</span>).clone()</span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;p.box&#x27;</span>).append(content)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <hr>

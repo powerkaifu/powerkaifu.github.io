@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/</loc>
+    
+    <lastmod>2021-07-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/2020/10/16/lesson-jq-09.utilities/</loc>
+    
+    <lastmod>2021-07-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://powerkaifu.github.io/2020/10/09/lesson-jq-06.traversing/</loc>
+    
+    <lastmod>2021-07-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://powerkaifu.github.io/2020/10/20/lesson-jq-10.useful/</loc>
     
     <lastmod>2021-07-17</lastmod>
@@ -206,27 +227,6 @@
   
   <url>
     <loc>https://powerkaifu.github.io/2020/08/29/lesson-css-05.float/</loc>
-    
-    <lastmod>2020-11-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/10/16/lesson-jq-09.utilities/</loc>
-    
-    <lastmod>2020-11-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/10/09/lesson-jq-06.traversing/</loc>
-    
-    <lastmod>2020-11-11</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://powerkaifu.github.io/2020/10/02/lesson-jq-03.insert-replace/</loc>
     
     <lastmod>2020-11-11</lastmod>
     

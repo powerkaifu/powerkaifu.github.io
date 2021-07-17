@@ -27,15 +27,15 @@
     var CONFIG = {"hostname":"powerkaifu.github.io","root":"/","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content=".each()如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。">
+  <meta name="description" content="迭代工具.each()如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery - 通用方法">
 <meta property="og:url" content="https://powerkaifu.github.io/2020/10/16/lesson-jq-09.utilities/index.html">
 <meta property="og:site_name" content="The NeverEnd">
-<meta property="og:description" content=".each()如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。">
+<meta property="og:description" content="迭代工具.each()如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-15T23:58:30.403Z">
-<meta property="article:modified_time" content="2020-11-11T08:25:29.015Z">
+<meta property="article:modified_time" content="2021-07-17T18:11:46.494Z">
 <meta property="article:author" content="Kai-Fu Chang">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#each"><span class="nav-number">1.</span> <span class="nav-text">.each()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map"><span class="nav-number">2.</span> <span class="nav-text">.map()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#index"><span class="nav-number">3.</span> <span class="nav-text">.index()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this-%E8%88%87-this"><span class="nav-number">4.</span> <span class="nav-text">$(this) 與 this</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">4.1.</span> <span class="nav-text">$(this)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-1"><span class="nav-number">4.2.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-%E7%9A%84%E5%A5%A7%E5%A6%99%E4%B9%8B%E8%99%95"><span class="nav-number">4.3.</span> <span class="nav-text">$(this) 的奧妙之處</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A2%AB%E8%AA%A4%E6%9C%83%E7%9A%84-jQuery-%E8%88%87-JavaScript"><span class="nav-number">5.</span> <span class="nav-text">常被誤會的 jQuery 與 JavaScript</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#index-%E4%B8%8D%E8%A6%81%E6%90%9E%E6%B7%B7%E4%BA%86"><span class="nav-number">6.</span> <span class="nav-text">index 不要搞混了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-%E7%89%A9%E4%BB%B6%E8%BD%89%E6%88%90%E7%9C%9F%E6%AD%A3%E9%99%A3%E5%88%97"><span class="nav-number">7.</span> <span class="nav-text">jQuery 物件轉成真正陣列</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">迭代工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#each"><span class="nav-number">1.1.</span> <span class="nav-text">.each()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#each-1"><span class="nav-number">1.2.</span> <span class="nav-text">$.each()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">1.3.</span> <span class="nav-text">.map()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-1"><span class="nav-number">1.4.</span> <span class="nav-text">$.map()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#get"><span class="nav-number">2.</span> <span class="nav-text">.get()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#makeArray"><span class="nav-number">3.</span> <span class="nav-text">$.makeArray()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#trim"><span class="nav-number">4.</span> <span class="nav-text">$.trim()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#contains"><span class="nav-number">5.</span> <span class="nav-text">$.contains()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#data"><span class="nav-number">6.</span> <span class="nav-text">$.data()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#merge"><span class="nav-number">7.</span> <span class="nav-text">$.merge()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#extend"><span class="nav-number">8.</span> <span class="nav-text">$.extend()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fn-extend"><span class="nav-number">9.</span> <span class="nav-text">$.fn.extend()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grep"><span class="nav-number">10.</span> <span class="nav-text">$.grep()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#index"><span class="nav-number">11.</span> <span class="nav-text">.index()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#now"><span class="nav-number">12.</span> <span class="nav-text">$.now()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AA%A2%E6%9F%A5%E5%B7%A5%E5%85%B7"><span class="nav-number">13.</span> <span class="nav-text">檢查工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#inArray"><span class="nav-number">13.1.</span> <span class="nav-text">$.inArray()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isArray"><span class="nav-number">13.2.</span> <span class="nav-text">$.isArray()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isPlainObject"><span class="nav-number">13.3.</span> <span class="nav-text">$.isPlainObject()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isEmptyObject"><span class="nav-number">13.4.</span> <span class="nav-text">$.isEmptyObject()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isFunction"><span class="nav-number">13.5.</span> <span class="nav-text">$.isFunction()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isNumeric"><span class="nav-number">13.6.</span> <span class="nav-text">$.isNumeric()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isWindow"><span class="nav-number">13.7.</span> <span class="nav-text">$.isWindow()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this-%E8%88%87-this"><span class="nav-number">14.</span> <span class="nav-text">$(this) 與 this</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">14.1.</span> <span class="nav-text">$(this)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-1"><span class="nav-number">14.2.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-%E7%9A%84%E5%A5%A7%E5%A6%99%E4%B9%8B%E8%99%95"><span class="nav-number">14.3.</span> <span class="nav-text">$(this) 的奧妙之處</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A2%AB%E8%AA%A4%E6%9C%83%E7%9A%84-jQuery-%E8%88%87-JavaScript"><span class="nav-number">15.</span> <span class="nav-text">常被誤會的 jQuery 與 JavaScript</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#index-%E4%B8%8D%E8%A6%81%E6%90%9E%E6%B7%B7%E4%BA%86"><span class="nav-number">16.</span> <span class="nav-text">index 不要搞混了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-%E7%89%A9%E4%BB%B6%E8%BD%89%E6%88%90%E7%9C%9F%E6%AD%A3%E9%99%A3%E5%88%97"><span class="nav-number">17.</span> <span class="nav-text">jQuery 物件轉成真正陣列</span></a></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -341,7 +341,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-11 16:25:29" itemprop="dateModified" datetime="2020-11-11T16:25:29+08:00">2020-11-11</time>
+        <time title="修改時間：2021-07-18 02:11:46" itemprop="dateModified" datetime="2021-07-18T02:11:46+08:00">2021-07-18</time>
       </span>
 
   
@@ -354,7 +354,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="each"><a href="#each" class="headerlink" title=".each()"></a>.each()</h1><p>如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。</p>
+        <h1 id="迭代工具"><a href="#迭代工具" class="headerlink" title="迭代工具"></a>迭代工具</h1><h2 id="each"><a href="#each" class="headerlink" title=".each()"></a>.each()</h2><p>如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。</p>
 <a id="more"></a>
 
 <p>jQuery 的 each()方法有個特色與 JavaScript 的 forEach()相當不同：只要 callback 對任何一個元素回傳 false，迭代動作就會止於那個元素（這就像是在正常的迴圈中使用 break 關鍵字）。</p>
@@ -367,14 +367,69 @@
 <div class="admonition warning"><p>$().each() 與 $.each(object, callback) 並不相同。</p>
 </div>
 
-<h1 id="map"><a href="#map" class="headerlink" title=".map()"></a>.map()</h1><p>jQuery 方法 map()運作的方式很像 Array.map()方法，它接受一個 callback 函式作為它的引數，並為 jQuery 物件中的每一個元素呼叫一次這個函式，收集這些呼叫傳回的值，return <strong>一個新的 jQuery 物件</strong>，它包含一個陣列，可以呼叫.get()去取得。如果 callback 函式回傳 null 或 undefined，這個值會被忽略，該次呼叫不會有任何東西被加到新的 jQuery 物件中。</p>
+<h2 id="each-1"><a href="#each-1" class="headerlink" title="$.each()"></a>$.each()</h2><p>可以對 jQuery 物件或 JS 任何物件進行迭代。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Kaifu&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  job: <span class="string">&#x27;FrontEnd Designer&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">$.each(obj, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">$.each(arr, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> jq = $(<span class="string">&#x27;#menu li&#x27;</span>)</span><br><span class="line">$.each(jq, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="map"><a href="#map" class="headerlink" title=".map()"></a>.map()</h2><p>jQuery 方法 map() 運作的方式很像 Array.map() 方法，它接受一個 callback 函式作為它的引數，並為 jQuery 物件中的每一個元素呼叫一次這個函式，收集這些呼叫傳回的值，return <strong>一個新的 jQuery 物件</strong>，它包含一個陣列，可以呼叫 .get() 去取得。如果 callback 函式回傳 null 或 undefined，這個值會被忽略，該次呼叫不會有任何東西被加到新的 jQuery 物件中。</p>
 <blockquote>
 <p>$(selector).map(function(index,element){})</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> jQ = $(<span class="string">&#x27;#week li&#x27;</span>)</span><br><span class="line">  .map(<span class="function"><span class="keyword">function</span> (<span class="params">index, ele</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ele.tagName</span><br><span class="line">  &#125;)</span><br><span class="line">  .get() <span class="comment">// .toArray()</span></span><br><span class="line">  .join()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = $(<span class="string">&#x27;#menu li&#x27;</span>).map(<span class="function"><span class="keyword">function</span> (<span class="params">index, elem</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> elem.tagName</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <div class="admonition warning"><p>如果要處理一般陣列或 JS 物件，請改用 $.map()，與 .map() 不同喔。</p>
 </div>
+
+<h2 id="map-1"><a href="#map-1" class="headerlink" title="$.map()"></a>$.map()</h2><p>將陣列或物件中的所有項目轉換為新的項目陣列。</p>
+<blockquote>
+<p>$.map( array, callback )<br>$.map( object, callback )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> newOne = $.map([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n + <span class="number">4</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dimensions = &#123; <span class="attr">width</span>: <span class="number">10</span>, <span class="attr">height</span>: <span class="number">15</span>, <span class="attr">length</span>: <span class="number">20</span> &#125;</span><br><span class="line"><span class="keyword">const</span> newOne = $.map(dimensions, <span class="function"><span class="keyword">function</span> (<span class="params">value, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value * <span class="number">2</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="get"><a href="#get" class="headerlink" title=".get()"></a>.get()</h1><p>可以將 jQuery 物件轉成一般陣列。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).get() <span class="comment">// 一般陣列</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="makeArray"><a href="#makeArray" class="headerlink" title="$.makeArray()"></a>$.makeArray()</h1><p>將類陣列轉換為真正的 JavaScript 陣列。</p>
+<blockquote>
+<p>$.makeArray(obj)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.makeArray($(<span class="string">&#x27;#menu li&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 物件</span></span><br><span class="line"><span class="keyword">var</span> fakeArray = &#123; <span class="attr">length</span>: <span class="number">2</span>, <span class="number">0</span>: <span class="string">&#x27;Addy&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;Subtracty&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// 轉成陣列</span></span><br><span class="line"><span class="keyword">var</span> realArray = $.makeArray(fakeArray)</span><br><span class="line"><span class="comment">// 現在它可以可靠地與 $.map() 一起使用</span></span><br><span class="line">$.map(realArray, <span class="function"><span class="keyword">function</span> (<span class="params">val, i</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Do something</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="trim"><a href="#trim" class="headerlink" title="$.trim()"></a>$.trim()</h1><p>刪除字符串開頭和結尾的空格。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;  Hello World   &#x27;</span></span><br><span class="line">$.trim(str) <span class="comment">// &#x27;Hello World&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="contains"><a href="#contains" class="headerlink" title="$.contains()"></a>$.contains()</h1><p>檢查一個 DOM 元素是否是另一個 DOM 元素的後代。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.contains(<span class="built_in">document</span>.documentElement, <span class="built_in">document</span>.body) <span class="comment">// true</span></span><br><span class="line">$.contains(<span class="built_in">document</span>.body, <span class="built_in">document</span>.documentElement) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="data"><a href="#data" class="headerlink" title="$.data()"></a>$.data()</h1><p>存儲與指定元素關聯的任意資料和/或返回設置的值。</p>
+<blockquote>
+<p>$.data( element, key, value )<br>$.data( element, key )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.data(<span class="built_in">document</span>.body, <span class="string">&#x27;foo&#x27;</span>, <span class="number">52</span>)</span><br><span class="line">$.data(<span class="built_in">document</span>.body, <span class="string">&#x27;bar&#x27;</span>, <span class="string">&#x27;test&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="merge"><a href="#merge" class="headerlink" title="$.merge()"></a>$.merge()</h1><p>將兩個數組的內容合併到第一個數組中。</p>
+<blockquote>
+<p>$.merge( first, second )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.merge([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]) <span class="comment">// [ 0, 1, 2, 2, 3, 4 ]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="extend"><a href="#extend" class="headerlink" title="$.extend()"></a>$.extend()</h1><p>將兩個或多個物件的內容合併到第一個物件中。</p>
+<blockquote>
+<p>$.extend( target, object1 [, objectN ] )<br>$.extend( [deep ], target, object1 [, objectN ] )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 淺拷貝</span></span><br><span class="line"><span class="keyword">var</span> object1 = &#123;</span><br><span class="line">  apple: <span class="number">0</span>,</span><br><span class="line">  banana: &#123; <span class="attr">weight</span>: <span class="number">52</span>, <span class="attr">price</span>: <span class="number">100</span> &#125;,</span><br><span class="line">  cherry: <span class="number">97</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> object2 = &#123;</span><br><span class="line">  banana: &#123; <span class="attr">price</span>: <span class="number">200</span> &#125;,</span><br><span class="line">  durian: <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Merge object2 into object1</span></span><br><span class="line">$.extend(object1, object2)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Assuming JSON.stringify - not available in IE&lt;8</span></span><br><span class="line">$(<span class="string">&#x27;#log&#x27;</span>).append(<span class="built_in">JSON</span>.stringify(object1))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深拷貝</span></span><br><span class="line"><span class="keyword">var</span> object1 = &#123;</span><br><span class="line">  apple: <span class="number">0</span>,</span><br><span class="line">  banana: &#123; <span class="attr">weight</span>: <span class="number">52</span>, <span class="attr">price</span>: <span class="number">100</span> &#125;,</span><br><span class="line">  cherry: <span class="number">97</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> object2 = &#123;</span><br><span class="line">  banana: &#123; <span class="attr">price</span>: <span class="number">200</span> &#125;,</span><br><span class="line">  durian: <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Merge object2 into object1, recursively</span></span><br><span class="line">$.extend(<span class="literal">true</span>, object1, object2)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Assuming JSON.stringify - not available in IE&lt;8</span></span><br><span class="line">$(<span class="string">&#x27;#log&#x27;</span>).append(<span class="built_in">JSON</span>.stringify(object1))</span><br></pre></td></tr></table></figure>
+
+<h1 id="fn-extend"><a href="#fn-extend" class="headerlink" title="$.fn.extend()"></a>$.fn.extend()</h1><p>將物件的內容合併到 jQuery 原型上以提供新的 jQuery 實體方法。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 替 jQuery 物件新增方法</span></span><br><span class="line">jQuery.fn.extend(&#123;</span><br><span class="line">  check: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.checked = <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  uncheck: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.checked = <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use the newly created .check() method</span></span><br><span class="line">$(<span class="string">&quot;input[type=&#x27;checkbox&#x27;]&quot;</span>).check()</span><br></pre></td></tr></table></figure>
+
+<h1 id="grep"><a href="#grep" class="headerlink" title="$.grep()"></a>$.grep()</h1><p>查找滿足過濾器函數的陣列元素。原陣列不受影響。</p>
+<blockquote>
+<p>$.grep( array, function(element,index){…}, invert )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// [1, 2]</span></span><br><span class="line">$.grep([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="function"><span class="keyword">function</span> (<span class="params">elm, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> elm &gt; <span class="number">0</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [0]</span></span><br><span class="line">$.grep(</span><br><span class="line">  [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">elm, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> elm &gt; <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <h1 id="index"><a href="#index" class="headerlink" title=".index()"></a>.index()</h1><p>除了 each()、map()之外，另一個基本 jQuery 方法是 index()。這個方法預期一個 element 作為它的引數，然後回傳那個元素在 jQuery 物件中的索引（index），從 0 開始，或在找不到那個元素時回傳 -1。</p>
 <blockquote>
@@ -389,6 +444,52 @@
 <p>.index( selector )</p>
 </blockquote>
 <p>傳入一個字串，index()會把它作為一個 CSS 選擇器，並回傳 jQuery 物件中第一個符合的元素的索引值。</p>
+<h1 id="now"><a href="#now" class="headerlink" title="$.now()"></a>$.now()</h1><p>棄用，請使用 Date.now() 替代，返回一個代表當前時間的數字。</p>
+<blockquote>
+<p>$.now()</p>
+</blockquote>
+<h1 id="檢查工具"><a href="#檢查工具" class="headerlink" title="檢查工具"></a>檢查工具</h1><h2 id="inArray"><a href="#inArray" class="headerlink" title="$.inArray()"></a>$.inArray()</h2><p>在陣列中搜索指定值並返回其索引（如果未找到，則返回 -1）。</p>
+<blockquote>
+<p>$.inArray( value, array [, fromIndex ] )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.inArray(<span class="string">&#x27;帥&#x27;</span>, [<span class="string">&#x27;我&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;大&#x27;</span>, <span class="string">&#x27;帥&#x27;</span>, <span class="string">&#x27;哥&#x27;</span>]) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isArray"><a href="#isArray" class="headerlink" title="$.isArray()"></a>$.isArray()</h2><p>確定參數是否為陣列。</p>
+<blockquote>
+<p>$.isArray( obj )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isArray([])</span><br></pre></td></tr></table></figure>
+
+<h2 id="isPlainObject"><a href="#isPlainObject" class="headerlink" title="$.isPlainObject()"></a>$.isPlainObject()</h2><p>檢查物件是否為普通物件（使用’{}’或’新物件’創建）</p>
+<blockquote>
+<p>$.isPlainObject(object)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isPlainObject(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line">$.isPlainObject(<span class="string">&#x27;test&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isEmptyObject"><a href="#isEmptyObject" class="headerlink" title="$.isEmptyObject()"></a>$.isEmptyObject()</h2><p>檢查物件是否為空（不包含可枚舉的屬性）。</p>
+<blockquote>
+<p>$.isEmptyObject(object)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isEmptyObject(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line">$.isEmptyObject(&#123; <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span> &#125;) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isFunction"><a href="#isFunction" class="headerlink" title="$.isFunction()"></a>$.isFunction()</h2><p>確定其參數是否可作為函數調用。</p>
+<blockquote>
+<p>$.isFunction( value )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">$.isFunction(foo) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isNumeric"><a href="#isNumeric" class="headerlink" title="$.isNumeric()"></a>$.isNumeric()</h2><blockquote>
+<p>$.isNumeric(value)</p>
+</blockquote>
+<p>確定其參數是否表示 JavaScript 數字。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isNumeric(<span class="number">100</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isWindow"><a href="#isWindow" class="headerlink" title="$.isWindow()"></a>$.isWindow()</h2><p>確定參數是否是一個 window。</p>
+<blockquote>
+<p>$.isWindow(obj)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isWindow(<span class="built_in">window</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="this-與-this"><a href="#this-與-this" class="headerlink" title="$(this) 與 this"></a>$(this) 與 this</h1><h2 id="this"><a href="#this" class="headerlink" title="$(this)"></a>$(this)</h2><p>指的是 DOM 元素的 jQuery 包裝集，可以使用 jQuery 指向當前動作的元素去執行程式，若要存取屬性須配合 jQuery 的方法。例如：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  $(<span class="built_in">this</span>).attr(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;one&#x27;</span>)</span></span><br><span class="line"><span class="javascript">  alert($(<span class="built_in">this</span>).attr(<span class="string">&#x27;id&#x27;</span>))</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 

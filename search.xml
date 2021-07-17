@@ -965,7 +965,7 @@
   <entry>
     <title>jQuery - 通用方法</title>
     <url>/2020/10/16/lesson-jq-09.utilities/</url>
-    <content><![CDATA[<h1 id="each"><a href="#each" class="headerlink" title=".each()"></a>.each()</h1><p>如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。</p>
+    <content><![CDATA[<h1 id="迭代工具"><a href="#迭代工具" class="headerlink" title="迭代工具"></a>迭代工具</h1><h2 id="each"><a href="#each" class="headerlink" title=".each()"></a>.each()</h2><p>如果想要逐一查用 jQuery 物件中所有的元素，可以呼叫 each()方法，而不用撰寫 for 迴圈，$().each() 是 jQuery 的 for 迴圈。each()類似 ECMAScript 5 的 forEach()陣列方法。預期一個回呼函式作為唯一的引數，並為 jQuery 物件中每個元素呼叫一次那個 callback 函式（以文件順序）。</p>
 <a id="more"></a>
 
 <p>jQuery 的 each()方法有個特色與 JavaScript 的 forEach()相當不同：只要 callback 對任何一個元素回傳 false，迭代動作就會止於那個元素（這就像是在正常的迴圈中使用 break 關鍵字）。</p>
@@ -978,14 +978,69 @@
 <div class="admonition warning"><p>$().each() 與 $.each(object, callback) 並不相同。</p>
 </div>
 
-<h1 id="map"><a href="#map" class="headerlink" title=".map()"></a>.map()</h1><p>jQuery 方法 map()運作的方式很像 Array.map()方法，它接受一個 callback 函式作為它的引數，並為 jQuery 物件中的每一個元素呼叫一次這個函式，收集這些呼叫傳回的值，return <strong>一個新的 jQuery 物件</strong>，它包含一個陣列，可以呼叫.get()去取得。如果 callback 函式回傳 null 或 undefined，這個值會被忽略，該次呼叫不會有任何東西被加到新的 jQuery 物件中。</p>
+<h2 id="each-1"><a href="#each-1" class="headerlink" title="$.each()"></a>$.each()</h2><p>可以對 jQuery 物件或 JS 任何物件進行迭代。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Kaifu&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  job: <span class="string">&#x27;FrontEnd Designer&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">$.each(obj, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">$.each(arr, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> jq = $(<span class="string">&#x27;#menu li&#x27;</span>)</span><br><span class="line">$.each(jq, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="map"><a href="#map" class="headerlink" title=".map()"></a>.map()</h2><p>jQuery 方法 map() 運作的方式很像 Array.map() 方法，它接受一個 callback 函式作為它的引數，並為 jQuery 物件中的每一個元素呼叫一次這個函式，收集這些呼叫傳回的值，return <strong>一個新的 jQuery 物件</strong>，它包含一個陣列，可以呼叫 .get() 去取得。如果 callback 函式回傳 null 或 undefined，這個值會被忽略，該次呼叫不會有任何東西被加到新的 jQuery 物件中。</p>
 <blockquote>
 <p>$(selector).map(function(index,element){})</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> jQ = $(<span class="string">&#x27;#week li&#x27;</span>)</span><br><span class="line">  .map(<span class="function"><span class="keyword">function</span> (<span class="params">index, ele</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ele.tagName</span><br><span class="line">  &#125;)</span><br><span class="line">  .get() <span class="comment">// .toArray()</span></span><br><span class="line">  .join()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> map = $(<span class="string">&#x27;#menu li&#x27;</span>).map(<span class="function"><span class="keyword">function</span> (<span class="params">index, elem</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> elem.tagName</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <div class="admonition warning"><p>如果要處理一般陣列或 JS 物件，請改用 $.map()，與 .map() 不同喔。</p>
 </div>
+
+<h2 id="map-1"><a href="#map-1" class="headerlink" title="$.map()"></a>$.map()</h2><p>將陣列或物件中的所有項目轉換為新的項目陣列。</p>
+<blockquote>
+<p>$.map( array, callback )<br>$.map( object, callback )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> newOne = $.map([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n + <span class="number">4</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dimensions = &#123; <span class="attr">width</span>: <span class="number">10</span>, <span class="attr">height</span>: <span class="number">15</span>, <span class="attr">length</span>: <span class="number">20</span> &#125;</span><br><span class="line"><span class="keyword">const</span> newOne = $.map(dimensions, <span class="function"><span class="keyword">function</span> (<span class="params">value, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value * <span class="number">2</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="get"><a href="#get" class="headerlink" title=".get()"></a>.get()</h1><p>可以將 jQuery 物件轉成一般陣列。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).get() <span class="comment">// 一般陣列</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="makeArray"><a href="#makeArray" class="headerlink" title="$.makeArray()"></a>$.makeArray()</h1><p>將類陣列轉換為真正的 JavaScript 陣列。</p>
+<blockquote>
+<p>$.makeArray(obj)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.makeArray($(<span class="string">&#x27;#menu li&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 物件</span></span><br><span class="line"><span class="keyword">var</span> fakeArray = &#123; <span class="attr">length</span>: <span class="number">2</span>, <span class="number">0</span>: <span class="string">&#x27;Addy&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;Subtracty&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// 轉成陣列</span></span><br><span class="line"><span class="keyword">var</span> realArray = $.makeArray(fakeArray)</span><br><span class="line"><span class="comment">// 現在它可以可靠地與 $.map() 一起使用</span></span><br><span class="line">$.map(realArray, <span class="function"><span class="keyword">function</span> (<span class="params">val, i</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Do something</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="trim"><a href="#trim" class="headerlink" title="$.trim()"></a>$.trim()</h1><p>刪除字符串開頭和結尾的空格。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;  Hello World   &#x27;</span></span><br><span class="line">$.trim(str) <span class="comment">// &#x27;Hello World&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="contains"><a href="#contains" class="headerlink" title="$.contains()"></a>$.contains()</h1><p>檢查一個 DOM 元素是否是另一個 DOM 元素的後代。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.contains(<span class="built_in">document</span>.documentElement, <span class="built_in">document</span>.body) <span class="comment">// true</span></span><br><span class="line">$.contains(<span class="built_in">document</span>.body, <span class="built_in">document</span>.documentElement) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="data"><a href="#data" class="headerlink" title="$.data()"></a>$.data()</h1><p>存儲與指定元素關聯的任意資料和/或返回設置的值。</p>
+<blockquote>
+<p>$.data( element, key, value )<br>$.data( element, key )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.data(<span class="built_in">document</span>.body, <span class="string">&#x27;foo&#x27;</span>, <span class="number">52</span>)</span><br><span class="line">$.data(<span class="built_in">document</span>.body, <span class="string">&#x27;bar&#x27;</span>, <span class="string">&#x27;test&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="merge"><a href="#merge" class="headerlink" title="$.merge()"></a>$.merge()</h1><p>將兩個數組的內容合併到第一個數組中。</p>
+<blockquote>
+<p>$.merge( first, second )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.merge([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]) <span class="comment">// [ 0, 1, 2, 2, 3, 4 ]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="extend"><a href="#extend" class="headerlink" title="$.extend()"></a>$.extend()</h1><p>將兩個或多個物件的內容合併到第一個物件中。</p>
+<blockquote>
+<p>$.extend( target, object1 [, objectN ] )<br>$.extend( [deep ], target, object1 [, objectN ] )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 淺拷貝</span></span><br><span class="line"><span class="keyword">var</span> object1 = &#123;</span><br><span class="line">  apple: <span class="number">0</span>,</span><br><span class="line">  banana: &#123; <span class="attr">weight</span>: <span class="number">52</span>, <span class="attr">price</span>: <span class="number">100</span> &#125;,</span><br><span class="line">  cherry: <span class="number">97</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> object2 = &#123;</span><br><span class="line">  banana: &#123; <span class="attr">price</span>: <span class="number">200</span> &#125;,</span><br><span class="line">  durian: <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Merge object2 into object1</span></span><br><span class="line">$.extend(object1, object2)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Assuming JSON.stringify - not available in IE&lt;8</span></span><br><span class="line">$(<span class="string">&#x27;#log&#x27;</span>).append(<span class="built_in">JSON</span>.stringify(object1))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深拷貝</span></span><br><span class="line"><span class="keyword">var</span> object1 = &#123;</span><br><span class="line">  apple: <span class="number">0</span>,</span><br><span class="line">  banana: &#123; <span class="attr">weight</span>: <span class="number">52</span>, <span class="attr">price</span>: <span class="number">100</span> &#125;,</span><br><span class="line">  cherry: <span class="number">97</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> object2 = &#123;</span><br><span class="line">  banana: &#123; <span class="attr">price</span>: <span class="number">200</span> &#125;,</span><br><span class="line">  durian: <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Merge object2 into object1, recursively</span></span><br><span class="line">$.extend(<span class="literal">true</span>, object1, object2)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Assuming JSON.stringify - not available in IE&lt;8</span></span><br><span class="line">$(<span class="string">&#x27;#log&#x27;</span>).append(<span class="built_in">JSON</span>.stringify(object1))</span><br></pre></td></tr></table></figure>
+
+<h1 id="fn-extend"><a href="#fn-extend" class="headerlink" title="$.fn.extend()"></a>$.fn.extend()</h1><p>將物件的內容合併到 jQuery 原型上以提供新的 jQuery 實體方法。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 替 jQuery 物件新增方法</span></span><br><span class="line">jQuery.fn.extend(&#123;</span><br><span class="line">  check: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.checked = <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  uncheck: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.checked = <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use the newly created .check() method</span></span><br><span class="line">$(<span class="string">&quot;input[type=&#x27;checkbox&#x27;]&quot;</span>).check()</span><br></pre></td></tr></table></figure>
+
+<h1 id="grep"><a href="#grep" class="headerlink" title="$.grep()"></a>$.grep()</h1><p>查找滿足過濾器函數的陣列元素。原陣列不受影響。</p>
+<blockquote>
+<p>$.grep( array, function(element,index){…}, invert )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// [1, 2]</span></span><br><span class="line">$.grep([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="function"><span class="keyword">function</span> (<span class="params">elm, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> elm &gt; <span class="number">0</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [0]</span></span><br><span class="line">$.grep(</span><br><span class="line">  [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">elm, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> elm &gt; <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <h1 id="index"><a href="#index" class="headerlink" title=".index()"></a>.index()</h1><p>除了 each()、map()之外，另一個基本 jQuery 方法是 index()。這個方法預期一個 element 作為它的引數，然後回傳那個元素在 jQuery 物件中的索引（index），從 0 開始，或在找不到那個元素時回傳 -1。</p>
 <blockquote>
@@ -1000,6 +1055,52 @@
 <p>.index( selector )</p>
 </blockquote>
 <p>傳入一個字串，index()會把它作為一個 CSS 選擇器，並回傳 jQuery 物件中第一個符合的元素的索引值。</p>
+<h1 id="now"><a href="#now" class="headerlink" title="$.now()"></a>$.now()</h1><p>棄用，請使用 Date.now() 替代，返回一個代表當前時間的數字。</p>
+<blockquote>
+<p>$.now()</p>
+</blockquote>
+<h1 id="檢查工具"><a href="#檢查工具" class="headerlink" title="檢查工具"></a>檢查工具</h1><h2 id="inArray"><a href="#inArray" class="headerlink" title="$.inArray()"></a>$.inArray()</h2><p>在陣列中搜索指定值並返回其索引（如果未找到，則返回 -1）。</p>
+<blockquote>
+<p>$.inArray( value, array [, fromIndex ] )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.inArray(<span class="string">&#x27;帥&#x27;</span>, [<span class="string">&#x27;我&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;大&#x27;</span>, <span class="string">&#x27;帥&#x27;</span>, <span class="string">&#x27;哥&#x27;</span>]) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isArray"><a href="#isArray" class="headerlink" title="$.isArray()"></a>$.isArray()</h2><p>確定參數是否為陣列。</p>
+<blockquote>
+<p>$.isArray( obj )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isArray([])</span><br></pre></td></tr></table></figure>
+
+<h2 id="isPlainObject"><a href="#isPlainObject" class="headerlink" title="$.isPlainObject()"></a>$.isPlainObject()</h2><p>檢查物件是否為普通物件（使用’{}’或’新物件’創建）</p>
+<blockquote>
+<p>$.isPlainObject(object)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isPlainObject(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line">$.isPlainObject(<span class="string">&#x27;test&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isEmptyObject"><a href="#isEmptyObject" class="headerlink" title="$.isEmptyObject()"></a>$.isEmptyObject()</h2><p>檢查物件是否為空（不包含可枚舉的屬性）。</p>
+<blockquote>
+<p>$.isEmptyObject(object)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isEmptyObject(&#123;&#125;) <span class="comment">// true</span></span><br><span class="line">$.isEmptyObject(&#123; <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span> &#125;) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isFunction"><a href="#isFunction" class="headerlink" title="$.isFunction()"></a>$.isFunction()</h2><p>確定其參數是否可作為函數調用。</p>
+<blockquote>
+<p>$.isFunction( value )</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">$.isFunction(foo) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isNumeric"><a href="#isNumeric" class="headerlink" title="$.isNumeric()"></a>$.isNumeric()</h2><blockquote>
+<p>$.isNumeric(value)</p>
+</blockquote>
+<p>確定其參數是否表示 JavaScript 數字。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isNumeric(<span class="number">100</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isWindow"><a href="#isWindow" class="headerlink" title="$.isWindow()"></a>$.isWindow()</h2><p>確定參數是否是一個 window。</p>
+<blockquote>
+<p>$.isWindow(obj)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.isWindow(<span class="built_in">window</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="this-與-this"><a href="#this-與-this" class="headerlink" title="$(this) 與 this"></a>$(this) 與 this</h1><h2 id="this"><a href="#this" class="headerlink" title="$(this)"></a>$(this)</h2><p>指的是 DOM 元素的 jQuery 包裝集，可以使用 jQuery 指向當前動作的元素去執行程式，若要存取屬性須配合 jQuery 的方法。例如：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  $(<span class="built_in">this</span>).attr(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;one&#x27;</span>)</span></span><br><span class="line"><span class="javascript">  alert($(<span class="built_in">this</span>).attr(<span class="string">&#x27;id&#x27;</span>))</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -1776,7 +1877,7 @@
     <content><![CDATA[<h1 id="選擇器（Selectors）"><a href="#選擇器（Selectors）" class="headerlink" title="選擇器（Selectors）"></a>選擇器（Selectors）</h1><p>jQuery 的選擇器以 CSS 為規範，以最快速、便捷的方式選擇到元素，是 jQuery 的強項之一，並且自訂了許多屬於自己的偽類過濾器來擴展選擇，不過，這些偽類並不是 CSS 的規範，不能被 querySelectorAll 所獲取，因此在 3.4 不推薦使用，改由相對應的方法進行篩選。</p>
 <a id="more"></a>
 
-<h2 id="基本選擇器"><a href="#基本選擇器" class="headerlink" title="基本選擇器"></a>基本選擇器</h2><p>CSS 基本選擇器：</p>
+<h1 id="基本選擇器（Basic）"><a href="#基本選擇器（Basic）" class="headerlink" title="基本選擇器（Basic）"></a>基本選擇器（Basic）</h1><p>CSS 基本選擇器：</p>
 <table>
 <thead>
 <tr>
@@ -1821,7 +1922,7 @@
 <td>同層全體選擇器</td>
 </tr>
 </tbody></table>
-<h2 id="屬性選擇器"><a href="#屬性選擇器" class="headerlink" title="屬性選擇器"></a>屬性選擇器</h2><table>
+<h1 id="屬性選擇器（Attribute）"><a href="#屬性選擇器（Attribute）" class="headerlink" title="屬性選擇器（Attribute）"></a>屬性選擇器（Attribute）</h1><table>
 <thead>
 <tr>
 <th>與屬性有關的選擇器</th>
@@ -1865,22 +1966,28 @@
 <td>屬性值符合多項指定條件的元素</td>
 </tr>
 </tbody></table>
-<h2 id="基本過濾器"><a href="#基本過濾器" class="headerlink" title="基本過濾器"></a>基本過濾器</h2><p>基本過濾器是為了擴展 jQuery 選擇 DOM 而自訂義的偽類，大部分都已經在 3.4 不建議使用，改由相對應的篩選方法來代替，可以在篩選找到它們，以下為尚未替代或是其他方式替代的偽類。</p>
-<h3 id="gt-index"><a href="#gt-index" class="headerlink" title=":gt(index)"></a>:gt(index)</h3><p>選擇大於 index 的 jQuery 元素物件集合（一個或多個）。index 為負數則從最後面開始選擇。</p>
+<h1 id="基本過濾器（Basic-Filter）"><a href="#基本過濾器（Basic-Filter）" class="headerlink" title="基本過濾器（Basic Filter）"></a>基本過濾器（Basic Filter）</h1><p>基本過濾器是為了擴展 jQuery 選擇 DOM 而自訂義的偽類，大部分都已經在 3.4 不建議使用，改由相對應的篩選方法來代替，可以在篩選找到它們，以下為尚未替代或是其他方式替代的偽類。</p>
+<h2 id="gt-index"><a href="#gt-index" class="headerlink" title=":gt(index)"></a>:gt(index)</h2><p>選擇大於 index 的 jQuery 元素物件集合（一個或多個）。index 為負數則從最後面開始選擇。</p>
 <blockquote>
 <p>3.4 不推薦使用，可用 .slice() 代替，:gt(3) 等於 .slice(4)。</p>
 </blockquote>
-<h3 id="lt-index"><a href="#lt-index" class="headerlink" title=":lt(index)"></a>:lt(index)</h3><p>選擇小於 index 的 jQuery 元素物件集合（一個或多個）。index 為負數則從最後面開始選擇。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).slice(<span class="number">1</span>).css(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>) <span class="comment">// 第二個開始之後全部選擇</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="lt-index"><a href="#lt-index" class="headerlink" title=":lt(index)"></a>:lt(index)</h2><p>選擇小於 index 的 jQuery 元素物件集合（一個或多個）。index 為負數則從最後面開始選擇。</p>
 <blockquote>
 <p>3.4 不推薦使用，可用 .slice() 代替，:lt(3) 等於 .slice(0,3)。</p>
 </blockquote>
-<h3 id="root"><a href="#root" class="headerlink" title=":root"></a>:root</h3><p>選擇到文件的 html 元素。</p>
-<h3 id="focus"><a href="#focus" class="headerlink" title=":focus"></a>:focus</h3><p>選擇目前聚焦的 jQuery 元素物件集合（一個或多個）。</p>
-<h3 id="animated"><a href="#animated" class="headerlink" title=":animated"></a>:animated</h3><p>選擇套用動畫效果功能的 jQuery 元素物件集合（一個或多個）。如果這物件集合沒有任何 jQuery 動畫效果，會出現錯誤。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).slice(<span class="number">0</span>, <span class="number">3</span>).css(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>) <span class="comment">// 選擇 1 ~ 3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="root"><a href="#root" class="headerlink" title=":root"></a>:root</h2><p>選擇到文件的 html 元素。</p>
+<h2 id="focus"><a href="#focus" class="headerlink" title=":focus"></a>:focus</h2><p>選擇目前聚焦的 jQuery 元素物件集合（一個或多個）。</p>
+<h2 id="animated"><a href="#animated" class="headerlink" title=":animated"></a>:animated</h2><p>選擇套用動畫效果功能的 jQuery 元素物件集合（一個或多個）。如果這物件集合沒有任何 jQuery 動畫效果，會出現錯誤。</p>
 <blockquote>
 <p>3.4 不推薦使用</p>
 </blockquote>
-<h2 id="Child-過濾器"><a href="#Child-過濾器" class="headerlink" title="Child 過濾器"></a>Child 過濾器</h2><p>Child 過濾器指的是 CSS 的 child 或 type 這類的選擇器，它們符合 CSS 規範，可以使用沒問題。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;div:animated&#x27;</span>) <span class="comment">// 3.4 不推薦使用</span></span><br><span class="line">$(<span class="string">&#x27;div&#x27;</span>).filter(<span class="string">&#x27;:animated&#x27;</span>) <span class="comment">// 建議使用 .filter() 來選擇</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Child-過濾器"><a href="#Child-過濾器" class="headerlink" title="Child 過濾器"></a>Child 過濾器</h1><p>Child 過濾器指的是 CSS 的 child 或 type 這類的選擇器，它們符合 CSS 規範，可以使用沒問題。</p>
 <table>
 <thead>
 <tr>
@@ -1929,7 +2036,7 @@
 <td>元素的同種類元素之中，僅有 1 個的子元素</td>
 </tr>
 </tbody></table>
-<h2 id="Content-過濾器"><a href="#Content-過濾器" class="headerlink" title="Content 過濾器"></a>Content 過濾器</h2><table>
+<h1 id="Content-過濾器"><a href="#Content-過濾器" class="headerlink" title="Content 過濾器"></a>Content 過濾器</h1><table>
 <thead>
 <tr>
 <th>選擇器</th>
@@ -1946,13 +2053,13 @@
 </tr>
 <tr>
 <td>:parent</td>
-<td>選取擁有子元素或文字內容的元素，與:empty 相反</td>
+<td>選取擁有子元素或文字內容的元素，與:empty 相反，:parent 不是 CSS 規範</td>
 </tr>
 </tbody></table>
 <div class="admonition warning"><p>:parent 與 .parent()不一樣，不能搞混。</p>
 </div>
 
-<h2 id="Form-過濾器"><a href="#Form-過濾器" class="headerlink" title="Form 過濾器"></a>Form 過濾器</h2><table>
+<h1 id="Form-過濾器"><a href="#Form-過濾器" class="headerlink" title="Form 過濾器"></a>Form 過濾器</h1><table>
 <thead>
 <tr>
 <th>選擇器</th>
@@ -2024,7 +2131,7 @@
 <td>select 元素裡 option 元素中被選擇的項目，在.filter()中使用 CSS 樣式選擇器會有較佳的效能，.filter(“:selected”)</td>
 </tr>
 </tbody></table>
-<h2 id="Visibility-過濾器"><a href="#Visibility-過濾器" class="headerlink" title="Visibility 過濾器"></a>Visibility 過濾器</h2><table>
+<h1 id="Visibility-過濾器"><a href="#Visibility-過濾器" class="headerlink" title="Visibility 過濾器"></a>Visibility 過濾器</h1><table>
 <thead>
 <tr>
 <th>選擇器</th>
@@ -2041,59 +2148,63 @@
 </tr>
 </tbody></table>
 <h1 id="遍歷（Traversing）"><a href="#遍歷（Traversing）" class="headerlink" title="遍歷（Traversing）"></a>遍歷（Traversing）</h1><p>jQuery 的優點，除了能快速抓取 DOM 元素，結合遍歷 DOM 去走訪 HTML 中的節點，讓 jQuery 在 DOM 控制上成為網站設計者的首選。一份文件的最外層的結界是 document，而不是 html，document 再往外找就沒有東西了，就如同離開了世界，進入渾沌一片虛無。</p>
-<h2 id="Filtering-過濾方法"><a href="#Filtering-過濾方法" class="headerlink" title="Filtering 過濾方法"></a>Filtering 過濾方法</h2><p>過濾方法是用來替代 jQuery 自訂義的偽類，因此會在 jQuery 文件裡面被這些很相似的玩意兒干擾，這些自訂義的偽類不是 CSS 標準規範，因此無法被原生 JavaScript 的 querySelectorAll()方法獲取，因此在 jQuery 3.4 已經不推薦使用，如果要選擇到它們，必須使用 .filter()，例如：.filter(‘:eq’)來獲取 :eq 偽類。不過，既然有相對應的過濾方法，我們可以直接使用這些方法。</p>
-<h3 id="eq-index"><a href="#eq-index" class="headerlink" title=".eq(index)"></a>.eq(index)</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，可以使用 .eq(index) 選擇該對象的索引編號的元素，index 從 0 開始。<strong>index 是負數時為從最後面開始選擇</strong>。</p>
+<h1 id="Filtering-過濾方法"><a href="#Filtering-過濾方法" class="headerlink" title="Filtering 過濾方法"></a>Filtering 過濾方法</h1><p>過濾方法是用來替代 jQuery 自訂義的偽類，因此會在 jQuery 文件裡面被這些很相似的玩意兒干擾，這些自訂義的偽類不是 CSS 標準規範，因此無法被原生 JavaScript 的 querySelectorAll()方法獲取，因此在 jQuery 3.4 已經不推薦使用，如果要選擇到它們，必須使用 .filter()，例如：.filter(‘:eq’)來獲取 :eq 偽類。不過，既然有相對應的過濾方法，我們可以直接使用這些方法。</p>
+<h2 id="eq"><a href="#eq" class="headerlink" title=".eq()"></a>.eq()</h2><p>選擇一個 jQuery 物件集合（一個或多個）時，可以使用 .eq(index) 選擇該對象的索引編號的元素，index 從 0 開始。<strong>index 是負數時為從最後面開始選擇</strong>。</p>
 <ol>
-<li>index 可為負值，變成倒過來數，-1 為選擇倒數第一個。</li>
-<li>空字串””，可以選擇到第一個。</li>
+<li>index 可為負值，-1 為選擇倒數第一個。</li>
+<li>空字串 “”，可以選擇到第一個。</li>
 <li>true 會轉換為 eq(1)，選擇到第二個。</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;li&#x27;</span>).eq(<span class="number">0</span>) <span class="comment">// jQuery 物件</span></span><br><span class="line">$(<span class="string">&#x27;li&#x27;</span>)[<span class="number">0</span>] <span class="comment">// JavaScript 的原生 DOM</span></span><br><span class="line">$(<span class="string">&#x27;li&#x27;</span>).get(<span class="number">0</span>) <span class="comment">// JavaScript 的原生 DOM</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).eq(<span class="number">0</span>) <span class="comment">// jQuery 物件</span></span><br><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>)[<span class="number">0</span>] <span class="comment">// JavaScript 的原生 DOM</span></span><br><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).get(<span class="number">0</span>) <span class="comment">// JavaScript 的原生 DOM</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>與偽類 :eq 相同功能，3.4 不推薦使用</p>
 </blockquote>
-<h3 id="first"><a href="#first" class="headerlink" title=".first()"></a>.first()</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，可以使用 .first() 找到它們的第一個元素。</p>
+<h2 id="first"><a href="#first" class="headerlink" title=".first()"></a>.first()</h2><p>選擇一個 jQuery 物件集合（一個或多個）時，可以使用 .first() 找到它們的第一個元素。</p>
 <blockquote>
 <p>與偽類 :first 相同功能，3.4 不推薦使用</p>
 </blockquote>
 <div class="admonition info"><p>.first() 等同 .eq(0)</p>
 </div>
 
-<h3 id="last"><a href="#last" class="headerlink" title=".last()"></a>.last()</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，可以使用 .last() 找到它們的最後一個元素。</p>
+<h2 id="last"><a href="#last" class="headerlink" title=".last()"></a>.last()</h2><p>選擇一個 jQuery 物件集合（一個或多個）時，可以使用 .last() 找到它們的最後一個元素。</p>
 <blockquote>
 <p>與偽類 :last 相同功能，3.4 不推薦使用</p>
 </blockquote>
 <div class="admonition info"><p>.last() 等同 .eq(-1)</p>
 </div>
 
-<h3 id="odd"><a href="#odd" class="headerlink" title=".odd()"></a>.odd()</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，index 是<strong>奇數的元素</strong>。注意，index 是從 0 開始，這會與視覺相反，例如 index 1,3，在視覺上是 2,4。</p>
+<h2 id="odd"><a href="#odd" class="headerlink" title=".odd()"></a>.odd()</h2><p>選擇一個 jQuery 物件集合（一個或多個）時，index 是<strong>奇數的元素</strong>。注意，index 是從 0 開始，會與視覺相反，在視覺上會顯示偶數。</p>
 <blockquote>
 <p>與偽類 :odd 相同功能，3.4 不推薦使用</p>
 </blockquote>
-<h3 id="even"><a href="#even" class="headerlink" title=".even()"></a>.even()</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，index 是<strong>偶數的元素</strong>。注意，index 是從 0 開始，這會與視覺相反，例如 index 0,2，在視覺上是 1,3。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可用 filter 配合 :odd 偽類選擇</span></span><br><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).filter(<span class="string">&#x27;:odd&#x27;</span>).css(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"><span class="comment">// 或使用 .odd()</span></span><br><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).odd().css(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="even"><a href="#even" class="headerlink" title=".even()"></a>.even()</h2><p>選擇一個 jQuery 物件集合（一個或多個）時，index 是<strong>偶數的元素</strong>。注意，因為 index 是從 0 開始，會與視覺相反，在視覺上會顯示奇數。</p>
 <blockquote>
 <p>與偽類 :even 相同功能，3.4 不推薦使用</p>
 </blockquote>
-<h3 id="not-selector"><a href="#not-selector" class="headerlink" title=".not(selector)"></a>.not(selector)</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，篩選選擇不符合 .not() 該 selector 條件的對象，selector 為符合 CSS 選擇器規範的字串。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可用 filter 配合 :even 偽類選擇</span></span><br><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).filter(<span class="string">&#x27;:even&#x27;</span>).css(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"><span class="comment">// 或使用 .odd()</span></span><br><span class="line">$(<span class="string">&#x27;#menu li&#x27;</span>).even().css(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="not-selector"><a href="#not-selector" class="headerlink" title=".not(selector)"></a>.not(selector)</h2><p>選擇一個 jQuery 物件集合（一個或多個）時，篩選選擇不符合 .not() 該 selector 條件的對象，selector 為符合 CSS 選擇器規範的字串。</p>
 <blockquote>
 <p>:not(selector) 相同功能，雖然 CSS 選擇器也有 :not()，但仍推薦使用 .not(selector)</p>
 </blockquote>
-<h3 id="filter-selector"><a href="#filter-selector" class="headerlink" title=".filter(selector)"></a>.filter(selector)</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，對該對象篩選出符合 filter 該條件的對象，selector 為符合 CSS 選擇器規範的字串。</p>
+<h2 id="filter-selector"><a href="#filter-selector" class="headerlink" title=".filter(selector)"></a>.filter(selector)</h2><p>選擇一個 jQuery 物件集合（一個或多個）時，對該對象篩選出符合 filter 該條件的對象，selector 為符合 CSS 選擇器規範的字串。</p>
 <ul>
 <li>可使用函式：</li>
 </ul>
 <p>使用該方法的第二個形式是，通過函數而不是選擇器來篩選元素。對於每個元素，如果該函數返回 true，則元素會被包含在已篩選集合中；否則，會排除這個元素。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line">  .filter(<span class="function"><span class="keyword">function</span> (<span class="params">index, element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $(<span class="string">&#x27;strong&#x27;</span>, <span class="built_in">this</span>).length == <span class="number">1</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .css(<span class="string">&#x27;background-color&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="find-selector"><a href="#find-selector" class="headerlink" title=".find(selector)"></a>.find(selector)</h3><p>選擇一個 jQuery 物件集合（一個或多個）時，對該對象裡面搜尋指定對象的所有節點，包括子、孫、曾孫節點，selector 為符合 CSS 選擇器規範的字串，不能省略參數。<br>selector 可以一次找多個用逗號分開。</p>
-<h3 id="has-selector"><a href="#has-selector" class="headerlink" title=".has(selector)"></a>.has(selector)</h3><p>選擇一個 jQuery 物件集合（一個或多個）後，在這個集合中擁有<strong>後代子孫元素</strong>符合 selector 的元素的才是要被選取到的元素。</p>
+<h2 id="find-selector"><a href="#find-selector" class="headerlink" title=".find(selector)"></a>.find(selector)</h2><p>選擇一個 jQuery 物件集合（一個或多個）時，對該對象裡面搜尋指定對象的所有節點，包括子、孫、曾孫節點，selector 為符合 CSS 選擇器規範的字串，不能省略參數。<br>selector 可以一次找多個用逗號分開。</p>
+<h2 id="has-selector"><a href="#has-selector" class="headerlink" title=".has(selector)"></a>.has(selector)</h2><p>選擇一個 jQuery 物件集合（一個或多個）後，在這個集合中擁有<strong>後代元素</strong>符合 selector 的元素的才是要被選取到的元素。</p>
 <blockquote>
 <p>:has(selector) 相同功能，不推薦使用</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#box&#x27;</span>).has(<span class="string">&#x27;.active&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="is"><a href="#is" class="headerlink" title=".is()"></a>.is()</h3><p>與其它方法不同，.is()不會創建新的 jQuery 物件，.is()取一個<strong>CSS 選擇器字串或 jQuery 物件</strong>作為它的引數，測試選擇的 jQuery 物件的內容，並且回傳一個 Boolean，若是所選元素至少有一個元素符合指定選擇，它就會回傳 true。</p>
+<h2 id="is"><a href="#is" class="headerlink" title=".is()"></a>.is()</h2><p>與其它方法不同，.is() 不會創建新的 jQuery 物件，.is() 取一個<strong>CSS 選擇器字串或 jQuery 物件</strong>作為它的引數，測試選擇的 jQuery 物件的內容，並且回傳一個 Boolean，若是所選元素至少有一個元素符合指定選擇，它就會回傳 true。</p>
 <blockquote>
 <p>$(selector).is(selector or elements or jQuery Object)<br>$(selector).is(function(index,element){})</p>
 </blockquote>
@@ -2101,9 +2212,9 @@
 <li>selector: 它是必需的參數，用於指定 CSS 選擇器，元素或 jQuery 物件以匹配當前的元素集。如果給定參數至少有一個匹配項，則返回 true；否則返回 false。</li>
 <li>function(index, element): 它是一個可選參數，用於指定要為所選元素組運行的函數。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;div&#x27;</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ($(<span class="built_in">this</span>).is(<span class="string">&#x27;:hidden&#x27;</span>)) <span class="keyword">return</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一種方法</span></span><br><span class="line">$(<span class="string">&#x27;#menu&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;li&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="built_in">this</span>).css(<span class="string">&#x27;backgroundColor&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二種方法</span></span><br><span class="line">$(<span class="string">&#x27;#menu&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> target = $(e.target)</span><br><span class="line">  <span class="keyword">if</span> (target.is(<span class="string">&#x27;li&#x27;</span>)) &#123;</span><br><span class="line">    target.css(<span class="string">&#x27;backgroundColor&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="slice"><a href="#slice" class="headerlink" title=".slice()"></a>.slice()</h3><ul>
+<h2 id="slice"><a href="#slice" class="headerlink" title=".slice()"></a>.slice()</h2><ul>
 <li><p>.slice(start,end)<br>選擇一個 jQuery 物件集合（一個或多個）時，選擇 start 至 end 之前的節點（不包含 end）。</p>
 </li>
 <li><p>.slice(index)<br>選擇 index 開始之後的節點。</p>
@@ -2600,6 +2711,9 @@
 <hr>
 <h1 id="clone-複製元素"><a href="#clone-複製元素" class="headerlink" title="clone() 複製元素"></a>clone() 複製元素</h1><p>clone() 複製出一份選取集合的副本（包含所有的後代子孫以及文字），<br>如果想要將文件上的元素複製到新的位置，而非移動它們，必須先用 clone() 方法來複製它們的副本。<br>clone()會製作並回傳每個所選元素（連同這些元素的所有子元素）的副本。</p>
 <p>但是，回傳的 jQuery 物件中的元素尚未成為文件的一部分，要使用上面提到的的方法<strong>插入</strong>。</p>
+<blockquote>
+<p>$(selector).clone( [withDataAndEvents ] )<br>$(selector).clone( [withDataAndEvents ] [, deepWithDataAndEvents ] )</p>
+</blockquote>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;clone&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://www.google.com&quot;</span>&gt;</span>Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 複製 a元素到 p</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> content = $(<span class="string">&#x27;a.clone&#x27;</span>).clone()</span></span><br><span class="line"><span class="javascript">  $(<span class="string">&#x27;p.box&#x27;</span>).append(content)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <hr>
