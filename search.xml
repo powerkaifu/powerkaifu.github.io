@@ -3756,59 +3756,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS資源</title>
-    <url>/2020/08/23/resource-css-useful-site/</url>
-    <content><![CDATA[<h3 id="漸層"><a href="#漸層" class="headerlink" title="漸層"></a>漸層</h3><ul>
-<li><a href="https://uigradients.com/#eXpresso">UI Gradients</a></li>
-<li><a href="https://mycolor.space/gradient">Space</a></li>
-<li><a href="http://jxnblk.com/shade/">Shade</a></li>
-<li><a href="https://gradienthunt.com/">Gradient Hunt</a></li>
-<li><a href="https://www.colorzilla.com/gradient-editor/">Colorzilla</a></li>
-</ul>
-<a id="more"></a>
-
-<h3 id="按鈕"><a href="#按鈕" class="headerlink" title="按鈕"></a>按鈕</h3><ul>
-<li><a href="http://bttn.surge.sh/">Button Surge</a></li>
-<li><a href="https://www.bestcssbuttongenerator.com/">Best CSS Button</a></li>
-</ul>
-<h3 id="轉場與動畫"><a href="#轉場與動畫" class="headerlink" title="轉場與動畫"></a>轉場與動畫</h3><ul>
-<li>Magic<ul>
-<li><a href="https://github.com/miniMAC/magic">官網</a></li>
-<li><a href="https://github.com/miniMAC/magic">GitHub</a></li>
-</ul>
-</li>
-<li><a href="https://3d-book-css.netlify.app/">3D Book</a></li>
-</ul>
-<h3 id="ICON"><a href="#ICON" class="headerlink" title="ICON"></a>ICON</h3><ul>
-<li><a href="https://jonsuh.com/hamburgers/">Hamburger 動畫-官網</a></li>
-<li><a href="https://github.com/jonsuh/hamburgers">Hamburger 動畫-Github</a></li>
-</ul>
-<h3 id="語法產生器"><a href="#語法產生器" class="headerlink" title="語法產生器"></a>語法產生器</h3><ul>
-<li><a href="https://www.we-shop.net/css3/default.html">We Shop</a></li>
-<li><a href="http://css3generator.com/">CSS3 Generator</a></li>
-<li><a href="https://www.css3maker.com/index.html">CSS3 Maker</a></li>
-<li><a href="https://wweb.dev/resources/css-separator-generator">分隔線產生器</a></li>
-</ul>
-<h3 id="遮罩路徑"><a href="#遮罩路徑" class="headerlink" title="遮罩路徑"></a>遮罩路徑</h3><ul>
-<li><a href="https://www.html.cn/tool/css-clip-path/">Clip Path</a></li>
-</ul>
-<h3 id="風格"><a href="#風格" class="headerlink" title="風格"></a>風格</h3><ul>
-<li><a href="https://nostalgic-css.github.io/NES.css/">8 位元風 CSS</a></li>
-<li><a href="https://www.gradientmagic.com/">Gradient Magic</a></li>
-</ul>
-<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><ul>
-<li><a href="https://static.html.it/app/uploads/blog/layoutgala/index.html">Layout Gala</a></li>
-<li><a href="https://www.webdesignrankings.com/resources/csslayoutgenerator/">CSS Layout</a></li>
-</ul>
-<h3 id="配色"><a href="#配色" class="headerlink" title="配色"></a>配色</h3><ul>
-<li><a href="https://colors.eva.design/">Eva Design System</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>CSS資源</category>
-      </categories>
-  </entry>
-  <entry>
     <title>HTML</title>
     <url>/2020/08/23/lesson-html/</url>
     <content><![CDATA[<h1 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h1><blockquote>
